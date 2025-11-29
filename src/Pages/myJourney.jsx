@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { myJourneyContent } from '../Data/myJourney';
 import journeyBg from '../assets/journey-bg.jpg';
-
 const MyJourney = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
