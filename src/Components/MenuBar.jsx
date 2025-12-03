@@ -1,163 +1,130 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Facebook, Twitter } from 'lucide-react';
-import { homeMenu, homeSocialLinks, homeFooterLinks } from '../Data/home';
+import { Facebook, Twitter, Linkedin, ChevronDown, ChevronRight, Mail } from 'lucide-react';
+import { homeMenu, homeSocialLinks } from '../Data/home';
 
 const MenuBar = ({ isOpen, onClose }) => {
   const location = useLocation();
+  const [expandedMenus, setExpandedMenus] = useState({});
 
-  // Freeze scroll
+  // Freeze scroll logic
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-    return () => (document.body.style.overflow = '');
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => { document.body.style.overflow = 'unset'; };
   }, [isOpen]);
 
-  // ESC close
-  useEffect(() => {
-    const handleEscape = (e) => {
-      if (e.key === 'Escape' && isOpen) onClose();
-    };
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
-  }, [isOpen, onClose]);
-
-  // Prevent closing when clicking inside panel
-  const stopClick = (e) => e.stopPropagation();
-
-  // Get route path for menu items
-  const getRoutePath = (menuItem) => {
-    const routes = {
-      'Home': '/',
-      'My Life': '/my-life',
-      'My Journey': '/my-journey',
-      'Photo Gallery': '/photo-gallery',
-      'My Opinion': '/my-opinion',
-      'Events': '/events',
-      'Reach Me': '/reach-me'
-    };
-    return routes[menuItem] || '#';
+  // Handle Submenu Toggle
+  const toggleSubmenu = (label) => {
+    setExpandedMenus((prev) => ({ ...prev, [label]: !prev[label] }));
   };
 
-  // Check if menu item is active
-  const isActive = (menuItem) => {
-    const path = getRoutePath(menuItem);
-    return location.pathname === path;
-  };
-
-  // Handle overlay click to close menu
-  const handleOverlayClick = (e) => {
-    if (e.target === e.currentTarget) {
-      onClose();
-    }
-  };
+  const isActive = (path) => location.pathname === path;
 
   return (
     <>
-      {/* Smooth fade overlay - covers entire screen below header */}
+      {/* Overlay Backdrop */}
       <div
-        className={`fixed inset-0 top-12 md:top-14 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-          }`}
-        onClick={handleOverlayClick}
-        onKeyDown={(e) => e.key === 'Enter' && onClose()}
-        role="button"
-        tabIndex={isOpen ? 0 : -1}
-        aria-label="Close menu"
+        className={`fixed inset-0 z-40 bg-slate-900/50 backdrop-blur-sm transition-opacity duration-300 
+        ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        onClick={onClose}
       />
 
-      {/* Smooth slide menu */}
+      {/* Sidebar Drawer */}
       <aside
-        className={`
-        fixed top-12 md:top-14 left-0 bottom-0 w-64 md:w-72 bg-black border-r border-zinc-800 z-50
-        transition-transform duration-300 ease-in-out will-change-transform
-        flex flex-col
-        ${isOpen ? 'translate-x-0' : '-translate-x-full'}
-        `}
-        onClick={stopClick}
+        className={`fixed top-0 right-0 bottom-0 w-[85vw] sm:w-80 bg-white shadow-2xl z-50 
+        transform transition-transform duration-300 ease-out flex flex-col
+        ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
-
-        {/* Menu Items */}
-        <nav className="pt-4 flex-1 flex flex-col items-center justify-start">
-          <ul className="w-full space-y-0 text-2xl tracking-wide font-bold flex flex-col items-center">
-            {homeMenu.map((item, idx) => {
-              const active = isActive(item);
-              return (
-                <li key={idx} className="w-full flex flex-col items-center">
-                  <Link
-                    to={getRoutePath(item)}
-                    className={`
-                      block w-full py-4 cursor-pointer select-none text-center
-                      transition-all duration-200 ease-in-out
-                      ${active
-                        ? 'font-semibold text-[#00bff9]'
-                        : 'text-white hover:text-[#00bff9]'
-                      }
-                    `}
-                    onClick={onClose}
-                    onKeyDown={(e) => (e.key === 'Enter' ? onClose() : null)}
-                    tabIndex={0}
-                  >
-                    {item.toUpperCase()}
-                  </Link>
-                  {idx < homeMenu.length - 1 && (
-                    <div className="w-full h-px bg-zinc-800 opacity-50" />
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-
-        {/* Footer & Social */}
-        <div className="px-8 pb-8 text-lg text-zinc-400 space-y-4 mt-auto">
-          {/* Social Media Icons - Icons only, no text */}
-          <div className="flex space-x-4 justify-center">
-            {homeSocialLinks.map((s) => {
-              const getIcon = () => {
-                if (s.id === 'facebook' || s.label.toLowerCase().includes('facebook')) {
-                  return <Facebook className="w-5 h-5 text-white hover:text-[#00bff9] transition-colors" />;
-                }
-                if (s.id === 'twitter' || s.label.toLowerCase().includes('twitter')) {
-                  return <Twitter className="w-5 h-5 text-white hover:text-[#00bff9] transition-colors" />;
-                }
-                return null;
-              };
-
-              return (
-                <a
-                  key={s.id}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center"
-                  aria-label={s.label}
-                >
-                  {getIcon()}
-                </a>
-              );
-            })}
-          </div>
-
-          {/* Copyright */}
-          <div className="text-center space-y-1">
-            <p>© 2025. All Rights Reserved</p>
-            <p className="text-[11px] text-zinc-500">www.rajatsharma.in</p>
-          </div>
-
-          {/* Footer Links - Plain text, no icons */}
-          <div className="flex flex-wrap gap-3 pt-2 justify-center">
-            {homeFooterLinks.map((link, idx) => (
-              <Link
-                key={idx}
-                to={link.href}
-                onClick={onClose}
-                className="hover:text-white text-[15px] text-zinc-400 transition-colors underline-offset-4 hover:underline"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+        
+        {/* Header inside Drawer (for aesthetic spacing) */}
+        <div className="h-20 flex items-center px-6 border-b border-slate-100">
+           <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">A. Surya Prakash</span>
         </div>
 
+        {/* Scrollable A. Surya Prakash Area */}
+        <nav className="flex-1 overflow-y-auto py-6 px-6 space-y-2">
+          {homeMenu.map((item, idx) => {
+            const hasSubmenu = !!item.submenu;
+            const isExpanded = expandedMenus[item.label];
+            const active = isActive(item.path);
+
+            return (
+              <div key={idx} className="border-b border-slate-50 last:border-0 pb-2">
+                {hasSubmenu ? (
+                  <div>
+                    <button
+                      onClick={() => toggleSubmenu(item.label)}
+                      className={`w-full flex items-center justify-between py-3 text-left group`}
+                    >
+                      <span className={`text-lg font-serif font-medium group-hover:text-blue-800 transition-colors ${active ? 'text-blue-800' : 'text-slate-800'}`}>
+                        {item.label}
+                      </span>
+                      {isExpanded ? (
+                        <ChevronDown className="w-5 h-5 text-blue-800" />
+                      ) : (
+                        <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-blue-800" />
+                      )}
+                    </button>
+                    
+                    {/* Submenu Items */}
+                    <div className={`overflow-hidden transition-all duration-300 ${isExpanded ? 'max-h-96 opacity-100 mt-1 mb-3' : 'max-h-0 opacity-0'}`}>
+                      <ul className="pl-4 space-y-3 border-l-2 border-slate-100 ml-1">
+                        {item.submenu.map((subItem, sIdx) => (
+                          <li key={sIdx}>
+                            <Link
+                              to={subItem.path}
+                              onClick={onClose}
+                              className="block text-sm text-slate-500 hover:text-blue-800 transition-colors"
+                            >
+                              {subItem.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ) : (
+                  <Link
+                    to={item.path}
+                    onClick={onClose}
+                    className={`block py-3 text-lg font-serif font-medium hover:text-blue-800 transition-colors ${active ? 'text-blue-800' : 'text-slate-800'}`}
+                  >
+                    {item.label}
+                  </Link>
+                )}
+              </div>
+            );
+          })}
+        </nav>
+
+        {/* Footer Area */}
+        <div className="bg-slate-50 p-6 border-t border-slate-100">
+          <div className="flex justify-center space-x-6 mb-6">
+            {homeSocialLinks.map((social) => (
+              <a
+                key={social.id}
+                href={social.href}
+                target="_blank"
+                rel="noreferrer"
+                className="text-slate-400 hover:text-blue-800 transition-colors transform hover:-translate-y-1"
+              >
+                {/* Dynamically rendering icons based on ID */}
+                {social.id === 'twitter' && <Twitter className="w-5 h-5" />}
+                {social.id === 'facebook' && <Facebook className="w-5 h-5" />}
+                {social.id === 'linkedin' && <Linkedin className="w-5 h-5" />}
+                {social.id === 'email' && <Mail className="w-5 h-5" />}
+              </a>
+            ))}
+          </div>
+          <p className="text-center text-xs text-slate-400 leading-relaxed">
+            &copy; {new Date().getFullYear()} A. Surya Prakash.<br />
+            All Rights Reserved.
+          </p>
+        </div>
       </aside>
     </>
   );
