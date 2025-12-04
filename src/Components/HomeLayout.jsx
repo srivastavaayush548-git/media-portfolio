@@ -44,9 +44,9 @@ const HomeLayout = () => {
               <button className="px-6 py-3 bg-stone-900 text-white font-medium rounded hover:bg-stone-700 transition-colors">
                 Read Latest Columns
               </button>
-              <button className="px-6 py-3 border border-stone-300 text-stone-700 font-medium rounded hover:bg-stone-50 transition-colors">
+              <a href="/about-me" className="px-6 py-3 border border-stone-300 text-stone-700 font-medium rounded hover:bg-stone-50 transition-colors">
                 View Bibliography
-              </button>
+              </a>
             </div>
           </div>
 
@@ -56,7 +56,7 @@ const HomeLayout = () => {
             <img 
               src={personalDetails.imageSrc} 
               alt={personalDetails.name} 
-              className="relative w-full h-[500px] object-cover rounded-lg shadow-lg grayscale hover:grayscale-0 transition-all duration-700"
+              className="relative w-full h-[500px] object-cover rounded-lg shadow-lg transition-all duration-700"
             />
           </div>
         </div>

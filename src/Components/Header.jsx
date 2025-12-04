@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X, Search, ChevronDown } from 'lucide-react'; // Added ChevronDown
 import MenuBar from './MenuBar';
 // Ensure your data file exports this structure
@@ -40,15 +41,15 @@ const Header = () => {
           <div className="flex items-center justify-between h-16">
 
             {/* --- 1. Logo Section --- */}
-            <div className="flex-shrink-0 flex items-center z-50">
-              <a href="/" className="group flex flex-col items-start justify-center" onClick={handleClose}>
+            <div className="shrink-0 flex items-center z-50">
+              <Link to="/" className="group flex flex-col items-start justify-center" onClick={handleClose}>
                 <span className="font-serif text-xl md:text-2xl font-bold text-slate-900 tracking-tight group-hover:text-blue-800 transition-colors">
                   A. SURYA PRAKASH
                 </span>
                 <span className="hidden md:block text-[10px] uppercase tracking-widest text-slate-500 font-medium">
                   Journalist & Author
                 </span>
-              </a>
+              </Link>
             </div>
 
             {/* --- 2. Desktop A. Surya Prakash with Dropdowns --- */}
@@ -58,8 +59,8 @@ const Header = () => {
                 <div key={idx} className="relative group">
                   
                   {/* Top Level Link */}
-                  <a 
-                    href={item.path} 
+                  <Link 
+                    to={item.path} 
                     className={`
                       flex items-center gap-1 px-4 py-6 text-sm font-semibold uppercase tracking-wide transition-colors
                       ${scrolled ? 'text-slate-700 hover:text-blue-800' : 'text-slate-600 hover:text-blue-800'}
@@ -70,7 +71,7 @@ const Header = () => {
                     {item.submenu && (
                       <ChevronDown className="w-4 h-4 text-slate-400 group-hover:text-blue-800 transition-transform group-hover:rotate-180" />
                     )}
-                  </a>
+                  </Link>
 
                   {/* Dropdown Menu (Conditionally Rendered) */}
                   {item.submenu && (
@@ -78,13 +79,13 @@ const Header = () => {
                       {/* White Card */}
                       <div className="bg-white border-t-2 border-blue-800 shadow-xl rounded-b-md py-2 flex flex-col">
                         {item.submenu.map((subItem, sIdx) => (
-                          <a
+                          <Link
                             key={sIdx}
-                            href={subItem.path}
+                            to={subItem.path}
                             className="block px-5 py-3 text-sm text-slate-600 hover:text-blue-800 hover:bg-slate-50 transition-colors font-medium border-l-2 border-transparent hover:border-blue-800"
                           >
                             {subItem.label}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
