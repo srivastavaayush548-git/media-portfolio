@@ -23,13 +23,13 @@ const AboutMe = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-red-50 bg-opacity-5 text-stone-800 font-sans selection:bg-red-900 selection:text-white overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-orange-200 via-yellow-200 to-orange-100 text-stone-800 font-sans selection:bg-red-900 selection:text-white overflow-x-hidden">
 
       {/* --- Hero Section --- */}
       <div className="relative h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-br from-stone-400 via-stone-100 to-stone-50" />
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-200 via-yellow-100 to-orange-50" />
           <div className="h-full w-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
         </div>
 
