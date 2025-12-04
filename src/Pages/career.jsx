@@ -11,7 +11,7 @@ const Career = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-stone-50 text-stone-800 font-sans selection:bg-red-100 pt-20">
+    <div className="min-h-screen bg-orange-50  text-stone-800 font-sans selection:bg-red-100 pt-20">
       <div className="max-w-4xl mx-auto px-6 py-12">
         <div className="inline-block px-3 py-1 bg-red-50 text-red-800 text-xs font-bold uppercase tracking-wider rounded-full mb-4">
           Professional Journey

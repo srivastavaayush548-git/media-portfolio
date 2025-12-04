@@ -1,9 +1,17 @@
 import React from 'react';
 import praksh from '../assets/a-surya-prakash.jpg';
+import BGHome from '../assets/Images/Homebg.jpg';
 
 
 const HomeLayout = () => {
   // Data derived from your description
+  const backgroundStyle = {
+    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(${BGHome})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  };
+
   const personalDetails = {
     name: "A. Surya Prakash",
     title: "Journalist, Author & Scholar",
@@ -21,29 +29,29 @@ const HomeLayout = () => {
     { role: "Vice-Chairman", org: "PMML" },
     { role: "Chairperson", org: "Prasar Bharati" },
     { role: "Chief of Bureau", org: "The Indian Express" },
-    { role: "Political Editor", org: "Eenadu Group" },
+    { role: "Political Editor", org: "Eenadu Group " },
     { role: "Executive Editor", org: "The Pioneer" },
     { role: "Editor", org: "Zee News" }
   ];
 
   return (
-    <div className="min-h-screen bg-stone-50 text-stone-800 font-sans selection:bg-red-100">
+    <div className="min-h-screen   bg-orange-50 bg-opacity-5 bg-cover bg-center font-sans selection:bg-red-100">
       {/* --- Hero Section --- */}
-      <header className="bg-white">
+      <header style={backgroundStyle} className="">
         <div className="max-w-6xl mx-auto px-6 py-16 md:py-28 sm:py-24 grid md:grid-cols-12 gap-12 items-center">
           
           {/* Text Content */}
           <div className="md:col-span-7 space-y-6 ">
-            <div className="inline-block px-3 py-1 bg-red-50 text-red-800 text-xs font-bold uppercase tracking-wider rounded-full md:hidden lg:inline-block">
+            <div className="inline-block px-3 py-1 bg-white/90 backdrop-blur-sm text-red-900 text-xs font-bold uppercase tracking-wider rounded-full md:hidden lg:inline-block shadow-sm">
               Constitutional Scholar
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-stone-900 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-stone-950 leading-tight">
               Decoding Indian <br />
-              <span className="text-stone-500 italic">Democracy & Governance</span>
+              <span className="text-red-900 italic">Democracy & Governance</span>
             </h1>
             
-            <p className="text-lg text-stone-600 leading-relaxed border-l-4 border-red-700 pl-6">
+            <p className="text-lg text-stone-900 font-medium leading-relaxed border-l-4 border-red-700 pl-6">
               {personalDetails.bio}
             </p>
 
@@ -51,7 +59,7 @@ const HomeLayout = () => {
               <button className="px-6 py-3 bg-stone-900 text-white font-medium rounded hover:bg-stone-700 transition-colors">
                 Read Latest Columns
               </button>
-              <a href="/about-me" className="px-6 py-3 border border-stone-300 text-stone-700 font-medium rounded hover:bg-stone-50 transition-colors">
+              <a href="/about-me" className="px-6 py-3 bg-white/80 backdrop-blur-sm border border-stone-300 text-stone-900 font-medium rounded hover:bg-white transition-colors">
                 View Bibliography
               </a>
             </div>
@@ -85,7 +93,7 @@ const HomeLayout = () => {
       </section>
 
       {/* --- Featured Works / News Layout --- */}
-      <section className="py-20 max-w-6xl mx-auto px-6">
+      <section className="py-20 max-w-6xl mx-auto px-6 ">
         <div className="flex justify-between items-end mb-12">
           <h2 className="text-3xl font-serif font-bold text-stone-900">Recent Blogs</h2>
           <a href="#" className="text-red-700 font-medium hover:underline">View Archive &rarr;</a>
@@ -136,21 +144,6 @@ const HomeLayout = () => {
           </article>
         </div>
       </section>
-
-      {/* --- Footer --- */}
-      <footer className="bg-white border-t border-stone-200 py-12">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <span className="font-serif text-xl font-bold text-stone-900">A. Surya Prakash</span>
-            <p className="text-sm text-stone-500 mt-1">© 2024 All Rights Reserved.</p>
-          </div>
-          <div className="flex space-x-6">
-            <a href="#" className="text-stone-400 hover:text-stone-900">Twitter (X)</a>
-            <a href="#" className="text-stone-400 hover:text-stone-900">LinkedIn</a>
-            <a href="#" className="text-stone-400 hover:text-stone-900">Email</a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };

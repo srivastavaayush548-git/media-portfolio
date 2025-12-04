@@ -43,7 +43,7 @@ const Header = () => {
             {/* --- 1. Logo Section --- */}
             <div className="shrink-0 flex items-center z-50">
               <Link to="/" className="group flex flex-col items-start justify-center" onClick={handleClose}>
-                <span className="font-serif text-xl md:text-2xl font-bold text-slate-900 tracking-tight group-hover:text-blue-800 transition-colors">
+                <span className="font-serif text-xl md:text-2xl font-bold text-slate-900 tracking-tight group-hover:text-orange-200 transition-colors">
                   A. SURYA PRAKASH
                 </span>
                 <span className="hidden md:block text-[10px] uppercase tracking-widest text-slate-500 font-medium">
@@ -63,13 +63,13 @@ const Header = () => {
                     to={item.path} 
                     className={`
                       flex items-center gap-1 px-4 py-6 text-sm font-semibold uppercase tracking-wide transition-colors
-                      ${scrolled ? 'text-slate-700 hover:text-blue-800' : 'text-slate-600 hover:text-blue-800'}
+                      ${scrolled ? 'text-slate-700 hover:text-orange-200' : 'text-slate-600 hover:text-orange-200'}
                     `}
                   >
                     {item.label}
                     {/* Show Chevron only if submenu exists */}
                     {item.submenu && (
-                      <ChevronDown className="w-4 h-4 text-slate-400 group-hover:text-blue-800 transition-transform group-hover:rotate-180" />
+                      <ChevronDown className="w-4 h-4 text-slate-400 group-hover:text-orange-200 transition-transform group-hover:rotate-180" />
                     )}
                   </Link>
 
@@ -77,12 +77,12 @@ const Header = () => {
                   {item.submenu && (
                     <div className="absolute top-full left-0 pt-0 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
                       {/* White Card */}
-                      <div className="bg-white border-t-2 border-blue-800 shadow-xl rounded-b-md py-2 flex flex-col">
+                      <div className="bg-white border-t-2 border-orange-200 shadow-xl rounded-b-md py-2 flex flex-col">
                         {item.submenu.map((subItem, sIdx) => (
                           <Link
                             key={sIdx}
                             to={subItem.path}
-                            className="block px-5 py-3 text-sm text-slate-600 hover:text-blue-800 hover:bg-slate-50 transition-colors font-medium border-l-2 border-transparent hover:border-blue-800"
+                            className="block px-5 py-3 text-sm text-slate-600 hover:text-orange-200 hover:bg-slate-50 transition-colors font-medium border-l-2 border-transparent hover:border-orange-200"
                           >
                             {subItem.label}
                           </Link>
@@ -94,7 +94,7 @@ const Header = () => {
               ))}
 
               {/* Search Icon */}
-              <button className="ml-4 text-slate-400 hover:text-blue-800 transition-colors p-2">
+              <button className="ml-4 text-slate-400 hover:text-orange-200 transition-colors p-2">
                 <Search className="w-5 h-5" />
               </button>
             </nav>

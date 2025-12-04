@@ -1,169 +1,283 @@
-import React from 'react';
-import { BookOpen, Award, Mic, PenTool, GraduationCap, Globe } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { 
+  BookOpen, 
+  Award, 
+  Mic, 
+  PenTool, 
+  GraduationCap, 
+  Globe, 
+  ChevronDown,
+  Newspaper,
+  Landmark,
+  ScrollText
+} from 'lucide-react';
 
 const AboutMe = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="min-h-screen pt-20 md:pt-24 bg-stone-50 text-stone-800 selection:bg-red-100 selection:text-stone-900">
-      <div className="container mx-auto px-4 py-12">
-        
-        {/* --- Header Section --- */}
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-serif font-bold text-stone-900 mb-6">
-            About <span className="text-red-700">A. Surya Prakash</span>
+    <div className="min-h-screen bg-orange-50 bg-opacity-5 text-stone-800 font-sans selection:bg-red-900 selection:text-white overflow-x-hidden">
+      
+      {/* --- Hero Section --- */}
+      <div className="relative h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5 pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-br from-stone-400 via-stone-100 to-stone-50" />
+          <div className="h-full w-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
+        </div>
+
+        <div className={`transition-all duration-1000 ease-out transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <div className="inline-block mb-4 px-3 py-1 border border-red-800/30 rounded-full bg-red-50 text-red-900 text-xs md:text-sm font-medium tracking-widest uppercase">
+            Journalist &bull; Author &bull; Media Executive
+          </div>
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-bold text-stone-900 tracking-tight mb-6">
+            A. Surya <span className="text-red-800">Prakash</span>
           </h1>
-          <p className="text-lg md:text-xl leading-relaxed text-stone-600">
-            A distinguished Indian journalist, author, and media executive, best known for his tenure as the 
-            chairperson of Prasar Bharati. His career reflects a blend of editorial leadership, 
-            academic scholarship, and active engagement in India’s democratic processes. Currently, he is the Vice-Chairman of the Executive Council of the Prime Ministers’ Museum & Library (PMML) in New Delhi, previously known as the Nehru Memorial Museum & Library. In this role, he contributes to preserving and presenting the legacies of India’s prime ministers and shaping public understanding of the country’s political history.
+          <p className="max-w-2xl mx-auto text-lg md:text-2xl text-stone-600 font-light leading-relaxed">
+            A distinguished voice in Indian media, shaping public discourse through editorial leadership and democratic engagement.
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto grid gap-16">
+        {/* Scroll Indicator */}
+        <div className={`absolute bottom-10 left-1/2 -translate-x-1/2 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <div className="animate-bounce p-2 rounded-full bg-white shadow-lg border border-stone-100 text-stone-400">
+            <ChevronDown className="w-6 h-6" />
+          </div>
+        </div>
+      </div>
 
-          {/* --- 1. Journalism Career --- */}
-          <section className="grid md:grid-cols-12 gap-8 items-start">
-            <div className="md:col-span-4 bg-white p-6 rounded-xl border border-stone-200">
-              <div className="flex items-center gap-3 mb-4 text-red-700">
-                <PenTool className="w-6 h-6" />
-                <h3 className="text-xl font-bold text-stone-900">Key Positions</h3>
-              </div>
-              <ul className="space-y-4 text-sm md:text-base">
-                <li className="flex flex-col">
-                  <span className="font-semibold text-stone-900">Vice-Chairman</span>
-                  <span className="text-stone-500">Prime Ministers’ Museum & Library (PMML)</span>
-                </li>
-                <li className="flex flex-col">
-                  <span className="font-semibold text-stone-900">Chief of Bureau</span>
-                  <span className="text-stone-500">The Indian Express</span>
-                </li>
-                <li className="flex flex-col">
-                  <span className="font-semibold text-stone-900">Executive Editor</span>
-                  <span className="text-stone-500">The Pioneer</span>
-                </li>
-                <li className="flex flex-col">
-                  <span className="font-semibold text-stone-900">Editor</span>
-                  <span className="text-stone-500">Zee News</span>
-                </li>
-                <li className="flex flex-col">
-                  <span className="font-semibold text-stone-900">Political Editor</span>
-                  <span className="text-stone-500">Eenadu Group</span>
-                </li>
-              </ul>
-            </div>
-            <div className="md:col-span-8">
-              <h2 className="text-3xl font-serif font-bold text-stone-900 mb-4">A Legacy in Journalism</h2>
-              <div className="space-y-4 text-stone-700 leading-relaxed text-justify">
-                <p>
-                  Prakash’s career in journalism has been marked by leadership roles in major Indian and international media organizations. 
-                  As <strong>Executive Editor at The Pioneer</strong>, he oversaw content strategy and investigative reporting. His editorial influence extended beyond India, serving as India Editor for <strong>Asia Times</strong>, where he contributed to international perspectives on Indian politics.
-                </p>
-                <p>
-                  Throughout his career, he has been recognized for his insightful analyses of Indian democracy. His reporting often explores the functioning of legislative institutions and the dynamics of political parties. He was also appointed to the search panel for selecting the anti-corruption ombudsman (Lokpal), reflecting trust in his impartiality.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* --- 2. Prasar Bharati & Education (Split) --- */}
-          <section className="grid md:grid-cols-2 gap-12">
-            {/* Prasar Bharati */}
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-red-50 rounded-full text-red-700">
-                  <Mic className="w-6 h-6" />
-                </div>
-                <h2 className="text-2xl font-bold text-stone-900">Role at Prasar Bharati</h2>
-              </div>
-              <p className="text-stone-700 leading-relaxed text-justify">
-                As chairperson of Prasar Bharati, Prakash steered India’s premier public service broadcaster, including Doordarshan and All India Radio. Under his leadership, the organization focused on modernizing content delivery and expanding regional coverage. His vision was to balance public service objectives with the demands of a rapidly evolving media landscape, ensuring unbiased reporting insulated from political pressures.
+      <div className="container mx-auto px-4 md:px-8 py-20">
+        
+        {/* --- Bio Section --- */}
+        <section className="mb-32 grid md:grid-cols-12 gap-12 items-center">
+          <div className="md:col-span-5 relative">
+            <div className="absolute -top-10 -left-10 w-40 h-40 bg-red-100 rounded-full blur-3xl opacity-50"></div>
+            <div className="relative bg-white p-8 md:p-10 rounded-2xl shadow-xl border border-stone-100">
+              <QuoteIcon className="w-12 h-12 text-red-200 absolute top-6 left-6 -z-10" />
+              <p className="text-xl md:text-2xl font-serif text-stone-800 leading-relaxed italic">
+                "Democracy is not just about elections; it is about the daily functioning of institutions and the vigilance of the press."
               </p>
+              <div className="mt-6 flex items-center gap-4">
+                <div className="h-px flex-1 bg-stone-200"></div>
+                <span className="text-sm font-bold text-stone-400 uppercase tracking-wider">Philosophy</span>
+              </div>
+            </div>
+          </div>
+          <div className="md:col-span-7 space-y-6 text-lg text-stone-600 leading-relaxed">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-stone-900 mb-6">
+              A Legacy of <span className="underline decoration-red-800/30 decoration-4 underline-offset-4">Integrity</span>
+            </h2>
+            <p>
+              Best known for his tenure as the <strong>Chairperson of Prasar Bharati</strong>, A. Surya Prakash has dedicated his life to the intersection of media and governance. His career reflects a blend of editorial leadership, academic scholarship, and active engagement in India’s democratic processes.
+            </p>
+            <p>
+              Currently serving as the <strong>Vice-Chairman of the Executive Council of the Prime Ministers’ Museum & Library (PMML)</strong>, he contributes to preserving the legacies of India’s leaders. His work ensures that the history of India's political evolution is accessible, accurate, and inspiring for future generations.
+            </p>
+          </div>
+        </section>
+
+        {/* --- Career Timeline --- */}
+        <section className="mb-32">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-serif font-bold text-stone-900 mb-4">Professional Journey</h2>
+            <p className="text-stone-500 max-w-xl mx-auto">Key milestones in a career spanning decades of service to the nation and the press.</p>
+          </div>
+
+          <div className="relative max-w-4xl mx-auto">
+            {/* Vertical Line */}
+            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-stone-200 transform md:-translate-x-1/2"></div>
+
+            <TimelineItem 
+              year="Current"
+              title="Vice-Chairman"
+              org="Prime Ministers’ Museum & Library (PMML)"
+              desc="Preserving and presenting the legacies of India’s prime ministers."
+              icon={<Landmark className="w-5 h-5" />}
+              side="left"
+            />
+            <TimelineItem 
+              year="Past"
+              title="Chairperson"
+              org="Prasar Bharati"
+              desc="Steered India’s premier public service broadcaster, modernizing content delivery for Doordarshan and All India Radio."
+              icon={<Mic className="w-5 h-5" />}
+              side="right"
+            />
+            <TimelineItem 
+              year="Past"
+              title="Chief of Bureau"
+              org="The Indian Express"
+              desc="Led the bureau with a focus on investigative journalism and political reporting."
+              icon={<Newspaper className="w-5 h-5" />}
+              side="left"
+            />
+            <TimelineItem 
+              year="Past"
+              title="Executive Editor"
+              org="The Pioneer"
+              desc="Oversaw content strategy and editorial direction."
+              icon={<PenTool className="w-5 h-5" />}
+              side="right"
+            />
+            <TimelineItem 
+              year="Past"
+              title="Editor"
+              org="Zee News"
+              desc="Shaped the editorial voice of one of India's leading news channels."
+              icon={<Globe className="w-5 h-5" />}
+              side="left"
+            />
+          </div>
+        </section>
+
+        {/* --- Books Section --- */}
+        <section className="mb-32 bg-stone-900 text-stone-100 rounded-3xl p-8 md:p-20 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-red-900/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+          
+          <div className="relative z-10">
+            <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">Authored Works</h2>
+                <p className="text-stone-400 max-w-md">Critically examining the structural and functional challenges of Indian democracy.</p>
+              </div>
+              <BookOpen className="w-12 h-12 text-red-500 opacity-50" />
             </div>
 
-            {/* Education */}
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-red-50 rounded-full text-red-700">
-                  <GraduationCap className="w-6 h-6" />
+            <div className="grid md:grid-cols-3 gap-8">
+              <BookCard 
+                title="What Ails Indian Parliament"
+                desc="A detailed critique of legislative inefficiencies and structural challenges."
+              />
+              <BookCard 
+                title="The Emergency"
+                subtitle="Indian Democracy’s Darkest Hour"
+                desc="An analysis of the 1975–77 suspension of civil liberties and press censorship."
+                highlight
+              />
+              <BookCard 
+                title="Democracy, Politics and Governance"
+                desc="Addressing contemporary political challenges and ethical governance."
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* --- Awards & Education --- */}
+        <section className="grid md:grid-cols-2 gap-12">
+          {/* Awards */}
+          <div className="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="p-3 bg-yellow-50 text-yellow-600 rounded-xl">
+                <Award className="w-8 h-8" />
+              </div>
+              <h2 className="text-2xl font-serif font-bold text-stone-900">Honors</h2>
+            </div>
+            <div className="space-y-6">
+              <div className="flex gap-4">
+                <div className="mt-1.5 w-2 h-2 rounded-full bg-red-500 shrink-0"></div>
+                <div>
+                  <h3 className="font-bold text-stone-900 text-lg">Padma Bhushan (2025)</h3>
+                  <p className="text-stone-600 text-sm mt-1">India’s third-highest civilian award for contributions to literature and education.</p>
                 </div>
-                <h2 className="text-2xl font-bold text-stone-900">Education & Early Life</h2>
               </div>
-              <p className="text-stone-700 leading-relaxed text-justify">
-                Surya Prakash earned a Master’s degree in Sociology from the University of Mysore, providing him with a strong understanding of social structures. Recognizing his significant contributions to literature and education, <strong>Tumkur University awarded him a Doctor of Letters (D.Litt.)</strong>, a prestigious honor reflecting both academic and practical expertise.
-              </p>
-            </div>
-          </section>
-
-          {/* --- 3. Notable Books --- */}
-          <section className="bg-white border border-stone-200 rounded-2xl p-8 md:p-12">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl font-serif font-bold text-stone-900 flex items-center justify-center gap-3">
-                <BookOpen className="w-8 h-8 text-red-700" />
-                Authored Works
-              </h2>
-              <p className="text-stone-500 mt-2">Critically examining Indian democracy and governance</p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {/* Book 1 */}
-              <div className="bg-white p-6 rounded-lg border border-stone-200 hover:border-red-700 transition-colors">
-                <h3 className="text-lg font-bold text-stone-900 mb-2">What Ails Indian Parliament</h3>
-                <p className="text-sm text-stone-600">
-                  A detailed critique of the structural and functional challenges facing India’s parliamentary system, exploring legislative inefficiencies.
-                </p>
-              </div>
-              {/* Book 2 */}
-              <div className="bg-white p-6 rounded-lg border border-stone-200 hover:border-red-700 transition-colors">
-                <h3 className="text-lg font-bold text-stone-900 mb-2">The Emergency</h3>
-                <p className="text-sm text-stone-600">
-                  Subtitled "Indian Democracy’s Darkest Hour," this analyzes the 1975–77 suspension of civil liberties and press censorship.
-                </p>
-              </div>
-              {/* Book 3 */}
-              <div className="bg-white p-6 rounded-lg border border-stone-200 hover:border-red-700 transition-colors">
-                <h3 className="text-lg font-bold text-stone-900 mb-2">Democracy, Politics and Governance</h3>
-                <p className="text-sm text-stone-600">
-                  Released by VP M. Venkaiah Naidu, addressing contemporary political challenges and ethical governance.
-                </p>
+              <div className="flex gap-4">
+                <div className="mt-1.5 w-2 h-2 rounded-full bg-stone-300 shrink-0"></div>
+                <div>
+                  <h3 className="font-bold text-stone-900 text-lg">Rajyotsava Award (2010)</h3>
+                  <p className="text-stone-600 text-sm mt-1">Conferred by the Government of Karnataka for excellence in public service.</p>
+                </div>
               </div>
             </div>
-          </section>
+          </div>
 
-          {/* --- 4. Awards --- */}
-          <section className="border-t border-stone-200 pt-16">
-            <h2 className="text-3xl font-serif font-bold text-stone-900 text-center mb-10">Honors & Recognition</h2>
-            <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-              
-              <div className="flex gap-4 items-start p-4 hover:bg-stone-100 rounded-lg transition-colors">
-                <div className="mt-1">
-                  <Award className="w-8 h-8 text-yellow-500" />
+          {/* Education */}
+          <div className="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="p-3 bg-blue-50 text-blue-600 rounded-xl">
+                <GraduationCap className="w-8 h-8" />
+              </div>
+              <h2 className="text-2xl font-serif font-bold text-stone-900">Education</h2>
+            </div>
+            <div className="space-y-6">
+              <div className="group flex gap-4 items-start">
+                <div className="p-2 bg-stone-50 rounded-lg group-hover:bg-blue-50 transition-colors">
+                  <ScrollText className="w-5 h-5 text-stone-400 group-hover:text-blue-500" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-stone-900">Padma Bhushan (2025)</h3>
-                  <p className="text-stone-600 mt-1">
-                    India’s third-highest civilian award, acknowledging his exceptional contributions to literature and education.
-                  </p>
+                  <h3 className="font-bold text-stone-900 text-lg">Doctor of Letters (D.Litt.)</h3>
+                  <p className="text-stone-600 text-sm">Tumkur University</p>
+                  <p className="text-stone-400 text-xs mt-1">Honorary Doctorate</p>
                 </div>
               </div>
-
-              <div className="flex gap-4 items-start p-4 hover:bg-stone-100 rounded-lg transition-colors">
-                <div className="mt-1">
-                  <Award className="w-8 h-8 text-yellow-500" />
+              <div className="group flex gap-4 items-start">
+                <div className="p-2 bg-stone-50 rounded-lg group-hover:bg-blue-50 transition-colors">
+                  <ScrollText className="w-5 h-5 text-stone-400 group-hover:text-blue-500" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-stone-900">Rajyotsava Award (2010)</h3>
-                  <p className="text-stone-600 mt-1">
-                    Conferred by the Government of Karnataka for excellence in literature, education, and public service.
-                  </p>
+                  <h3 className="font-bold text-stone-900 text-lg">Master’s in Sociology</h3>
+                  <p className="text-stone-600 text-sm">University of Mysore</p>
                 </div>
               </div>
-
             </div>
-          </section>
+          </div>
+        </section>
 
+      </div>
+    </div>
+  );
+};
+
+// --- Helper Components ---
+
+const TimelineItem = ({ year, title, org, desc, icon, side }) => {
+  const isLeft = side === 'left';
+  return (
+    <div className={`flex flex-col md:flex-row gap-4 md:gap-0 items-center justify-between mb-12 relative group`}>
+      {/* Dot */}
+      <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-white border-4 border-red-800 rounded-full transform md:-translate-x-1/2 z-10 group-hover:scale-125 transition-transform duration-300"></div>
+      
+      {/* Content */}
+      <div className={`w-full md:w-[45%] pl-12 md:pl-0 ${isLeft ? 'md:text-right md:pr-12' : 'md:ml-auto md:pl-12'}`}>
+        <div className="bg-white p-6 rounded-xl border border-stone-100 shadow-sm hover:shadow-lg hover:border-red-100 transition-all duration-300 group-hover:-translate-y-1">
+          <div className={`flex items-center gap-3 mb-2 ${isLeft ? 'md:flex-row-reverse' : ''}`}>
+            <span className="text-xs font-bold tracking-wider text-red-600 uppercase bg-red-50 px-2 py-1 rounded">{year}</span>
+            <div className="text-stone-400">{icon}</div>
+          </div>
+          <h3 className="text-lg font-bold text-stone-900">{title}</h3>
+          <div className="text-sm font-medium text-stone-500 mb-3">{org}</div>
+          <p className="text-sm text-stone-600 leading-relaxed">{desc}</p>
         </div>
       </div>
     </div>
   );
 };
+
+const BookCard = ({ title, subtitle, desc, highlight }) => (
+  <div className={`group relative p-6 rounded-xl border transition-all duration-300 hover:-translate-y-2 ${highlight ? 'bg-red-900 border-red-800 text-white shadow-2xl shadow-red-900/50' : 'bg-stone-800 border-stone-700 hover:bg-stone-750'}`}>
+    <div className="mb-4">
+      <div className="w-12 h-16 bg-stone-200 rounded-sm shadow-inner mb-4 group-hover:scale-105 transition-transform origin-bottom-left flex items-center justify-center overflow-hidden">
+         <div className="w-full h-full bg-linear-to-br from-stone-300 to-stone-400"></div>
+      </div>
+      <h3 className={`text-xl font-serif font-bold mb-1 ${highlight ? 'text-white' : 'text-stone-100'}`}>{title}</h3>
+      {subtitle && <div className="text-xs uppercase tracking-wider opacity-75 mb-2">{subtitle}</div>}
+    </div>
+    <p className={`text-sm leading-relaxed ${highlight ? 'text-red-100' : 'text-stone-400'}`}>
+      {desc}
+    </p>
+  </div>
+);
+
+const QuoteIcon = ({ className }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+    <path d="M14.017 21L14.017 18C14.017 16.896 14.321 16.067 14.929 15.513C15.537 14.959 16.491 14.682 17.791 14.682C18.114 14.682 18.425 14.693 18.724 14.715C18.435 13.922 18.069 13.232 17.627 12.645C17.185 12.058 16.637 11.559 15.983 11.147C15.329 10.735 14.545 10.458 13.631 10.316L13.631 7.297C15.019 7.425 16.294 7.914 17.457 8.764C18.62 9.614 19.499 10.761 20.094 12.205C20.689 13.649 20.987 15.361 20.987 17.341L20.987 21L14.017 21ZM6.017 21L6.017 18C6.017 16.896 6.321 16.067 6.929 15.513C7.537 14.959 8.491 14.682 9.791 14.682C10.114 14.682 10.425 14.693 10.724 14.715C10.435 13.922 10.069 13.232 9.627 12.645C9.185 12.058 8.637 11.559 7.983 11.147C7.329 10.735 6.545 10.458 5.631 10.316L5.631 7.297C7.019 7.425 8.294 7.914 9.457 8.764C10.62 9.614 11.499 10.761 12.094 12.205C12.689 13.649 12.987 15.361 12.987 17.341L12.987 21L6.017 21Z" />
+  </svg>
+);
 
 export default AboutMe;

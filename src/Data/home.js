@@ -1,6 +1,6 @@
 import home1Image from '../assets/n.jpg';
 import home2Image from '../assets/praksh.jpg';
-
+import home3Image from '../assets/Images/Homebg.jpg';
 export const homeMenu = [
   { label: 'Home', path: '/' },
   { label: 'About Me', path: '/about-me' },
@@ -62,6 +62,12 @@ export const homeImages = [
   {
     id: 5,
     src: home1Image,
+    alt: 'Stage with spectacular lights',
+  },
+
+  {
+    id: 6,
+    src: home3Image,
     alt: 'Stage with spectacular lights',
   },
 ];

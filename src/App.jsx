@@ -18,6 +18,8 @@ import VIPs from './Pages/vips'
 import PrivacyPolicy from './Pages/Privacy'
 import TermsAndConditions from './Pages/termsAndConditions'
 
+import Footer from './Components/Footer'
+
 const App = () => {
   return (
     <Router>
@@ -40,6 +42,7 @@ const App = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       </Routes>
+      <Footer />
     </Router>
   )
 }
