@@ -1,4 +1,4 @@
-import publicMoneyCover from '../assets/agenda.jpg';
+import publicMoneyCover from '../assets/Agenda.jpg';
 import emergencyCover from '../assets/the_emergency_cover.png';
 import parliamentCover from '../assets/what_ails_indian_parliament_cover.png';
 
