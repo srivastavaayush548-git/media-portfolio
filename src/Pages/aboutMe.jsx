@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { 
-  BookOpen, 
-  Award, 
-  Mic, 
-  PenTool, 
-  GraduationCap, 
-  Globe, 
+import {
+  BookOpen,
+  Award,
+  Mic,
+  PenTool,
+  GraduationCap,
+  Globe,
   ChevronDown,
   Newspaper,
   Landmark,
@@ -23,8 +23,8 @@ const AboutMe = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-orange-50 bg-opacity-5 text-stone-800 font-sans selection:bg-red-900 selection:text-white overflow-x-hidden">
-      
+    <div className="min-h-screen bg-red-50 bg-opacity-5 text-stone-800 font-sans selection:bg-red-900 selection:text-white overflow-x-hidden">
+
       {/* --- Hero Section --- */}
       <div className="relative h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
         {/* Background Pattern */}
@@ -54,7 +54,7 @@ const AboutMe = () => {
       </div>
 
       <div className="container mx-auto px-4 md:px-8 py-20">
-        
+
         {/* --- Bio Section --- */}
         <section className="mb-32 grid md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-5 relative">
@@ -94,7 +94,7 @@ const AboutMe = () => {
             {/* Vertical Line */}
             <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-stone-200 transform md:-translate-x-1/2"></div>
 
-            <TimelineItem 
+            <TimelineItem
               year="Current"
               title="Vice-Chairman"
               org="Prime Ministers’ Museum & Library (PMML)"
@@ -102,7 +102,7 @@ const AboutMe = () => {
               icon={<Landmark className="w-5 h-5" />}
               side="left"
             />
-            <TimelineItem 
+            <TimelineItem
               year="Past"
               title="Chairperson"
               org="Prasar Bharati"
@@ -110,7 +110,7 @@ const AboutMe = () => {
               icon={<Mic className="w-5 h-5" />}
               side="right"
             />
-            <TimelineItem 
+            <TimelineItem
               year="Past"
               title="Chief of Bureau"
               org="The Indian Express"
@@ -118,7 +118,7 @@ const AboutMe = () => {
               icon={<Newspaper className="w-5 h-5" />}
               side="left"
             />
-            <TimelineItem 
+            <TimelineItem
               year="Past"
               title="Executive Editor"
               org="The Pioneer"
@@ -126,7 +126,7 @@ const AboutMe = () => {
               icon={<PenTool className="w-5 h-5" />}
               side="right"
             />
-            <TimelineItem 
+            <TimelineItem
               year="Past"
               title="Editor"
               org="Zee News"
@@ -140,7 +140,7 @@ const AboutMe = () => {
         {/* --- Books Section --- */}
         <section className="mb-32 bg-stone-900 text-stone-100 rounded-3xl p-8 md:p-20 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-red-900/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-          
+
           <div className="relative z-10">
             <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
               <div>
@@ -151,17 +151,17 @@ const AboutMe = () => {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              <BookCard 
+              <BookCard
                 title="What Ails Indian Parliament"
                 desc="A detailed critique of legislative inefficiencies and structural challenges."
               />
-              <BookCard 
+              <BookCard
                 title="The Emergency"
                 subtitle="Indian Democracy’s Darkest Hour"
                 desc="An analysis of the 1975–77 suspension of civil liberties and press censorship."
                 highlight
               />
-              <BookCard 
+              <BookCard
                 title="Democracy, Politics and Governance"
                 desc="Addressing contemporary political challenges and ethical governance."
               />
@@ -242,7 +242,7 @@ const TimelineItem = ({ year, title, org, desc, icon, side }) => {
     <div className={`flex flex-col md:flex-row gap-4 md:gap-0 items-center justify-between mb-12 relative group`}>
       {/* Dot */}
       <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-white border-4 border-red-800 rounded-full transform md:-translate-x-1/2 z-10 group-hover:scale-125 transition-transform duration-300"></div>
-      
+
       {/* Content */}
       <div className={`w-full md:w-[45%] pl-12 md:pl-0 ${isLeft ? 'md:text-right md:pr-12' : 'md:ml-auto md:pl-12'}`}>
         <div className="bg-white p-6 rounded-xl border border-stone-100 shadow-sm hover:shadow-lg hover:border-red-100 transition-all duration-300 group-hover:-translate-y-1">
@@ -263,7 +263,7 @@ const BookCard = ({ title, subtitle, desc, highlight }) => (
   <div className={`group relative p-6 rounded-xl border transition-all duration-300 hover:-translate-y-2 ${highlight ? 'bg-red-900 border-red-800 text-white shadow-2xl shadow-red-900/50' : 'bg-stone-800 border-stone-700 hover:bg-stone-750'}`}>
     <div className="mb-4">
       <div className="w-12 h-16 bg-stone-200 rounded-sm shadow-inner mb-4 group-hover:scale-105 transition-transform origin-bottom-left flex items-center justify-center overflow-hidden">
-         <div className="w-full h-full bg-linear-to-br from-stone-300 to-stone-400"></div>
+        <div className="w-full h-full bg-linear-to-br from-stone-300 to-stone-400"></div>
       </div>
       <h3 className={`text-xl font-serif font-bold mb-1 ${highlight ? 'text-white' : 'text-stone-100'}`}>{title}</h3>
       {subtitle && <div className="text-xs uppercase tracking-wider opacity-75 mb-2">{subtitle}</div>}
