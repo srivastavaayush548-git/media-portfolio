@@ -7,11 +7,18 @@ const HomeLayout = () => {
   const personalDetails = {
     name: "A. Surya Prakash",
     title: "Journalist, Author & Scholar",
-    bio: "A. Surya Prakash is an Indian journalist and author, best known for serving as the chairperson of Prasar Bharati, India’s public service broadcaster. He has worked in various leading media organisations and is the author of several books on Indian politics and parliamentary democracy. In January 2025, Prakash was conferred with the Padma Bhushan, India's third-highest civilian award, for his contributions to literature and education.",
+    bio: (
+      <>
+       <strong>A. Surya Prakash</strong> is an Indian journalist and author, best known for serving as the chairperson of Prasar Bharati, India’s public service broadcaster. He has worked in various leading media organisations and is the author of several books on Indian politics and parliamentary democracy. In January 2025, Prakash was conferred with the Padma Bhushan, India's third-highest civilian award, for his contributions to literature and education. Currently, he is the{" "}
+        <strong>Vice-Chairman of the Executive Council of the Prime Ministers’ Museum & Library (PMML) in New Delhi</strong>
+        , previously known as the Nehru Memorial Museum & Library. In this role, he contributes to preserving and presenting the legacies of India’s prime ministers and shaping public understanding of the country’s political history.
+      </>
+    ),
     imageSrc: praksh
   };
 
   const careerHighlights = [
+    { role: "Vice-Chairman", org: "PMML" },
     { role: "Chairperson", org: "Prasar Bharati" },
     { role: "Chief of Bureau", org: "The Indian Express" },
     { role: "Political Editor", org: "Eenadu Group" },
@@ -23,11 +30,11 @@ const HomeLayout = () => {
     <div className="min-h-screen bg-stone-50 text-stone-800 font-sans selection:bg-red-100">
       {/* --- Hero Section --- */}
       <header className="bg-white">
-        <div className="max-w-6xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-12 gap-12 items-center">
+        <div className="max-w-6xl mx-auto px-6 py-16 md:py-28 sm:py-24 grid md:grid-cols-12 gap-12 items-center">
           
           {/* Text Content */}
-          <div className="md:col-span-7 space-y-6">
-            <div className="inline-block px-3 py-1 bg-red-50 text-red-800 text-xs font-bold uppercase tracking-wider rounded-full">
+          <div className="md:col-span-7 space-y-6 ">
+            <div className="inline-block px-3 py-1 bg-red-50 text-red-800 text-xs font-bold uppercase tracking-wider rounded-full md:hidden lg:inline-block">
               Constitutional Scholar
             </div>
             
@@ -80,7 +87,7 @@ const HomeLayout = () => {
       {/* --- Featured Works / News Layout --- */}
       <section className="py-20 max-w-6xl mx-auto px-6">
         <div className="flex justify-between items-end mb-12">
-          <h2 className="text-3xl font-serif font-bold text-stone-900">Recent Commentary</h2>
+          <h2 className="text-3xl font-serif font-bold text-stone-900">Recent Blogs</h2>
           <a href="#" className="text-red-700 font-medium hover:underline">View Archive &rarr;</a>
         </div>
 

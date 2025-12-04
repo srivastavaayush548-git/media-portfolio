@@ -9,12 +9,12 @@ const AboutMe = () => {
         {/* --- Header Section --- */}
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-serif font-bold text-stone-900 mb-6">
-            About <span className="text-red-700">Dr. Prakash</span>
+            About <span className="text-red-700">A. Surya Prakash</span>
           </h1>
           <p className="text-lg md:text-xl leading-relaxed text-stone-600">
             A distinguished Indian journalist, author, and media executive, best known for his tenure as the 
             chairperson of Prasar Bharati. His career reflects a blend of editorial leadership, 
-            academic scholarship, and active engagement in India’s democratic processes.
+            academic scholarship, and active engagement in India’s democratic processes. Currently, he is the Vice-Chairman of the Executive Council of the Prime Ministers’ Museum & Library (PMML) in New Delhi, previously known as the Nehru Memorial Museum & Library. In this role, he contributes to preserving and presenting the legacies of India’s prime ministers and shaping public understanding of the country’s political history.
           </p>
         </div>
 
@@ -28,6 +28,10 @@ const AboutMe = () => {
                 <h3 className="text-xl font-bold text-stone-900">Key Positions</h3>
               </div>
               <ul className="space-y-4 text-sm md:text-base">
+                <li className="flex flex-col">
+                  <span className="font-semibold text-stone-900">Vice-Chairman</span>
+                  <span className="text-stone-500">Prime Ministers’ Museum & Library (PMML)</span>
+                </li>
                 <li className="flex flex-col">
                   <span className="font-semibold text-stone-900">Chief of Bureau</span>
                   <span className="text-stone-500">The Indian Express</span>

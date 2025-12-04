@@ -1,6 +1,5 @@
 
 
-import vip1 from '../assets/Images/Vips/1.jpg';
 import vip2 from '../assets/Images/Vips/2.jpg';
 import vip3 from '../assets/Images/Vips/3.jpg';
 import vip4 from '../assets/Images/Vips/4.jpg';
@@ -44,11 +43,10 @@ import vip44 from '../assets/Images/Vips/44.jpeg';
 import vip45 from '../assets/Images/Vips/45.jpeg';
 
 export const vipImages = [
-  { id: 1, src: vip1, alt: "Dignitary interaction 1" },
+    { id: 4, src: vip4, alt: "Dignitary interaction 4" },
   { id: 2, src: vip2, alt: "Dignitary interaction 2" },
-  { id: 3, src: vip3, alt: "Dignitary interaction 3" },
-  { id: 4, src: vip4, alt: "Dignitary interaction 4" },
   { id: 6, src: vip6, alt: "Dignitary interaction 6" },
+    { id: 3, src: vip3, alt: "Dignitary interaction 3" },
   { id: 7, src: vip7, alt: "Dignitary interaction 7" },
   { id: 8, src: vip8, alt: "Dignitary interaction 8" },
   { id: 9, src: vip9, alt: "Dignitary interaction 9" },
