@@ -15,7 +15,7 @@ import Interview from './Pages/interview'
 import Article from './Pages/article'
 import Books from './Pages/books'
 import VIPs from './Pages/vips'
-import PrivacyPolicy from './Pages/privacyPolicy'
+import PrivacyPolicy from './Pages/Privacy'
 import TermsAndConditions from './Pages/termsAndConditions'
 
 const App = () => {
