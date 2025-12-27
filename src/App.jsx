@@ -19,10 +19,12 @@ import PrivacyPolicy from './Pages/Privacy'
 import TermsAndConditions from './Pages/termsAndConditions'
 
 import Footer from './Components/Footer'
+import ScrollToTop from './Components/ScrollToTop'
 
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

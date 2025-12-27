@@ -25,9 +25,7 @@ const AboutMe = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-200 via-yellow-200 to-orange-100 text-stone-800 font-sans selection:bg-red-900 selection:text-white overflow-x-hidden">
 
-      {/* --- Hero Section --- */}
       <div className="relative h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
-        {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5 pointer-events-none">
           <div className="absolute inset-0 bg-gradient-to-br from-orange-200 via-yellow-100 to-orange-50" />
           <div className="h-full w-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
@@ -45,7 +43,6 @@ const AboutMe = () => {
           </p>
         </div>
 
-        {/* Scroll Indicator */}
         <div className={`absolute bottom-10 left-1/2 -translate-x-1/2 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           <div className="animate-bounce p-2 rounded-full bg-white shadow-lg border border-stone-100 text-stone-400">
             <ChevronDown className="w-6 h-6" />
@@ -55,7 +52,6 @@ const AboutMe = () => {
 
       <div className="container mx-auto px-4 md:px-8 py-20">
 
-        {/* --- Bio Section --- */}
         <section className="mb-32 grid md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-5 relative">
             <div className="absolute -top-10 -left-10 w-40 h-40 bg-red-100 rounded-full blur-3xl opacity-50"></div>
@@ -83,7 +79,6 @@ const AboutMe = () => {
           </div>
         </section>
 
-        {/* --- Career Timeline --- */}
         <section className="mb-32">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-serif font-bold text-stone-900 mb-4">Professional Journey</h2>
@@ -91,8 +86,10 @@ const AboutMe = () => {
           </div>
 
           <div className="relative max-w-4xl mx-auto">
-            {/* Vertical Line */}
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-stone-200 transform md:-translate-x-1/2"></div>
+            <div
+              className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-stone-300/80 transform md:-translate-x-1/2 pointer-events-none"
+              aria-hidden="true"
+            ></div>
 
             <TimelineItem
               year="Current"
@@ -239,13 +236,16 @@ const AboutMe = () => {
 const TimelineItem = ({ year, title, org, desc, icon, side }) => {
   const isLeft = side === 'left';
   return (
-    <div className={`flex flex-col md:flex-row gap-4 md:gap-0 items-center justify-between mb-12 relative group`}>
+    <div className={`flex flex-col md:flex-row gap-4 md:gap-0 items-center justify-between mb-12 last:mb-0 relative group md:min-h-[120px]`}>
       {/* Dot */}
-      <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-white border-4 border-red-800 rounded-full transform md:-translate-x-1/2 z-10 group-hover:scale-125 transition-transform duration-300"></div>
+      <div
+        className="absolute left-4 md:left-1/2 w-4 h-4 bg-white border-4 border-red-800 rounded-full shadow-md transform md:-translate-x-1/2 z-10 group-hover:scale-110 transition-transform duration-300"
+        aria-hidden="true"
+      ></div>
 
       {/* Content */}
-      <div className={`w-full md:w-[45%] pl-12 md:pl-0 ${isLeft ? 'md:text-right md:pr-12' : 'md:ml-auto md:pl-12'}`}>
-        <div className="bg-white p-6 rounded-xl border border-stone-100 shadow-sm hover:shadow-lg hover:border-red-100 transition-all duration-300 group-hover:-translate-y-1">
+      <div className={`w-full md:max-w-[44%] pl-10 md:pl-0 ${isLeft ? 'md:text-right md:pr-14' : 'md:ml-auto md:pl-14'}`}>
+        <div className="bg-white p-6 rounded-xl border border-stone-100 shadow-sm hover:shadow-md hover:border-red-100 transition-all duration-300 group-hover:-translate-y-0">
           <div className={`flex items-center gap-3 mb-2 ${isLeft ? 'md:flex-row-reverse' : ''}`}>
             <span className="text-xs font-bold tracking-wider text-red-600 uppercase bg-red-50 px-2 py-1 rounded">{year}</span>
             <div className="text-stone-400">{icon}</div>
