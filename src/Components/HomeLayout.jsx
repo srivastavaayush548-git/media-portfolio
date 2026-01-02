@@ -18,7 +18,7 @@ const HomeLayout = () => {
     bio: (
       <>
         <strong>A. Surya Prakash</strong> is an Indian journalist and author, best known for serving as the chairperson of Prasar Bharati, India’s public service broadcaster. He has worked in various leading media organisations and is the author of several books on Indian politics and parliamentary democracy. In January 2025, Prakash was conferred with the Padma Bhushan, India's third-highest civilian award, for his contributions to literature and education. Currently, he is the{" "}
-        <strong>Member of the Executive Council of the Prime Ministers’ Museum & Library (PMML) in New Delhi</strong>
+        <strong>Former Vice-Chairman of the Executive Council of the Prime Ministers’ Museum & Library (PMML) in New Delhi</strong>
         , previously known as the Nehru Memorial Museum & Library. In this role, he contributes to preserving and presenting the legacies of India’s prime ministers and shaping public understanding of the country’s political history.
       </>
     ),
