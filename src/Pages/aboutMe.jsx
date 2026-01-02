@@ -74,7 +74,7 @@ const AboutMe = () => {
               Best known for his tenure as the <strong>Chairperson of Prasar Bharati</strong>, A. Surya Prakash has dedicated his life to the intersection of media and governance. His career reflects a blend of editorial leadership, academic scholarship, and active engagement in India’s democratic processes.
             </p>
             <p>
-              Currently serving as the <strong>Vice-Chairman of the Executive Council of the Prime Ministers’ Museum & Library (PMML)</strong>, he contributes to preserving the legacies of India’s leaders. His work ensures that the history of India's political evolution is accessible, accurate, and inspiring for future generations.
+              Currently serving as the <strong>Member of the Executive Council of the Prime Ministers’ Museum & Library (PMML)</strong>, he contributes to preserving the legacies of India’s leaders. His work ensures that the history of India's political evolution is accessible, accurate, and inspiring for future generations.
             </p>
           </div>
         </section>
@@ -93,7 +93,7 @@ const AboutMe = () => {
 
             <TimelineItem
               year="Current"
-              title="Vice-Chairman"
+              title="Member"
               org="Prime Ministers’ Museum & Library (PMML)"
               desc="Preserving and presenting the legacies of India’s prime ministers."
               icon={<Landmark className="w-5 h-5" />}
