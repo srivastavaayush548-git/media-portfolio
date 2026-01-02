@@ -34,7 +34,6 @@ import vip32 from '../assets/Images/Vips/32.jpg';
 import vip34 from '../assets/Images/Vips/34.jpg';
 import vip35 from '../assets/Images/Vips/35.jpeg';
 import vip36 from '../assets/Images/Vips/36.jpeg';
-import vip39 from '../assets/Images/Vips/39.jpeg';
 import vip40 from '../assets/Images/Vips/40.jpeg';
 import vip41 from '../assets/Images/Vips/41.jpeg';
 import vip42 from '../assets/Images/Vips/42.jpeg';
@@ -77,7 +76,6 @@ export const vipImages = [
   { id: 34, src: vip34, alt: "Dignitary interaction 34" },
   { id: 35, src: vip35, alt: "Dignitary interaction 35" },
   { id: 36, src: vip36, alt: "Dignitary interaction 36" },
-  { id: 39, src: vip39, alt: "Dignitary interaction 39" },
   { id: 40, src: vip40, alt: "Dignitary interaction 40" },
   { id: 41, src: vip41, alt: "Dignitary interaction 41" },
   { id: 42, src: vip42, alt: "Dignitary interaction 42" },
