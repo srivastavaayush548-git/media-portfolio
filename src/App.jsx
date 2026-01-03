@@ -9,6 +9,7 @@ import Wife from './Pages/family/Wife'
 import Son from './Pages/family/Son'
 import Grandchildren from './Pages/family/Grandchildren'
 import Career from './Pages/career'
+import Convocation from './Pages/career/Convocation'
 import Padmabhushan from './Pages/awards/Padmabhushan'
 import RajyotsavaAward from './Pages/awards/RajyotsavaAward'
 import Interview from './Pages/interview'
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/family/son" element={<Son />} />
         <Route path="/family/grandchildren" element={<Grandchildren />} />
         <Route path="/career" element={<Career />} />
+        <Route path="/career/convocation" element={<Convocation />} />
         <Route path="/awards/padmabhushan" element={<Padmabhushan />} />
         <Route path="/awards/rajyotsava-award" element={<RajyotsavaAward />} />
         <Route path="/interview" element={<Interview />} />

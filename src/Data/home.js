@@ -14,7 +14,14 @@ export const homeMenu = [
       { label: 'GrandChildren', path: '/family/grandchildren' },
     ]
   },
-  { label: 'Career', path: '/career' },
+  {
+    label: 'Career',
+    path: '/career',
+    submenu: [
+      { label: 'Overview', path: '/career' },
+      { label: 'Convocation', path: '/career/convocation' },
+    ]
+  },
   {
     label: 'Awards',
     submenu: [

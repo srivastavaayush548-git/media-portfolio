@@ -1,6 +1,7 @@
 import publicMoneyCover from '../assets/Agenda.jpg';
 import emergencyCover from '../assets/the_emergency_cover.png';
 import parliamentCover from '../assets/what_ails_indian_parliament_cover.png';
+import congressCover from '../assets/Images/congress.jpeg';
 
 export const nonFictionBooks = [
   {
@@ -14,15 +15,24 @@ export const nonFictionBooks = [
     purchaseLink: "https://www.amazon.in/Public-Money-Private-Agenda-MPLADS/dp/8129124173/ref=sr_1_2?sr=8-2"
   },
   {
+    title: "Congress ka Phasivad",
+    author: "A. Surya Prakash",
+    cover: congressCover,
+    description: "Delve into a critical evaluation of the decline of the Congress Party in Indian politics with 'Congress ka Phasivad'. This thought-provoking book offers valuable insights into the political landscape and the factors contributing to the party's changing fortunes. The author provides a comprehensive analysis of the Congress Party's journey, exploring historical context, challenges, and the consequences of evolving strategies and leadership choices.",
+    purchaseLink: "https://amzn.in/d/8w4mADE"
+  },
+  {
     title: "The Emergency: Indian Democracy's Darkest Hour",
     author: "A. Surya Prakash",
     cover: emergencyCover,
-    description: "A comprehensive account of the 21-month Emergency imposed in India in 1975, examining the suspension of civil liberties, censorship of the press, and the political turmoil that reshaped Indian democracy."
+    description: "Authored by A. Surya Prakash, Chairman of Prasar Bharati, this book honors those who fought for the restoration of democracy in India during the mid-1970s. It provides a comprehensive account of the 21-month Emergency, examining the suspension of civil liberties, censorship, and the political turmoil of that era.",
+    purchaseLink: "https://www.goodreads.com/book/show/43913438-the-emergency"
   },
   {
     title: "What Ails Indian Parliament",
     author: "A. Surya Prakash",
     cover: parliamentCover,
-    description: "An incisive analysis of the functioning of the Indian Parliament, highlighting the challenges of disruptions, declining standards of debate, and the need for structural reforms to strengthen the legislative institution."
+    description: "Published in 1995 by Indus (HarperCollins), this work is widely regarded as the most definitive text on the functioning of India’s Parliament since W.H. Morris-Jones' 'Parliament in India' (1957). Based on a sabbatical supported by a K.K. Birla Fellowship, it provides an exhaustive diagnosis of parliamentary functioning, focusing primarily on the 10th Lok Sabha. The book examines critical issues such as parliamentary privileges, legislative bodies, and immunities, and is recognized as a seminal work in Indian parliamentary studies.",
+    purchaseLink: "https://catalogue.nla.gov.au/catalog/789200"
   }
 ];
