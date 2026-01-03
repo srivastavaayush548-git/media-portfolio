@@ -9,11 +9,9 @@ import vip8 from '../assets/Images/Vips/8.jpeg';
 import vip9 from '../assets/Images/Vips/9.jpeg';
 import vip10 from '../assets/Images/Vips/10.jpg';
 import vip11 from '../assets/Images/Vips/11.jpg';
-import vip12 from '../assets/Images/Vips/12.jpeg';
 import vip13 from '../assets/Images/Vips/13.jpg';
 import vip14 from '../assets/Images/Vips/14.jpg';
 import vip15 from '../assets/Images/Vips/15.jpg';
-import vip16 from '../assets/Images/Vips/16.jpg';
 import vip17 from '../assets/Images/Vips/17.jpg';
 import vip18 from '../assets/Images/Vips/18.jpeg';
 import vip19 from '../assets/Images/Vips/19.jpg';
@@ -21,7 +19,6 @@ import vip19_2 from '../assets/Images/Vips/19 (2).jpg';
 import vip20 from '../assets/Images/Vips/20.jpg';
 import vip21 from '../assets/Images/Vips/21.jpg';
 import vip22 from '../assets/Images/Vips/22.jpg';
-import vip23 from '../assets/Images/Vips/23.jpeg';
 import vip24 from '../assets/Images/Vips/24.jpg';
 import vip25 from '../assets/Images/Vips/25 .jpg';
 import vip26 from '../assets/Images/Vips/26.jpg';
@@ -35,10 +32,6 @@ import vip34 from '../assets/Images/Vips/34.jpg';
 import vip35 from '../assets/Images/Vips/35.jpeg';
 import vip36 from '../assets/Images/Vips/36.jpeg';
 import vip40 from '../assets/Images/Vips/40.jpeg';
-import vip41 from '../assets/Images/Vips/41.jpeg';
-import vip42 from '../assets/Images/Vips/42.jpeg';
-import vip43 from '../assets/Images/Vips/43.jpeg';
-import vip44 from '../assets/Images/Vips/44.jpeg';
 import vip45 from '../assets/Images/Vips/45.jpeg';
 
 export const vipImages = [
@@ -51,11 +44,9 @@ export const vipImages = [
   { id: 9, src: vip9, alt: "Dignitary interaction 9" },
   { id: 10, src: vip10, alt: "Dignitary interaction 10" },
   { id: 11, src: vip11, alt: "Dignitary interaction 11" },
-  { id: 12, src: vip12, alt: "Dignitary interaction 12" },
   { id: 13, src: vip13, alt: "Dignitary interaction 13" },
   { id: 14, src: vip14, alt: "Dignitary interaction 14" },
   { id: 15, src: vip15, alt: "Dignitary interaction 15" },
-  { id: 16, src: vip16, alt: "Dignitary interaction 16" },
   { id: 17, src: vip17, alt: "Dignitary interaction 17" },
   { id: 18, src: vip18, alt: "Dignitary interaction 18" },
   { id: 19, src: vip19, alt: "Dignitary interaction 19" },
@@ -63,7 +54,6 @@ export const vipImages = [
   { id: 20, src: vip20, alt: "Dignitary interaction 20" },
   { id: 21, src: vip21, alt: "Dignitary interaction 21" },
   { id: 22, src: vip22, alt: "Dignitary interaction 22" },
-  { id: 23, src: vip23, alt: "Dignitary interaction 23" },
   { id: 24, src: vip24, alt: "Dignitary interaction 24" },
   { id: 25, src: vip25, alt: "Dignitary interaction 25" },
   { id: 26, src: vip26, alt: "Dignitary interaction 26" },
@@ -77,9 +67,5 @@ export const vipImages = [
   { id: 35, src: vip35, alt: "Dignitary interaction 35" },
   { id: 36, src: vip36, alt: "Dignitary interaction 36" },
   { id: 40, src: vip40, alt: "Dignitary interaction 40" },
-  { id: 41, src: vip41, alt: "Dignitary interaction 41" },
-  { id: 42, src: vip42, alt: "Dignitary interaction 42" },
-  { id: 43, src: vip43, alt: "Dignitary interaction 43" },
-  { id: 44, src: vip44, alt: "Dignitary interaction 44" },
   { id: 45, src: vip45, alt: "Dignitary interaction 45" },
 ];

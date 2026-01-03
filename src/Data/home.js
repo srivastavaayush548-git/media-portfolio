@@ -25,7 +25,7 @@ export const homeMenu = [
   { label: 'Interview', path: '/interview' },
   { label: 'Article', path: '/article' },
   { label: 'Books', path: '/books' },
-  { label: "VIP's", path: '/vips' },
+  { label: "Gallery", path: '/gallery' },
 ];
 
 export const homeSocialLinks = [
