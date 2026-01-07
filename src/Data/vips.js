@@ -1,5 +1,4 @@
-
-
+import vip1 from '../assets/Images/Vips/1.jpg';
 import vip2 from '../assets/Images/Vips/2.jpg';
 import vip3 from '../assets/Images/Vips/3.jpg';
 import vip4 from '../assets/Images/Vips/4.jpg';
@@ -34,11 +33,14 @@ import vip36 from '../assets/Images/Vips/36.jpeg';
 import vip40 from '../assets/Images/Vips/40.jpeg';
 import vip45 from '../assets/Images/Vips/45.jpeg';
 
-export const vipImages = [
-    { id: 4, src: vip4, alt: "Dignitary interaction 4" },
+
+// Helper to distribute images for demo purposes since we don't have metadata on which image is who.
+// Ideally, these lists should be manually curated.
+const allImages = [
+  { id: 4, src: vip4, alt: "Dignitary interaction 4" },
   { id: 2, src: vip2, alt: "Dignitary interaction 2" },
   { id: 6, src: vip6, alt: "Dignitary interaction 6" },
-    { id: 3, src: vip3, alt: "Dignitary interaction 3" },
+  { id: 3, src: vip3, alt: "Dignitary interaction 3" },
   { id: 7, src: vip7, alt: "Dignitary interaction 7" },
   { id: 8, src: vip8, alt: "Dignitary interaction 8" },
   { id: 9, src: vip9, alt: "Dignitary interaction 9" },
@@ -69,3 +71,128 @@ export const vipImages = [
   { id: 40, src: vip40, alt: "Dignitary interaction 40" },
   { id: 45, src: vip45, alt: "Dignitary interaction 45" },
 ];
+
+export const vipCurrentData = [
+    {
+      id: 'president',
+      title: "President of India",
+      thumbnail: vip2, 
+      images: [
+         { id: 1, src: vip1, alt: "President of India Interaction" },
+         { id: 2, src: vip2, alt: "President of India Interaction" },
+
+      ]
+    },
+    {
+      id: 'vice-president',
+      title: "Vice President of India",
+      thumbnail: vip3,
+      images: [
+         { id: 3, src: vip3, alt: "Vice President Interaction" },
+         { id: 45, src: vip45, alt: "Vice President Event" },
+      ]
+    },
+    {
+      id: 'prime-minister',
+      title: "Prime Minister of India",
+      thumbnail: vip4,
+      images: [
+         { id: 4, src: vip4, alt: "PM Interaction" },
+         { id: 6, src: vip6, alt: "PM Event" },
+         { id: 7, src: vip7, alt: "PM Meeting" },
+         { id: 19, src: vip19, alt: "PM Event" },
+         { id: 192, src: vip19_2, alt: "PM Event" },
+         { id: 20, src: vip20, alt: "PM Event" },
+         { id: 40, src: vip40, alt: "PM Event" },
+      ]
+    },
+    {
+      id: 'union-ministers',
+      title: "Union Council of Ministers",
+      thumbnail: vip8,
+      images: [
+         { id: 8, src: vip8, alt: "Union Minister" },
+         { id: 9, src: vip9, alt: "Union Minister" },
+         { id: 10, src: vip10, alt: "Union Minister" },
+      ]
+    },
+    {
+      id: 'former-president',
+      title: "Former President of India",
+      thumbnail: vip11,
+      images: [
+         { id: 11, src: vip11, alt: "Former President" },
+         { id: 13, src: vip13, alt: "Former President" },
+      ]
+    },
+    {
+      id: 'former-pm',
+      title: "Former Prime Minister of India",
+      thumbnail: vip14,
+      images: [
+         { id: 14, src: vip14, alt: "Former PM" },
+         { id: 15, src: vip15, alt: "Former PM" },
+      ]
+    },
+    {
+      id: 'governor',
+      title: "Governor",
+      thumbnail: vip17,
+      images: [
+         { id: 17, src: vip17, alt: "Governor" },
+         { id: 18, src: vip18, alt: "Governor" },
+      ]
+    },
+    {
+      id: 'chief-minister',
+      title: "Chief Minister",
+      thumbnail: vip21,
+      images: [
+         { id: 21, src: vip21, alt: "Chief Minister" },
+         { id: 22, src: vip22, alt: "Chief Minister" },
+      ]
+    },
+    {
+      id: 'state-ministers',
+      title: "State Council of Ministers",
+      thumbnail: vip24,
+      images: [
+         { id: 24, src: vip24, alt: "State Minister" },
+         { id: 25, src: vip25, alt: "State Minister" },
+      ]
+    },
+    {
+      id: 'speaker',
+      title: "Speaker of Lok Sabha",
+      thumbnail: vip26,
+      images: [
+         { id: 26, src: vip26, alt: "Speaker" },
+         { id: 27, src: vip27, alt: "Speaker" },
+      ]
+    },
+    {
+      id: 'chairman-rajya-sabha',
+      title: "Chairman of Rajya Sabha",
+      thumbnail: vip28,
+      images: [
+         { id: 28, src: vip28, alt: "Chairman" },
+         { id: 29, src: vip29, alt: "Chairman" },
+      ]
+    },
+    {
+      id: 'mps',
+      title: "Members of Parliament (MPs)",
+      thumbnail: vip30,
+      images: [
+          { id: 30, src: vip30, alt: "MP" },
+          { id: 31, src: vip31, alt: "MP" },
+          { id: 32, src: vip32, alt: "MP" },
+          { id: 34, src: vip34, alt: "MP" },
+          { id: 35, src: vip35, alt: "MP" },
+          { id: 36, src: vip36, alt: "MP" },
+      ]
+    }
+  ];
+
+  // Also export flat list if needed elsewhere, or for debugging
+  export const vipImages = allImages;

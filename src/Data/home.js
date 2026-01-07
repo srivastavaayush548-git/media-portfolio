@@ -4,16 +4,7 @@ import home3Image from '../assets/Images/Homebg.jpg';
 export const homeMenu = [
   { label: 'Home', path: '/' },
   { label: 'About Me', path: '/about-me' },
-  {
-    label: 'Family',
-    submenu: [
-      { label: 'Parents', path: '/family/parents' },
-      { label: 'Sibling', path: '/family/sibling' },
-      { label: 'Wife', path: '/family/wife' },
-      { label: 'Son', path: '/family/son' },
-      { label: 'GrandChildren', path: '/family/grandchildren' },
-    ]
-  },
+  { label: 'Family', path: '/family' },
   {
     label: 'Career',
     path: '/career',

@@ -3,11 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './Components/Header'
 import Home from './Pages/home'
 import AboutMe from './Pages/aboutMe'
-import Parents from './Pages/family/Parents'
-import Sibling from './Pages/family/Sibling'
-import Wife from './Pages/family/Wife'
-import Son from './Pages/family/Son'
-import Grandchildren from './Pages/family/Grandchildren'
+import Family from './Pages/family/Family'
 import Career from './Pages/career'
 import Convocation from './Pages/career/Convocation'
 import Padmabhushan from './Pages/awards/Padmabhushan'
@@ -30,11 +26,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about-me" element={<AboutMe />} />
-        <Route path="/family/parents" element={<Parents />} />
-        <Route path="/family/sibling" element={<Sibling />} />
-        <Route path="/family/wife" element={<Wife />} />
-        <Route path="/family/son" element={<Son />} />
-        <Route path="/family/grandchildren" element={<Grandchildren />} />
+        <Route path="/family" element={<Family />} />
         <Route path="/career" element={<Career />} />
         <Route path="/career/convocation" element={<Convocation />} />
         <Route path="/awards/padmabhushan" element={<Padmabhushan />} />
