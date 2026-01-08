@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -26,22 +27,22 @@ const Footer = () => {
           <div className="md:col-span-3">
             <h3 className="text-stone-200 font-serif font-bold mb-4">Discover</h3>
             <ul className="space-y-2 text-sm">
-              <FooterLink href="/" label="Home" />
-              <FooterLink href="/about-me" label="About Me" />
-              <FooterLink href="/career" label="Career Path" />
-              <FooterLink href="/books" label="Authored Works" />
-              <FooterLink href="/article" label="Articles & Columns" />
-              <FooterLink href="/interview" label="Interviews" />
-              <FooterLink href="/gallery" label="VIP Gallery" />
-              <FooterLink href="/family" label="Family Moments" />
+              <FooterLink to="/" label="Home" />
+              <FooterLink to="/about-me" label="About Me" />
+              <FooterLink to="/career" label="Career Path" />
+              <FooterLink to="/books" label="Authored Works" />
+              <FooterLink to="/article" label="Articles & Columns" />
+              <FooterLink to="/interview" label="Interviews" />
+              <FooterLink to="/gallery" label="VIP Gallery" />
+              <FooterLink to="/family" label="Family Moments" />
             </ul>
           </div>
 
           <div className="md:col-span-3">
             <h3 className="text-stone-200 font-serif font-bold mb-4">Legal & Info</h3>
             <ul className="space-y-2 text-sm">
-              <FooterLink href="/privacy-policy" label="Privacy Policy" />
-              <FooterLink href="/terms-and-conditions" label="Terms & Conditions" />
+              <FooterLink to="/privacy-policy" label="Privacy Policy" />
+              <FooterLink to="/terms-and-conditions" label="Terms & Conditions" />
               <li className="pt-4 text-xs text-stone-600">
                 &copy; {new Date().getFullYear()} A. Surya Prakash.<br/>All rights reserved.
               </li>
@@ -56,11 +57,11 @@ const Footer = () => {
   );
 };
 
-const FooterLink = ({ href, label }) => (
+const FooterLink = ({ to, label }) => (
   <li>
-    <a href={href} className="hover:text-red-400 transition-colors duration-200 block py-0.5">
+    <Link to={to} className="hover:text-red-400 transition-colors duration-200 block py-0.5">
       {label}
-    </a>
+    </Link>
   </li>
 );
 

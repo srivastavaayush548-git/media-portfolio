@@ -8,34 +8,35 @@ const TermsAndConditions = () => {
           Terms & Conditions
         </h1>
 
-        <div className="prose prose-lg prose-stone max-w-none">
-          <p>
-            Welcome to the official website of <strong>Dr. A. Surya Prakash</strong>. By accessing and using this website, you agree to comply with and be bound by the following terms and conditions of use. If you disagree with any part of these terms and conditions, please do not use our website.
+        <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-stone-100 prose prose-lg prose-stone max-w-none">
+          <p className="text-xl text-stone-600 leading-relaxed">
+            Welcome to the official website of <strong>A. Surya Prakash</strong>. By accessing and using this website, you agree to comply with and be bound by the following terms and conditions of use. If you disagree with any part of these terms and conditions, please do not use our website.
           </p>
+          <p className="text-sm text-stone-500 mb-8">Last Updated: January 2026</p>
 
           <h3 className="text-2xl font-serif font-bold text-stone-900 mt-8 mb-4">1. General Use</h3>
           <p>
-            The content of the pages of this website is for your general information and use only. It is subject to change without notice. This website serves as a digital portfolio and archive of Dr. A. Surya Prakash's journalistic work, books, and academic contributions.
+            The content of the pages of this website is for your general information and use only. It is subject to change without notice. This website serves as a digital portfolio and archive of A. Surya Prakash's journalistic work, books, and public contributions.
           </p>
 
           <h3 className="text-2xl font-serif font-bold text-stone-900 mt-8 mb-4">2. Intellectual Property</h3>
           <p>
-            This website contains material which is owned by or licensed to Dr. A. Surya Prakash. This material includes, but is not limited to, the design, layout, look, appearance, graphics, articles, and book excerpts.
+            This website contains material which is owned by or licensed to A. Surya Prakash. This material includes, but is not limited to, the design, layout, look, appearance, graphics, articles, and book excerpts.
           </p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Articles & Columns:</strong> Copyright for published articles may reside with the respective publications (e.g., The Indian Express, The Pioneer, Zee News) or with the author, as per the original agreements.</li>
+          <ul className="list-disc pl-6 space-y-2 text-stone-700">
+            <li><strong>Articles & Columns:</strong> Copyright for published articles typically resides with the respective publications (e.g., The Indian Express, The Pioneer, Zee News) or with the author, as per the original publication agreements. Excerpts here are for archival and portfolio purposes.</li>
             <li><strong>Books:</strong> Excerpts and details of books are provided for informational purposes. Copyrights belong to the respective publishers and the author.</li>
-            <li><strong>Photographs:</strong> Images used on this site are personal archives or licensed for use. Reproduction is prohibited other than in accordance with the copyright notice.</li>
+            <li><strong>Photographs:</strong> Images used on this site are from personal archives or licensed for use. Reproduction is prohibited other than in accordance with the copyright notice.</li>
           </ul>
 
           <h3 className="text-2xl font-serif font-bold text-stone-900 mt-8 mb-4">3. Restrictions</h3>
           <p>
             You are expressly restricted from all of the following:
           </p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Publishing any website material in any media without prior written consent.</li>
+          <ul className="list-disc pl-6 space-y-2 text-stone-700">
+            <li>Publishing any website material in any other media without prior written consent (excluding content already in public domain via other publishers).</li>
             <li>Selling, sublicensing, and/or otherwise commercializing any website material.</li>
-            <li>Using this website in any way that is, or may be, damaging to this website or to the reputation of Dr. A. Surya Prakash.</li>
+            <li>Using this website in any way that is, or may be, damaging to this website or to the professional reputation of A. Surya Prakash.</li>
           </ul>
 
           <h3 className="text-2xl font-serif font-bold text-stone-900 mt-8 mb-4">4. Third-Party Links</h3>
