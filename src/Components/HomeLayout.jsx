@@ -14,7 +14,7 @@ const HomeLayout = () => {
   const blogData = [
     {
       category: "EVENTS",
-      title: "Latest Book Launch & News",
+      title: "Book Launch & News",
       excerpt: "Updates on recent book launches and literary contributions.",
       image: bookNewsImg
     },
@@ -134,7 +134,7 @@ const HomeLayout = () => {
       {/* --- Featured Works / News Layout --- */}
       <section className="py-20 max-w-6xl mx-auto px-6">
         <div className="flex justify-between items-end mb-12">
-          <h2 className="text-3xl font-serif font-bold text-stone-900">Recent Blogs</h2>
+          <h2 className="text-3xl font-serif font-bold text-stone-900">Latest Updates</h2>
           
           {/* Navigation Controls */}
           <div className="flex gap-2">

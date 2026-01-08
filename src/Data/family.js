@@ -11,7 +11,6 @@ import wifeImg2 from '../assets/Images/Family/withwife2.jpeg';
 import wifeImg3 from '../assets/Images/Family/withwife3.jpeg';
 import wifeImg4 from '../assets/Images/Family/withwife4.jpeg';
 import wifeImg5 from '../assets/Images/Family/withWife5.jpeg';
-import familyGroupImg from '../assets/Images/Family/WhatsApp Image 2026-01-07 at 6.54.34 PM (7).jpeg';
 import grandchildrenImg1 from '../assets/Images/Family/grandchildren.jpeg';
 import grandchildrenImg2 from '../assets/Images/Family/grandchildren2.jpeg';
 import sonImg from '../assets/Images/Family/son.jpeg';
@@ -33,7 +32,7 @@ export const familyData = [
   },
   {
     id: 'son-family',
-    title: "Son & Family",
+    title: "Son",
     thumbnail: sonImg,
     images: [
       { id: 7, src: sonImg, alt: "Portrait of my son", title: "Portrait of my son." },
@@ -60,7 +59,6 @@ export const familyData = [
     images: [
       { id: 15, src: familyImg, alt: "The complete family", title: "The complete family." },
       { id: 16, src: siblingsImg, alt: "With my siblings", title: "With my siblings." },
-      { id: 17, src: familyGroupImg, alt: "Family Gathering", title: "Special moments with the family." },
     ]
   }
 ];
