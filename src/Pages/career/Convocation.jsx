@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import convocationImage1 from '../../assets/Images/Career/Image_002.jpg';
 import convocationImage2 from '../../assets/Images/Career/Image_007.jpg';
+import convocationImage3 from '../../assets/Images/Career/convocation2.jpeg';
 import { Award, BookOpen, GraduationCap, X } from 'lucide-react';
 
 const Convocation = () => {
@@ -9,7 +10,7 @@ const Convocation = () => {
   const convocations = [
     {
       university: "Example University",
-      title: "convocation invitation",
+      title: "Convocation Invitation",
       date: "August 15, 2024",
       description: "Addressing the graduating batch on the future of media and democracy.",
       link: "#",
@@ -17,11 +18,19 @@ const Convocation = () => {
     },
     {
       university: "Example University",
-      title: "convocation ",
+      title: "Convocation Ceremony",
       date: "August 15, 2024",
       description: "Addressing the graduating batch on the future of media and democracy.",
       link: "#",
       image: convocationImage2 
+    },
+    {
+      university: "Example University",
+      title: "Convocation",
+      date: "Date TBD",
+      description: "Address to the graduating class.",
+      link: "#",
+      image: convocationImage3
     },
   ];
 

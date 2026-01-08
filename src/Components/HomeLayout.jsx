@@ -1,84 +1,30 @@
 import React, { useState } from 'react';
 import praksh from '../assets/a-surya-prakash.jpeg';
 import BGHome from '../assets/Images/Homebg.jpg';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
-// Import distinct article images
-// import articleImg1 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.04 PM.jpeg';
-// import articleImg2 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.05 PM.jpeg';
-// import articleImg3 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.06 PM.jpeg';
-// import articleImg4 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.07 PM.jpeg';
-// import articleImg5 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.20 PM.jpeg';
-// import articleImg6 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.21 PM.jpeg';
-// import articleImg7 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.22 PM.jpeg';
-// import articleImg8 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.23 PM.jpeg';
-// import articleImg9 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.45 PM.jpeg';
-// import articleImg10 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.46 PM.jpeg';
+import bookNewsImg from '../assets/booknews.png';
+import invitationImg from '../assets/invitation.png';
+
 
 const HomeLayout = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const blogData = [
-    // {
-    //   category: "CONSTITUTION",
-    //   title: "The Evolution of Parliamentary Democracy in India",
-    //   excerpt: "An analysis of how legislative bodies have adapted to modern governance challenges over the last seven decades.",
-    //   image: articleImg1
-    // },
-    // {
-    //   category: "POLITICS",
-    //   title: "Electoral Reforms: The Road Ahead",
-    //   excerpt: "Exploring the critical need for transparency in funding and the role of the Election Commission in ensuring fair play.",
-    //   image: articleImg2
-    // },
-    // {
-    //   category: "MEDIA",
-    //   title: "Journalism in the Age of Digital Noise",
-    //   excerpt: "Reflecting on the shifting paradigms of news consumption and the enduring responsibility of the editor.",
-    //   image: articleImg3
-    // },
-    // {
-    //   category: "DEMOCRACY",
-    //   title: "Grassroots Governance and Local Bodies",
-    //   excerpt: "How panchayati raj institutions are reshaping the democratic landscape at the village level.",
-    //   image: articleImg4
-    // },
-    // {
-    //   category: "PUBLIC POLICY",
-    //   title: "Broadcasting Reforms in a New Era",
-    //   excerpt: "The future of public service broadcasting in an era of ott platforms and private media dominance.",
-    //   image: articleImg5
-    // },
-    // {
-    //   category: "HISTORY",
-    //   title: "Revisiting the Emergency Era",
-    //   excerpt: "Lessons learned from one of the darkest chapters in Indian democracy and the resilience of its institutions.",
-    //   image: articleImg6
-    // },
-    // {
-    //   category: "CONSTITUTION",
-    //   title: "Federalism: Cooperation and Conflict",
-    //   excerpt: "Understanding the delicate balance of power between the center and states in India's federal structure.",
-    //   image: articleImg7
-    // },
-    // {
-    //   category: "SOCIETY",
-    //   title: "The Changing Face of Indian Civil Society",
-    //   excerpt: "The role of ngos and citizen groups in holding the government accountable and driving social change.",
-    //   image: articleImg8
-    // },
-    // {
-    //   category: "LEADERSHIP",
-    //   title: "Political Leadership in Independent India",
-    //   excerpt: "A comparative study of leadership styles from Nehru to the present day.",
-    //   image: articleImg9
-    // },
-    // {
-    //   category: "GLOBAL AFFAIRS",
-    //   title: "India's Place in the New World Order",
-    //   excerpt: "Analyzing India's foreign policy shifts and its growing influence on the global stage.",
-    //   image: articleImg10
-    // }
+    {
+      category: "EVENTS",
+      title: "Latest Book Launch & News",
+      excerpt: "Updates on recent book launches and literary contributions.",
+      image: bookNewsImg
+    },
+    {
+      category: "EVENTS",
+      title: "Special Invitation of Book Launch",
+      excerpt: "Official invitations to upcoming talks and ceremonies.",
+      image: invitationImg
+    },
+    // ... previous commented out items can remain here or be removed
   ];
 
   const nextSlide = () => {
@@ -118,6 +64,14 @@ const HomeLayout = () => {
     { role: "Executive Editor", org: "The Pioneer" },
     { role: "Editor", org: "Zee News" }
   ];
+
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedImage(null);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-200 via-yellow-200 to-orange-100 bg-cover bg-center font-sans selection:bg-red-100">
@@ -203,13 +157,22 @@ const HomeLayout = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {blogData.slice(currentSlide, currentSlide + 3).map((item, index) => (
-            <article key={index} className="group cursor-pointer">
-              <div className="h-64 bg-stone-200 overflow-hidden rounded relative">
+            <article 
+              key={index} 
+              className="group cursor-pointer"
+              onClick={() => handleImageClick(item.image)}
+            >
+              <div className="h-64 bg-stone-200 overflow-hidden rounded-t relative">
                 <img 
                   src={item.image} 
                   alt={item.title || "Blog Image"} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
+              </div>
+              <div className="p-5 bg-white border border-t-0 border-stone-200 rounded-b shadow-sm group-hover:shadow-md transition-shadow">
+                <h3 className="text-xl font-serif font-bold text-stone-900 mb-2 leading-tight group-hover:text-red-900 transition-colors">
+                  {item.title}
+                </h3>
               </div>
             </article>
           ))}
@@ -219,6 +182,32 @@ const HomeLayout = () => {
             <a href="#" className="text-red-700 font-medium hover:underline">View Archive &rarr;</a>
         </div>
       </section>
+
+      {/* Modal / Lightbox */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm"
+          onClick={handleCloseModal}
+        >
+          <div className="absolute top-4 right-4 z-50">
+             <button 
+               onClick={handleCloseModal}
+               className="bg-white/10 hover:bg-white/20 text-white rounded-full p-2 transition-colors"
+             >
+               <X className="w-8 h-8" />
+             </button>
+          </div>
+          
+          <div className="relative max-w-5xl max-h-[90vh] overflow-hidden rounded-lg shadow-2xl">
+             <img 
+               src={selectedImage} 
+               alt="Full size view" 
+               className="max-w-full max-h-[90vh] object-contain"
+               onClick={(e) => e.stopPropagation()} 
+             />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

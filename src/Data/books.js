@@ -2,8 +2,24 @@ import publicMoneyCover from '../assets/Agenda.jpg';
 import emergencyCover from '../assets/the_emergency_cover.png';
 import parliamentCover from '../assets/what_ails_indian_parliament_cover.png';
 import congressCover from '../assets/Images/congress.jpeg';
+import democracyPoliticsCover from '../assets/Images/democracypolitics.jpeg';
+import allInTheNameCover from '../assets/Images/allinthename.jpeg';
 
 export const nonFictionBooks = [
+  {
+    title: "Democracy, Politics & Governance",
+    author: "A. Surya Prakash",
+    cover: democracyPoliticsCover,
+    description: "An authoritative collection of articles exploring India's democratic journey, offering in-depth insights into the interplay of democracy, politics, and governance. Released by Vice President Venkaiah Naidu, this book reflects on the Constitutional and parliamentary issues that have shaped the nation's political landscape.",
+    purchaseLink: "https://www.amazon.in/Democracy-Politics-Governance-English-Prakash/dp/9390512966"
+  },
+  {
+    title: "All in the Name The Nehru-Gandhi Family",
+    author: "A. Surya Prakash",
+    cover: allInTheNameCover,
+    description: "A critical examination of the extensive practice of naming government schemes, public institutions, and scholarships after members of the Nehru-Gandhi family. This investigative work highlights how such practices can undermine the democratic system by sidelining the contributions of other national heroes and builders of modern India.",
+    purchaseLink: "https://www.amazon.in/All-Name-S-Surya-Prakash/dp/8129135078"
+  },
   {
     title: "PUBLIC MONEY, PRIVATE AGENDA: THE USE AND ABUSE OF MPLADS",
     author: "A. Surya Prakash",
@@ -34,5 +50,6 @@ export const nonFictionBooks = [
     cover: parliamentCover,
     description: "Published in 1995 by Indus (HarperCollins), this work is widely regarded as the most definitive text on the functioning of India’s Parliament since W.H. Morris-Jones' 'Parliament in India' (1957). Based on a sabbatical supported by a K.K. Birla Fellowship, it provides an exhaustive diagnosis of parliamentary functioning, focusing primarily on the 10th Lok Sabha. The book examines critical issues such as parliamentary privileges, legislative bodies, and immunities, and is recognized as a seminal work in Indian parliamentary studies.",
     purchaseLink: "https://catalogue.nla.gov.au/catalog/789200"
-  }
+  },
+  
 ];
