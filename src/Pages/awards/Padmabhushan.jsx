@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Padmabhushan = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-200 via-yellow-200 to-orange-100 text-stone-800 font-sans selection:bg-red-100 pt-20">
@@ -14,8 +16,8 @@ const Padmabhushan = () => {
             the fields of Literature and Education.
           </p>
         </div>
-        <div className="w-full bg-black/5 rounded-2xl p-2 md:p-4 backdrop-blur-sm">
-          <div className="relative w-full rounded-xl overflow-hidden shadow-lg aspect-video">
+        <div className="w-full bg-white/80 rounded-2xl p-2 md:p-4 backdrop-blur-sm shadow-lg">
+          <div className="relative w-full rounded-xl overflow-hidden shadow-lg aspect-video bg-stone-900">
             <iframe 
               className="absolute top-0 left-0 w-full h-full"
               src="https://www.youtube.com/embed/sN9A_43-4_0"
@@ -23,9 +25,10 @@ const Padmabhushan = () => {
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
+              loading="lazy"
             ></iframe>
           </div>
-          <p className="text-center text-sm text-stone-500 mt-3 font-medium italic">
+          <p className="text-center text-sm text-stone-600 mt-4 font-medium">
             Video: A. Surya Prakash Honoured with Padma Bhushan
           </p>
         </div>

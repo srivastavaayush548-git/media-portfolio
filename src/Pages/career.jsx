@@ -7,11 +7,38 @@ import {
   Building2,
   ChevronDown,
   Briefcase,
-  Landmark
+  Landmark,
+  X,
+  GraduationCap
 } from 'lucide-react';
+import convocationImage1 from '../assets/Images/Career/Image_002.jpg';
+import convocationImage2 from '../assets/Images/Career/Image_007.jpg';
+import convocationImage3 from '../assets/Images/Career/convocation2.jpeg';
 
 const Career = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const convocations = [
+    {
+      title: "Convocation Invitation",
+      date: "2015",
+      description: "Invitation to deliver the convocation address at a prestigious university.",
+      image: convocationImage1
+    },
+    {
+      title: "Convocation Ceremony",
+      date: "2015",
+      description: "Delivering the convocation address to the graduating class.",
+      image: convocationImage2
+    },
+    {
+      title: "Convocation Address",
+      date: "2015",
+      description: "Inspiring the next generation of leaders and thinkers.",
+      image: convocationImage3
+    },
+  ];
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -22,18 +49,11 @@ const Career = () => {
 
   const roles = [
     {
-      role: "Member, Executive Council",
+      role: "Vice-Chairman, Executive Council",
       org: "Prime Ministers' Museum & Library (PMML)",
       desc: "Preserving and presenting the legacies of India's prime ministers. Currently serving on the Executive Council in New Delhi.",
       icon: <Landmark className="w-5 h-5" />,
       year: "Current"
-    },
-    {
-      role: "Vice-Chairman, Executive Council",
-      org: "Prime Ministers' Museum & Library (PMML)",
-      desc: "Served as the Vice-Chairman of the Executive Council, contributing to the development and curation of the museum.",
-      icon: <Landmark className="w-5 h-5" />,
-      year: "Past"
     },
     {
       role: "Chairperson",
@@ -165,7 +185,78 @@ const Career = () => {
           </div>
         </section>
 
+        {/* --- Convocation Ceremony Section --- */}
+        <section className="mb-32">
+          <div className="text-center mb-16">
+            <div className="inline-block mb-4 px-3 py-1 border border-red-800/30 rounded-full bg-red-50 text-red-900 text-xs font-bold uppercase tracking-wider">
+              Speeches & Addresses
+            </div>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-stone-900 mb-4">
+              Convocation <span className="text-red-800">Ceremony</span>
+            </h2>
+            <p className="text-stone-500 max-w-xl mx-auto">
+              Key addresses delivered at university convocations, inspiring the next generation of leaders and thinkers.
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+            {convocations.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-stone-100 group relative cursor-pointer"
+                onClick={() => setSelectedImage(item.image)}
+              >
+                <div className="h-80 overflow-hidden relative">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none" />
+                </div>
+                <div className="p-6 bg-white">
+                  <div className="flex items-center gap-2 mb-3">
+                    <GraduationCap className="w-5 h-5 text-red-800 shrink-0" />
+                    <h3 className="text-lg font-serif font-bold text-stone-900">{item.title}</h3>
+                  </div>
+                  {item.date && (
+                    <p className="text-xs font-semibold text-red-700 uppercase tracking-wide mb-3">{item.date}</p>
+                  )}
+                  {item.description && (
+                    <p className="text-sm text-stone-600 leading-relaxed">{item.description}</p>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
       </div>
+
+      {/* --- Lightbox Modal for Convocation Images --- */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            className="absolute top-4 right-4 z-[110] text-white/70 hover:text-white transition-colors p-2"
+            onClick={() => setSelectedImage(null)}
+            aria-label="Close image"
+          >
+            <X className="w-8 h-8" />
+          </button>
+
+          <div className="relative max-w-5xl max-h-[90vh] overflow-hidden rounded-lg shadow-2xl">
+            <img
+              src={selectedImage}
+              alt="Full size view"
+              className="max-w-full max-h-[90vh] object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

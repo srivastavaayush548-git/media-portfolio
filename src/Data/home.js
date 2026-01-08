@@ -8,10 +8,6 @@ export const homeMenu = [
   {
     label: 'Career',
     path: '/career',
-    submenu: [
-      { label: 'Overview', path: '/career' },
-      { label: 'Convocation', path: '/career/convocation' },
-    ]
   },
   {
     label: 'Awards',
