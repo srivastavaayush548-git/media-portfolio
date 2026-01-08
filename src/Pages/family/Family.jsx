@@ -1,11 +1,8 @@
-
-import React, { useState } from 'react';
+import React from 'react';
 import { familyData } from '../../Data/family';
-import { Camera, X } from 'lucide-react';
+import ImageGroupGallery from '../../Components/ImageGroupGallery';
 
 const Family = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-200 via-yellow-200 to-orange-100 text-stone-800 font-sans selection:bg-red-100 pt-20 relative">
       <div className="absolute inset-0 opacity-5 pointer-events-none">
@@ -33,71 +30,8 @@ const Family = () => {
 
       {/* --- Gallery Section --- */}
       <section className="py-20 max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {familyData.map((item) => (
-            <div 
-              key={item.id} 
-              onClick={() => setSelectedImage(item)}
-              className="group cursor-pointer flex flex-col"
-            >
-              {/* Image Card */}
-              <div className="relative bg-white rounded-2xl shadow-md group-hover:shadow-xl transition-all duration-300 overflow-hidden border border-stone-100 aspect-4/3">
-                <img 
-                  src={item.src} 
-                  alt={item.title} 
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
-                />
-                
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-              </div>
-
-              {/* Content Box */}
-              <div className="mt-2 mx-1 p-3 bg-white rounded-xl shadow-sm border border-stone-100 group-hover:shadow-md transition-all duration-300 text-center">
-                <h3 className="text-lg font-serif font-semibold text-slate-900 mb-0.5 group-hover:text-orange-600 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-slate-500 text-xs leading-relaxed line-clamp-2">
-                  {item.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <ImageGroupGallery groups={familyData} />
       </section>
-
-      {/* --- Lightbox Modal --- */}
-      {selectedImage && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-sm transition-opacity duration-300"
-          onClick={() => setSelectedImage(null)}
-        >
-          {/* Close Button - Fixed to top right of screen for easier access on large images */}
-          <button 
-            className="fixed top-6 right-6 p-2 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors z-[60]"
-            onClick={() => setSelectedImage(null)}
-          >
-            <X className="w-8 h-8" />
-          </button>
-
-          {/* Image Container - Removed max-w-6xl valid for fuller screen */}
-          <div 
-            className="relative w-full h-full max-w-[95vw] max-h-[95vh] flex items-center justify-center p-4 outline-none"
-            onClick={(e) => e.stopPropagation()} 
-          >
-            <img 
-              src={selectedImage.src} 
-              alt={selectedImage.title} 
-              className="w-full h-full object-contain rounded-sm shadow-2xl"
-            />
-            
-            {/* Caption - Floats at bottom */}
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 px-6 py-3 bg-black/60 backdrop-blur-md rounded-full text-white text-center border border-white/10">
-              <h3 className="text-lg font-serif tracking-wide">{selectedImage.title}</h3>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

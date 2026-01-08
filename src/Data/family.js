@@ -18,113 +18,49 @@ import sonImg from '../assets/Images/Family/son.jpeg';
 import wifePushpaImg from '../assets/Images/Family/wife- pushpa.jpeg';
 
 export const familyData = [
-  // 1. Couple & Wife
   {
-    id: 1,
-    src: wifePushpaImg,
+    id: 'couple',
     title: "My Wife",
-    description: "My beloved wife Pushpa."
+    thumbnail: wifePushpaImg,
+    images: [
+      { id: 1, src: wifePushpaImg, alt: "My beloved wife Pushpa", title: "My beloved wife Pushpa." },
+      { id: 2, src: wifeImg1, alt: "Memorable moments together", title: "Memorable moments together." },
+      { id: 3, src: wifeImg2, alt: "Memorable moments together", title: "Memorable moments together." },
+      { id: 4, src: wifeImg3, alt: "Memorable moments together", title: "Memorable moments together." },
+      { id: 5, src: wifeImg4, alt: "Memorable moments together", title: "Memorable moments together." },
+      { id: 6, src: wifeImg5, alt: "Memorable moments together", title: "Memorable moments together." },
+    ]
   },
   {
-    id: 2,
-    src: wifeImg1,
-    title: "With Wife",
-    description: "Memorable moments together."
+    id: 'son-family',
+    title: "Son & Family",
+    thumbnail: sonImg,
+    images: [
+      { id: 7, src: sonImg, alt: "Portrait of my son", title: "Portrait of my son." },
+      { id: 8, src: withSonImg, alt: "Cherished moment with my son", title: "Cherished moment with my son." },
+      { id: 9, src: wifeWithSonImg, alt: "Family Time", title: "With my wife and son." },
+      { id: 10, src: daughterInLawImg, alt: "My daughter-in-law", title: "My daughter-in-law." },
+      { id: 11, src: sonAndDaughterInLawImg, alt: "My son and daughter-in-law", title: "My son and daughter-in-law." },
+    ]
   },
   {
-    id: 3,
-    src: wifeImg2,
-    title: "With Wife",
-    description: "Memorable moments together."
-  },
-  {
-    id: 4,
-    src: wifeImg3,
-    title: "With Wife",
-    description: "Memorable moments together."
-  },
-  {
-    id: 5,
-    src: wifeImg4,
-    title: "With Wife",
-    description: "Memorable moments together."
-  },
-  {
-    id: 6,
-    src: wifeImg5,
-    title: "With Wife",
-    description: "Memorable moments together."
-  },
-
-  // 2. Son & Family
-  {
-    id: 7,
-    src: sonImg,
-    title: "My Son",
-    description: "Portrait of my son."
-  },
-  {
-    id: 8,
-    src: withSonImg,
-    title: "With Son",
-    description: "Cherished moment with my son."
-  },
-  {
-    id: 9,
-    src: wifeWithSonImg,
-    title: "Family Time",
-    description: "With my wife and son."
-  },
-  {
-    id: 10,
-    src: daughterInLawImg,
-    title: "Daughter-in-law",
-    description: "My daughter-in-law."
-  },
-  {
-    id: 11,
-    src: sonAndDaughterInLawImg,
-    title: "Son & Daughter-in-law",
-    description: "My son and daughter-in-law."
-  },
-
-  // 3. Grandchildren
-  {
-    id: 12,
-    src: grandchildrenImg,
+    id: 'grandchildren',
     title: "Grandchildren",
-    description: "With my lovely grandchildren."
+    thumbnail: grandchildrenImg,
+    images: [
+      { id: 12, src: grandchildrenImg, alt: "With my lovely grandchildren", title: "With my lovely grandchildren." },
+      { id: 13, src: grandchildrenImg1, alt: "Joyful moments", title: "Joyful moments." },
+      { id: 14, src: grandchildrenImg2, alt: "More moments with the little ones", title: "More moments with the little ones." },
+    ]
   },
   {
-    id: 13,
-    src: grandchildrenImg1,
-    title: "Grandchildren",
-    description: "Joyful moments."
-  },
-  {
-    id: 14,
-    src: grandchildrenImg2,
-    title: "Grandchildren",
-    description: "More moments with the little ones."
-  },
-
-  // 4. Full Family & Groups
-  {
-    id: 15,
-    src: familyImg,
-    title: "Complete Family",
-    description: "The complete family."
-  },
-  {
-    id: 16,
-    src: siblingsImg,
-    title: "Siblings",
-    description: "With my siblings."
-  },
-  {
-    id: 17,
-    src: familyGroupImg,
-    title: "Family Gathering",
-    description: "Special moments with the family."
-  },
+    id: 'complete-family',
+    title: "Complete Family & Groups",
+    thumbnail: familyImg,
+    images: [
+      { id: 15, src: familyImg, alt: "The complete family", title: "The complete family." },
+      { id: 16, src: siblingsImg, alt: "With my siblings", title: "With my siblings." },
+      { id: 17, src: familyGroupImg, alt: "Family Gathering", title: "Special moments with the family." },
+    ]
+  }
 ];

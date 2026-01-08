@@ -4,81 +4,81 @@ import BGHome from '../assets/Images/Homebg.jpg';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Import distinct article images
-import articleImg1 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.04 PM.jpeg';
-import articleImg2 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.05 PM.jpeg';
-import articleImg3 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.06 PM.jpeg';
-import articleImg4 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.07 PM.jpeg';
-import articleImg5 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.20 PM.jpeg';
-import articleImg6 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.21 PM.jpeg';
-import articleImg7 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.22 PM.jpeg';
-import articleImg8 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.23 PM.jpeg';
-import articleImg9 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.45 PM.jpeg';
-import articleImg10 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.46 PM.jpeg';
+// import articleImg1 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.04 PM.jpeg';
+// import articleImg2 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.05 PM.jpeg';
+// import articleImg3 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.06 PM.jpeg';
+// import articleImg4 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.07 PM.jpeg';
+// import articleImg5 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.20 PM.jpeg';
+// import articleImg6 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.21 PM.jpeg';
+// import articleImg7 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.22 PM.jpeg';
+// import articleImg8 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.23 PM.jpeg';
+// import articleImg9 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.45 PM.jpeg';
+// import articleImg10 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.46 PM.jpeg';
 
 const HomeLayout = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const blogData = [
-    {
-      category: "CONSTITUTION",
-      title: "The Evolution of Parliamentary Democracy in India",
-      excerpt: "An analysis of how legislative bodies have adapted to modern governance challenges over the last seven decades.",
-      image: articleImg1
-    },
-    {
-      category: "POLITICS",
-      title: "Electoral Reforms: The Road Ahead",
-      excerpt: "Exploring the critical need for transparency in funding and the role of the Election Commission in ensuring fair play.",
-      image: articleImg2
-    },
-    {
-      category: "MEDIA",
-      title: "Journalism in the Age of Digital Noise",
-      excerpt: "Reflecting on the shifting paradigms of news consumption and the enduring responsibility of the editor.",
-      image: articleImg3
-    },
-    {
-      category: "DEMOCRACY",
-      title: "Grassroots Governance and Local Bodies",
-      excerpt: "How panchayati raj institutions are reshaping the democratic landscape at the village level.",
-      image: articleImg4
-    },
-    {
-      category: "PUBLIC POLICY",
-      title: "Broadcasting Reforms in a New Era",
-      excerpt: "The future of public service broadcasting in an era of ott platforms and private media dominance.",
-      image: articleImg5
-    },
-    {
-      category: "HISTORY",
-      title: "Revisiting the Emergency Era",
-      excerpt: "Lessons learned from one of the darkest chapters in Indian democracy and the resilience of its institutions.",
-      image: articleImg6
-    },
-    {
-      category: "CONSTITUTION",
-      title: "Federalism: Cooperation and Conflict",
-      excerpt: "Understanding the delicate balance of power between the center and states in India's federal structure.",
-      image: articleImg7
-    },
-    {
-      category: "SOCIETY",
-      title: "The Changing Face of Indian Civil Society",
-      excerpt: "The role of ngos and citizen groups in holding the government accountable and driving social change.",
-      image: articleImg8
-    },
-    {
-      category: "LEADERSHIP",
-      title: "Political Leadership in Independent India",
-      excerpt: "A comparative study of leadership styles from Nehru to the present day.",
-      image: articleImg9
-    },
-    {
-      category: "GLOBAL AFFAIRS",
-      title: "India's Place in the New World Order",
-      excerpt: "Analyzing India's foreign policy shifts and its growing influence on the global stage.",
-      image: articleImg10
-    }
+    // {
+    //   category: "CONSTITUTION",
+    //   title: "The Evolution of Parliamentary Democracy in India",
+    //   excerpt: "An analysis of how legislative bodies have adapted to modern governance challenges over the last seven decades.",
+    //   image: articleImg1
+    // },
+    // {
+    //   category: "POLITICS",
+    //   title: "Electoral Reforms: The Road Ahead",
+    //   excerpt: "Exploring the critical need for transparency in funding and the role of the Election Commission in ensuring fair play.",
+    //   image: articleImg2
+    // },
+    // {
+    //   category: "MEDIA",
+    //   title: "Journalism in the Age of Digital Noise",
+    //   excerpt: "Reflecting on the shifting paradigms of news consumption and the enduring responsibility of the editor.",
+    //   image: articleImg3
+    // },
+    // {
+    //   category: "DEMOCRACY",
+    //   title: "Grassroots Governance and Local Bodies",
+    //   excerpt: "How panchayati raj institutions are reshaping the democratic landscape at the village level.",
+    //   image: articleImg4
+    // },
+    // {
+    //   category: "PUBLIC POLICY",
+    //   title: "Broadcasting Reforms in a New Era",
+    //   excerpt: "The future of public service broadcasting in an era of ott platforms and private media dominance.",
+    //   image: articleImg5
+    // },
+    // {
+    //   category: "HISTORY",
+    //   title: "Revisiting the Emergency Era",
+    //   excerpt: "Lessons learned from one of the darkest chapters in Indian democracy and the resilience of its institutions.",
+    //   image: articleImg6
+    // },
+    // {
+    //   category: "CONSTITUTION",
+    //   title: "Federalism: Cooperation and Conflict",
+    //   excerpt: "Understanding the delicate balance of power between the center and states in India's federal structure.",
+    //   image: articleImg7
+    // },
+    // {
+    //   category: "SOCIETY",
+    //   title: "The Changing Face of Indian Civil Society",
+    //   excerpt: "The role of ngos and citizen groups in holding the government accountable and driving social change.",
+    //   image: articleImg8
+    // },
+    // {
+    //   category: "LEADERSHIP",
+    //   title: "Political Leadership in Independent India",
+    //   excerpt: "A comparative study of leadership styles from Nehru to the present day.",
+    //   image: articleImg9
+    // },
+    // {
+    //   category: "GLOBAL AFFAIRS",
+    //   title: "India's Place in the New World Order",
+    //   excerpt: "Analyzing India's foreign policy shifts and its growing influence on the global stage.",
+    //   image: articleImg10
+    // }
   ];
 
   const nextSlide = () => {

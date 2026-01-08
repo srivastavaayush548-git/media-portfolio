@@ -33,6 +33,18 @@ import vip36 from '../assets/Images/Vips/36.jpeg';
 import vip40 from '../assets/Images/Vips/40.jpeg';
 import vip45 from '../assets/Images/Vips/45.jpeg';
 
+// Import new celebrity images
+import celebImg1 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.51 PM.jpeg';
+import celebImg2 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.51 PM (1).jpeg';
+import celebImg3 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.51 PM (2).jpeg';
+import celebImg4 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.51 PM (3).jpeg';
+import celebImg5 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.51 PM (4).jpeg';
+import celebImg6 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.51 PM (5).jpeg';
+import celebImg7 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.51 PM (6).jpeg';
+import celebImg8 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.52 PM.jpeg';
+import celebImg9 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.52 PM (1).jpeg';
+import celebImg10 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.52 PM (2).jpeg';
+
 
 // Helper to distribute images for demo purposes since we don't have metadata on which image is who.
 // Ideally, these lists should be manually curated.
@@ -190,6 +202,23 @@ export const vipCurrentData = [
           { id: 34, src: vip34, alt: "MP" },
           { id: 35, src: vip35, alt: "MP" },
           { id: 36, src: vip36, alt: "MP" },
+      ]
+    },
+    {
+      id: 'eminent-personalities',
+      title: "Eminent Personalities & Celebrities",
+      thumbnail: celebImg1,
+      images: [
+          { id: 101, src: celebImg1, alt: "Celebrity Interaction" },
+          { id: 102, src: celebImg2, alt: "Celebrity Interaction" },
+          { id: 103, src: celebImg3, alt: "Celebrity Interaction" },
+          { id: 104, src: celebImg4, alt: "Celebrity Interaction" },
+          { id: 105, src: celebImg5, alt: "Celebrity Interaction" },
+          { id: 106, src: celebImg6, alt: "Celebrity Interaction" },
+          { id: 107, src: celebImg7, alt: "Celebrity Interaction" },
+          { id: 108, src: celebImg8, alt: "Celebrity Interaction" },
+          { id: 109, src: celebImg9, alt: "Celebrity Interaction" },
+          { id: 110, src: celebImg10, alt: "Celebrity Interaction" },
       ]
     }
   ];
