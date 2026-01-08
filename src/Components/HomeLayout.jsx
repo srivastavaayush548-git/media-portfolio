@@ -4,16 +4,16 @@ import BGHome from '../assets/Images/Homebg.jpg';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Import distinct article images
-import articleImg1 from '../assets/images/Articles/WhatsApp Image 2026-01-02 at 4.56.04 PM.jpeg';
-import articleImg2 from '../assets/images/Articles/WhatsApp Image 2026-01-02 at 4.56.05 PM.jpeg';
-import articleImg3 from '../assets/images/Articles/WhatsApp Image 2026-01-02 at 4.56.06 PM.jpeg';
-import articleImg4 from '../assets/images/Articles/WhatsApp Image 2026-01-02 at 4.56.07 PM.jpeg';
-import articleImg5 from '../assets/images/Articles/WhatsApp Image 2026-01-02 at 4.56.20 PM.jpeg';
-import articleImg6 from '../assets/images/Articles/WhatsApp Image 2026-01-02 at 4.56.21 PM.jpeg';
-import articleImg7 from '../assets/images/Articles/WhatsApp Image 2026-01-02 at 4.56.22 PM.jpeg';
-import articleImg8 from '../assets/images/Articles/WhatsApp Image 2026-01-02 at 4.56.23 PM.jpeg';
-import articleImg9 from '../assets/images/Articles/WhatsApp Image 2026-01-02 at 4.56.45 PM.jpeg';
-import articleImg10 from '../assets/images/Articles/WhatsApp Image 2026-01-02 at 4.56.46 PM.jpeg';
+import articleImg1 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.04 PM.jpeg';
+import articleImg2 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.05 PM.jpeg';
+import articleImg3 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.06 PM.jpeg';
+import articleImg4 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.07 PM.jpeg';
+import articleImg5 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.20 PM.jpeg';
+import articleImg6 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.21 PM.jpeg';
+import articleImg7 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.22 PM.jpeg';
+import articleImg8 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.23 PM.jpeg';
+import articleImg9 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.45 PM.jpeg';
+import articleImg10 from '../assets/Images/Articles/WhatsApp Image 2026-01-02 at 4.56.46 PM.jpeg';
 
 const HomeLayout = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
