@@ -9,8 +9,10 @@ import {
   ChevronDown,
   Newspaper,
   Landmark,
-  ScrollText
+  ScrollText,
+  ExternalLink
 } from 'lucide-react';
+import { nonFictionBooks } from '../Data/books';
 
 const AboutMe = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -147,21 +149,16 @@ const AboutMe = () => {
               <BookOpen className="w-12 h-12 text-red-500 opacity-50" />
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              <BookCard
-                title="What Ails Indian Parliament"
-                desc="A detailed critique of legislative inefficiencies and structural challenges."
-              />
-              <BookCard
-                title="The Emergency"
-                subtitle="Indian Democracy’s Darkest Hour"
-                desc="An analysis of the 1975–77 suspension of civil liberties and press censorship."
-                highlight
-              />
-              <BookCard
-                title="Democracy, Politics and Governance"
-                desc="Addressing contemporary political challenges and ethical governance."
-              />
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {nonFictionBooks.map((book, index) => (
+                <BookCard
+                  key={index}
+                  title={book.title}
+                  desc={book.description}
+                  cover={book.cover}
+                  link={book.purchaseLink}
+                />
+              ))}
             </div>
           </div>
         </section>
@@ -245,7 +242,7 @@ const TimelineItem = ({ year, title, org, desc, icon, side }) => {
 
       {/* Content */}
       <div className={`w-full md:max-w-[44%] pl-10 md:pl-0 ${isLeft ? 'md:text-right md:pr-14' : 'md:ml-auto md:pl-14'}`}>
-        <div className="bg-white p-6 rounded-xl border border-stone-100 shadow-sm hover:shadow-md hover:border-red-100 transition-all duration-300 group-hover:-translate-y-0">
+        <div className="bg-white p-6 rounded-xl border border-stone-100 shadow-sm hover:shadow-md hover:border-red-100 transition-all duration-300 group-hover:translate-y-0">
           <div className={`flex items-center gap-3 mb-2 ${isLeft ? 'md:flex-row-reverse' : ''}`}>
             <span className="text-xs font-bold tracking-wider text-red-600 uppercase bg-red-50 px-2 py-1 rounded">{year}</span>
             <div className="text-stone-400">{icon}</div>
@@ -259,19 +256,34 @@ const TimelineItem = ({ year, title, org, desc, icon, side }) => {
   );
 };
 
-const BookCard = ({ title, subtitle, desc, highlight }) => (
-  <div className={`group relative p-6 rounded-xl border transition-all duration-300 hover:-translate-y-2 ${highlight ? 'bg-red-900 border-red-800 text-white shadow-2xl shadow-red-900/50' : 'bg-stone-800 border-stone-700 hover:bg-stone-750'}`}>
-    <div className="mb-4">
-      <div className="w-12 h-16 bg-stone-200 rounded-sm shadow-inner mb-4 group-hover:scale-105 transition-transform origin-bottom-left flex items-center justify-center overflow-hidden">
-        <div className="w-full h-full bg-linear-to-br from-stone-300 to-stone-400"></div>
+const BookCard = ({ title, desc, cover, link }) => (
+  <a 
+    href={link} 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="group relative p-4 rounded-xl border border-stone-700 bg-stone-800/50 hover:bg-stone-800 transition-all duration-300 hover:-translate-y-2 block"
+  >
+    <div className="mb-4 aspect-2/3 w-full overflow-hidden rounded-md bg-stone-700 relative shadow-lg group-hover:shadow-2xl transition-shadow">
+      {cover ? (
+        <img src={cover} alt={title} className="w-full h-full object-cover" />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center bg-stone-700 text-stone-500">
+          <BookOpen className="w-8 h-8" />
+        </div>
+      )}
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
+      <div className="absolute bottom-2 right-2 p-1.5 bg-black/50 backdrop-blur rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+        <ExternalLink className="w-4 h-4 text-white" />
       </div>
-      <h3 className={`text-xl font-serif font-bold mb-1 ${highlight ? 'text-white' : 'text-stone-100'}`}>{title}</h3>
-      {subtitle && <div className="text-xs uppercase tracking-wider opacity-75 mb-2">{subtitle}</div>}
     </div>
-    <p className={`text-sm leading-relaxed ${highlight ? 'text-red-100' : 'text-stone-400'}`}>
+    
+    <h3 className="text-lg font-serif font-bold text-stone-100 mb-2 line-clamp-2 leading-tight group-hover:text-red-200 transition-colors">
+      {title}
+    </h3>
+    <p className="text-sm text-stone-400 line-clamp-3 leading-relaxed">
       {desc}
     </p>
-  </div>
+  </a>
 );
 
 const QuoteIcon = ({ className }) => (

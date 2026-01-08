@@ -38,26 +38,26 @@ const Family = () => {
             <div 
               key={item.id} 
               onClick={() => setSelectedImage(item)}
-              className="group relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-stone-100 cursor-pointer"
+              className="group cursor-pointer flex flex-col"
             >
-              {/* Image Container */}
-              <div className="aspect-4/3 overflow-hidden bg-stone-100">
+              {/* Image Card */}
+              <div className="relative bg-white rounded-2xl shadow-md group-hover:shadow-xl transition-all duration-300 overflow-hidden border border-stone-100 aspect-4/3">
                 <img 
                   src={item.src} 
                   alt={item.title} 
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
                 />
                 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
               </div>
 
-              {/* Content */}
-              <div className="p-6 relative">
-                <h3 className="text-xl font-serif font-semibold text-slate-900 mb-2 group-hover:text-orange-600 transition-colors">
+              {/* Content Box */}
+              <div className="mt-2 mx-1 p-3 bg-white rounded-xl shadow-sm border border-stone-100 group-hover:shadow-md transition-all duration-300 text-center">
+                <h3 className="text-lg font-serif font-semibold text-slate-900 mb-0.5 group-hover:text-orange-600 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-slate-500 text-sm leading-relaxed">
+                <p className="text-slate-500 text-xs leading-relaxed line-clamp-2">
                   {item.description}
                 </p>
               </div>
