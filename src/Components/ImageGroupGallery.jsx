@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowLeft, X } from 'lucide-react';
 
-const ImageGroupGallery = ({ groups }) => {
+const ImageGroupGallery = ({ groups, customGridCols }) => {
   const [selectedGroup, setSelectedGroup] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -77,8 +77,10 @@ const ImageGroupGallery = ({ groups }) => {
   }
 
   // Show List of Groups (Folders)
+  const gridClass = customGridCols ? customGridCols : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4";
+
   return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <div className={`grid gap-8 ${gridClass}`}>
           {groups.map((group) => (
               <div 
                   key={group.id}
@@ -109,7 +111,6 @@ const ImageGroupGallery = ({ groups }) => {
                   <h3 className="text-lg font-serif font-bold text-stone-800 group-hover:text-red-700 transition-colors leading-tight">
                       {group.title}
                   </h3>
-                  <p className="text-sm text-stone-500">{group.images?.length || 0} Photos</p>
               </div>
           ))}
       </div>

@@ -29,6 +29,13 @@ const Career = () => {
       year: "Current"
     },
     {
+      role: "Vice-Chairman, Executive Council",
+      org: "Prime Ministers' Museum & Library (PMML)",
+      desc: "Served as the Vice-Chairman of the Executive Council, contributing to the development and curation of the museum.",
+      icon: <Landmark className="w-5 h-5" />,
+      year: "Past"
+    },
+    {
       role: "Chairperson",
       org: "Prasar Bharati",
       desc: "Steered India's premier public service broadcaster, modernizing content delivery for Doordarshan and All India Radio.",

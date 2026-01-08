@@ -30,7 +30,7 @@ const Family = () => {
 
       {/* --- Gallery Section --- */}
       <section className="py-20 max-w-7xl mx-auto px-6 relative z-10">
-        <ImageGroupGallery groups={familyData} />
+        <ImageGroupGallery groups={familyData} customGridCols="grid-cols-1 md:grid-cols-2" />
       </section>
     </div>
   );

@@ -103,11 +103,19 @@ const AboutMe = () => {
             />
             <TimelineItem
               year="Past"
+              title="Vice-Chairman, Executive Council"
+              org="Prime Ministers’ Museum & Library (PMML)"
+              desc="Served as the Vice-Chairman of the Executive Council, contributing to the institution's strategic direction."
+              icon={<Landmark className="w-5 h-5" />}
+              side="right"
+            />
+            <TimelineItem
+              year="Past"
               title="Chairperson"
               org="Prasar Bharati"
               desc="Steered India’s premier public service broadcaster, modernizing content delivery for Doordarshan and All India Radio."
               icon={<Mic className="w-5 h-5" />}
-              side="right"
+              side="left"
             />
             <TimelineItem
               year="Past"
@@ -115,7 +123,7 @@ const AboutMe = () => {
               org="The Indian Express"
               desc="Led the bureau with a focus on investigative journalism and political reporting."
               icon={<Newspaper className="w-5 h-5" />}
-              side="left"
+              side="right"
             />
             <TimelineItem
               year="Past"
@@ -123,7 +131,7 @@ const AboutMe = () => {
               org="The Pioneer"
               desc="Oversaw content strategy and editorial direction."
               icon={<PenTool className="w-5 h-5" />}
-              side="right"
+              side="left"
             />
             <TimelineItem
               year="Past"
@@ -131,7 +139,7 @@ const AboutMe = () => {
               org="Zee News"
               desc="Shaped the editorial voice of one of India's leading news channels."
               icon={<Globe className="w-5 h-5" />}
-              side="left"
+              side="right"
             />
           </div>
         </section>

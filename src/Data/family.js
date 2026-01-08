@@ -20,7 +20,7 @@ import wifePushpaImg from '../assets/Images/Family/wife- pushpa.jpeg';
 export const familyData = [
   {
     id: 'couple',
-    title: "My Wife",
+    title: "Wife",
     thumbnail: wifePushpaImg,
     images: [
       { id: 1, src: wifePushpaImg, alt: "My beloved wife Pushpa", title: "My beloved wife Pushpa." },
