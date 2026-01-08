@@ -95,9 +95,6 @@ const HomeLayout = () => {
             </p>
 
             <div className="pt-4 flex flex-wrap gap-4">
-              <button className="px-6 py-3 bg-stone-900 text-white font-medium rounded hover:bg-stone-700 transition-colors">
-                Read Latest Columns
-              </button>
               <a href="/about-me" className="px-6 py-3 bg-white/80 backdrop-blur-sm border border-stone-300 text-stone-900 font-medium rounded hover:bg-white transition-colors">
                 View Bibliography
               </a>
@@ -135,17 +132,17 @@ const HomeLayout = () => {
       <section className="py-20 max-w-6xl mx-auto px-6">
         <div className="flex justify-between items-end mb-12">
           <h2 className="text-3xl font-serif font-bold text-stone-900">Latest Updates</h2>
-          
+
           {/* Navigation Controls */}
           <div className="flex gap-2">
-            <button 
+            <button
               onClick={prevSlide}
               className="p-2 rounded-full border border-stone-300 hover:bg-stone-100 hover:text-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={currentSlide === 0}
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
-            <button 
+            <button
               onClick={nextSlide}
               className="p-2 rounded-full border border-stone-300 hover:bg-stone-100 hover:text-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={currentSlide + 3 >= blogData.length}
@@ -157,16 +154,16 @@ const HomeLayout = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {blogData.slice(currentSlide, currentSlide + 3).map((item, index) => (
-            <article 
-              key={index} 
+            <article
+              key={index}
               className="group cursor-pointer"
               onClick={() => handleImageClick(item.image)}
             >
               <div className="h-64 bg-stone-200 overflow-hidden rounded-t relative">
-                <img 
-                  src={item.image} 
-                  alt={item.title || "Blog Image"} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                <img
+                  src={item.image}
+                  alt={item.title || "Blog Image"}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="p-5 bg-white border border-t-0 border-stone-200 rounded-b shadow-sm group-hover:shadow-md transition-shadow">
@@ -177,34 +174,34 @@ const HomeLayout = () => {
             </article>
           ))}
         </div>
-        
+
         <div className="mt-8 text-center md:hidden">
-            <a href="#" className="text-red-700 font-medium hover:underline">View Archive &rarr;</a>
+          <a href="#" className="text-red-700 font-medium hover:underline">View Archive &rarr;</a>
         </div>
       </section>
 
       {/* Modal / Lightbox */}
       {selectedImage && (
-        <div 
+        <div
           className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm"
           onClick={handleCloseModal}
         >
           <div className="absolute top-4 right-4 z-50">
-             <button 
-               onClick={handleCloseModal}
-               className="bg-white/10 hover:bg-white/20 text-white rounded-full p-2 transition-colors"
-             >
-               <X className="w-8 h-8" />
-             </button>
+            <button
+              onClick={handleCloseModal}
+              className="bg-white/10 hover:bg-white/20 text-white rounded-full p-2 transition-colors"
+            >
+              <X className="w-8 h-8" />
+            </button>
           </div>
-          
+
           <div className="relative max-w-5xl max-h-[90vh] overflow-hidden rounded-lg shadow-2xl">
-             <img 
-               src={selectedImage} 
-               alt="Full size view" 
-               className="max-w-full max-h-[90vh] object-contain"
-               onClick={(e) => e.stopPropagation()} 
-             />
+            <img
+              src={selectedImage}
+              alt="Full size view"
+              className="max-w-full max-h-[90vh] object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
           </div>
         </div>
       )}
