@@ -95,7 +95,7 @@ const AboutMe = () => {
 
             <TimelineItem
               year="Current"
-              title="Member"
+              title="Member, Executive Council"
               org="Prime Ministers’ Museum & Library (PMML)"
               desc="Preserving and presenting the legacies of India’s prime ministers."
               icon={<Landmark className="w-5 h-5" />}

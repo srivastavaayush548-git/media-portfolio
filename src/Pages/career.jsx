@@ -22,7 +22,7 @@ const Career = () => {
 
   const roles = [
     {
-      role: "Member",
+      role: "Member, Executive Council",
       org: "Prime Ministers' Museum & Library (PMML)",
       desc: "Preserving and presenting the legacies of India's prime ministers. Currently serving on the Executive Council in New Delhi.",
       icon: <Landmark className="w-5 h-5" />,

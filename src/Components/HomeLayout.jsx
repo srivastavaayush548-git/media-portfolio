@@ -101,16 +101,17 @@ const HomeLayout = () => {
     title: "Journalist, Author & Scholar",
     bio: (
       <>
-        <strong>A. Surya Prakash</strong> is an Indian journalist and author, best known for serving as the chairperson of Prasar Bharati, India’s public service broadcaster. He has worked in various leading media organisations and is the author of several books on Indian politics and parliamentary democracy. In January 2025, Prakash was conferred with the Padma Bhushan, India's third-highest civilian award, for his contributions to literature and education. Currently, he is the{" "}
-        <strong>Former Vice-Chairman of the Executive Council of the Prime Ministers’ Museum & Library (PMML) in New Delhi</strong>
-        , previously known as the Nehru Memorial Museum & Library. In this role, he contributes to preserving and presenting the legacies of India’s prime ministers and shaping public understanding of the country’s political history.
+        <strong>A. Surya Prakash</strong> is an Indian journalist and author, best known for serving as the chairperson of Prasar Bharati, India’s public service broadcaster. He has worked in various leading media organisations and is the author of several books on Indian politics and parliamentary democracy. In January 2025, Prakash was conferred with the Padma Bhushan, India's third-highest civilian award, for his contributions to literature and education. Currently, he is a{" "}
+        <strong>Member of the Executive Council of the Prime Ministers’ Museum & Library (PMML) in New Delhi</strong>
+        . He also served as the Vice-Chairman of the Executive Council of the same institution. In these roles, he contributes to preserving and presenting the legacies of India’s prime ministers and shaping public understanding of the country’s political history.
       </>
     ),
     imageSrc: praksh
   };
 
   const careerHighlights = [
-    { role: "Member", org: "PMML" },
+    { role: "Member, Executive Council", org: "PMML" },
+    { role: "Vice-Chairman", org: "PMML" },
     { role: "Chairperson", org: "Prasar Bharati" },
     { role: "Chief of Bureau", org: "The Indian Express" },
     { role: "Political Editor", org: "Eenadu Group " },

@@ -55,7 +55,7 @@ export const familyData = [
   },
   {
     id: 'complete-family',
-    title: "Complete Family & Groups",
+    title: "Family",
     thumbnail: familyImg,
     images: [
       { id: 15, src: familyImg, alt: "The complete family", title: "The complete family." },
