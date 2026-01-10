@@ -58,14 +58,15 @@ const AboutMe = () => {
         <section className="mb-32 grid md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-5 relative">
             <div className="absolute -top-10 -left-10 w-40 h-40 bg-red-100 rounded-full blur-3xl opacity-50"></div>
-            
+
             {/* Image */}
-            <div className="relative mb-6 rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform rotate-2 hover:rotate-0 transition-transform duration-500">
-               <img src={suryaPrakashImg} alt="A. Surya Prakash" className="w-full h-auto object-cover" />
+            <div className="relative mb-6 mx-auto max-w-sm rounded-2xl overflow-hidden shadow-2xl border-4 border-red-800/20 transform rotate-2 hover:rotate-0 transition-transform duration-500">
+              <div className="absolute inset-0 border-4 border-red-800/30 rounded-2xl pointer-events-none z-10"></div>
+              <img src={suryaPrakashImg} alt="A. Surya Prakash" className="w-full h-auto object-cover relative" />
             </div>
           </div>
           <div className="md:col-span-7 space-y-6 text-lg text-stone-600 leading-relaxed">
-            
+
             <div className="relative bg-white/50 p-6 md:p-8 rounded-2xl border border-stone-100 mb-8 backdrop-blur-sm">
               <QuoteIcon className="w-8 h-8 text-red-200 absolute top-4 left-4 -z-10" />
               <p className="text-lg md:text-xl font-serif text-stone-800 leading-relaxed italic">
@@ -273,9 +274,9 @@ const TimelineItem = ({ year, title, org, desc, icon, side }) => {
 };
 
 const BookCard = ({ title, desc, cover, link }) => (
-  <a 
-    href={link} 
-    target="_blank" 
+  <a
+    href={link}
+    target="_blank"
     rel="noopener noreferrer"
     className="group relative p-4 rounded-xl border border-stone-700 bg-stone-800/50 hover:bg-stone-800 transition-all duration-300 hover:-translate-y-2 block"
   >
@@ -292,7 +293,7 @@ const BookCard = ({ title, desc, cover, link }) => (
         <ExternalLink className="w-4 h-4 text-white" />
       </div>
     </div>
-    
+
     <h3 className="text-lg font-serif font-bold text-stone-100 mb-2 line-clamp-2 leading-tight group-hover:text-red-200 transition-colors">
       {title}
     </h3>
