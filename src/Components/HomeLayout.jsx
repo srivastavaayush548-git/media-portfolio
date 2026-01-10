@@ -1,39 +1,15 @@
 import React, { useState } from 'react';
 import praksh from '../assets/a-surya-prakash.jpeg';
 import BGHome from '../assets/Images/Homebg.jpg';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
-
-import bookNewsImg from '../assets/booknews.png';
-import invitationImg from '../assets/invitation.png';
+import { X, BookOpen, ExternalLink } from 'lucide-react';
+import { nonFictionBooks } from '../Data/books';
 
 
 const HomeLayout = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const blogData = [
-    {
-      category: "EVENTS",
-      title: "Book Launch & News",
-      excerpt: "Updates on recent book launches and literary contributions.",
-      image: bookNewsImg
-    },
-    {
-      category: "EVENTS",
-      title: "Special Invitation of Book Launch",
-      excerpt: "Official invitations to upcoming talks and ceremonies.",
-      image: invitationImg
-    },
-    // ... previous commented out items can remain here or be removed
-  ];
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 3 >= blogData.length ? 0 : prev + 3));
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 3 < 0 ? 0 : prev - 3));
-  };
+  // Get featured books (first 3 books)
+  const featuredBooks = nonFictionBooks.slice(0, 3);
 
   const backgroundStyle = {
     backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(${BGHome})`,
@@ -67,10 +43,6 @@ const HomeLayout = () => {
 
   const handleImageClick = (image) => {
     setSelectedImage(image);
-  };
-
-  const handleCloseModal = () => {
-    setSelectedImage(null);
   };
 
   return (
@@ -128,77 +100,106 @@ const HomeLayout = () => {
         </div>
       </section>
 
-      {/* --- Featured Works / News Layout --- */}
+      {/* --- Featured Books Section --- */}
       <section className="py-20 max-w-6xl mx-auto px-6">
         <div className="flex justify-between items-end mb-12">
-          <h2 className="text-3xl font-serif font-bold text-stone-900">Latest Updates</h2>
-
-          {/* Navigation Controls */}
-          <div className="flex gap-2">
-            <button
-              onClick={prevSlide}
-              className="p-2 rounded-full border border-stone-300 hover:bg-stone-100 hover:text-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              disabled={currentSlide === 0}
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={nextSlide}
-              className="p-2 rounded-full border border-stone-300 hover:bg-stone-100 hover:text-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              disabled={currentSlide + 3 >= blogData.length}
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
+          <div>
+            <div className="inline-block mb-4 px-3 py-1 bg-red-50 text-red-800 text-xs font-bold uppercase tracking-wider rounded-full">
+              Authored Works
+            </div>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-stone-900">
+              Featured <span className="text-red-800">Books</span>
+            </h2>
+            <p className="text-stone-600 mt-2 max-w-2xl">
+              Exploring Indian democracy, governance, and parliamentary practices through extensive research and analysis.
+            </p>
           </div>
+          <a
+            href="/books"
+            className="hidden md:flex items-center gap-2 text-red-700 font-medium hover:text-red-800 transition-colors"
+          >
+            View All Books
+            <ExternalLink className="w-4 h-4" />
+          </a>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {blogData.slice(currentSlide, currentSlide + 3).map((item, index) => (
+          {featuredBooks.map((book, index) => (
             <article
               key={index}
-              className="group cursor-pointer"
-              onClick={() => handleImageClick(item.image)}
+              className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-stone-100"
             >
-              <div className="h-64 bg-stone-200 overflow-hidden rounded-t relative">
+              <div
+                className="h-80 bg-stone-200 overflow-hidden relative cursor-pointer"
+                onClick={() => handleImageClick(book.cover)}
+              >
                 <img
-                  src={item.image}
-                  alt={item.title || "Blog Image"}
+                  src={book.cover}
+                  alt={book.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
               </div>
-              <div className="p-5 bg-white border border-t-0 border-stone-200 rounded-b shadow-sm group-hover:shadow-md transition-shadow">
-                <h3 className="text-xl font-serif font-bold text-stone-900 mb-2 leading-tight group-hover:text-red-900 transition-colors">
-                  {item.title}
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <BookOpen className="w-5 h-5 text-red-800 shrink-0" />
+                  <span className="text-xs font-bold text-red-700 uppercase tracking-wide">Non-Fiction</span>
+                </div>
+                <h3 className="text-xl font-serif font-bold text-stone-900 mb-2 leading-tight group-hover:text-red-800 transition-colors line-clamp-2">
+                  {book.title}
                 </h3>
+                <p className="text-sm text-stone-600 mb-4 font-medium">
+                  By: {book.author}
+                </p>
+                <p className="text-sm text-stone-600 leading-relaxed line-clamp-3 mb-4">
+                  {book.description}
+                </p>
+                {book.purchaseLink && (
+                  <a
+                    href={book.purchaseLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-stone-900 text-white text-xs font-bold uppercase tracking-wider rounded hover:bg-red-700 transition-colors"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Buy Now
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                )}
               </div>
             </article>
           ))}
         </div>
 
-        <div className="mt-8 text-center md:hidden">
-          <a href="#" className="text-red-700 font-medium hover:underline">View Archive &rarr;</a>
+        <div className="mt-12 text-center">
+          <a
+            href="/books"
+            className="inline-flex items-center gap-2 text-red-700 font-medium hover:text-red-800 transition-colors"
+          >
+            View All Books
+            <ExternalLink className="w-4 h-4" />
+          </a>
         </div>
       </section>
 
-      {/* Modal / Lightbox */}
+      {/* Modal / Lightbox for Book Covers */}
       {selectedImage && (
         <div
           className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm"
-          onClick={handleCloseModal}
+          onClick={() => setSelectedImage(null)}
         >
-          <div className="absolute top-4 right-4 z-50">
-            <button
-              onClick={handleCloseModal}
-              className="bg-white/10 hover:bg-white/20 text-white rounded-full p-2 transition-colors"
-            >
-              <X className="w-8 h-8" />
-            </button>
-          </div>
+          <button
+            className="absolute top-4 right-4 z-50 text-white/70 hover:text-white transition-colors p-2"
+            onClick={() => setSelectedImage(null)}
+            aria-label="Close image"
+          >
+            <X className="w-8 h-8" />
+          </button>
 
           <div className="relative max-w-5xl max-h-[90vh] overflow-hidden rounded-lg shadow-2xl">
             <img
               src={selectedImage}
-              alt="Full size view"
+              alt="Book cover - Full size view"
               className="max-w-full max-h-[90vh] object-contain"
               onClick={(e) => e.stopPropagation()}
             />
