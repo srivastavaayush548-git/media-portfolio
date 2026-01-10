@@ -119,10 +119,10 @@ export const vipCurrentData = [
       title: "President of India",
       thumbnail: pres1, 
       images: [
-         { id: 401, src: pres1, alt: "President Smt. Droupadi Murmu" },
-         { id: 402, src: pres2, alt: "President Smt. Droupadi Murmu" },
-         { id: 403, src: pres3, alt: "President Smt. Droupadi Murmu" },
-         { id: 404, src: pres4, alt: "President Smt. Droupadi Murmu" },
+         { id: 401, src: pres1, alt: "President of India" },
+         { id: 402, src: pres2, alt: "President of India" },
+         { id: 403, src: pres3, alt: "President of India" },
+         { id: 404, src: pres4, alt: "President of India" },
       ]
     },
     // {
@@ -138,15 +138,15 @@ export const vipCurrentData = [
       title: "Prime Minister of India",
       thumbnail: pm1,
       images: [
-         { id: 301, src: pm6, alt: "PM Shri Narendra Modi" },
-         { id: 302, src: pm7, alt: "PM Shri Narendra Modi" },
-         { id: 303, src: pm8, alt: "PM Shri Narendra Modi" },
-         { id: 304, src: pm9, alt: "PM Shri Narendra Modi" },
-         { id: 4, src: pm1, alt: "PM Shri Narendra Modi" },
-         { id: 6, src: pm2, alt: "PM Shri Narendra Modi" },
-         { id: 7, src: pm3, alt: "PM Shri Narendra Modi" },
-         { id: 19, src: pm4, alt: "PM Shri Narendra Modi" },
-         { id: 20, src: pm5, alt: "PM Shri Narendra Modi" },
+         { id: 301, src: pm6, alt: "Prime Minister of India" },
+         { id: 302, src: pm7, alt: "Prime Minister of India" },
+         { id: 303, src: pm8, alt: "Prime Minister of India" },
+         { id: 304, src: pm9, alt: "Prime Minister of India" },
+         { id: 4, src: pm1, alt: "Prime Minister of India" },
+         { id: 6, src: pm2, alt: "Prime Minister of India" },
+         { id: 7, src: pm3, alt: "Prime Minister of India" },
+         { id: 19, src: pm4, alt: "Prime Minister of India" },
+         { id: 20, src: pm5, alt: "Prime Minister of India" },
       ]
     },
     {
@@ -154,8 +154,8 @@ export const vipCurrentData = [
       title: "National Security Advisor (NSA)",
       thumbnail: nsa1,
       images: [
-         { id: 40, src: nsa1, alt: "NSA Shri Ajit Doval" },
-         { id: 17, src: gov1, alt: "NSA Shri Ajit Doval" },
+         { id: 40, src: nsa1, alt: "National Security Advisor" },
+         { id: 17, src: gov1, alt: "National Security Advisor" },
       ]
     },
     {
@@ -163,12 +163,12 @@ export const vipCurrentData = [
       title: "Former President of India (Bharat)",
       thumbnail: fp1,
       images: [
-         { id: 1011, src: fp1, alt: "Former President Shri Ram Nath Kovind" },
-         { id: 1012, src: fp2, alt: "Former President Shri Ram Nath Kovind" },
-         { id: 601, src: fp3, alt: "Former President Shri Ram Nath Kovind" },
-         { id: 602, src: fp4, alt: "Former President Shri Ram Nath Kovind" },
-         { id: 603, src: fp5, alt: "Former President Shri Ram Nath Kovind" },
-         { id: 604, src: fp6, alt: "Former President Shri Ram Nath Kovind" },
+         { id: 1011, src: fp1, alt: "Former President of India" },
+         { id: 1012, src: fp2, alt: "Former President of India" },
+         { id: 601, src: fp3, alt: "Former President of India" },
+         { id: 602, src: fp4, alt: "Former President of India" },
+         { id: 603, src: fp5, alt: "Former President of India" },
+         { id: 604, src: fp6, alt: "Former President of India" },
       ]
     },
     {
@@ -176,11 +176,11 @@ export const vipCurrentData = [
       title: "Former Vice President of India",
       thumbnail: fvp2,
       images: [
-         { id: 2003, src: fvp1, alt: "Former VP Shri M. Venkaiah Naidu" },
-         { id: 501, src: fvp2, alt: "Former VP Shri M. Venkaiah Naidu" },
-         { id: 502, src: fvp3, alt: "Former VP Shri M. Venkaiah Naidu" },
-         { id: 503, src: fvp4, alt: "Former VP Shri M. Venkaiah Naidu" },
-         { id: 504, src: fvp5, alt: "Former VP Shri M. Venkaiah Naidu" },
+         { id: 2003, src: fvp1, alt: "Former Vice President of India" },
+         { id: 501, src: fvp2, alt: "Former Vice President of India" },
+         { id: 502, src: fvp3, alt: "Former Vice President of India" },
+         { id: 503, src: fvp4, alt: "Former Vice President of India" },
+         { id: 504, src: fvp5, alt: "Former Vice President of India" },
       ]
     },
     // {
@@ -191,36 +191,36 @@ export const vipCurrentData = [
     // },
     {
       id: 'defence-minister',
-      title: "Shri Rajnath Singh Defence Minister of India",
+      title: "Defence Minister of India",
       thumbnail: dm1,
       images: [
-         { id: 1001, src: dm1, alt: "Defence Minister Shri Rajnath Singh" },
-         { id: 1002, src: dm2, alt: "Defence Minister Shri Rajnath Singh" },
-         { id: 1003, src: dm3, alt: "Defence Minister Shri Rajnath Singh" },
-         { id: 1004, src: dm4, alt: "Defence Minister Shri Rajnath Singh" },
+         { id: 1001, src: dm1, alt: "Defence Minister of India" },
+         { id: 1002, src: dm2, alt: "Defence Minister of India" },
+         { id: 1003, src: dm3, alt: "Defence Minister of India" },
+         { id: 1004, src: dm4, alt: "Defence Minister of India" },
       ]
     },
     {
       id: 'finance-minister',
-      title: "Smt. Nirmala Sitharaman Finance Minister of India",
+      title: "Finance Minister of India",
       thumbnail: sm1,
       images: [
-         { id: 24, src: sm1, alt: "Finance Minister Smt. Nirmala Sitharaman" },
+         { id: 24, src: sm1, alt: "Finance Minister of India" },
       ]
     },
     {
       id: 'arun-jaitley',
-      title: "Late Shri Arun Jaitley (Former Finance & Defence Minister)",
+      title: "Former Finance & Defence Minister",
       thumbnail: aj1,
       images: [
-         { id: 10, src: aj1, alt: "Former Minister Shri Arun Jaitley" },
-         { id: 45, src: aj2, alt: "Former Minister Shri Arun Jaitley" },
-         { id: 11, src: aj3, alt: "Former Minister Shri Arun Jaitley" },
-         { id: 13, src: aj4, alt: "Former Minister Shri Arun Jaitley" },
-         { id: 14, src: aj5, alt: "Former Minister Shri Arun Jaitley" },
-         { id: 15, src: aj6, alt: "Former Minister Shri Arun Jaitley" },
-         { id: 8, src: fm1, alt: "Finance Minister Smt. Nirmala Sitharaman" },
-         { id: 9, src: fm2, alt: "Finance Minister Smt. Nirmala Sitharaman" },
+         { id: 10, src: aj1, alt: "Former Finance & Defence Minister" },
+         { id: 45, src: aj2, alt: "Former Finance & Defence Minister" },
+         { id: 11, src: aj3, alt: "Former Finance & Defence Minister" },
+         { id: 13, src: aj4, alt: "Former Finance & Defence Minister" },
+         { id: 14, src: aj5, alt: "Former Finance & Defence Minister" },
+         { id: 15, src: aj6, alt: "Former Finance & Defence Minister" },
+         { id: 8, src: fm1, alt: "Finance Minister of India" },
+         { id: 9, src: fm2, alt: "Finance Minister of India" },
       ]
     },
     {
@@ -228,21 +228,21 @@ export const vipCurrentData = [
       title: "Hon’ble Governor of Haryana",
       thumbnail: gh1,
       images: [
-         { id: 801, src: gh1, alt: "Governor Shri Bandaru Dattatreya" },
-         { id: 802, src: gh2, alt: "Governor Shri Bandaru Dattatreya" },
-         { id: 803, src: gh3, alt: "Governor Shri Bandaru Dattatreya" },
-         { id: 804, src: gh4, alt: "Governor Shri Bandaru Dattatreya" },
+         { id: 801, src: gh1, alt: "Governor of Haryana" },
+         { id: 802, src: gh2, alt: "Governor of Haryana" },
+         { id: 803, src: gh3, alt: "Governor of Haryana" },
+         { id: 804, src: gh4, alt: "Governor of Haryana" },
       ]
     },
-    {
-      id: 'governor',
-      title: "Hon'ble Governor",
-      thumbnail: gov2,
-      images: [
+    // {
+    //   id: 'governor',
+    //   title: "Hon'ble Governor",
+    //   thumbnail: gov2,
+    //   images: [
 
-         { id: 18, src: gov2, alt: "Hon'ble Governor" },
-      ]
-    },
+    //      { id: 18, src: gov2, alt: "Hon'ble Governor" },
+    //   ]
+    // },
     // {
     //   id: 'chief-minister',
     //   title: "Hon'ble Chief Minister",
@@ -275,10 +275,10 @@ export const vipCurrentData = [
       title: "Sarsanghchalak (Chief) of the Rashtriya Swayamsevak Sangh (RSS)",
       thumbnail: rss1,
       images: [
-         { id: 901, src: rss1, alt: "RSS Chief Dr. Mohan Bhagwat" },
-         { id: 902, src: rss2, alt: "RSS Chief Dr. Mohan Bhagwat" },
-         { id: 903, src: rss3, alt: "RSS Chief Dr. Mohan Bhagwat" },
-         { id: 904, src: rss4, alt: "RSS Chief Dr. Mohan Bhagwat" },
+         { id: 901, src: rss1, alt: "RSS Chief" },
+         { id: 902, src: rss2, alt: "RSS Chief" },
+         { id: 903, src: rss3, alt: "RSS Chief" },
+         { id: 904, src: rss4, alt: "RSS Chief" },
       ]
     },
     // {
@@ -301,14 +301,14 @@ export const vipCurrentData = [
     {
       id: 'eminent-personalities',
       title: "Eminent Personalities & Celebrities",
-      thumbnail: emp1,
+      thumbnail: emp2,
       images: [
-          { id: 192, src: emp0, alt: "Dignitary Interaction" },
-          { id: 101, src: emp1, alt: "Celebrity Interaction" },
+          // { id: 192, src: emp0, alt: "Dignitary Interaction" },
+          // { id: 101, src: emp1, alt: "Celebrity Interaction" },
           { id: 102, src: emp2, alt: "Celebrity Interaction" },
           { id: 103, src: emp3, alt: "Celebrity Interaction" },
           { id: 104, src: emp4, alt: "Celebrity Interaction" },
-          { id: 105, src: emp5, alt: "Celebrity Interaction" },
+          // { id: 105, src: emp5, alt: "Celebrity Interaction" },
           { id: 106, src: emp6, alt: "Celebrity Interaction" },
           { id: 107, src: emp7, alt: "Celebrity Interaction" },
           { id: 108, src: emp8, alt: "Celebrity Interaction" },
