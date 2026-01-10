@@ -45,6 +45,18 @@ import celebImg8 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.5
 import celebImg9 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.52 PM (1).jpeg';
 import celebImg10 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.52 PM (2).jpeg';
 
+// New PM Images (Correct: Added 2026-01-10)
+import presNew1 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.04.38 PM.jpeg';
+import presNew2 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.04.39 PM (1).jpeg';
+import presNew3 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.04.39 PM (2).jpeg';
+import presNew4 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.04.39 PM.jpeg';
+
+// New President Images (Correct: Added 2026-01-10)
+import pmNew1 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.07.21 PM.jpeg';
+import pmNew2 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.07.22 PM (1).jpeg';
+import pmNew3 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.07.22 PM (2).jpeg';
+import pmNew4 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.07.22 PM.jpeg';
+
 
 // Helper to distribute images for demo purposes since we don't have metadata on which image is who.
 // Ideally, these lists should be manually curated.
@@ -92,7 +104,10 @@ export const vipCurrentData = [
       images: [
          { id: 1, src: vip1, alt: "President of India Interaction" },
          { id: 2, src: vip2, alt: "President of India Interaction" },
-
+         { id: 401, src: presNew1, alt: "President of India Interaction" },
+         { id: 402, src: presNew2, alt: "President of India Interaction" },
+         { id: 403, src: presNew3, alt: "President of India Interaction" },
+         { id: 404, src: presNew4, alt: "President of India Interaction" },
       ]
     },
     {
@@ -116,6 +131,10 @@ export const vipCurrentData = [
          { id: 192, src: vip19_2, alt: "PM Event" },
          { id: 20, src: vip20, alt: "PM Event" },
          { id: 40, src: vip40, alt: "PM Event" },
+         { id: 301, src: pmNew1, alt: "PM Event" },
+         { id: 302, src: pmNew2, alt: "PM Event" },
+         { id: 303, src: pmNew3, alt: "PM Event" },
+         { id: 304, src: pmNew4, alt: "PM Event" },
       ]
     },
     {
