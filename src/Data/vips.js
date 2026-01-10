@@ -45,21 +45,50 @@ import celebImg8 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.5
 import celebImg9 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.52 PM (1).jpeg';
 import celebImg10 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.52 PM (2).jpeg';
 
-// New PM Images (Correct: Added 2026-01-10)
 import presNew1 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.04.38 PM.jpeg';
 import presNew2 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.04.39 PM (1).jpeg';
 import presNew3 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.04.39 PM (2).jpeg';
 import presNew4 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.04.39 PM.jpeg';
 
-// New President Images (Correct: Added 2026-01-10)
 import pmNew1 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.07.21 PM.jpeg';
 import pmNew2 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.07.22 PM (1).jpeg';
 import pmNew3 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.07.22 PM (2).jpeg';
 import pmNew4 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.07.22 PM.jpeg';
 
+// New Former Vice President Images (Added 2026-01-10)
+import fvpNew1 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.02.26 PM.jpeg';
+import fvpNew2 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.02.26 PM (1).jpeg';
+import fvpNew3 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.02.26 PM (2).jpeg';
+import fvpNew4 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.02.26 PM (3).jpeg';
 
-// Helper to distribute images for demo purposes since we don't have metadata on which image is who.
-// Ideally, these lists should be manually curated.
+// New Former President Images (Added 2026-01-10)
+import fpNew1 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.02.48 PM.jpeg';
+import fpNew2 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.02.49 PM (1).jpeg';
+import fpNew3 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.02.49 PM (2).jpeg';
+import fpNew4 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.02.49 PM.jpeg';
+
+// New Former Judge Images (Added 2026-01-10)
+import fjNew1 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.03.01 PM.jpeg';
+import fjNew2 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.03.02 PM (1).jpeg';
+import fjNew3 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.03.02 PM (2).jpeg';
+import fjNew4 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.03.02 PM (3).jpeg';
+import fjNew5 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.03.02 PM.jpeg';
+
+// New Governor of Haryana Images (Added 2026-01-10)
+import ghNew1 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.03.34 PM.jpeg';
+import ghNew2 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.03.34 PM (1).jpeg';
+import ghNew3 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.03.34 PM (2).jpeg';
+import ghNew4 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.03.35 PM.jpeg';
+
+// New RSS Chief Images (Added 2026-01-10)
+import rssNew1 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.04.23 PM.jpeg';
+import rssNew2 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.04.23 PM (1).jpeg';
+import rssNew3 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.04.23 PM (2).jpeg';
+import rssNew4 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.04.24 PM.jpeg';
+
+
+
+
 const allImages = [
   { id: 4, src: vip4, alt: "Dignitary interaction 4" },
   { id: 2, src: vip2, alt: "Dignitary interaction 2" },
@@ -149,11 +178,26 @@ export const vipCurrentData = [
     },
     {
       id: 'former-president',
-      title: "Former President of India",
+      title: "Former President of India (Bharat)",
       thumbnail: vip11,
       images: [
          { id: 11, src: vip11, alt: "Former President" },
          { id: 13, src: vip13, alt: "Former President" },
+         { id: 601, src: fpNew1, alt: "Former President" },
+         { id: 602, src: fpNew2, alt: "Former President" },
+         { id: 603, src: fpNew3, alt: "Former President" },
+         { id: 604, src: fpNew4, alt: "Former President" },
+      ]
+    },
+    {
+      id: 'former-vice-president',
+      title: "Former Vice President of India",
+      thumbnail: fvpNew1,
+      images: [
+         { id: 501, src: fvpNew1, alt: "Former Vice President" },
+         { id: 502, src: fvpNew2, alt: "Former Vice President" },
+         { id: 503, src: fvpNew3, alt: "Former Vice President" },
+         { id: 504, src: fvpNew4, alt: "Former Vice President" },
       ]
     },
     {
@@ -166,12 +210,46 @@ export const vipCurrentData = [
       ]
     },
     {
+      id: 'former-judge',
+      title: "Former Judge of Supreme Court of India",
+      thumbnail: fjNew1,
+      images: [
+         { id: 701, src: fjNew1, alt: "Former Judge" },
+         { id: 702, src: fjNew2, alt: "Former Judge" },
+         { id: 703, src: fjNew3, alt: "Former Judge" },
+         { id: 704, src: fjNew4, alt: "Former Judge" },
+         { id: 705, src: fjNew5, alt: "Former Judge" },
+      ]
+    },
+    {
       id: 'governor',
       title: "Governor",
       thumbnail: vip17,
       images: [
          { id: 17, src: vip17, alt: "Governor" },
          { id: 18, src: vip18, alt: "Governor" },
+      ]
+    },
+    {
+      id: 'governor-haryana',
+      title: "Hon’ble Governor of Haryana",
+      thumbnail: ghNew1,
+      images: [
+         { id: 801, src: ghNew1, alt: "Governor of Haryana" },
+         { id: 802, src: ghNew2, alt: "Governor of Haryana" },
+         { id: 803, src: ghNew3, alt: "Governor of Haryana" },
+         { id: 804, src: ghNew4, alt: "Governor of Haryana" },
+      ]
+    },
+    {
+      id: 'rss-chief',
+      title: "Sarsanghchalak (Chief) of the Rashtriya Swayamsevak Sangh (RSS)",
+      thumbnail: rssNew1,
+      images: [
+         { id: 901, src: rssNew1, alt: "RSS Chief" },
+         { id: 902, src: rssNew2, alt: "RSS Chief" },
+         { id: 903, src: rssNew3, alt: "RSS Chief" },
+         { id: 904, src: rssNew4, alt: "RSS Chief" },
       ]
     },
     {

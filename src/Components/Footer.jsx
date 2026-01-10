@@ -46,9 +46,6 @@ const Footer = () => {
               <li className="pt-4 text-xs text-stone-600">
                 &copy; {new Date().getFullYear()} A. Surya Prakash.<br />All rights reserved.
               </li>
-              <li className="pt-2 text-xs text-stone-600">
-                Created by <a href="https://www.devxvipin.me" target="_blank" rel="noopener noreferrer" className="hover:text-red-400 transition-colors">Vipin Yadav</a>
-              </li>
             </ul>
           </div>
         </div>
