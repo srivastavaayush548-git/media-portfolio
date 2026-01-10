@@ -15,7 +15,7 @@ import grandchildrenImg1 from '../assets/Images/Family/grandchildren.jpeg';
 import grandchildrenImg2 from '../assets/Images/Family/grandchildren2.jpeg';
 import sonImg from '../assets/Images/Family/son.jpeg';
 import wifePushpaImg from '../assets/Images/Family/wife- pushpa.jpeg';
-import momandDadImg from '../assets/Images/Family/fatherandmother.jpeg';
+import momandDadImg from '../assets/Images/Family/FatherAndMother.jpeg';
 
 export const familyData = [
   {
