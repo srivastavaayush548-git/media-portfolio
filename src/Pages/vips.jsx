@@ -1,6 +1,8 @@
 import React from 'react';
 import { vipCurrentData } from '../Data/vips';
 import ImageGroupGallery from '../Components/ImageGroupGallery';
+import WhatOthersSay from '../Components/WhatOthersSay';
+import { whatOthersSayVideos } from '../Data/whatOthersSay';
 
 const VIPs = () => {
   return (
@@ -32,6 +34,9 @@ const VIPs = () => {
       <section className="py-20 max-w-7xl mx-auto px-6 relative z-10">
         <ImageGroupGallery groups={vipCurrentData} customGridCols="grid-cols-1 md:grid-cols-2" />
       </section>
+
+      {/* --- What Others Say Section --- */}
+      <WhatOthersSay videos={whatOthersSayVideos} />
     </div>
   );
 };

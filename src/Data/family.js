@@ -19,14 +19,6 @@ import momandDadImg from '../assets/Images/Family/FatherAndMother.jpeg';
 
 export const familyData = [
   {
-    id: 'father-mother',
-    title: "Father & Mother",
-    thumbnail: momandDadImg,
-    images: [
-      { id: 18, src: momandDadImg, alt: "Father & Mother", title: "Father & Mother" },
-    ]
-  },
-  {
     id: 'couple',
     title: "Wife",
     thumbnail: wifePushpaImg,
@@ -64,8 +56,9 @@ export const familyData = [
   {
     id: 'complete-family',
     title: "Family",
-    thumbnail: familyImg,
+    thumbnail: momandDadImg,
     images: [
+      { id: 17, src: momandDadImg, alt: "Father & Mother", title: "Father & Mother" },
       { id: 15, src: familyImg, alt: "The complete family", title: "The complete family." },
       { id: 16, src: siblingsImg, alt: "With my siblings", title: "With my siblings." },
     ]

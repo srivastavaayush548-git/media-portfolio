@@ -289,15 +289,15 @@ export const vipCurrentData = [
 
     //   ]
     // },
-    {
-      id: 'mps',
-      title: "Members of Parliament (MPs)",
-      thumbnail: mp7,
-      images: [
-        { id: 111, src: mp7, alt: "Hon'ble MP" },
+    // {
+    //   id: 'mps',
+    //   title: "Members of Parliament (MPs)",
+    //   thumbnail: mp7,
+    //   images: [
+    //     { id: 111, src: mp7, alt: "Hon'ble MP" },
 
-      ]
-    },
+    //   ]
+    // },
     {
       id: 'eminent-personalities',
       title: "Eminent Personalities & Celebrities",
