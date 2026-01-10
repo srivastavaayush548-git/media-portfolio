@@ -1,346 +1,328 @@
-import vip1 from '../assets/Images/Vips/1.jpg';
-import vip2 from '../assets/Images/Vips/2.jpg';
-import vip3 from '../assets/Images/Vips/3.jpg';
-import vip4 from '../assets/Images/Vips/4.jpg';
-import vip6 from '../assets/Images/Vips/6.jpg';
-import vip7 from '../assets/Images/Vips/7.jpg';
-import vip8 from '../assets/Images/Vips/8.jpeg';
-import vip9 from '../assets/Images/Vips/9.jpeg';
-import vip10 from '../assets/Images/Vips/10.jpg';
-import vip11 from '../assets/Images/Vips/11.jpg';
-import vip13 from '../assets/Images/Vips/13.jpg';
-import vip14 from '../assets/Images/Vips/14.jpg';
-import vip15 from '../assets/Images/Vips/15.jpg';
-import vip17 from '../assets/Images/Vips/17.jpg';
-import vip18 from '../assets/Images/Vips/18.jpeg';
-import vip19 from '../assets/Images/Vips/19.jpg';
-import vip19_2 from '../assets/Images/Vips/19 (2).jpg';
-import vip20 from '../assets/Images/Vips/20.jpg';
-import vip21 from '../assets/Images/Vips/21.jpg';
-import vip22 from '../assets/Images/Vips/22.jpg';
-import vip24 from '../assets/Images/Vips/24.jpg';
-import vip25 from '../assets/Images/Vips/25 .jpg';
-import vip26 from '../assets/Images/Vips/26.jpg';
-import vip27 from '../assets/Images/Vips/27.jpg';
-import vip28 from '../assets/Images/Vips/28.jpg';
-import vip29 from '../assets/Images/Vips/29.jpg';
-import vip30 from '../assets/Images/Vips/30.jpeg';
-import vip31 from '../assets/Images/Vips/31.jpg';
-import vip32 from '../assets/Images/Vips/32.jpg';
-import vip34 from '../assets/Images/Vips/34.jpg';
-import vip35 from '../assets/Images/Vips/35.jpeg';
-import vip36 from '../assets/Images/Vips/36.jpeg';
-import vip40 from '../assets/Images/Vips/40.jpeg';
-import vip45 from '../assets/Images/Vips/45.jpeg';
+// President
+import pres1 from '../assets/Images/Vips/President/DroupadiMurmu_1.jpeg';
+import pres2 from '../assets/Images/Vips/President/DroupadiMurmu_2.jpeg';
+import pres3 from '../assets/Images/Vips/President/DroupadiMurmu_3.jpeg';
+import pres4 from '../assets/Images/Vips/President/DroupadiMurmu_4.jpeg';
 
-// Import new celebrity images
-import celebImg1 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.51 PM.jpeg';
-import celebImg2 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.51 PM (1).jpeg';
-import celebImg3 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.51 PM (2).jpeg';
-import celebImg4 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.51 PM (3).jpeg';
-import celebImg5 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.51 PM (4).jpeg';
-import celebImg6 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.51 PM (5).jpeg';
-import celebImg7 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.51 PM (6).jpeg';
-import celebImg8 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.52 PM.jpeg';
-import celebImg9 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.52 PM (1).jpeg';
-import celebImg10 from '../assets/Images/Vips/WhatsApp Image 2026-01-08 at 3.06.52 PM (2).jpeg';
+// Vice President
+import vp1 from '../assets/Images/Vips/VicePresident/CPRadhakrishnan_1.jpg';
 
-import presNew1 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.04.38 PM.jpeg';
-import presNew2 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.04.39 PM (1).jpeg';
-import presNew3 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.04.39 PM (2).jpeg';
-import presNew4 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.04.39 PM.jpeg';
+// Prime Minister
+import pm1 from '../assets/Images/Vips/PrimeMinister/Modi_1.jpg';
+import pm2 from '../assets/Images/Vips/PrimeMinister/Modi_2.jpg';
+import pm3 from '../assets/Images/Vips/PrimeMinister/Modi_3.jpg';
+import pm4 from '../assets/Images/Vips/PrimeMinister/Modi_4.jpg';
+import pm5 from '../assets/Images/Vips/PrimeMinister/Modi_5.jpg';
+import pm6 from '../assets/Images/Vips/PrimeMinister/Modi_6.jpeg';
+import pm7 from '../assets/Images/Vips/PrimeMinister/Modi_7.jpeg';
+import pm8 from '../assets/Images/Vips/PrimeMinister/Modi_8.jpeg';
+import pm9 from '../assets/Images/Vips/PrimeMinister/Modi_9.jpeg';
 
-import pmNew1 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.07.21 PM.jpeg';
-import pmNew2 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.07.22 PM (1).jpeg';
-import pmNew3 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.07.22 PM (2).jpeg';
-import pmNew4 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 1.07.22 PM.jpeg';
+// NSA
+import nsa1 from '../assets/Images/Vips/NSA/AjitDoval_1.jpeg';
 
-// New Former Vice President Images (Added 2026-01-10)
-import fvpNew1 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.02.26 PM.jpeg';
-import fvpNew2 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.02.26 PM (1).jpeg';
-import fvpNew3 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.02.26 PM (2).jpeg';
-import fvpNew4 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.02.26 PM (3).jpeg';
+// Former President
+import fp1 from '../assets/Images/Vips/FormerPresident/Kovind_1.jpg';
+import fp2 from '../assets/Images/Vips/FormerPresident/Kovind_2.jpg';
+import fp3 from '../assets/Images/Vips/FormerPresident/Kovind_3.jpeg';
+import fp4 from '../assets/Images/Vips/FormerPresident/Kovind_4.jpeg';
+import fp5 from '../assets/Images/Vips/FormerPresident/Kovind_5.jpeg';
+import fp6 from '../assets/Images/Vips/FormerPresident/Kovind_6.jpeg';
 
-// New Former President Images (Added 2026-01-10)
-import fpNew1 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.02.48 PM.jpeg';
-import fpNew2 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.02.49 PM (1).jpeg';
-import fpNew3 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.02.49 PM (2).jpeg';
-import fpNew4 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.02.49 PM.jpeg';
+// Former Vice President
+import fvp1 from '../assets/Images/Vips/FormerVP/VenkaiahNaidu_1.jpg';
+import fvp2 from '../assets/Images/Vips/FormerVP/VenkaiahNaidu_2.jpeg';
+import fvp3 from '../assets/Images/Vips/FormerVP/VenkaiahNaidu_3.jpeg';
+import fvp4 from '../assets/Images/Vips/FormerVP/VenkaiahNaidu_4.jpeg';
+import fvp5 from '../assets/Images/Vips/FormerVP/VenkaiahNaidu_5.jpeg';
 
-// New Former Judge Images (Added 2026-01-10)
-import fjNew1 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.03.01 PM.jpeg';
-import fjNew2 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.03.02 PM (1).jpeg';
-import fjNew3 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.03.02 PM (2).jpeg';
-import fjNew4 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.03.02 PM (3).jpeg';
-import fjNew5 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.03.02 PM.jpeg';
+// Defence Minister
+import dm1 from '../assets/Images/Vips/DefenceMinister/RajnathSingh_1.jpeg';
+import dm2 from '../assets/Images/Vips/DefenceMinister/RajnathSingh_2.jpeg';
+import dm3 from '../assets/Images/Vips/DefenceMinister/RajnathSingh_3.jpeg';
+import dm4 from '../assets/Images/Vips/DefenceMinister/RajnathSingh_4.jpeg';
 
-// New Governor of Haryana Images (Added 2026-01-10)
-import ghNew1 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.03.34 PM.jpeg';
-import ghNew2 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.03.34 PM (1).jpeg';
-import ghNew3 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.03.34 PM (2).jpeg';
-import ghNew4 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.03.35 PM.jpeg';
+// Finance Minister
+import fm1 from '../assets/Images/Vips/FinanceMinister/Sitharaman_1.jpeg';
+import fm2 from '../assets/Images/Vips/FinanceMinister/Sitharaman_2.jpeg';
+import fm3 from '../assets/Images/Vips/FinanceMinister/Sitharaman_3.jpeg';
 
-// New RSS Chief Images (Added 2026-01-10)
-import rssNew1 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.04.23 PM.jpeg';
-import rssNew2 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.04.23 PM (1).jpeg';
-import rssNew3 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.04.23 PM (2).jpeg';
-import rssNew4 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.04.24 PM.jpeg';
+// Arun Jaitley
+import aj1 from '../assets/Images/Vips/ArunJaitley/ArunJaitley_1.jpg';
+import aj2 from '../assets/Images/Vips/ArunJaitley/ArunJaitley_2.jpeg';
+import aj3 from '../assets/Images/Vips/ArunJaitley/ArunJaitley_3.jpg';
+import aj4 from '../assets/Images/Vips/ArunJaitley/ArunJaitley_4.jpg';
+import aj5 from '../assets/Images/Vips/ArunJaitley/FormerPM_1.jpg';
+import aj6 from '../assets/Images/Vips/ArunJaitley/FormerPM_2.jpg';
 
-// New Defence Minister Images (Added 2026-01-10)
-import dmNew1 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.25.56 PM.jpeg';
-import dmNew2 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.25.56 PM (1).jpeg';
-import dmNew3 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.25.56 PM (2).jpeg';
-import dmNew4 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.25.56 PM (3).jpeg';
+// Governor Haryana
+import gh1 from '../assets/Images/Vips/GovernorH/Dattatreya_1.jpeg';
+import gh2 from '../assets/Images/Vips/GovernorH/Dattatreya_2.jpeg';
+import gh3 from '../assets/Images/Vips/GovernorH/Dattatreya_3.jpeg';
+import gh4 from '../assets/Images/Vips/GovernorH/Dattatreya_4.jpeg';
 
-// New Finance Minister Images (Added 2026-01-10)
-import fmNew1 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.26.28 PM.jpeg';
+// Governor
+import gov1 from '../assets/Images/Vips/Governor/Governor_1.jpg';
+import gov2 from '../assets/Images/Vips/Governor/Governor_2.jpeg';
 
+// Chief Minister
+import cm1 from '../assets/Images/Vips/ChiefMinister/CM_1.jpg';
+import cm2 from '../assets/Images/Vips/ChiefMinister/CM_2.jpg';
 
+// Former Judge
+import fj1 from '../assets/Images/Vips/FormerJudge/Judge_1.jpeg';
+import fj2 from '../assets/Images/Vips/FormerJudge/Judge_2.jpeg';
+import fj3 from '../assets/Images/Vips/FormerJudge/Judge_3.jpeg';
+import fj4 from '../assets/Images/Vips/FormerJudge/Judge_4.jpeg';
+import fj5 from '../assets/Images/Vips/FormerJudge/Judge_5.jpeg';
 
+// RSS Chief
+import rss1 from '../assets/Images/Vips/RSS/MohanBhagwat_1.jpeg';
+import rss2 from '../assets/Images/Vips/RSS/MohanBhagwat_2.jpeg';
+import rss3 from '../assets/Images/Vips/RSS/MohanBhagwat_3.jpeg';
+import rss4 from '../assets/Images/Vips/RSS/MohanBhagwat_4.jpeg';
 
+// State Ministers
+import sm1 from '../assets/Images/Vips/StateMinisters/StateMinister_1.jpg';
+import sm2 from '../assets/Images/Vips/StateMinisters/StateMinister_2.jpg';
 
-const allImages = [
-  { id: 4, src: vip4, alt: "Dignitary interaction 4" },
-  { id: 2, src: vip2, alt: "Dignitary interaction 2" },
-  { id: 6, src: vip6, alt: "Dignitary interaction 6" },
-  { id: 3, src: vip3, alt: "Dignitary interaction 3" },
-  { id: 7, src: vip7, alt: "Dignitary interaction 7" },
-  { id: 8, src: vip8, alt: "Dignitary interaction 8" },
-  { id: 9, src: vip9, alt: "Dignitary interaction 9" },
-  { id: 10, src: vip10, alt: "Dignitary interaction 10" },
-  { id: 11, src: vip11, alt: "Dignitary interaction 11" },
-  { id: 13, src: vip13, alt: "Dignitary interaction 13" },
-  { id: 14, src: vip14, alt: "Dignitary interaction 14" },
-  { id: 15, src: vip15, alt: "Dignitary interaction 15" },
-  { id: 17, src: vip17, alt: "Dignitary interaction 17" },
-  { id: 18, src: vip18, alt: "Dignitary interaction 18" },
-  { id: 19, src: vip19, alt: "Dignitary interaction 19" },
-  { id: 192, src: vip19_2, alt: "Dignitary interaction 19-2" },
-  { id: 20, src: vip20, alt: "Dignitary interaction 20" },
-  { id: 21, src: vip21, alt: "Dignitary interaction 21" },
-  { id: 22, src: vip22, alt: "Dignitary interaction 22" },
-  { id: 24, src: vip24, alt: "Dignitary interaction 24" },
-  { id: 25, src: vip25, alt: "Dignitary interaction 25" },
-  { id: 26, src: vip26, alt: "Dignitary interaction 26" },
-  { id: 27, src: vip27, alt: "Dignitary interaction 27" },
-  { id: 28, src: vip28, alt: "Dignitary interaction 28" },
-  { id: 29, src: vip29, alt: "Dignitary interaction 29" },
-  { id: 30, src: vip30, alt: "Dignitary interaction 30" },
-  { id: 31, src: vip31, alt: "Dignitary interaction 31" },
-  { id: 32, src: vip32, alt: "Dignitary interaction 32" },
-  { id: 34, src: vip34, alt: "Dignitary interaction 34" },
-  { id: 35, src: vip35, alt: "Dignitary interaction 35" },
-  { id: 36, src: vip36, alt: "Dignitary interaction 36" },
-  { id: 40, src: vip40, alt: "Dignitary interaction 40" },
-  { id: 45, src: vip45, alt: "Dignitary interaction 45" },
-];
+// MPs
+import mp1 from '../assets/Images/Vips/MPs/MP_1.jpeg';
+import mp2 from '../assets/Images/Vips/MPs/MP_2.jpg';
+import mp3 from '../assets/Images/Vips/MPs/MP_3.jpg';
+import mp4 from '../assets/Images/Vips/MPs/MP_4.jpg';
+import mp5 from '../assets/Images/Vips/MPs/MP_5.jpeg';
+import mp6 from '../assets/Images/Vips/MPs/MP_6.jpeg';
+
+// Eminent Personalities
+import emp0 from '../assets/Images/Vips/Eminent/Eminent_0.jpg';
+import emp1 from '../assets/Images/Vips/Eminent/Eminent_1.jpeg';
+import emp2 from '../assets/Images/Vips/Eminent/Eminent_2.jpeg';
+import emp3 from '../assets/Images/Vips/Eminent/Eminent_3.jpeg';
+import emp4 from '../assets/Images/Vips/Eminent/Eminent_4.jpeg';
+import emp5 from '../assets/Images/Vips/Eminent/Eminent_5.jpeg';
+import emp6 from '../assets/Images/Vips/Eminent/Eminent_6.jpeg';
+import emp7 from '../assets/Images/Vips/Eminent/Eminent_7.jpeg';
+import emp8 from '../assets/Images/Vips/Eminent/Eminent_8.jpeg';
+import emp9 from '../assets/Images/Vips/Eminent/Eminent_9.jpeg';
+import emp10 from '../assets/Images/Vips/Eminent/Eminent_10.jpeg';
+import emp11 from '../assets/Images/Vips/Eminent/Eminent_11.jpg';
+import emp12 from '../assets/Images/Vips/Eminent/Eminent_12.jpg';
+import emp13 from '../assets/Images/Vips/Eminent/Eminent_13.jpg';
+import emp14 from '../assets/Images/Vips/Eminent/Eminent_14.jpg';
+
 
 export const vipCurrentData = [
     {
       id: 'president',
       title: "President of India",
-      thumbnail: presNew1, 
+      thumbnail: pres1, 
       images: [
-         { id: 401, src: presNew1, alt: "President Smt. Droupadi Murmu" },
-         { id: 402, src: presNew2, alt: "President Smt. Droupadi Murmu" },
-         { id: 403, src: presNew3, alt: "President Smt. Droupadi Murmu" },
-         { id: 404, src: presNew4, alt: "President Smt. Droupadi Murmu" },
+         { id: 401, src: pres1, alt: "President Smt. Droupadi Murmu" },
+         { id: 402, src: pres2, alt: "President Smt. Droupadi Murmu" },
+         { id: 403, src: pres3, alt: "President Smt. Droupadi Murmu" },
+         { id: 404, src: pres4, alt: "President Smt. Droupadi Murmu" },
       ]
     },
     {
       id: 'vice-president',
       title: "Vice President of India",
-      thumbnail: vip45,
+      thumbnail: vp1,
       images: [
-         // { id: 3, src: vip3, alt: "Vice President Shri Jagdeep Dhankhar" }, 
-         // { id: 45, src: vip45, alt: "Vice President Event" },
+         { id: 3001, src: vp1, alt: "Hon'ble Vice President Shri C.P. Radhakrishnan" }, 
       ]
     },
     {
       id: 'prime-minister',
       title: "Prime Minister of India",
-      thumbnail: vip4,
+      thumbnail: pm1,
       images: [
-         { id: 4, src: vip4, alt: "PM Shri Narendra Modi" },
-         { id: 6, src: vip6, alt: "PM Shri Narendra Modi" },
-         { id: 7, src: vip7, alt: "PM Shri Narendra Modi" },
-         { id: 19, src: vip19, alt: "PM Shri Narendra Modi" },
-         { id: 192, src: vip19_2, alt: "PM Shri Narendra Modi" },
-         { id: 20, src: vip20, alt: "PM Shri Narendra Modi" },
-         { id: 40, src: vip40, alt: "PM Shri Narendra Modi" },
-         { id: 301, src: pmNew1, alt: "PM Shri Narendra Modi" },
-         { id: 302, src: pmNew2, alt: "PM Shri Narendra Modi" },
-         { id: 303, src: pmNew3, alt: "PM Shri Narendra Modi" },
-         { id: 304, src: pmNew4, alt: "PM Shri Narendra Modi" },
+         { id: 301, src: pm6, alt: "PM Shri Narendra Modi" },
+         { id: 302, src: pm7, alt: "PM Shri Narendra Modi" },
+         { id: 303, src: pm8, alt: "PM Shri Narendra Modi" },
+         { id: 304, src: pm9, alt: "PM Shri Narendra Modi" },
+         { id: 4, src: pm1, alt: "PM Shri Narendra Modi" },
+         { id: 6, src: pm2, alt: "PM Shri Narendra Modi" },
+         { id: 7, src: pm3, alt: "PM Shri Narendra Modi" },
+         { id: 19, src: pm4, alt: "PM Shri Narendra Modi" },
+         { id: 20, src: pm5, alt: "PM Shri Narendra Modi" },
+      ]
+    },
+    {
+      id: 'nsa',
+      title: "National Security Advisor (NSA)",
+      thumbnail: nsa1,
+      images: [
+         { id: 40, src: nsa1, alt: "NSA Shri Ajit Doval" },
       ]
     },
     {
       id: 'former-president',
       title: "Former President of India (Bharat)",
-      thumbnail: vip11,
+      thumbnail: fp1,
       images: [
-         { id: 1011, src: vip1, alt: "Former President Shri Ram Nath Kovind" },
-         { id: 1012, src: vip2, alt: "Former President Shri Ram Nath Kovind" },
-         { id: 11, src: vip11, alt: "Former President Shri Ram Nath Kovind" },
-         { id: 13, src: vip13, alt: "Former President Shri Ram Nath Kovind" },
-         { id: 601, src: fpNew1, alt: "Former President Shri Ram Nath Kovind" },
-         { id: 602, src: fpNew2, alt: "Former President Shri Ram Nath Kovind" },
-         { id: 603, src: fpNew3, alt: "Former President Shri Ram Nath Kovind" },
-         { id: 604, src: fpNew4, alt: "Former President Shri Ram Nath Kovind" },
-      ]
-    },
-    {
-      id: 'former-pm',
-      title: "Former Prime Minister of India",
-      thumbnail: vip14,
-      images: [
-         { id: 14, src: vip14, alt: "Former Prime Minister" },
-         { id: 15, src: vip15, alt: "Former Prime Minister" },
+         { id: 1011, src: fp1, alt: "Former President Shri Ram Nath Kovind" },
+         { id: 1012, src: fp2, alt: "Former President Shri Ram Nath Kovind" },
+         { id: 601, src: fp3, alt: "Former President Shri Ram Nath Kovind" },
+         { id: 602, src: fp4, alt: "Former President Shri Ram Nath Kovind" },
+         { id: 603, src: fp5, alt: "Former President Shri Ram Nath Kovind" },
+         { id: 604, src: fp6, alt: "Former President Shri Ram Nath Kovind" },
       ]
     },
     {
       id: 'former-vice-president',
       title: "Former Vice President of India",
-      thumbnail: fvpNew1,
+      thumbnail: fvp2,
       images: [
-         { id: 501, src: fvpNew1, alt: "Former VP Shri M. Venkaiah Naidu" },
-         { id: 502, src: fvpNew2, alt: "Former VP Shri M. Venkaiah Naidu" },
-         { id: 503, src: fvpNew3, alt: "Former VP Shri M. Venkaiah Naidu" },
-         { id: 504, src: fvpNew4, alt: "Former VP Shri M. Venkaiah Naidu" },
+         { id: 2003, src: fvp1, alt: "Former VP Shri M. Venkaiah Naidu" },
+         { id: 501, src: fvp2, alt: "Former VP Shri M. Venkaiah Naidu" },
+         { id: 502, src: fvp3, alt: "Former VP Shri M. Venkaiah Naidu" },
+         { id: 503, src: fvp4, alt: "Former VP Shri M. Venkaiah Naidu" },
+         { id: 504, src: fvp5, alt: "Former VP Shri M. Venkaiah Naidu" },
       ]
     },
-    {
-      id: 'speaker',
-      title: "Hon'ble Speaker, Lok Sabha Shri Om Birla",
-      thumbnail: vip26,
-      images: [
-         { id: 26, src: vip26, alt: "Speaker Shri Om Birla" },
-         { id: 27, src: vip27, alt: "Speaker Shri Om Birla" },
-      ]
-    },
+    // {
+    //   id: 'speaker',
+    //   title: "Hon'ble Speaker, Lok Sabha",
+    //   thumbnail: null,
+    //   images: []
+    // },
     {
       id: 'defence-minister',
       title: "Shri Rajnath Singh Defence Minister of India",
-      thumbnail: dmNew1,
+      thumbnail: dm1,
       images: [
-         { id: 1001, src: dmNew1, alt: "Defence Minister Shri Rajnath Singh" },
-         { id: 1002, src: dmNew2, alt: "Defence Minister Shri Rajnath Singh" },
-         { id: 1003, src: dmNew3, alt: "Defence Minister Shri Rajnath Singh" },
-         { id: 1004, src: dmNew4, alt: "Defence Minister Shri Rajnath Singh" },
+         { id: 1001, src: dm1, alt: "Defence Minister Shri Rajnath Singh" },
+         { id: 1002, src: dm2, alt: "Defence Minister Shri Rajnath Singh" },
+         { id: 1003, src: dm3, alt: "Defence Minister Shri Rajnath Singh" },
+         { id: 1004, src: dm4, alt: "Defence Minister Shri Rajnath Singh" },
       ]
     },
     {
       id: 'finance-minister',
       title: "Smt. Nirmala Sitharaman Finance Minister of India",
-      thumbnail: vip8,
+      thumbnail: fm1,
       images: [
-         { id: 8, src: vip8, alt: "Finance Minister Smt. Nirmala Sitharaman" },
-         { id: 9, src: vip9, alt: "Finance Minister Smt. Nirmala Sitharaman" },
-         { id: 10, src: vip10, alt: "Finance Minister Smt. Nirmala Sitharaman" },
-         { id: 1101, src: fmNew1, alt: "Finance Minister Smt. Nirmala Sitharaman" },
+         { id: 8, src: fm1, alt: "Finance Minister Smt. Nirmala Sitharaman" },
+         { id: 9, src: fm2, alt: "Finance Minister Smt. Nirmala Sitharaman" },
+         { id: 1101, src: fm3, alt: "Finance Minister Smt. Nirmala Sitharaman" },
+      ]
+    },
+    {
+      id: 'arun-jaitley',
+      title: "Late Shri Arun Jaitley (Former Finance & Defence Minister)",
+      thumbnail: aj1,
+      images: [
+         { id: 10, src: aj1, alt: "Former Minister Shri Arun Jaitley" },
+         { id: 45, src: aj2, alt: "Former Minister Shri Arun Jaitley" },
+         { id: 11, src: aj3, alt: "Former Minister Shri Arun Jaitley" },
+         { id: 13, src: aj4, alt: "Former Minister Shri Arun Jaitley" },
+         { id: 14, src: aj5, alt: "Former Minister Shri Arun Jaitley" },
+         { id: 15, src: aj6, alt: "Former Minister Shri Arun Jaitley" },
       ]
     },
     {
       id: 'governor-haryana',
       title: "Hon’ble Governor of Haryana",
-      thumbnail: ghNew1,
+      thumbnail: gh1,
       images: [
-         { id: 801, src: ghNew1, alt: "Governor Shri Bandaru Dattatreya" },
-         { id: 802, src: ghNew2, alt: "Governor Shri Bandaru Dattatreya" },
-         { id: 803, src: ghNew3, alt: "Governor Shri Bandaru Dattatreya" },
-         { id: 804, src: ghNew4, alt: "Governor Shri Bandaru Dattatreya" },
+         { id: 801, src: gh1, alt: "Governor Shri Bandaru Dattatreya" },
+         { id: 802, src: gh2, alt: "Governor Shri Bandaru Dattatreya" },
+         { id: 803, src: gh3, alt: "Governor Shri Bandaru Dattatreya" },
+         { id: 804, src: gh4, alt: "Governor Shri Bandaru Dattatreya" },
       ]
     },
     {
       id: 'governor',
       title: "Hon'ble Governor",
-      thumbnail: vip17,
+      thumbnail: gov1,
       images: [
-         { id: 17, src: vip17, alt: "Hon'ble Governor" },
-         { id: 18, src: vip18, alt: "Hon'ble Governor" },
+         { id: 17, src: gov1, alt: "Hon'ble Governor" },
+         { id: 18, src: gov2, alt: "Hon'ble Governor" },
       ]
     },
     {
       id: 'chief-minister',
       title: "Hon'ble Chief Minister",
-      thumbnail: vip21,
+      thumbnail: cm1,
       images: [
-         { id: 21, src: vip21, alt: "Hon'ble Chief Minister" },
-         { id: 22, src: vip22, alt: "Hon'ble Chief Minister" },
+         { id: 21, src: cm1, alt: "Hon'ble Chief Minister" },
+         { id: 22, src: cm2, alt: "Hon'ble Chief Minister" },
       ]
     },
-    {
-      id: 'chairman-rajya-sabha',
-      title: "Hon'ble Deputy Chairman, Rajya Sabha Shri Harivansh Narayan Singh",
-      thumbnail: vip28,
-      images: [
-         { id: 28, src: vip28, alt: "Deputy Chairman Shri Harivansh" },
-         { id: 29, src: vip29, alt: "Deputy Chairman Shri Harivansh" },
-      ]
-    },
+    // {
+    //   id: 'chairman-rajya-sabha',
+    //   title: "Hon'ble Deputy Chairman, Rajya Sabha",
+    //   thumbnail: null,
+    //   images: []
+    // },
     {
       id: 'former-judge',
       title: "Former Judge of Supreme Court of India",
-      thumbnail: fjNew1,
+      thumbnail: fj1,
       images: [
-         { id: 701, src: fjNew1, alt: "Hon'ble Former Judge" },
-         { id: 702, src: fjNew2, alt: "Hon'ble Former Judge" },
-         { id: 703, src: fjNew3, alt: "Hon'ble Former Judge" },
-         { id: 704, src: fjNew4, alt: "Hon'ble Former Judge" },
-         { id: 705, src: fjNew5, alt: "Hon'ble Former Judge" },
+         { id: 701, src: fj1, alt: "Hon'ble Former Judge" },
+         { id: 702, src: fj2, alt: "Hon'ble Former Judge" },
+         { id: 703, src: fj3, alt: "Hon'ble Former Judge" },
+         { id: 704, src: fj4, alt: "Hon'ble Former Judge" },
+         { id: 705, src: fj5, alt: "Hon'ble Former Judge" },
       ]
     },
     {
       id: 'rss-chief',
       title: "Sarsanghchalak (Chief) of the Rashtriya Swayamsevak Sangh (RSS)",
-      thumbnail: rssNew1,
+      thumbnail: rss1,
       images: [
-         { id: 901, src: rssNew1, alt: "RSS Chief Dr. Mohan Bhagwat" },
-         { id: 902, src: rssNew2, alt: "RSS Chief Dr. Mohan Bhagwat" },
-         { id: 903, src: rssNew3, alt: "RSS Chief Dr. Mohan Bhagwat" },
-         { id: 904, src: rssNew4, alt: "RSS Chief Dr. Mohan Bhagwat" },
+         { id: 901, src: rss1, alt: "RSS Chief Dr. Mohan Bhagwat" },
+         { id: 902, src: rss2, alt: "RSS Chief Dr. Mohan Bhagwat" },
+         { id: 903, src: rss3, alt: "RSS Chief Dr. Mohan Bhagwat" },
+         { id: 904, src: rss4, alt: "RSS Chief Dr. Mohan Bhagwat" },
       ]
     },
     {
       id: 'state-ministers',
       title: "State Council of Ministers",
-      thumbnail: vip24,
+      thumbnail: sm1,
       images: [
-         { id: 24, src: vip24, alt: "State Minister" },
-         { id: 25, src: vip25, alt: "State Minister" },
+         { id: 24, src: sm1, alt: "State Minister" },
+         { id: 25, src: sm2, alt: "State Minister" },
       ]
     },
     {
       id: 'mps',
       title: "Members of Parliament (MPs)",
-      thumbnail: vip30,
+      thumbnail: mp1,
       images: [
-          { id: 30, src: vip30, alt: "Hon'ble MP" },
-          { id: 31, src: vip31, alt: "Hon'ble MP" },
-          { id: 32, src: vip32, alt: "Hon'ble MP" },
-          { id: 34, src: vip34, alt: "Hon'ble MP" },
-          { id: 35, src: vip35, alt: "Hon'ble MP" },
-          { id: 36, src: vip36, alt: "Hon'ble MP" },
+          { id: 30, src: mp1, alt: "Hon'ble MP" },
+          { id: 31, src: mp2, alt: "Hon'ble MP" },
+          { id: 32, src: mp3, alt: "Hon'ble MP" },
+          { id: 34, src: mp4, alt: "Hon'ble MP" },
+          { id: 35, src: mp5, alt: "Hon'ble MP" },
+          { id: 36, src: mp6, alt: "Hon'ble MP" },
       ]
     },
     {
       id: 'eminent-personalities',
       title: "Eminent Personalities & Celebrities",
-      thumbnail: celebImg1,
+      thumbnail: emp1,
       images: [
-          { id: 101, src: celebImg1, alt: "Celebrity Interaction" },
-          { id: 102, src: celebImg2, alt: "Celebrity Interaction" },
-          { id: 103, src: celebImg3, alt: "Celebrity Interaction" },
-          { id: 104, src: celebImg4, alt: "Celebrity Interaction" },
-          { id: 105, src: celebImg5, alt: "Celebrity Interaction" },
-          { id: 106, src: celebImg6, alt: "Celebrity Interaction" },
-          { id: 107, src: celebImg7, alt: "Celebrity Interaction" },
-          { id: 108, src: celebImg8, alt: "Celebrity Interaction" },
-          { id: 109, src: celebImg9, alt: "Celebrity Interaction" },
-          { id: 110, src: celebImg10, alt: "Celebrity Interaction" },
+          { id: 192, src: emp0, alt: "Dignitary Interaction" },
+          { id: 101, src: emp1, alt: "Celebrity Interaction" },
+          { id: 102, src: emp2, alt: "Celebrity Interaction" },
+          { id: 103, src: emp3, alt: "Celebrity Interaction" },
+          { id: 104, src: emp4, alt: "Celebrity Interaction" },
+          { id: 105, src: emp5, alt: "Celebrity Interaction" },
+          { id: 106, src: emp6, alt: "Celebrity Interaction" },
+          { id: 107, src: emp7, alt: "Celebrity Interaction" },
+          { id: 108, src: emp8, alt: "Celebrity Interaction" },
+          { id: 109, src: emp9, alt: "Celebrity Interaction" },
+          { id: 110, src: emp10, alt: "Celebrity Interaction" },
+          { id: 111, src: emp11, alt: "Celebrity Interaction" },
+          { id: 112, src: emp12, alt: "Celebrity Interaction" },
+          { id: 113, src: emp13, alt: "Celebrity Interaction" },
+          { id: 114, src: emp14, alt: "Celebrity Interaction" },
       ]
     }
   ];
 
-  // Also export flat list if needed elsewhere, or for debugging
-  export const vipImages = allImages;
+  export const vipImages = vipCurrentData;

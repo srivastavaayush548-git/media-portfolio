@@ -4,7 +4,7 @@ import { interviewVideos } from '../Data/interviews';
 
 const Interview = () => {
   return (
-    <div className="min-h-screen pt-24 bg-gradient-to-br from-orange-200 via-yellow-200 to-orange-100 text-stone-800">
+    <div className="min-h-screen pt-24 bg-linear-to-br from-orange-200 via-yellow-200 to-orange-100 text-stone-800">
       <div className="container mx-auto px-4 py-12">
         <h1 className="text-4xl md:text-5xl font-serif font-bold text-center mb-12 text-stone-900">
           Interviews & Media

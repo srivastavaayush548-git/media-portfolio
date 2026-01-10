@@ -3,7 +3,7 @@ import { nonFictionBooks } from '../Data/books';
 
 const Books = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-200 via-yellow-200 to-orange-100 text-stone-800 font-sans selection:bg-red-100 pt-24">
+    <div className="min-h-screen bg-linear-to-br from-orange-200 via-yellow-200 to-orange-100 text-stone-800 font-sans selection:bg-red-100 pt-24">
       {/* --- Hero Section --- */}
       <div className="bg-white border-b border-stone-200">
         <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
