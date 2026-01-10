@@ -15,9 +15,17 @@ import grandchildrenImg1 from '../assets/Images/Family/grandchildren.jpeg';
 import grandchildrenImg2 from '../assets/Images/Family/grandchildren2.jpeg';
 import sonImg from '../assets/Images/Family/son.jpeg';
 import wifePushpaImg from '../assets/Images/Family/wife- pushpa.jpeg';
-import fatherMotherImg from '../assets/Images/Family/WhatsApp Image 2026-01-07 at 6.54.34 PM (7).jpeg';
+import momandDadImg from '../assets/Images/Family/fatherandmother.jpeg';
 
 export const familyData = [
+  {
+    id: 'father-mother',
+    title: "Father & Mother",
+    thumbnail: momandDadImg,
+    images: [
+      { id: 18, src: momandDadImg, alt: "Father & Mother", title: "Father & Mother" },
+    ]
+  },
   {
     id: 'couple',
     title: "Wife",
@@ -62,12 +70,4 @@ export const familyData = [
       { id: 16, src: siblingsImg, alt: "With my siblings", title: "With my siblings." },
     ]
   },
-  {
-    id: 'father-mother',
-    title: "Father & Mother",
-    thumbnail: fatherMotherImg,
-    images: [
-      { id: 17, src: fatherMotherImg, alt: "Father & Mother", title: "Father & Mother" },
-    ]
-  }
 ];

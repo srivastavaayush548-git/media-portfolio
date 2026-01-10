@@ -18,7 +18,7 @@ const ImageGroupGallery = ({ groups, customGridCols }) => {
               </button>
               
               <div className="mb-10 text-center md:text-left">
-                <span className="text-red-800 font-bold tracking-wider text-sm uppercase mb-2 block">Collection</span>
+                {/* <span className="text-red-800 font-bold tracking-wider text-sm uppercase mb-2 block">Collection</span> */}
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-stone-900">{selectedGroup.title}</h2>
               </div>
               

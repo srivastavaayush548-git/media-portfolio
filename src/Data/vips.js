@@ -5,7 +5,7 @@ import pres3 from '../assets/Images/Vips/President/DroupadiMurmu_3.jpeg';
 import pres4 from '../assets/Images/Vips/President/DroupadiMurmu_4.jpeg';
 
 // Vice President
-import vp1 from '../assets/Images/Vips/VicePresident/CPRadhakrishnan_1.jpg';
+// import vp1 from '../assets/Images/Vips/VicePresident/CPRadhakrishnan_1.jpg';
 
 // Prime Minister
 import pm1 from '../assets/Images/Vips/PrimeMinister/Modi_1.jpg';
@@ -93,6 +93,7 @@ import mp3 from '../assets/Images/Vips/MPs/MP_3.jpg';
 import mp4 from '../assets/Images/Vips/MPs/MP_4.jpg';
 import mp5 from '../assets/Images/Vips/MPs/MP_5.jpeg';
 import mp6 from '../assets/Images/Vips/MPs/MP_6.jpeg';
+import mp7 from '../assets/Images/Vips/MPs/MP_7.jpeg';
 
 // Eminent Personalities
 import emp0 from '../assets/Images/Vips/Eminent/Eminent_0.jpg';
@@ -124,14 +125,14 @@ export const vipCurrentData = [
          { id: 404, src: pres4, alt: "President Smt. Droupadi Murmu" },
       ]
     },
-    {
-      id: 'vice-president',
-      title: "Vice President of India",
-      thumbnail: vp1,
-      images: [
-         { id: 3001, src: vp1, alt: "Hon'ble Vice President Shri C.P. Radhakrishnan" }, 
-      ]
-    },
+    // {
+    //   id: 'vice-president',
+    //   title: "Vice President of India",
+    //   thumbnail: vp1,
+    //   images: [
+    //      { id: 3001, src: vp1, alt: "Hon'ble Vice President Shri C.P. Radhakrishnan" }, 
+    //   ]
+    // },
     {
       id: 'prime-minister',
       title: "Prime Minister of India",
@@ -154,6 +155,7 @@ export const vipCurrentData = [
       thumbnail: nsa1,
       images: [
          { id: 40, src: nsa1, alt: "NSA Shri Ajit Doval" },
+         { id: 17, src: gov1, alt: "NSA Shri Ajit Doval" },
       ]
     },
     {
@@ -201,11 +203,9 @@ export const vipCurrentData = [
     {
       id: 'finance-minister',
       title: "Smt. Nirmala Sitharaman Finance Minister of India",
-      thumbnail: fm1,
+      thumbnail: sm1,
       images: [
-         { id: 8, src: fm1, alt: "Finance Minister Smt. Nirmala Sitharaman" },
-         { id: 9, src: fm2, alt: "Finance Minister Smt. Nirmala Sitharaman" },
-         { id: 1101, src: fm3, alt: "Finance Minister Smt. Nirmala Sitharaman" },
+         { id: 24, src: sm1, alt: "Finance Minister Smt. Nirmala Sitharaman" },
       ]
     },
     {
@@ -219,6 +219,8 @@ export const vipCurrentData = [
          { id: 13, src: aj4, alt: "Former Minister Shri Arun Jaitley" },
          { id: 14, src: aj5, alt: "Former Minister Shri Arun Jaitley" },
          { id: 15, src: aj6, alt: "Former Minister Shri Arun Jaitley" },
+         { id: 8, src: fm1, alt: "Finance Minister Smt. Nirmala Sitharaman" },
+         { id: 9, src: fm2, alt: "Finance Minister Smt. Nirmala Sitharaman" },
       ]
     },
     {
@@ -235,21 +237,21 @@ export const vipCurrentData = [
     {
       id: 'governor',
       title: "Hon'ble Governor",
-      thumbnail: gov1,
+      thumbnail: gov2,
       images: [
-         { id: 17, src: gov1, alt: "Hon'ble Governor" },
+
          { id: 18, src: gov2, alt: "Hon'ble Governor" },
       ]
     },
-    {
-      id: 'chief-minister',
-      title: "Hon'ble Chief Minister",
-      thumbnail: cm1,
-      images: [
-         { id: 21, src: cm1, alt: "Hon'ble Chief Minister" },
-         { id: 22, src: cm2, alt: "Hon'ble Chief Minister" },
-      ]
-    },
+    // {
+    //   id: 'chief-minister',
+    //   title: "Hon'ble Chief Minister",
+    //   thumbnail: cm1,
+    //   images: [
+    //      { id: 21, src: cm1, alt: "Hon'ble Chief Minister" },
+    //      { id: 22, src: cm2, alt: "Hon'ble Chief Minister" },
+    //   ]
+    // },
     // {
     //   id: 'chairman-rajya-sabha',
     //   title: "Hon'ble Deputy Chairman, Rajya Sabha",
@@ -279,26 +281,21 @@ export const vipCurrentData = [
          { id: 904, src: rss4, alt: "RSS Chief Dr. Mohan Bhagwat" },
       ]
     },
-    {
-      id: 'state-ministers',
-      title: "State Council of Ministers",
-      thumbnail: sm1,
-      images: [
-         { id: 24, src: sm1, alt: "State Minister" },
-         { id: 25, src: sm2, alt: "State Minister" },
-      ]
-    },
+    // {
+    //   id: 'state-ministers',
+    //   title: "State Council of Ministers",
+    //   thumbnail: sm1,
+    //   images: [
+
+    //   ]
+    // },
     {
       id: 'mps',
       title: "Members of Parliament (MPs)",
-      thumbnail: mp1,
+      thumbnail: mp7,
       images: [
-          { id: 30, src: mp1, alt: "Hon'ble MP" },
-          { id: 31, src: mp2, alt: "Hon'ble MP" },
-          { id: 32, src: mp3, alt: "Hon'ble MP" },
-          { id: 34, src: mp4, alt: "Hon'ble MP" },
-          { id: 35, src: mp5, alt: "Hon'ble MP" },
-          { id: 36, src: mp6, alt: "Hon'ble MP" },
+        { id: 111, src: mp7, alt: "Hon'ble MP" },
+
       ]
     },
     {
@@ -317,10 +314,11 @@ export const vipCurrentData = [
           { id: 108, src: emp8, alt: "Celebrity Interaction" },
           { id: 109, src: emp9, alt: "Celebrity Interaction" },
           { id: 110, src: emp10, alt: "Celebrity Interaction" },
-          { id: 111, src: emp11, alt: "Celebrity Interaction" },
           { id: 112, src: emp12, alt: "Celebrity Interaction" },
           { id: 113, src: emp13, alt: "Celebrity Interaction" },
           { id: 114, src: emp14, alt: "Celebrity Interaction" },
+          { id: 111, src: emp11, alt: "Celebrity Interaction" },
+          
       ]
     }
   ];
