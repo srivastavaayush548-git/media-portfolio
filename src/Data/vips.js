@@ -160,7 +160,7 @@ export const vipCurrentData = [
     },
     {
       id: 'former-president',
-      title: "Former President of India (Bharat)",
+      title: "Former President of India ",
       thumbnail: fp1,
       images: [
          { id: 1011, src: fp1, alt: "Former President of India" },
