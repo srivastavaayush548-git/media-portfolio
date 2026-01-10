@@ -13,6 +13,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { nonFictionBooks } from '../Data/books';
+import suryaPrakashImg from '../assets/Surya-Prakash.jpeg';
 
 const AboutMe = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -57,18 +58,25 @@ const AboutMe = () => {
         <section className="mb-32 grid md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-5 relative">
             <div className="absolute -top-10 -left-10 w-40 h-40 bg-red-100 rounded-full blur-3xl opacity-50"></div>
-            <div className="relative bg-white p-8 md:p-10 rounded-2xl shadow-xl border border-stone-100">
-              <QuoteIcon className="w-12 h-12 text-red-200 absolute top-6 left-6 -z-10" />
-              <p className="text-xl md:text-2xl font-serif text-stone-800 leading-relaxed italic">
-                "Democracy is not just about elections; it is about the daily functioning of institutions and the vigilance of the press."
-              </p>
-              <div className="mt-6 flex items-center gap-4">
-                <div className="h-px flex-1 bg-stone-200"></div>
-                <span className="text-sm font-bold text-stone-400 uppercase tracking-wider">Philosophy</span>
-              </div>
+            
+            {/* Image */}
+            <div className="relative mb-6 rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform rotate-2 hover:rotate-0 transition-transform duration-500">
+               <img src={suryaPrakashImg} alt="A. Surya Prakash" className="w-full h-auto object-cover" />
             </div>
           </div>
           <div className="md:col-span-7 space-y-6 text-lg text-stone-600 leading-relaxed">
+            
+            <div className="relative bg-white/50 p-6 md:p-8 rounded-2xl border border-stone-100 mb-8 backdrop-blur-sm">
+              <QuoteIcon className="w-8 h-8 text-red-200 absolute top-4 left-4 -z-10" />
+              <p className="text-lg md:text-xl font-serif text-stone-800 leading-relaxed italic">
+                "Democracy is not just about elections; it is about the daily functioning of institutions and the vigilance of the press."
+              </p>
+              <div className="mt-4 flex items-center gap-4">
+                <div className="h-px flex-1 bg-stone-200"></div>
+                <span className="text-xs font-bold text-stone-400 uppercase tracking-wider">Philosophy</span>
+              </div>
+            </div>
+
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-stone-900 mb-6">
               A Legacy of <span className="underline decoration-red-800/30 decoration-4 underline-offset-4">Integrity</span>
             </h2>

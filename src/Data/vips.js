@@ -86,6 +86,16 @@ import rssNew2 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.04.23 
 import rssNew3 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.04.23 PM (2).jpeg';
 import rssNew4 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.04.24 PM.jpeg';
 
+// New Defence Minister Images (Added 2026-01-10)
+import dmNew1 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.25.56 PM.jpeg';
+import dmNew2 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.25.56 PM (1).jpeg';
+import dmNew3 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.25.56 PM (2).jpeg';
+import dmNew4 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.25.56 PM (3).jpeg';
+
+// New Finance Minister Images (Added 2026-01-10)
+import fmNew1 from '../assets/Images/Vips/WhatsApp Image 2026-01-10 at 2.26.28 PM.jpeg';
+
+
 
 
 
@@ -131,12 +141,12 @@ export const vipCurrentData = [
       title: "President of India",
       thumbnail: vip2, 
       images: [
-         { id: 1, src: vip1, alt: "President of India Interaction" },
-         { id: 2, src: vip2, alt: "President of India Interaction" },
-         { id: 401, src: presNew1, alt: "President of India Interaction" },
-         { id: 402, src: presNew2, alt: "President of India Interaction" },
-         { id: 403, src: presNew3, alt: "President of India Interaction" },
-         { id: 404, src: presNew4, alt: "President of India Interaction" },
+         { id: 1, src: vip1, alt: "President Smt. Droupadi Murmu" },
+         { id: 2, src: vip2, alt: "President Smt. Droupadi Murmu" },
+         { id: 401, src: presNew1, alt: "President Smt. Droupadi Murmu" },
+         { id: 402, src: presNew2, alt: "President Smt. Droupadi Murmu" },
+         { id: 403, src: presNew3, alt: "President Smt. Droupadi Murmu" },
+         { id: 404, src: presNew4, alt: "President Smt. Droupadi Murmu" },
       ]
     },
     {
@@ -144,7 +154,7 @@ export const vipCurrentData = [
       title: "Vice President of India",
       thumbnail: vip3,
       images: [
-         { id: 3, src: vip3, alt: "Vice President Interaction" },
+         { id: 3, src: vip3, alt: "Vice President Shri Jagdeep Dhankhar" },
          { id: 45, src: vip45, alt: "Vice President Event" },
       ]
     },
@@ -153,81 +163,39 @@ export const vipCurrentData = [
       title: "Prime Minister of India",
       thumbnail: vip4,
       images: [
-         { id: 4, src: vip4, alt: "PM Interaction" },
-         { id: 6, src: vip6, alt: "PM Event" },
-         { id: 7, src: vip7, alt: "PM Meeting" },
-         { id: 19, src: vip19, alt: "PM Event" },
-         { id: 192, src: vip19_2, alt: "PM Event" },
-         { id: 20, src: vip20, alt: "PM Event" },
-         { id: 40, src: vip40, alt: "PM Event" },
-         { id: 301, src: pmNew1, alt: "PM Event" },
-         { id: 302, src: pmNew2, alt: "PM Event" },
-         { id: 303, src: pmNew3, alt: "PM Event" },
-         { id: 304, src: pmNew4, alt: "PM Event" },
+         { id: 4, src: vip4, alt: "PM Shri Narendra Modi" },
+         { id: 6, src: vip6, alt: "PM Shri Narendra Modi" },
+         { id: 7, src: vip7, alt: "PM Shri Narendra Modi" },
+         { id: 19, src: vip19, alt: "PM Shri Narendra Modi" },
+         { id: 192, src: vip19_2, alt: "PM Shri Narendra Modi" },
+         { id: 20, src: vip20, alt: "PM Shri Narendra Modi" },
+         { id: 40, src: vip40, alt: "PM Shri Narendra Modi" },
+         { id: 301, src: pmNew1, alt: "PM Shri Narendra Modi" },
+         { id: 302, src: pmNew2, alt: "PM Shri Narendra Modi" },
+         { id: 303, src: pmNew3, alt: "PM Shri Narendra Modi" },
+         { id: 304, src: pmNew4, alt: "PM Shri Narendra Modi" },
       ]
     },
     {
-      id: 'union-ministers',
-      title: "Union Council of Ministers",
+      id: 'defence-minister',
+      title: "Shri Rajnath Singh Defence Minister of India",
+      thumbnail: dmNew1,
+      images: [
+         { id: 1001, src: dmNew1, alt: "Defence Minister Shri Rajnath Singh" },
+         { id: 1002, src: dmNew2, alt: "Defence Minister Shri Rajnath Singh" },
+         { id: 1003, src: dmNew3, alt: "Defence Minister Shri Rajnath Singh" },
+         { id: 1004, src: dmNew4, alt: "Defence Minister Shri Rajnath Singh" },
+      ]
+    },
+    {
+      id: 'finance-minister',
+      title: "Smt. Nirmala Sitharaman Finance Minister of India",
       thumbnail: vip8,
       images: [
-         { id: 8, src: vip8, alt: "Union Minister" },
-         { id: 9, src: vip9, alt: "Union Minister" },
-         { id: 10, src: vip10, alt: "Union Minister" },
-      ]
-    },
-    {
-      id: 'former-president',
-      title: "Former President of India (Bharat)",
-      thumbnail: vip11,
-      images: [
-         { id: 11, src: vip11, alt: "Former President" },
-         { id: 13, src: vip13, alt: "Former President" },
-         { id: 601, src: fpNew1, alt: "Former President" },
-         { id: 602, src: fpNew2, alt: "Former President" },
-         { id: 603, src: fpNew3, alt: "Former President" },
-         { id: 604, src: fpNew4, alt: "Former President" },
-      ]
-    },
-    {
-      id: 'former-vice-president',
-      title: "Former Vice President of India",
-      thumbnail: fvpNew1,
-      images: [
-         { id: 501, src: fvpNew1, alt: "Former Vice President" },
-         { id: 502, src: fvpNew2, alt: "Former Vice President" },
-         { id: 503, src: fvpNew3, alt: "Former Vice President" },
-         { id: 504, src: fvpNew4, alt: "Former Vice President" },
-      ]
-    },
-    {
-      id: 'former-pm',
-      title: "Former Prime Minister of India",
-      thumbnail: vip14,
-      images: [
-         { id: 14, src: vip14, alt: "Former PM" },
-         { id: 15, src: vip15, alt: "Former PM" },
-      ]
-    },
-    {
-      id: 'former-judge',
-      title: "Former Judge of Supreme Court of India",
-      thumbnail: fjNew1,
-      images: [
-         { id: 701, src: fjNew1, alt: "Former Judge" },
-         { id: 702, src: fjNew2, alt: "Former Judge" },
-         { id: 703, src: fjNew3, alt: "Former Judge" },
-         { id: 704, src: fjNew4, alt: "Former Judge" },
-         { id: 705, src: fjNew5, alt: "Former Judge" },
-      ]
-    },
-    {
-      id: 'governor',
-      title: "Governor",
-      thumbnail: vip17,
-      images: [
-         { id: 17, src: vip17, alt: "Governor" },
-         { id: 18, src: vip18, alt: "Governor" },
+         { id: 8, src: vip8, alt: "Finance Minister Smt. Nirmala Sitharaman" },
+         { id: 9, src: vip9, alt: "Finance Minister Smt. Nirmala Sitharaman" },
+         { id: 10, src: vip10, alt: "Finance Minister Smt. Nirmala Sitharaman" },
+         { id: 1101, src: fmNew1, alt: "Finance Minister Smt. Nirmala Sitharaman" },
       ]
     },
     {
@@ -235,10 +203,10 @@ export const vipCurrentData = [
       title: "Hon’ble Governor of Haryana",
       thumbnail: ghNew1,
       images: [
-         { id: 801, src: ghNew1, alt: "Governor of Haryana" },
-         { id: 802, src: ghNew2, alt: "Governor of Haryana" },
-         { id: 803, src: ghNew3, alt: "Governor of Haryana" },
-         { id: 804, src: ghNew4, alt: "Governor of Haryana" },
+         { id: 801, src: ghNew1, alt: "Governor Shri Bandaru Dattatreya" },
+         { id: 802, src: ghNew2, alt: "Governor Shri Bandaru Dattatreya" },
+         { id: 803, src: ghNew3, alt: "Governor Shri Bandaru Dattatreya" },
+         { id: 804, src: ghNew4, alt: "Governor Shri Bandaru Dattatreya" },
       ]
     },
     {
@@ -246,10 +214,10 @@ export const vipCurrentData = [
       title: "Sarsanghchalak (Chief) of the Rashtriya Swayamsevak Sangh (RSS)",
       thumbnail: rssNew1,
       images: [
-         { id: 901, src: rssNew1, alt: "RSS Chief" },
-         { id: 902, src: rssNew2, alt: "RSS Chief" },
-         { id: 903, src: rssNew3, alt: "RSS Chief" },
-         { id: 904, src: rssNew4, alt: "RSS Chief" },
+         { id: 901, src: rssNew1, alt: "RSS Chief Dr. Mohan Bhagwat" },
+         { id: 902, src: rssNew2, alt: "RSS Chief Dr. Mohan Bhagwat" },
+         { id: 903, src: rssNew3, alt: "RSS Chief Dr. Mohan Bhagwat" },
+         { id: 904, src: rssNew4, alt: "RSS Chief Dr. Mohan Bhagwat" },
       ]
     },
     {
@@ -262,12 +230,12 @@ export const vipCurrentData = [
       ]
     },
     {
-      id: 'state-ministers',
-      title: "State Council of Ministers",
-      thumbnail: vip24,
+      id: 'governor',
+      title: "Governor",
+      thumbnail: vip17,
       images: [
-         { id: 24, src: vip24, alt: "State Minister" },
-         { id: 25, src: vip25, alt: "State Minister" },
+         { id: 17, src: vip17, alt: "Governor" },
+         { id: 18, src: vip18, alt: "Governor" },
       ]
     },
     {
@@ -289,6 +257,15 @@ export const vipCurrentData = [
       ]
     },
     {
+      id: 'state-ministers',
+      title: "State Council of Ministers",
+      thumbnail: vip24,
+      images: [
+         { id: 24, src: vip24, alt: "State Minister" },
+         { id: 25, src: vip25, alt: "State Minister" },
+      ]
+    },
+    {
       id: 'mps',
       title: "Members of Parliament (MPs)",
       thumbnail: vip30,
@@ -299,6 +276,51 @@ export const vipCurrentData = [
           { id: 34, src: vip34, alt: "MP" },
           { id: 35, src: vip35, alt: "MP" },
           { id: 36, src: vip36, alt: "MP" },
+      ]
+    },
+    {
+      id: 'former-president',
+      title: "Former President of India (Bharat)",
+      thumbnail: vip11,
+      images: [
+         { id: 11, src: vip11, alt: "Former President Shri Ram Nath Kovind" },
+         { id: 13, src: vip13, alt: "Former President Shri Ram Nath Kovind" },
+         { id: 601, src: fpNew1, alt: "Former President Shri Ram Nath Kovind" },
+         { id: 602, src: fpNew2, alt: "Former President Shri Ram Nath Kovind" },
+         { id: 603, src: fpNew3, alt: "Former President Shri Ram Nath Kovind" },
+         { id: 604, src: fpNew4, alt: "Former President Shri Ram Nath Kovind" },
+      ]
+    },
+    {
+      id: 'former-vice-president',
+      title: "Former Vice President of India",
+      thumbnail: fvpNew1,
+      images: [
+         { id: 501, src: fvpNew1, alt: "Former VP Shri M. Venkaiah Naidu" },
+         { id: 502, src: fvpNew2, alt: "Former VP Shri M. Venkaiah Naidu" },
+         { id: 503, src: fvpNew3, alt: "Former VP Shri M. Venkaiah Naidu" },
+         { id: 504, src: fvpNew4, alt: "Former VP Shri M. Venkaiah Naidu" },
+      ]
+    },
+    {
+      id: 'former-pm',
+      title: "Former Prime Minister of India",
+      thumbnail: vip14,
+      images: [
+         { id: 14, src: vip14, alt: "Former PM" },
+         { id: 15, src: vip15, alt: "Former PM" },
+      ]
+    },
+    {
+      id: 'former-judge',
+      title: "Former Judge of Supreme Court of India",
+      thumbnail: fjNew1,
+      images: [
+         { id: 701, src: fjNew1, alt: "Hon'ble Former Judge" },
+         { id: 702, src: fjNew2, alt: "Hon'ble Former Judge" },
+         { id: 703, src: fjNew3, alt: "Hon'ble Former Judge" },
+         { id: 704, src: fjNew4, alt: "Hon'ble Former Judge" },
+         { id: 705, src: fjNew5, alt: "Hon'ble Former Judge" },
       ]
     },
     {
