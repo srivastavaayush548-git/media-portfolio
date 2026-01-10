@@ -139,10 +139,8 @@ export const vipCurrentData = [
     {
       id: 'president',
       title: "President of India",
-      thumbnail: vip2, 
+      thumbnail: presNew1, 
       images: [
-         { id: 1, src: vip1, alt: "President Smt. Droupadi Murmu" },
-         { id: 2, src: vip2, alt: "President Smt. Droupadi Murmu" },
          { id: 401, src: presNew1, alt: "President Smt. Droupadi Murmu" },
          { id: 402, src: presNew2, alt: "President Smt. Droupadi Murmu" },
          { id: 403, src: presNew3, alt: "President Smt. Droupadi Murmu" },
@@ -152,10 +150,10 @@ export const vipCurrentData = [
     {
       id: 'vice-president',
       title: "Vice President of India",
-      thumbnail: vip3,
+      thumbnail: vip45,
       images: [
-         { id: 3, src: vip3, alt: "Vice President Shri Jagdeep Dhankhar" },
-         { id: 45, src: vip45, alt: "Vice President Event" },
+         // { id: 3, src: vip3, alt: "Vice President Shri Jagdeep Dhankhar" }, 
+         // { id: 45, src: vip45, alt: "Vice President Event" },
       ]
     },
     {
@@ -174,6 +172,50 @@ export const vipCurrentData = [
          { id: 302, src: pmNew2, alt: "PM Shri Narendra Modi" },
          { id: 303, src: pmNew3, alt: "PM Shri Narendra Modi" },
          { id: 304, src: pmNew4, alt: "PM Shri Narendra Modi" },
+      ]
+    },
+    {
+      id: 'former-president',
+      title: "Former President of India (Bharat)",
+      thumbnail: vip11,
+      images: [
+         { id: 1011, src: vip1, alt: "Former President Shri Ram Nath Kovind" },
+         { id: 1012, src: vip2, alt: "Former President Shri Ram Nath Kovind" },
+         { id: 11, src: vip11, alt: "Former President Shri Ram Nath Kovind" },
+         { id: 13, src: vip13, alt: "Former President Shri Ram Nath Kovind" },
+         { id: 601, src: fpNew1, alt: "Former President Shri Ram Nath Kovind" },
+         { id: 602, src: fpNew2, alt: "Former President Shri Ram Nath Kovind" },
+         { id: 603, src: fpNew3, alt: "Former President Shri Ram Nath Kovind" },
+         { id: 604, src: fpNew4, alt: "Former President Shri Ram Nath Kovind" },
+      ]
+    },
+    {
+      id: 'former-pm',
+      title: "Former Prime Minister of India",
+      thumbnail: vip14,
+      images: [
+         { id: 14, src: vip14, alt: "Former Prime Minister" },
+         { id: 15, src: vip15, alt: "Former Prime Minister" },
+      ]
+    },
+    {
+      id: 'former-vice-president',
+      title: "Former Vice President of India",
+      thumbnail: fvpNew1,
+      images: [
+         { id: 501, src: fvpNew1, alt: "Former VP Shri M. Venkaiah Naidu" },
+         { id: 502, src: fvpNew2, alt: "Former VP Shri M. Venkaiah Naidu" },
+         { id: 503, src: fvpNew3, alt: "Former VP Shri M. Venkaiah Naidu" },
+         { id: 504, src: fvpNew4, alt: "Former VP Shri M. Venkaiah Naidu" },
+      ]
+    },
+    {
+      id: 'speaker',
+      title: "Hon'ble Speaker, Lok Sabha Shri Om Birla",
+      thumbnail: vip26,
+      images: [
+         { id: 26, src: vip26, alt: "Speaker Shri Om Birla" },
+         { id: 27, src: vip27, alt: "Speaker Shri Om Birla" },
       ]
     },
     {
@@ -210,6 +252,45 @@ export const vipCurrentData = [
       ]
     },
     {
+      id: 'governor',
+      title: "Hon'ble Governor",
+      thumbnail: vip17,
+      images: [
+         { id: 17, src: vip17, alt: "Hon'ble Governor" },
+         { id: 18, src: vip18, alt: "Hon'ble Governor" },
+      ]
+    },
+    {
+      id: 'chief-minister',
+      title: "Hon'ble Chief Minister",
+      thumbnail: vip21,
+      images: [
+         { id: 21, src: vip21, alt: "Hon'ble Chief Minister" },
+         { id: 22, src: vip22, alt: "Hon'ble Chief Minister" },
+      ]
+    },
+    {
+      id: 'chairman-rajya-sabha',
+      title: "Hon'ble Deputy Chairman, Rajya Sabha Shri Harivansh Narayan Singh",
+      thumbnail: vip28,
+      images: [
+         { id: 28, src: vip28, alt: "Deputy Chairman Shri Harivansh" },
+         { id: 29, src: vip29, alt: "Deputy Chairman Shri Harivansh" },
+      ]
+    },
+    {
+      id: 'former-judge',
+      title: "Former Judge of Supreme Court of India",
+      thumbnail: fjNew1,
+      images: [
+         { id: 701, src: fjNew1, alt: "Hon'ble Former Judge" },
+         { id: 702, src: fjNew2, alt: "Hon'ble Former Judge" },
+         { id: 703, src: fjNew3, alt: "Hon'ble Former Judge" },
+         { id: 704, src: fjNew4, alt: "Hon'ble Former Judge" },
+         { id: 705, src: fjNew5, alt: "Hon'ble Former Judge" },
+      ]
+    },
+    {
       id: 'rss-chief',
       title: "Sarsanghchalak (Chief) of the Rashtriya Swayamsevak Sangh (RSS)",
       thumbnail: rssNew1,
@@ -218,42 +299,6 @@ export const vipCurrentData = [
          { id: 902, src: rssNew2, alt: "RSS Chief Dr. Mohan Bhagwat" },
          { id: 903, src: rssNew3, alt: "RSS Chief Dr. Mohan Bhagwat" },
          { id: 904, src: rssNew4, alt: "RSS Chief Dr. Mohan Bhagwat" },
-      ]
-    },
-    {
-      id: 'chief-minister',
-      title: "Chief Minister",
-      thumbnail: vip21,
-      images: [
-         { id: 21, src: vip21, alt: "Chief Minister" },
-         { id: 22, src: vip22, alt: "Chief Minister" },
-      ]
-    },
-    {
-      id: 'governor',
-      title: "Governor",
-      thumbnail: vip17,
-      images: [
-         { id: 17, src: vip17, alt: "Governor" },
-         { id: 18, src: vip18, alt: "Governor" },
-      ]
-    },
-    {
-      id: 'speaker',
-      title: "Speaker of Lok Sabha",
-      thumbnail: vip26,
-      images: [
-         { id: 26, src: vip26, alt: "Speaker" },
-         { id: 27, src: vip27, alt: "Speaker" },
-      ]
-    },
-    {
-      id: 'chairman-rajya-sabha',
-      title: "Chairman of Rajya Sabha",
-      thumbnail: vip28,
-      images: [
-         { id: 28, src: vip28, alt: "Chairman" },
-         { id: 29, src: vip29, alt: "Chairman" },
       ]
     },
     {
@@ -270,57 +315,12 @@ export const vipCurrentData = [
       title: "Members of Parliament (MPs)",
       thumbnail: vip30,
       images: [
-          { id: 30, src: vip30, alt: "MP" },
-          { id: 31, src: vip31, alt: "MP" },
-          { id: 32, src: vip32, alt: "MP" },
-          { id: 34, src: vip34, alt: "MP" },
-          { id: 35, src: vip35, alt: "MP" },
-          { id: 36, src: vip36, alt: "MP" },
-      ]
-    },
-    {
-      id: 'former-president',
-      title: "Former President of India (Bharat)",
-      thumbnail: vip11,
-      images: [
-         { id: 11, src: vip11, alt: "Former President Shri Ram Nath Kovind" },
-         { id: 13, src: vip13, alt: "Former President Shri Ram Nath Kovind" },
-         { id: 601, src: fpNew1, alt: "Former President Shri Ram Nath Kovind" },
-         { id: 602, src: fpNew2, alt: "Former President Shri Ram Nath Kovind" },
-         { id: 603, src: fpNew3, alt: "Former President Shri Ram Nath Kovind" },
-         { id: 604, src: fpNew4, alt: "Former President Shri Ram Nath Kovind" },
-      ]
-    },
-    {
-      id: 'former-vice-president',
-      title: "Former Vice President of India",
-      thumbnail: fvpNew1,
-      images: [
-         { id: 501, src: fvpNew1, alt: "Former VP Shri M. Venkaiah Naidu" },
-         { id: 502, src: fvpNew2, alt: "Former VP Shri M. Venkaiah Naidu" },
-         { id: 503, src: fvpNew3, alt: "Former VP Shri M. Venkaiah Naidu" },
-         { id: 504, src: fvpNew4, alt: "Former VP Shri M. Venkaiah Naidu" },
-      ]
-    },
-    {
-      id: 'former-pm',
-      title: "Former Prime Minister of India",
-      thumbnail: vip14,
-      images: [
-         { id: 14, src: vip14, alt: "Former PM" },
-         { id: 15, src: vip15, alt: "Former PM" },
-      ]
-    },
-    {
-      id: 'former-judge',
-      title: "Former Judge of Supreme Court of India",
-      thumbnail: fjNew1,
-      images: [
-         { id: 701, src: fjNew1, alt: "Hon'ble Former Judge" },
-         { id: 702, src: fjNew2, alt: "Hon'ble Former Judge" },
-         { id: 703, src: fjNew3, alt: "Hon'ble Former Judge" },
-         { id: 704, src: fjNew4, alt: "Hon'ble Former Judge" },
-         { id: 705, src: fjNew5, alt: "Hon'ble Former Judge" },
+          { id: 30, src: vip30, alt: "Hon'ble MP" },
+          { id: 31, src: vip31, alt: "Hon'ble MP" },
+          { id: 32, src: vip32, alt: "Hon'ble MP" },
+          { id: 34, src: vip34, alt: "Hon'ble MP" },
+          { id: 35, src: vip35, alt: "Hon'ble MP" },
+          { id: 36, src: vip36, alt: "Hon'ble MP" },
       ]
     },
     {
