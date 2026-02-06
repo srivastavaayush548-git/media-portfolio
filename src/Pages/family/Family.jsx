@@ -9,7 +9,6 @@ const Family = () => {
         <div className="absolute inset-0 bg-linear-to-br from-orange-200 via-yellow-100 to-orange-50" />
         <div className="h-full w-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
       </div>
-
       {/* --- Hero Section --- */}
       <div className="bg-white border-b border-stone-200 relative z-10">
         <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
@@ -26,7 +25,6 @@ const Family = () => {
           </div>
         </div>
       </div>
-
       {/* --- Gallery Section --- */}
       <section className="py-20 max-w-7xl mx-auto px-6 relative z-10">
         <ImageGroupGallery groups={familyData} customGridCols="grid-cols-1 md:grid-cols-2" />
