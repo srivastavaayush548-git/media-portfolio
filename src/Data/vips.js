@@ -131,7 +131,7 @@ export const vipCurrentData = [
     },
     {
       id: 'judges',
-      title: "Hon'ble Judiciary",
+      title: "With the Hon’ble Supreme Court Judge Shri Shivraj Patil",
       thumbnail: fj1,
       images: [
          { id: 701, src: fj1, alt: "With the Hon'ble Supreme Court Judge Shri Shivraj Patil" },
