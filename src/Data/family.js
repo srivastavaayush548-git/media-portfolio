@@ -62,7 +62,7 @@ export const familyData = [
   },
   {
     id: 'son-family',
-    title: "With our Son, Daughter-in-law & Grandchildren",
+    title: "With our son Ujwal Arkalgud & Grandchildren",
     thumbnail: familyImg,
     images: [
       { id: 15, src: familyImg, alt: "Us with our son, daughter-in-law and the grand children", title: "Us with our son, daughter-in-law and the grand children" },
