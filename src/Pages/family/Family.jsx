@@ -13,9 +13,7 @@ const Family = () => {
       <div className="bg-white border-b border-stone-200 relative z-10">
         <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
           <div className="max-w-3xl">
-            <div className="inline-block px-3 py-1 bg-red-50 text-red-800 text-xs font-bold uppercase tracking-wider rounded-full mb-4">
-              Gallery
-            </div>
+          
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-stone-900 leading-tight mb-6">
               FAMILY
             </h1>
