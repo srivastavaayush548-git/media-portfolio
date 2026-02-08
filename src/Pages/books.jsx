@@ -34,7 +34,6 @@ const Books = () => {
             "What Ails Indian Parliament",
             "PUBLIC MONEY, PRIVATE AGENDA: THE USE AND ABUSE OF MPLADS", 
             "The Emergency: Indian Democracy's Darkest Hour",
-            "All in the Name The Nehru-Gandhi Family",
             "Democracy, Politics & Governance"
           ].map(title => nonFictionBooks.find(b => b.title.includes(title) || title.includes(b.title)))
            .filter(Boolean) // Remove any undefined if not found

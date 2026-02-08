@@ -2,7 +2,7 @@ import publicMoneyCover from '../assets/Agenda.jpg';
 import emergencyCover from '../assets/the_emergency_cover.png';
 import parliamentCover from '../assets/what_ails_indian_parliament_cover.jpeg';
 import democracyPoliticsCover from '../assets/Images/democracypolitics.jpeg';
-import allInTheNameCover from '../assets/Images/allinthename.jpeg';
+// import allInTheNameCover from '../assets/Images/allinthename.jpeg';
 
 export const nonFictionBooks = [
   {
@@ -11,13 +11,13 @@ export const nonFictionBooks = [
     cover: democracyPoliticsCover,
     description: "An authoritative collection of articles exploring India's democratic journey, offering in-depth insights into the interplay of democracy, politics, and governance. Released by Vice President Venkaiah Naidu, this book reflects on the Constitutional and parliamentary issues that have shaped the nation's political landscape.",
   },
-  {
-    title: "All in the Name The Nehru-Gandhi Family",
-    author: "A. Surya Prakash",
-    cover: allInTheNameCover,
-    readOnline: true,
-    description: "A critical examination of the extensive practice of naming government schemes, public institutions, and scholarships after members of the Nehru-Gandhi family. This investigative work highlights how such practices can undermine the democratic system by sidelining the contributions of other national heroes and builders of modern India.",
-  },
+  // {
+  //   title: "All in the Name The Nehru-Gandhi Family",
+  //   author: "A. Surya Prakash",
+  //   cover: allInTheNameCover,
+  //   readOnline: true,
+  //   description: "A critical examination of the extensive practice of naming government schemes, public institutions, and scholarships after members of the Nehru-Gandhi family. This investigative work highlights how such practices can undermine the democratic system by sidelining the contributions of other national heroes and builders of modern India.",
+  // },
   {
     title: "PUBLIC MONEY, PRIVATE AGENDA: THE USE AND ABUSE OF MPLADS",
     author: "A. Surya Prakash",

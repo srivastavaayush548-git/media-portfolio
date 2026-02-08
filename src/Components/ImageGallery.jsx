@@ -28,19 +28,9 @@ const ImageGallery = ({ images, title, customGridCols }) => {
                 >
                   <img 
                     src={img.src} 
-                    alt={img.alt || title}
+                    alt="" 
                     className="max-w-full max-h-full object-contain transform group-hover:scale-105 transition-transform duration-700 ease-out shadow-sm"
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                    <span className="text-white bg-black/50 px-3 py-1 rounded-full text-xs backdrop-blur-sm transform translate-y-4 group-hover:translate-y-0 transition-transform font-medium">
-                      View Full Image
-                    </span>
-                  </div>
-                </div>
-                <div className="p-5 flex-1 flex flex-col justify-center text-center">
-                  <h3 className="text-lg font-serif font-bold text-stone-800 group-hover:text-red-700 transition-colors leading-snug">
-                    {img.title || img.alt}
-                  </h3>
                 </div>
               </div>
             </div>
@@ -66,17 +56,10 @@ const ImageGallery = ({ images, title, customGridCols }) => {
           </button>
           <img 
             src={selectedImage.src} 
-            alt={selectedImage.alt} 
+            alt="" 
             className="max-w-full max-h-[90vh] object-contain rounded shadow-2xl animate-in zoom-in-95 duration-300"
             onClick={(e) => e.stopPropagation()} 
           />
-          {selectedImage.alt && (
-            <div className="absolute bottom-6 left-0 right-0 text-center pointer-events-none px-4">
-              <p className="inline-block bg-black/60 text-white px-4 py-2 rounded-full backdrop-blur-md text-sm">
-                {selectedImage.alt}
-              </p>
-            </div>
-          )}
         </div>
       )}
     </div>
