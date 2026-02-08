@@ -25,7 +25,28 @@ import wifeImg9 from '../assets/Images/Family/withwife9.jpeg';
 import whatsappImg7 from '../assets/Images/Family/WhatsApp Image 2026-01-07 at 6.54.34 PM (7).jpeg';
 
 
+
 export const familyData = [
+  {
+    id: 'complete-family',
+    title: "Family",
+    thumbnail: familyCoverImg,
+    images: [
+      { id: 21, src: familyCoverImg, alt: "Family portrait", title: "Family portrait" },
+      { id: 20, src: family2Img, alt: "Family gathering", title: "Family gathering" },
+      { id: 16, src: siblingsImg, alt: "With my siblings", title: "With my siblings" },
+      { id: 24, src: whatsappImg7, alt: "Family memory", title: "Family memory" },
+    ]
+  },
+  {
+    id: 'parents',
+    title: "Parents",
+    thumbnail: fatherAndMotherImg,
+    images: [
+      { id: 22, src: fatherAndMotherImg, alt: "Father and Mother", title: "Father and Mother" },
+      { id: 23, src: fatherAndMotherImg2, alt: "Father and Mother", title: "Father and Mother" },
+    ]
+  },
   {
     id: 'couple',
     title: "With my wife Pushpa Girimaji",
@@ -43,39 +64,20 @@ export const familyData = [
   },
   {
     id: 'son-family',
-    title: "With our son Ujwal Arkalgud",
-    thumbnail: sonImg,
+    title: "With our Son, Daughter-in-law & Grandchildren",
+    thumbnail: familyImg,
     images: [
+      { id: 15, src: familyImg, alt: "Us with our son, daughter-in-law and the grand children", title: "Us with our son, daughter-in-law and the grand children" },
       { id: 7, src: sonImg, alt: "With our son Ujwal Arkalgud", title: "With our son Ujwal Arkalgud" },
       { id: 8, src: withSonImg, alt: "With our son Ujwal Arkalgud", title: "With our son Ujwal Arkalgud" },
       { id: 9, src: wifeWithSonImg, alt: "With my wife and son", title: "With my wife and son" },
       { id: 10, src: daughterInLawImg, alt: "My daughter-in-law", title: "My daughter-in-law" },
       { id: 11, src: sonAndDaughterInLawImg, alt: "My son and daughter-in-law", title: "My son and daughter-in-law" },
       { id: 19, src: sonAndDaughterInLawImg2, alt: "My son and daughter-in-law", title: "My son and daughter-in-law" },
-    ]
-  },
-  {
-    id: 'grandchildren',
-    title: "Our grand children",
-    thumbnail: grandchildrenImg,
-    images: [
       { id: 12, src: grandchildrenImg, alt: "Our grand children", title: "Our grand children" },
       { id: 13, src: grandchildrenImg1, alt: "Our grand children", title: "Our grand children" },
       { id: 14, src: grandchildrenImg2, alt: "Our grand children", title: "Our grand children" },
     ]
   },
-  {
-    id: 'complete-family',
-    title: "Family",
-    thumbnail: familyCoverImg,
-    images: [
-      { id: 21, src: familyCoverImg, alt: "Family portrait", title: "Family portrait" },
-      { id: 15, src: familyImg, alt: "The complete family", title: "The complete family" },
-      { id: 16, src: siblingsImg, alt: "With my siblings", title: "With my siblings" },
-      { id: 20, src: family2Img, alt: "Family gathering", title: "Family gathering" },
-      { id: 22, src: fatherAndMotherImg, alt: "Father and Mother", title: "Father and Mother" },
-      { id: 23, src: fatherAndMotherImg2, alt: "Family moments", title: "Family moments" },
-      { id: 24, src: whatsappImg7, alt: "Family memory", title: "Family memory" },
-    ]
-  },
 ];
+
