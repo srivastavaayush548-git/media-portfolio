@@ -38,7 +38,7 @@ export const familyData = [
   },
   {
     id: 'parents',
-    title: "Parents",
+    title: "My Parents",
     thumbnail: fatherAndMotherImg,
     images: [
       { id: 22, src: fatherAndMotherImg, alt: "Father and Mother", title: "Father and Mother" },

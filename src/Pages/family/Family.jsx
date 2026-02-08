@@ -28,9 +28,7 @@ const Family = () => {
         {familyData.map((group, groupIndex) => (
           <section key={group.id || groupIndex} className="py-16 max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
-              <div className="inline-block mb-3 px-3 py-1 border border-red-800/30 rounded-full bg-red-50 text-red-800 text-xs font-bold uppercase tracking-wider">
-                Family Collection
-              </div>
+
               <h2 className="text-3xl md:text-5xl font-serif font-bold text-stone-900 mb-4">
                 {group.title}
               </h2>
