@@ -46,7 +46,7 @@ const AwardsIndex = () => {
               <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-red-200 mb-2">National Honour</h2>
               <h3 className="text-3xl md:text-4xl font-serif font-bold mb-4">Padma Bhushan</h3>
               <p className="text-stone-300 line-clamp-2 mb-6 group-hover:text-white transition-colors">
-                Conferred by the President of India for distinguished service of a high order in the field of Literature and Education.
+                India’s third-highest civilian award for contribution to literature and education.
               </p>
               <div className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase text-white/70 group-hover:text-white transition-colors">
                 View Gallery <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -80,7 +80,7 @@ const AwardsIndex = () => {
               <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-yellow-200 mb-2">State Honour</h2>
               <h3 className="text-3xl md:text-4xl font-serif font-bold mb-4">Rajyotsava Award</h3>
               <p className="text-stone-300 line-clamp-2 mb-6 group-hover:text-white transition-colors">
-                The second highest civilian honour of the State of Karnataka, recognizing excellence in the media and journalism.
+                Conferred by the Government of Karnataka for excellence in media.
               </p>
               <div className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase text-white/70 group-hover:text-white transition-colors">
                 View Gallery <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
