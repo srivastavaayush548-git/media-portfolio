@@ -237,20 +237,18 @@ export const vipCurrentData = [
       title: "CELEBRITIES",
       thumbnail: emp2,
       images: [
-          { id: 102, src: emp2, alt: "With Shri Amitabh Bachchan" },
+          { id: 102, src: emp2, alt: "With Kajol" },
           { id: 100, src: emp0, alt: "Lighting the lamp at a prestigious event" },
-          { id: 104, src: emp4, alt: "With Kajol" },
+          { id: 104, src: emp4, alt: "With Kailash Kher" },
           { id: 101, src: emp1, alt: "With Eminent Personality" },
           { id: 103, src: emp3, alt: "Interaction with Eminent Personality" },
-          { id: 105, src: emp5, alt: "Engaging at a National Event" },
-          { id: 106, src: emp6, alt: "At a Media Forum" },
-          { id: 107, src: emp7, alt: "With Eminent Personalities" },
+          { id: 105, src: emp5, alt: "With Jitendra Khanna" },
+          { id: 106, src: emp6, alt: "With Shri Amitabh Bacchan" },
+          { id: 107, src: emp7, alt: "With Mukesh Khanna" },
           { id: 108, src: emp8, alt: "Interaction" },
           { id: 109, src: emp9, alt: "With leading figures" },
           { id: 110, src: emp10, alt: "At an award ceremony" },
-          { id: 112, src: emp12, alt: "With Celebrities" },
-          { id: 111, src: emp11, alt: "At a cultural event" },
-          { id: 114, src: emp14, alt: "Interaction" },
+          
       ]
     }
   ];
