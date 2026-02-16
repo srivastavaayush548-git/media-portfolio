@@ -45,7 +45,6 @@ import wa11 from '../assets/Images/Family/WhatsApp Image 2026-02-16 at 2.09.03 P
 import wa12 from '../assets/Images/Family/WhatsApp Image 2026-02-16 at 2.09.03 PM (2).jpeg';
 import wa13 from '../assets/Images/Family/WhatsApp Image 2026-02-16 at 2.09.03 PM.jpeg';
 import wa14 from '../assets/Images/Family/WhatsApp Image 2026-02-16 at 2.09.04 PM (1).jpeg';
-import wa15 from '../assets/Images/Family/WhatsApp Image 2026-02-16 at 2.09.04 PM (2).jpeg';
 import wa16 from '../assets/Images/Family/WhatsApp Image 2026-02-16 at 2.09.04 PM.jpeg';
 import wa17 from '../assets/Images/Family/WhatsApp Image 2026-02-16 at 2.09.05 PM (1).jpeg';
 import wa18 from '../assets/Images/Family/WhatsApp Image 2026-02-16 at 2.09.05 PM (2).jpeg';
@@ -92,7 +91,6 @@ export const familyData = [
       { id: 41, src: wa12, alt: "Family moment", title: "Family moment" },
       { id: 42, src: wa13, alt: "Family moment", title: "Family moment" },
       { id: 43, src: wa14, alt: "Family moment", title: "Family moment" },
-      { id: 44, src: wa15, alt: "Family moment", title: "Family moment" },
       { id: 45, src: wa16, alt: "Family moment", title: "Family moment" },
       { id: 46, src: wa17, alt: "Family moment", title: "Family moment" },
       { id: 47, src: wa18, alt: "Family moment", title: "Family moment" },
