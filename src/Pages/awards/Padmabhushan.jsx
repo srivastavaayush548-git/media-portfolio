@@ -1,6 +1,19 @@
 import React from 'react';
+import pbImg1 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026-02-02 at 3.10.40 PM.jpeg';
 import pbImg2 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026-02-02 at 3.10.41 PM (1).jpeg';
 import pbImg3 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026-02-02 at 3.10.41 PM.jpeg';
+import pbImg4 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026-02-16 at 2.04.46 PM.jpeg';
+import pbImg5 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026-02-16 at 2.04.48 PM.jpeg';
+import pbImg6 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026-02-16 at 2.04.48 PM (1).jpeg';
+import pbImg7 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026-02-16 at 2.04.48 PM (2).jpeg';
+import pbImg8 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026-02-16 at 2.04.48 PM (3).jpeg';
+import pbImg9 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026-02-16 at 2.04.49 PM.jpeg';
+import pbImg10 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026-02-16 at 2.04.49 PM (1).jpeg';
+import pbImg11 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026-02-16 at 2.04.49 PM (2).jpeg';
+import pbImg12 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026-02-16 at 2.04.50 PM.jpeg';
+import pbImg13 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026-02-16 at 2.04.50 PM (1).jpeg';
+import pbImg14 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026-02-16 at 2.04.50 PM (2).jpeg';
+import pbCoverImg from '../../assets/Images/awards/Padmabhushan/coverimage.jpg';
 
 const Padmabhushan = () => {
   return (
@@ -39,17 +52,19 @@ const Padmabhushan = () => {
         {/* Image Gallery */}
         <div>
            <h2 className="text-2xl font-serif font-bold text-stone-900 mb-6 border-b border-stone-300 pb-2 inline-block">Event Highlights</h2>
-           <div className="grid md:grid-cols-3 gap-6">
-              {[pbImg2, pbImg3].map((img, index) => (
-                <div key={index} className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow bg-white p-2">
-                  <img 
-                    src={img} 
-                    alt={`Padma Bhushan Ceremony Highlight ${index + 1}`} 
-                    className="w-full h-auto rounded-lg"
-                  />
-                </div>
-              ))}
-           </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+               {[pbImg1, pbImg2, pbImg3, pbImg4, pbImg5, pbImg6, pbImg7, pbImg8, pbImg9, pbImg10, pbImg11, pbImg12, pbImg13, pbImg14, pbCoverImg].map((img, index) => (
+                 <div key={index} className="rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300 bg-white p-2 group">
+                   <div className="overflow-hidden rounded-lg">
+                     <img 
+                       src={img} 
+                       alt={`Padma Bhushan Ceremony Highlight ${index + 1}`} 
+                       className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                     />
+                   </div>
+                 </div>
+               ))}
+            </div>
         </div>
 
       </div>
