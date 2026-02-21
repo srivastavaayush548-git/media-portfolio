@@ -23,6 +23,11 @@ app.use('/api/family', familyRoutes);
 
 const PORT = process.env.PORT || 5000;
 
+// Health check route
+app.get('/', (req, res) => {
+    res.json({ message: 'Media Portfolio API is running' });
+});
+
 app.listen(PORT, () => {
     console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
 });
