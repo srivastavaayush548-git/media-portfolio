@@ -4,6 +4,10 @@ export const whatOthersSayVideos = [
     title: "Surya @75 | Political Byte (English)",
     speaker: "Political Byte"
   },
+  {
+    url: "https://res.cloudinary.com/vipinyadav01/video/upload/v1771821920/z89iafeh1sgipgl6nntw.mp4",
+    title: "Testimonial Video",
+  },
   // Add more video data here
   // For Cloudinary videos, use 'url' property:
   // {

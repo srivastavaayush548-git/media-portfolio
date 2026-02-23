@@ -204,7 +204,7 @@ const AboutMe = () => {
               <div className="flex gap-4">
                 <div className="mt-1.5 w-2 h-2 rounded-full bg-stone-300 shrink-0"></div>
                 <div>
-                  <h3 className="font-bold text-stone-900 text-lg">Bipin Chandra Pal Sanman</h3>
+                  <h3 className="font-bold text-stone-900 text-lg">Bipin Chandra Pal Samman</h3>
                   <p className="text-stone-600 text-sm mt-1">For fearless journalism</p>
                 </div>
               </div>

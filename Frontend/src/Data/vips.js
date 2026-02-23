@@ -84,7 +84,7 @@ import sm1 from '../assets/Images/Vips/StateMinisters/StateMinister_1.jpg';
 
 
 // Eminent Personalities
-import emp0 from '../assets/Images/Vips/Eminent/Eminent_0.jpg';
+import emp0 from '../assets/Images/Vips/Eminent/light.mp4';
 import emp1 from '../assets/Images/Vips/Eminent/Eminent_1.jpeg';
 import emp2 from '../assets/Images/Vips/Eminent/Eminent_2.jpeg';
 import emp3 from '../assets/Images/Vips/Eminent/Eminent_3.jpeg';
@@ -92,13 +92,20 @@ import emp4 from '../assets/Images/Vips/Eminent/Eminent_4.jpeg';
 import emp5 from '../assets/Images/Vips/Eminent/Eminent_5.jpeg';
 import emp6 from '../assets/Images/Vips/Eminent/Eminent_6.jpeg';
 import emp7 from '../assets/Images/Vips/Eminent/Eminent_7.jpeg';
-import emp8 from '../assets/Images/Vips/Eminent/Eminent_8.jpeg';
-import emp9 from '../assets/Images/Vips/Eminent/Eminent_9.jpeg';
 import emp10 from '../assets/Images/Vips/Eminent/Eminent_10.jpeg';
-import emp11 from '../assets/Images/Vips/Eminent/Eminent_11.jpg';
-import emp12 from '../assets/Images/Vips/Eminent/Eminent_12.jpg';
 import emp13 from '../assets/Images/Vips/Eminent/Eminent_13.jpg';
-import emp14 from '../assets/Images/Vips/Eminent/Eminent_14.jpg';
+
+
+import frmuk0 from '../assets/Images/Vips/RishiSunak/rsnk(1).jpeg';
+import frmuk1 from '../assets/Images/Vips/RishiSunak/rsnk(2).jpeg';
+import frmuk2 from '../assets/Images/Vips/RishiSunak/rsnk(3).jpeg';
+import frmuk3 from '../assets/Images/Vips/RishiSunak/rsnk(4).jpeg';
+
+
+// H.D Deve Gowda
+import hdd1 from '../assets/Images/Vips/FormerPm/h.d.jpeg';
+
+
 
 
 export const vipCurrentData = [
@@ -233,22 +240,40 @@ export const vipCurrentData = [
       ]
     },
     {
+      id: 'former-uk-prime-minister',
+      title: "With the Hon'ble Former UK Prime Minister Shri Rishi Sunak",
+      thumbnail: frmuk0,
+      images: [
+         { id: 1001, src: frmuk0, alt: "With the Hon'ble Former UK Prime Minister Shri Rishi Sunak" },
+         { id: 1002, src: frmuk1, alt: "With the Hon'ble Former UK Prime Minister Shri Rishi Sunak" },
+         { id: 1003, src: frmuk2, alt: "With the Hon'ble Former UK Prime Minister Shri Rishi Sunak" },
+         { id: 1004, src: frmuk3, alt: "With the Hon'ble Former UK Prime Minister Shri Rishi Sunak" },
+      ]
+    },
+    {
       id: 'eminent-personalities',
       title: "CELEBRITIES",
       thumbnail: emp2,
       images: [
-          { id: 102, src: emp2, alt: "With Kajol" },
-          { id: 100, src: emp0, alt: "Lighting the lamp at a prestigious event" },
-          { id: 104, src: emp4, alt: "With Kailash Kher" },
-          { id: 101, src: emp1, alt: "With Eminent Personality" },
-          { id: 103, src: emp3, alt: "Interaction with Eminent Personality" },
-          { id: 105, src: emp5, alt: "With Jitendra Khanna" },
-          { id: 106, src: emp6, alt: "With Shri Amitabh Bacchan" },
-          { id: 107, src: emp7, alt: "With Mukesh Khanna" },
-          { id: 108, src: emp8, alt: "Interaction" },
-          { id: 109, src: emp9, alt: "With leading figures" },
-          { id: 110, src: emp10, alt: "At an award ceremony" },
+        { id: 100, src: emp0, alt: "Lighting the lamp " },
+        { id: 106, src: emp6, alt: "With Shri Amitabh Bacchan" },
+        { id: 105, src: emp5, alt: "With Jitendra Khanna" },
+        { id: 102, src: emp2, alt: "With Kajol" },
+        { id: 104, src: emp4, alt: "With Kailash Kher" },
+        { id: 101, src: emp1, alt: "With Eminent Personality" },
+        { id: 103, src: emp3, alt: "With Ranjeet" },
+        { id: 107, src: emp7, alt: "With Mukesh Khanna" },
+        { id: 110, src: emp10, alt: "With Kangana Ranaut" },
           
+      ]
+    },
+    {
+      id: "H.D Deve Gowda",
+      title: "With the Hon'ble Former Prime Minister of India Shri H.D. Deve Gowda",
+      thumbnail: hdd1,
+      images: [
+        {id:1201, src: hdd1, alt: "With the Hon'ble Former Prime Minister of India Shri H.D. Deve Gowda"},
+
       ]
     }
   ];

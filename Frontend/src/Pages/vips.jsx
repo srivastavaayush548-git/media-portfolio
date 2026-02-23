@@ -3,7 +3,9 @@ import { vipCurrentData } from '../Data/vips';
 import ImageGroupGallery from '../Components/ImageGroupGallery';
 import WhatOthersSay from '../Components/WhatOthersSay';
 import EminentPersonalities from '../Components/EminentPersonalities';
+import MiscellaneousVideos from '../Components/MiscellaneousVideos';
 import { whatOthersSayVideos } from '../Data/whatOthersSay';
+import miscImage1 from '../assets/Images/Vips/gallarymisleneous.jpeg';
 
 const VIPs = () => {
   // Extract Eminent Personalities data separately
@@ -12,6 +14,10 @@ const VIPs = () => {
 
   // Filter out Eminent Personalities from the main gallery groups
   const galleryGroups = vipCurrentData.filter(group => group.id !== 'eminent-personalities');
+
+  const miscellaneousItems = [
+    { type: 'image', src: miscImage1, title: 'Miscellaneous Moment' },
+  ];
 
   return (
     <div className="min-h-screen bg-linear-to-br from-orange-200 via-yellow-200 to-orange-100 text-stone-800 font-sans selection:bg-red-100 pt-24 relative">
@@ -45,6 +51,9 @@ const VIPs = () => {
 
       {/* --- What Others Say Section --- */}
       <WhatOthersSay videos={whatOthersSayVideos} />
+
+      {/* --- Miscellaneous Section --- */}
+      <MiscellaneousVideos items={miscellaneousItems} />
     </div>
   );
 };

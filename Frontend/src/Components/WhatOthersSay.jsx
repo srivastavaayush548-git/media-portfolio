@@ -78,23 +78,8 @@ const WhatOthersSay = ({ videos = [] }) => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {videos.map((video, index) => (
-          <div key={index} className="flex flex-col group">
+          <div key={index} className="flex flex-col group overflow-hidden rounded-2xl shadow-lg border border-stone-200">
             {renderVideo(video)}
-            <div className="mt-4 bg-white/80 backdrop-blur-sm rounded-xl p-5 border border-stone-200 shadow-sm group-hover:shadow-md group-hover:-translate-y-1 transition-all duration-300">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="px-2 py-1 bg-red-100 text-red-800 text-[10px] font-bold uppercase tracking-wider rounded-full border border-red-200">
-                  {video.type === 'playlist' ? 'Playlist' : video.url && isCloudinaryVideo(video.url) ? 'Cloudinary' : 'Video'}
-                </span>
-              </div>
-              <h3 className="text-xl font-serif font-bold text-stone-900 leading-snug line-clamp-2">
-                {video.title}
-              </h3>
-              {video.speaker && (
-                <p className="text-sm text-stone-600 mt-2 font-medium">
-                  {video.speaker}
-                </p>
-              )}
-            </div>
           </div>
         ))}
       </div>

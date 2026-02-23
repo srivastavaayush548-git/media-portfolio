@@ -7,6 +7,7 @@ import Family from './Pages/family/Family'
 import Career from './Pages/career'
 import Padmabhushan from './Pages/awards/Padmabhushan'
 import RajyotsavaAward from './Pages/awards/RajyotsavaAward'
+import DLitt from './Pages/awards/DLitt'
 import Interview from './Pages/interview'
 import Article from './Pages/article'
 import Books from './Pages/books'
@@ -36,6 +37,7 @@ const AppContent = () => {
         <Route path="/awards" element={<AwardsIndex />} />
         <Route path="/awards/padmabhushan" element={<Padmabhushan />} />
         <Route path="/awards/rajyotsava-award" element={<RajyotsavaAward />} />
+        <Route path="/awards/d-litt" element={<DLitt />} />
         <Route path="/interview" element={<Interview />} />
         <Route path="/article" element={<Article />} />
         <Route path="/books" element={<Books />} />
