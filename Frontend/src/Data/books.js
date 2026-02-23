@@ -21,6 +21,7 @@ export const nonFictionBooks = [
   //   readOnline: true,
   //   description: "A critical examination of the extensive practice of naming government schemes, public institutions, and scholarships after members of the Nehru-Gandhi family. This investigative work highlights how such practices can undermine the democratic system by sidelining the contributions of other national heroes and builders of modern India.",
   // },
+
   {
     title: "PUBLIC MONEY, PRIVATE AGENDA: THE USE AND ABUSE OF MPLADS",
     author: "A. Surya Prakash",
@@ -45,12 +46,13 @@ export const nonFictionBooks = [
     description: "Published in 1995 by Indus (HarperCollins), this work is widely regarded as the most definitive text on the functioning of India’s Parliament since W.H. Morris-Jones' 'Parliament in India' (1957). Based on a sabbatical supported by a K.K. Birla Fellowship, it provides an exhaustive diagnosis of parliamentary functioning, focusing primarily on the 10th Lok Sabha. The book examines critical issues such as parliamentary privileges, legislative bodies, and immunities, and is recognized as a seminal work in Indian parliamentary studies.",
     purchaseLink: "https://catalogue.nla.gov.au/catalog/789200"
   },
-    {
+  {
     title: "Issue Of Foreign Origin : Sonia Under Scrutiny",
     author: "A. Surya Prakash",
     cover: soniaCover,
     description: "A compelling series of articles that tracks the rise and influence of Sonia Gandhi in Indian politics. This work provides a critical examination of the leadership within the Congress Party and the political shifts that occurred during her tenure, offering readers a deep dive into the inner workings of India's oldest political party.",
     purchaseLink: "https://www.amazon.in/Issue-Foreign-Origin-Sonia-Scrutiny/dp/8189072056"
   },
+
   
 ];

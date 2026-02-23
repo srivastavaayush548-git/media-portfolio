@@ -13,6 +13,14 @@ import bi4 from '../assets/Images/Books/bi/bi(4).jpeg';
 // Import Book Review (Br) images
 import br1 from '../assets/Images/Books/Br/br(1).jpeg';
 import br2 from '../assets/Images/Books/Br/br(2).jpeg';
+import br2_1 from '../assets/Images/Books/Br/br2(1).jpeg';
+import br2_2 from '../assets/Images/Books/Br/br2(2).jpeg';
+import br2_3 from '../assets/Images/Books/Br/br2(3).jpeg';
+import br2_4 from '../assets/Images/Books/Br/br2(4).jpeg';
+import br2_5 from '../assets/Images/Books/Br/br2(5).jpeg';
+import br2_6 from '../assets/Images/Books/Br/br2(6).jpeg';
+import br2_7 from '../assets/Images/Books/Br/br2(7).jpeg';
+import br2_8 from '../assets/Images/Books/Br/br2(8).jpeg';
 
 const Books = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -29,8 +37,8 @@ const Books = () => {
   }, [selectedImage]);
 
   const invitationImages = [invitationImg, bi1, bi2, bi3, bi4];
-  const reviewImages = [bookNewsImg, br1, br2];
-
+  const reviewImages = [bookNewsImg, br1, br2,br2_3, br2_1, br2_2, br2_6, br2_5, br2_4, br2_8,br2_7];
+``
   return (
     <div className="min-h-screen bg-linear-to-br from-orange-200 via-yellow-200 to-orange-100 text-stone-800 font-sans selection:bg-red-100 pt-24">
       {/* --- Hero Section --- */}
@@ -60,12 +68,11 @@ const Books = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
           {/* Custom order sequence */}
           {[
-            "Sonia Under Scrutiny",
             "What Ails Indian Parliament",
             "PUBLIC MONEY, PRIVATE AGENDA: THE USE AND ABUSE OF MPLADS", 
             "The Emergency: Indian Democracy's Darkest Hour",
-            "Democracy, Politics & Governance"
-
+            "Democracy, Politics & Governance",
+            "Sonia Under Scrutiny"
           ].map(title => nonFictionBooks.find(b => b.title.includes(title) || title.includes(b.title)))
            .filter(Boolean) // Remove any undefined if not found
            .map((book, index) => (
@@ -159,17 +166,21 @@ const Books = () => {
         <div className="flex items-end mb-12 border-b border-stone-200 pb-4">
           <h2 className="text-3xl font-serif font-bold text-stone-900">Book Review</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {reviewImages.map((img, idx) => (
             <div 
               key={idx} 
-              className="relative aspect-video bg-white p-2 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer group"
+              className="relative bg-white p-3 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer group border border-stone-200"
               onClick={() => setSelectedImage(img)}
             >
-              <div className="relative h-full w-full overflow-hidden rounded-lg">
-                <img src={img} alt="Book Review" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                  <Maximize2 className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8" />
+              <div className="relative w-full overflow-hidden rounded-xl">
+                <img 
+                  src={img} 
+                  alt="Book Review" 
+                  className="w-full h-auto object-contain transform group-hover:scale-[1.02] transition-transform duration-700" 
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 flex items-center justify-center">
+                  <Maximize2 className="text-stone-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-10 h-10 bg-white/80 p-2 rounded-full backdrop-blur-sm" />
                 </div>
               </div>
             </div>
@@ -180,7 +191,7 @@ const Books = () => {
       {/* --- Lightbox Modal --- */}
       {selectedImage && (
         <div 
-          className="fixed inset-0 z-[110] flex items-center justify-center bg-black/95 backdrop-blur-md p-4 animate-in fade-in duration-300"
+          className="fixed inset-0 z-110 flex items-center justify-center bg-black/95 backdrop-blur-md p-4 animate-in fade-in duration-300"
           onClick={() => setSelectedImage(null)}
         >
           <button 

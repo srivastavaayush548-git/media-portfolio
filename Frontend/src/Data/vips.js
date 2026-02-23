@@ -17,6 +17,12 @@ import pm6 from '../assets/Images/Vips/PrimeMinister/Modi_6.jpeg';
 import pm7 from '../assets/Images/Vips/PrimeMinister/Modi_7.jpeg';
 import pm8 from '../assets/Images/Vips/PrimeMinister/Modi_8.jpeg';
 import pm9 from '../assets/Images/Vips/PrimeMinister/Modi_9.jpeg';
+import pm11 from '../assets/Images/Vips/PrimeMinister/modi(7).jpeg';
+import pm12 from '../assets/Images/Vips/PrimeMinister/modi(6).jpeg'
+import pm13 from '../assets/Images/Vips/PrimeMinister/modi(8).jpeg'
+import pm14 from '../assets/Images/Vips/PrimeMinister/modi(4).jpeg'
+import pm15 from '../assets/Images/Vips/PrimeMinister/modi(5).jpeg'
+import pm16 from '../assets/Images/Vips/PrimeMinister/modi.jpg'
 
 // NSA
 import nsa1 from '../assets/Images/Vips/NSA/AjitDoval_1.jpeg';
@@ -94,6 +100,7 @@ import emp6 from '../assets/Images/Vips/Eminent/Eminent_6.jpeg';
 import emp7 from '../assets/Images/Vips/Eminent/Eminent_7.jpeg';
 import emp10 from '../assets/Images/Vips/Eminent/Eminent_10.jpeg';
 import emp13 from '../assets/Images/Vips/Eminent/Eminent_13.jpg';
+import empKajal from '../assets/Images/Vips/Eminent/kajal.jpeg';
 
 
 import frmuk0 from '../assets/Images/Vips/RishiSunak/rsnk(1).jpeg';
@@ -134,6 +141,12 @@ export const vipCurrentData = [
          { id: 7, src: pm3, alt: "With the Hon'ble Prime Minister of India Shri Narendra Modi" },
          { id: 19, src: pm4, alt: "With the Hon'ble Prime Minister of India Shri Narendra Modi" },
          { id: 20, src: pm5, alt: "With the Hon'ble Prime Minister of India Shri Narendra Modi" },
+         { id: 21, src: pm11, alt: "With the Hon'ble Prime Minister of India Shri Narendra Modi" },
+         { id: 22, src: pm12, alt: "With the Hon'ble Prime Minister of India Shri Narendra Modi" },
+         { id: 23, src: pm13, alt: "With the Hon'ble Prime Minister of India Shri Narendra Modi" },
+         { id: 24, src: pm14, alt: "With the Hon'ble Prime Minister of India Shri Narendra Modi" },
+         { id: 25, src: pm15, alt: "With the Hon'ble Prime Minister of India Shri Narendra Modi" },
+         { id: 26, src: pm16, alt: "With the Hon'ble Prime Minister of India Shri Narendra Modi" },
       ]
     },
     {
@@ -264,7 +277,7 @@ export const vipCurrentData = [
         { id: 103, src: emp3, alt: "With Ranjeet" },
         { id: 107, src: emp7, alt: "With Mukesh Khanna" },
         { id: 110, src: emp10, alt: "With Kangana Ranaut" },
-          
+        { id: 111, src: empKajal, alt: "With Kajol" },
       ]
     },
     {

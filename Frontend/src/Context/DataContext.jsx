@@ -356,6 +356,17 @@ export const DataProvider = ({ children }) => {
   };
 
 
+  const getSignature = async (folder) => {
+    try {
+      const res = await api.get(`/media/signature?folder=${folder}`);
+      return res.data;
+    } catch (error) {
+      console.error('Error getting signature:', error);
+      throw error;
+    }
+  };
+
+
   return (
     <DataContext.Provider value={{
       articles, addArticleSection, updateArticleSection, deleteArticleSection, moveArticleSection,
@@ -364,6 +375,7 @@ export const DataProvider = ({ children }) => {
       addImageToFamily, updateFamilyImage, deleteFamilyImage, moveFamilyImage, reorderFamilyImage,
       mediaData, addMediaSection, updateMediaSection, deleteMediaSection, moveMediaSection,
       addMediaToSection, updateMediaInSection, deleteMediaFromSection, moveMediaInSection, reorderMediaInSection,
+      getSignature,
       loading
 
     }}>

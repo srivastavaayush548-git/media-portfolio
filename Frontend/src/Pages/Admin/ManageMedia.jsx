@@ -13,7 +13,8 @@ const ManageMedia = () => {
     updateMediaInSection, 
     deleteMediaFromSection, 
     moveMediaInSection,
-    reorderMediaInSection
+    reorderMediaInSection,
+    getSignature
   } = useData();
 
   const [expandedSections, setExpandedSections] = useState({});
@@ -23,6 +24,7 @@ const ManageMedia = () => {
   const [addingMediaTo, setAddingMediaTo] = useState(null);
   const [editingMedia, setEditingMedia] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
   
   const [mediaForm, setMediaForm] = useState({
     title: '',
@@ -31,6 +33,8 @@ const ManageMedia = () => {
     src: '',
     thumbnail: ''
   });
+
+  const [rawFiles, setRawFiles] = useState({ src: null, thumbnail: null });
 
   const [editingSectionId, setEditingSectionId] = useState(null);
   const [editingSectionTitle, setEditingSectionTitle] = useState('');
@@ -56,9 +60,48 @@ const ManageMedia = () => {
 
   const resetMediaForm = () => {
     setMediaForm({ title: '', description: '', type: 'image', src: '', thumbnail: '' });
+    setRawFiles({ src: null, thumbnail: null });
     setAddingMediaTo(null);
     setEditingMedia(null);
     setLoading(false);
+    setUploadProgress(0);
+  };
+
+  const uploadFileDirectly = async (fileData, folder, type) => {
+    const { timestamp, signature, cloudName, apiKey } = await getSignature(folder);
+    
+    const formData = new FormData();
+    formData.append('file', fileData);
+    formData.append('timestamp', timestamp);
+    formData.append('signature', signature);
+    formData.append('api_key', apiKey);
+    formData.append('folder', folder);
+    
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      const resourceType = type === 'video' ? 'video' : 'image';
+      xhr.open('POST', `https://api.cloudinary.com/v1_1/${cloudName}/${resourceType}/upload`);
+
+      xhr.upload.onprogress = (e) => {
+        if (e.lengthComputable) {
+          const percent = Math.round((e.loaded / e.total) * 100);
+          setUploadProgress(percent);
+        }
+      };
+
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          const response = JSON.parse(xhr.responseText);
+          resolve(response.secure_url);
+        } else {
+          const error = JSON.parse(xhr.responseText);
+          reject(new Error(error.error?.message || 'Upload failed'));
+        }
+      };
+
+      xhr.onerror = () => reject(new Error('Network error during upload'));
+      xhr.send(formData);
+    });
   };
 
   const handleMediaSave = async (sectionId) => {
@@ -66,17 +109,31 @@ const ManageMedia = () => {
     
     try {
       setLoading(true);
+      let finalForm = { ...mediaForm };
+
+      // Upload main media if it's a new local file
+      if (rawFiles.src) {
+        setUploadProgress(0);
+        finalForm.src = await uploadFileDirectly(rawFiles.src, 'media', mediaForm.type);
+      }
+
+      // Upload thumbnail if it's a new local file
+      if (rawFiles.thumbnail) {
+        finalForm.thumbnail = await uploadFileDirectly(rawFiles.thumbnail, 'media/thumbnails', 'image');
+      }
+
       if (editingMedia) {
-        await updateMediaInSection(sectionId, editingMedia._id, mediaForm);
+        await updateMediaInSection(sectionId, editingMedia._id, finalForm);
       } else {
-        await addMediaToSection(sectionId, mediaForm);
+        await addMediaToSection(sectionId, finalForm);
       }
       resetMediaForm();
     } catch (error) {
       console.error('Error saving media:', error);
-      alert('Failed to save media');
+      alert('Failed to save media: ' + error.message);
     } finally {
       setLoading(false);
+      setUploadProgress(0);
     }
   };
 
@@ -84,8 +141,9 @@ const ManageMedia = () => {
     const file = e.target.files[0];
     if (file) {
       if (file.size > 50 * 1024 * 1024 && field === 'src' && mediaForm.type === 'video') {
-         alert('File size too large. Please keep it under 50MB or use a URL.');
+         return alert('File size too large. Please keep it under 50MB or use a URL.');
       }
+      setRawFiles(prev => ({ ...prev, [field]: file }));
       const reader = new FileReader();
       reader.onloadend = () => {
         setMediaForm(prev => ({ ...prev, [field]: reader.result }));
@@ -327,9 +385,20 @@ const ManageMedia = () => {
                       <button 
                         onClick={() => handleMediaSave(section._id)}
                         disabled={loading}
-                        className="bg-red-700 text-white px-8 py-2 rounded-lg hover:bg-red-800 flex items-center gap-2 font-bold shadow-md disabled:opacity-50"
+                        className="bg-red-700 text-white px-8 py-2 rounded-lg hover:bg-red-800 flex flex-col items-center justify-center font-bold shadow-md disabled:opacity-50 min-w-[140px]"
                       >
-                        {loading ? 'Saving...' : <><Save size={18} /> Save Media</>}
+                        {loading ? (
+                          <div className="flex flex-col items-center">
+                            <span>{uploadProgress > 0 ? `Uploading ${uploadProgress}%` : 'Saving...'}</span>
+                            {uploadProgress > 0 && (
+                              <div className="w-full h-1 bg-red-900 rounded-full mt-1 overflow-hidden">
+                                <div className="h-full bg-white transition-all duration-300" style={{ width: `${uploadProgress}%` }}></div>
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <span className="flex items-center gap-2"><Save size={18} /> Save Media</span>
+                        )}
                       </button>
                     </div>
                   </div>

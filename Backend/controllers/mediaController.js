@@ -1,5 +1,5 @@
 const MediaSection = require('../models/MediaSection');
-const { uploadToCloudinary } = require('../utils/cloudinary');
+const { uploadToCloudinary, generateSignature } = require('../utils/cloudinary');
 
 // @desc    Get all media sections
 // @route   GET /api/media
@@ -95,6 +95,18 @@ exports.saveMedia = async (req, res) => {
         res.status(200).json(section);
     } catch (error) {
         res.status(400).json({ message: error.message });
+    }
+};
+
+// @desc    Get Cloudinary signature
+// @route   GET /api/media/signature
+exports.getSignature = async (req, res) => {
+    try {
+        const { folder } = req.query;
+        const signatureData = generateSignature(folder || 'media');
+        res.status(200).json(signatureData);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
     }
 };
 
