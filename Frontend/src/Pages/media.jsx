@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { mediaData } from '../Data/media';
-import { X, Play, Maximize2 } from 'lucide-react';
+import { X, Play } from 'lucide-react';
+import { useData } from '../Context/DataContext';
 
 const Media = () => {
+    const { mediaData, loading } = useData();
     const [selectedItem, setSelectedItem] = useState(null);
 
     useEffect(() => {
@@ -16,26 +17,42 @@ const Media = () => {
         };
     }, [selectedItem]);
 
+    if (loading) {
+        return (
+            <div className="min-h-screen bg-linear-to-br from-orange-200 via-yellow-200 to-orange-100 flex items-center justify-center">
+                <div className="text-stone-600 animate-pulse font-serif text-2xl italic">Loading your stories...</div>
+            </div>
+        );
+    }
+
     return (
         <div className="min-h-screen bg-linear-to-br from-orange-200 via-yellow-200 to-orange-100 text-stone-800 font-sans selection:bg-red-100 pt-24">
             {/* --- Hero Section --- */}
 
             <div className="max-w-7xl mx-auto px-6 py-20">
-                {mediaData.length > 0 ? (
+                {mediaData && mediaData.length > 0 ? (
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                         {mediaData.map((item) => (
                             <div 
-                                key={item.id} 
+                                key={item._id || item.id} 
                                 className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer border border-stone-200"
                                 onClick={() => setSelectedItem(item)}
                             >
                                 <div className="aspect-video relative overflow-hidden bg-stone-900">
                                     {item.type === 'video' ? (
                                         <>
-                                            <video 
-                                                src={item.src} 
-                                                className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
-                                            />
+                                            {item.thumbnail ? (
+                                                <img 
+                                                    src={item.thumbnail} 
+                                                    alt={item.title}
+                                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                                />
+                                            ) : (
+                                                <video 
+                                                    src={item.src} 
+                                                    className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
+                                                />
+                                            )}
                                             <div className="absolute inset-0 flex items-center justify-center">
                                                 <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 group-hover:bg-red-800 group-hover:border-red-600 transition-all duration-300">
                                                     <Play className="w-8 h-8 text-white fill-current" />

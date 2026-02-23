@@ -10,6 +10,7 @@ const DataContext = createContext();
 export const DataProvider = ({ children }) => {
   const [articles, setArticles] = useState([]);
   const [familyData, setFamilyData] = useState([]);
+  const [mediaData, setMediaData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -19,12 +20,14 @@ export const DataProvider = ({ children }) => {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const [artRes, famRes] = await Promise.all([
+      const [artRes, famRes, medRes] = await Promise.all([
         api.get('/articles'),
-        api.get('/family')
+        api.get('/family'),
+        api.get('/media')
       ]);
       setArticles(artRes.data);
       setFamilyData(famRes.data);
+      setMediaData(medRes.data);
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {
@@ -246,12 +249,69 @@ export const DataProvider = ({ children }) => {
     }
   };
 
+  // Media CRUD
+  const saveMedia = async (media) => {
+    try {
+      const res = await api.post('/media', media);
+      const id = media.id || media._id;
+      if (id) {
+        setMediaData(mediaData.map(m => m._id === id ? res.data : m));
+      } else {
+        setMediaData([...mediaData, res.data]);
+      }
+      return res.data;
+    } catch (error) {
+      console.error('Error saving media:', error);
+      throw error;
+    }
+  };
+
+  const deleteMedia = async (id) => {
+    try {
+      await api.delete(`/media/${id}`);
+      setMediaData(mediaData.filter(m => m._id !== id));
+    } catch (error) {
+      console.error('Error deleting media:', error);
+    }
+  };
+
+  const moveMedia = async (index, direction) => {
+    const newMedia = [...mediaData];
+    const targetIndex = index + direction;
+    if (targetIndex >= 0 && targetIndex < newMedia.length) {
+      [newMedia[index], newMedia[targetIndex]] = [newMedia[targetIndex], newMedia[index]];
+      setMediaData(newMedia);
+      
+      const updatedOrders = newMedia.map((item, idx) => ({ id: item._id, order: idx }));
+      try {
+        await api.put('/media/order', { items: updatedOrders });
+      } catch (error) {
+        console.error('Error updating media order:', error);
+      }
+    }
+  };
+
+  const reorderMedia = async (oldIndex, newIndex) => {
+    const newMedia = [...mediaData];
+    const [movedItem] = newMedia.splice(oldIndex, 1);
+    newMedia.splice(newIndex, 0, movedItem);
+    setMediaData(newMedia);
+    
+    const updatedOrders = newMedia.map((item, idx) => ({ id: item._id, order: idx }));
+    try {
+      await api.put('/media/order', { items: updatedOrders });
+    } catch (error) {
+      console.error('Error reordering media:', error);
+    }
+  };
+
   return (
     <DataContext.Provider value={{
       articles, addArticleSection, updateArticleSection, deleteArticleSection, moveArticleSection,
       addArticleToSection, updateArticleInSection, deleteArticleFromSection, moveArticleInSection, reorderArticleInSection,
       familyData, addFamilySection, updateFamilySection, deleteFamilySection, moveFamilySection,
       addImageToFamily, updateFamilyImage, deleteFamilyImage, moveFamilyImage, reorderFamilyImage,
+      mediaData, saveMedia, deleteMedia, moveMedia, reorderMedia,
       loading
     }}>
       {children}

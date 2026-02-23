@@ -15,19 +15,19 @@ cloudinary.config({
  * @param {string} folder - Folder name in Cloudinary
  * @returns {Promise<string>} - The URL of the uploaded image
  */
-const uploadToCloudinary = async (fileStr, folder = 'portfolio') => {
+const uploadToCloudinary = async (fileStr, folder = 'portfolio', resourceType = 'auto') => {
     try {
         // If it's already a URL, return it
         if (fileStr.startsWith('http')) return fileStr;
         
         const uploadResponse = await cloudinary.uploader.upload(fileStr, {
-            upload_preset: undefined, // Create one in Cloudinary or leave undefined
-            folder: folder
+            folder: folder,
+            resource_type: resourceType
         });
         return uploadResponse.secure_url;
     } catch (error) {
         console.error('Cloudinary Upload Error:', error);
-        throw new Error('Image upload failed');
+        throw new Error(`${resourceType} upload failed`);
     }
 };
 

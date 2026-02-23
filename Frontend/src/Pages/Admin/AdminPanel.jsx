@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { LayoutGrid, FileText, Image as ImageIcon, ArrowLeft, Plus, MoveUp, MoveDown, Trash2, Edit, Save, X, Upload } from 'lucide-react';
+import { LayoutGrid, FileText, Image as ImageIcon, Video, ArrowLeft, Plus, MoveUp, MoveDown, Trash2, Edit, Save, X, Upload } from 'lucide-react';
 import ManageArticles from './ManageArticles';
 import ManageFamily from './ManageFamily';
+import ManageMedia from './ManageMedia';
 import { Link } from 'react-router-dom';
 
 const AdminPanel = () => {
@@ -34,6 +35,14 @@ const AdminPanel = () => {
             <ImageIcon size={20} />
             <span>Family Gallery</span>
           </button>
+
+          <button 
+            onClick={() => setActiveTab('media')}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${activeTab === 'media' ? 'bg-red-700 text-white' : 'hover:bg-stone-800'}`}
+          >
+            <Video size={20} />
+            <span>Media Library</span>
+          </button>
         </nav>
 
         <div className="p-4 border-t border-stone-800">
@@ -56,7 +65,9 @@ const AdminPanel = () => {
         </header>
 
         <main className="p-8">
-          {activeTab === 'articles' ? <ManageArticles /> : <ManageFamily />}
+          {activeTab === 'articles' && <ManageArticles />}
+          {activeTab === 'family' && <ManageFamily />}
+          {activeTab === 'media' && <ManageMedia />}
         </main>
       </div>
     </div>
