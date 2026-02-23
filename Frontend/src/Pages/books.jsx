@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { nonFictionBooks } from '../Data/books';
+import { X, Maximize2 } from 'lucide-react';
+import invitationImg from '../assets/invitation.png';
+import bookNewsImg from '../assets/booknews.png';
 
 const Books = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [selectedImage]);
+
+  const invitationImages = [invitationImg];
+  const reviewImages = [bookNewsImg];
+
   return (
     <div className="min-h-screen bg-linear-to-br from-orange-200 via-yellow-200 to-orange-100 text-stone-800 font-sans selection:bg-red-100 pt-24">
       {/* --- Hero Section --- */}
@@ -99,6 +118,77 @@ const Books = () => {
           ))}
         </div>
       </section>
+
+      {/* --- Book Invitation Section --- */}
+      <section className="py-20 max-w-6xl mx-auto px-6 border-t border-stone-300/30">
+        <div className="flex items-end mb-12 border-b border-stone-200 pb-4">
+          <h2 className="text-3xl font-serif font-bold text-stone-900">Book Invitation</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center sm:text-left">
+          {invitationImages.map((img, idx) => (
+            <div 
+              key={idx} 
+              className="relative aspect-3/4 bg-white p-2 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer group"
+              onClick={() => setSelectedImage(img)}
+            >
+              <div className="relative h-full w-full overflow-hidden rounded-lg">
+                <img src={img} alt="Book Invitation" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                  <Maximize2 className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* --- Book Review Section --- */}
+      <section className="py-20 max-w-6xl mx-auto px-6 border-t border-stone-300/30">
+        <div className="flex items-end mb-12 border-b border-stone-200 pb-4">
+          <h2 className="text-3xl font-serif font-bold text-stone-900">Book Review</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {reviewImages.map((img, idx) => (
+            <div 
+              key={idx} 
+              className="relative aspect-video bg-white p-2 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer group"
+              onClick={() => setSelectedImage(img)}
+            >
+              <div className="relative h-full w-full overflow-hidden rounded-lg">
+                <img src={img} alt="Book Review" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                  <Maximize2 className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* --- Lightbox Modal --- */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-[110] flex items-center justify-center bg-black/95 backdrop-blur-md p-4 animate-in fade-in duration-300"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button 
+            className="absolute top-6 right-6 text-white/70 hover:text-white hover:scale-110 transition-all p-2 bg-white/10 rounded-full backdrop-blur-md border border-white/20"
+            onClick={() => setSelectedImage(null)}
+          >
+            <X size={28} />
+          </button>
+          <div 
+            className="relative max-w-5xl w-full flex items-center justify-center animate-in zoom-in-95 duration-300"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img 
+              src={selectedImage} 
+              alt="Full Size Preview" 
+              className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
