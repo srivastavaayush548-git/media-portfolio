@@ -4,7 +4,7 @@ import { Plus, MoveUp, MoveDown, Trash2, Edit, Save, X, Upload, ChevronDown, Che
 
 const ManageFamily = () => {
   const { 
-    familyData, addFamilySection, deleteFamilySection, moveFamilySection,
+    familyData, addFamilySection, updateFamilySection, deleteFamilySection, moveFamilySection,
     addImageToFamily, updateFamilyImage, deleteFamilyImage, moveFamilyImage, reorderFamilyImage 
   } = useData();
 
@@ -16,6 +16,9 @@ const ManageFamily = () => {
   const [editingImage, setEditingImage] = useState(null);
   const [imageForm, setImageForm] = useState({ title: '', src: '' });
 
+   const [editingSectionId, setEditingSectionId] = useState(null);
+  const [editingSectionTitle, setEditingSectionTitle] = useState('');
+
   const toggleSection = (id) => {
     setExpandedSections(prev => ({ ...prev, [id]: !prev[id] }));
   };
@@ -25,6 +28,13 @@ const ManageFamily = () => {
       addFamilySection(newSectionTitle);
       setNewSectionTitle('');
       setIsAddingSection(false);
+    }
+  };
+
+  const handleSaveSectionTitle = (sectionId) => {
+    if (editingSectionTitle.trim()) {
+      updateFamilySection(sectionId, editingSectionTitle);
+      setEditingSectionId(null);
     }
   };
 
@@ -93,7 +103,36 @@ const ManageFamily = () => {
                 </button>
               </div>
 
-              <h3 className="text-xl font-serif font-bold text-stone-800 flex-1">{section.title}</h3>
+              {editingSectionId === section._id ? (
+                <div className="flex-1 flex gap-2">
+                  <input 
+                    type="text"
+                    value={editingSectionTitle}
+                    onChange={(e) => setEditingSectionTitle(e.target.value)}
+                    className="flex-1 px-3 py-1 border border-stone-300 rounded outline-none focus:ring-2 focus:ring-red-500"
+                    autoFocus
+                  />
+                  <button onClick={() => handleSaveSectionTitle(section._id)} className="p-1 text-green-600 hover:bg-green-50 rounded">
+                    <Save size={18} />
+                  </button>
+                  <button onClick={() => setEditingSectionId(null)} className="p-1 text-stone-400 hover:bg-stone-100 rounded">
+                    <X size={18} />
+                  </button>
+                </div>
+              ) : (
+                <div className="flex-1 flex items-center gap-2 group">
+                  <h3 className="text-xl font-serif font-bold text-stone-800">{section.title}</h3>
+                  <button 
+                    onClick={() => {
+                      setEditingSectionId(section._id);
+                      setEditingSectionTitle(section.title);
+                    }}
+                    className="p-1 text-stone-400 opacity-0 group-hover:opacity-100 hover:text-red-700 transition-all"
+                  >
+                    <Edit size={16} />
+                  </button>
+                </div>
+              )}
               
               <div className="flex items-center gap-2">
                 <button 
@@ -124,10 +163,6 @@ const ManageFamily = () => {
                 {/* Photo Add/Edit Form */}
                 {(addingImageTo === section._id || (editingImage && editingImage.sectionId === section._id)) && (
                   <div className="mb-8 p-4 bg-stone-50 rounded-xl border border-stone-200 space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
-                    <div className="flex justify-between items-center">
-                      <h4 className="font-bold text-stone-800">{editingImage ? 'Edit Photo' : 'Add New Photo'}</h4>
-                      <button onClick={() => {setAddingImageTo(null); setEditingImage(null);}}><X size={18} /></button>
-                    </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-stone-700 mb-1">Photo Caption / Heading</label>
@@ -169,6 +204,12 @@ const ManageFamily = () => {
                       </div>
                     </div>
                     <div className="flex justify-end gap-2">
+                      <button 
+                        onClick={() => {setAddingImageTo(null); setEditingImage(null);}}
+                        className="px-6 py-2 text-stone-500 hover:text-stone-700 font-medium"
+                      >
+                        Cancel
+                      </button>
                       <button 
                         onClick={() => handleImageSave(section._id)}
                         className="bg-red-700 text-white px-6 py-2 rounded-lg hover:bg-red-800 flex items-center gap-2"

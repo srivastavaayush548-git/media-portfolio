@@ -6,6 +6,7 @@ const ManageArticles = () => {
   const { 
     articles: articleSections, 
     addArticleSection, 
+    updateArticleSection,
     deleteArticleSection, 
     moveArticleSection,
     addArticleToSection, 
@@ -23,6 +24,9 @@ const ManageArticles = () => {
   const [editingArticle, setEditingArticle] = useState(null);
   const [articleForm, setArticleForm] = useState({ title: '', src: '', alt: '' });
 
+   const [editingSectionId, setEditingSectionId] = useState(null);
+  const [editingSectionTitle, setEditingSectionTitle] = useState('');
+
   const toggleSection = (id) => {
     setExpandedSections(prev => ({ ...prev, [id]: !prev[id] }));
   };
@@ -32,6 +36,13 @@ const ManageArticles = () => {
       addArticleSection(newSectionTitle);
       setNewSectionTitle('');
       setIsAddingSection(false);
+    }
+  };
+
+  const handleSaveSectionTitle = (sectionId) => {
+    if (editingSectionTitle.trim()) {
+      updateArticleSection(sectionId, editingSectionTitle);
+      setEditingSectionId(null);
     }
   };
 
@@ -100,7 +111,36 @@ const ManageArticles = () => {
                 </button>
               </div>
 
-              <h3 className="text-xl font-serif font-bold text-stone-800 flex-1">{section.title}</h3>
+              {editingSectionId === section._id ? (
+                <div className="flex-1 flex gap-2">
+                  <input 
+                    type="text"
+                    value={editingSectionTitle}
+                    onChange={(e) => setEditingSectionTitle(e.target.value)}
+                    className="flex-1 px-3 py-1 border border-stone-300 rounded outline-none focus:ring-2 focus:ring-red-500"
+                    autoFocus
+                  />
+                  <button onClick={() => handleSaveSectionTitle(section._id)} className="p-1 text-green-600 hover:bg-green-50 rounded">
+                    <Save size={18} />
+                  </button>
+                  <button onClick={() => setEditingSectionId(null)} className="p-1 text-stone-400 hover:bg-stone-100 rounded">
+                    <X size={18} />
+                  </button>
+                </div>
+              ) : (
+                <div className="flex-1 flex items-center gap-2 group">
+                  <h3 className="text-xl font-serif font-bold text-stone-800">{section.title}</h3>
+                  <button 
+                    onClick={() => {
+                      setEditingSectionId(section._id);
+                      setEditingSectionTitle(section.title);
+                    }}
+                    className="p-1 text-stone-400 opacity-0 group-hover:opacity-100 hover:text-red-700 transition-all"
+                  >
+                    <Edit size={16} />
+                  </button>
+                </div>
+              )}
               
               <div className="flex items-center gap-2">
                 <button 
@@ -131,10 +171,6 @@ const ManageArticles = () => {
                 {/* Article Add/Edit Form */}
                 {(addingArticleTo === section._id || (editingArticle && editingArticle.sectionId === section._id)) && (
                   <div className="mb-8 p-4 bg-stone-50 rounded-xl border border-stone-200 space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
-                    <div className="flex justify-between items-center">
-                      <h4 className="font-bold text-stone-800">{editingArticle ? 'Edit Article' : 'Add New Article'}</h4>
-                      <button onClick={() => {setAddingArticleTo(null); setEditingArticle(null);}}><X size={18} /></button>
-                    </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-stone-700 mb-1">Article Title</label>
@@ -176,6 +212,12 @@ const ManageArticles = () => {
                       </div>
                     </div>
                     <div className="flex justify-end gap-2">
+                      <button 
+                        onClick={() => {setAddingArticleTo(null); setEditingArticle(null);}}
+                        className="px-6 py-2 text-stone-500 hover:text-stone-700 font-medium"
+                      >
+                        Cancel
+                      </button>
                       <button 
                         onClick={() => handleArticleSave(section._id)}
                         className="bg-red-700 text-white px-6 py-2 rounded-lg hover:bg-red-800 flex items-center gap-2"
