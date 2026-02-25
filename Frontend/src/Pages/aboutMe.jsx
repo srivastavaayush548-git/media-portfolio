@@ -67,6 +67,13 @@ const AboutMe = () => {
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-stone-900 mb-6">
               Professional Journey
             </h2>
+            <div className="relative bg-white/50 p-6 md:p-8 rounded-2xl border border-stone-100 mb-8 backdrop-blur-sm">
+              <QuoteIcon className="w-8 h-8 text-red-200 absolute top-4 left-4 -z-10" />
+              <p className="text-lg md:text-xl font-serif text-stone-800 leading-relaxed italic">
+                Democracy is not just about elections; it is about the daily functioning of institutions and the vigilance of the media.
+              </p>
+            </div>
+
             <p>
               Best known for his tenure as the <strong>Chairperson of Prasar Bharati</strong>, A. Surya Prakash has dedicated his life to the intersection of media and governance. His career reflects a blend of editorial leadership, academic scholarship, and active engagement in India’s democratic processes.
             </p>
@@ -198,7 +205,7 @@ const AboutMe = () => {
                   <p className="text-stone-600 text-sm mt-1">For fearless journalism</p>
                 </div>
               </div>
-               <div className="flex gap-4">
+              <div className="flex gap-4">
                 <div className="mt-1.5 w-2 h-2 rounded-full bg-stone-300 shrink-0"></div>
                 <div>
                   <h3 className="font-bold text-stone-900 text-lg">D.Litt (Honoris Causa)</h3>
