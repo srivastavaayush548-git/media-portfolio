@@ -101,7 +101,7 @@ const Career = () => {
         </div>
 
         <div className={`transition-all duration-1000 ease-out transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          
+
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-bold text-stone-900 tracking-tight mb-6">
             Career <span className="text-red-800">Path</span>
           </h1>
@@ -151,7 +151,7 @@ const Career = () => {
         {/* --- Career Timeline --- */}
         <section className="mb-32">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif font-bold text-stone-900 mb-4">Editorial Positions</h2>
+            <h2 className="text-4xl font-serif font-bold text-stone-900 mb-4">Positions Held</h2>
             <p className="text-stone-500 max-w-xl mx-auto">Key roles in a career dedicated to journalistic excellence and democratic engagement.</p>
           </div>
 
@@ -180,7 +180,7 @@ const Career = () => {
               Speeches & Addresses
             </div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-stone-900 mb-4">
-              Convocation <span className="text-red-800">Ceremonies</span>
+              Convocation <span className="text-red-800">Addresses</span>
             </h2>
             <p className="text-stone-500 max-w-xl mx-auto">
               Key addresses delivered at university convocations, inspiring the next generation of leaders and thinkers.
@@ -189,43 +189,43 @@ const Career = () => {
 
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-               {/* Invitations/Images */}
-               <div className="space-y-4">
-                  <div className="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
-                    <h3 className="font-serif font-bold text-lg mb-2">Convocation Invitation</h3>
-                    <img src={convocationImage1} alt="Convocation Invitation" className="w-full rounded-lg" />
-                  </div>
-               </div>
-               
-               {/* Addresses List */}
-               <div className="space-y-6">
-                 <div className="bg-white p-6 rounded-xl shadow-sm border border-stone-100">
-                    <h3 className="font-serif font-bold text-xl mb-3 text-red-800">Key Addresses</h3>
-                    <ul className="space-y-6">
-                       <li className="flex gap-4">
-                         <div className="mt-1.5 w-2 h-2 rounded-full bg-red-800 shrink-0"></div>
-                         <div>
-                           <h4 className="font-bold text-stone-900">JSS University, Mysore</h4>
-                           <p className="text-stone-600 text-sm mt-1">Delivered the Convocation Address.</p>
-                         </div>
-                       </li>
-                       <li className="flex gap-4">
-                         <div className="mt-1.5 w-2 h-2 rounded-full bg-red-800 shrink-0"></div>
-                         <div>
-                           <h4 className="font-bold text-stone-900">NITIE Deemed University, Bangalore</h4>
-                           <p className="text-stone-600 text-sm mt-1">Delivered the Convocation Address.</p>
-                         </div>
-                       </li>
-                        <li className="flex gap-4">
-                         <div className="mt-1.5 w-2 h-2 rounded-full bg-red-800 shrink-0"></div>
-                         <div>
-                           <h4 className="font-bold text-stone-900">Previous Convocations (2015)</h4>
-                           <p className="text-stone-600 text-sm mt-1">Addressed graduating students at prestigious institutions.</p>
-                         </div>
-                       </li>
-                    </ul>
-                 </div>
-               </div>
+              {/* Invitations/Images */}
+              <div className="space-y-4">
+                <div className="bg-white p-4 rounded-xl shadow-sm border border-stone-100">
+                  <h3 className="font-serif font-bold text-lg mb-2">Convocation Invitation</h3>
+                  <img src={convocationImage1} alt="Convocation Invitation" className="w-full rounded-lg" />
+                </div>
+              </div>
+
+              {/* Addresses List */}
+              <div className="space-y-6">
+                <div className="bg-white p-6 rounded-xl shadow-sm border border-stone-100">
+                  <h3 className="font-serif font-bold text-xl mb-3 text-red-800">Key Addresses</h3>
+                  <ul className="space-y-6">
+                    <li className="flex gap-4">
+                      <div className="mt-1.5 w-2 h-2 rounded-full bg-red-800 shrink-0"></div>
+                      <div>
+                        <h4 className="font-bold text-stone-900">JSS University, Mysore</h4>
+                        <p className="text-stone-600 text-sm mt-1">Delivered the Convocation Address.</p>
+                      </div>
+                    </li>
+                    <li className="flex gap-4">
+                      <div className="mt-1.5 w-2 h-2 rounded-full bg-red-800 shrink-0"></div>
+                      <div>
+                        <h4 className="font-bold text-stone-900">NITIE Deemed University, Bangalore</h4>
+                        <p className="text-stone-600 text-sm mt-1">Delivered the Convocation Address.</p>
+                      </div>
+                    </li>
+                    <li className="flex gap-4">
+                      <div className="mt-1.5 w-2 h-2 rounded-full bg-red-800 shrink-0"></div>
+                      <div>
+                        <h4 className="font-bold text-stone-900">KARNATAKA STATE OPEN UNIVERSITY, MYSORE</h4>
+                        <p className="text-stone-600 text-sm mt-1">Delivered the Convocation Address</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </section>

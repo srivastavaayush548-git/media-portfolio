@@ -1,42 +1,41 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
-import int1 from '../assets/Intro/intro1.jpg';
-import int2 from '../assets/Intro/intro2.jpeg';
-import int3 from '../assets/Intro/intro3.jpeg';
-
-const CLOUDINARY_VIDEO_URL = "https://res.cloudinary.com/vipinyadav01/video/upload/v1771820579/icmu054rr4u9lrj5f41g.mp4";
+// import int1 from '../assets/Intro/intro1.jpg';
+// import int2 from '../assets/Intro/intro2.jpeg';
+// import int3 from '../assets/Intro/intro3.jpeg';
+import introVideo from '../assets/Intro/intro video.mp4';
 
 const SLIDES = [
   {
     type: 'video',
-    src: CLOUDINARY_VIDEO_URL,
+    src: introVideo,
     duration: 23000,
   },
-  {
-    type: 'image',
-    src: int1,
-    duration: 2000,
-    caption: "A Life in Journalism"
-  },
-  {
-    type: 'image',
-    src: int2,
-    duration: 2000,
-    caption: "A Life in Journalism"
-  },
-  {
-    type: 'image',
-    src: int3,
-    duration: 2000,
-    caption: "Decades of Service"
-  }
+  // {
+  //   type: 'image',
+  //   src: int1,
+  //   duration: 2000,
+  //   caption: "A Life in Journalism"
+  // },
+  // {
+  //   type: 'image',
+  //   src: int2,
+  //   duration: 2000,
+  //   caption: "A Life in Journalism"
+  // },
+  // {
+  //   type: 'image',
+  //   src: int3,
+  //   duration: 2000,
+  //   caption: "Decades of Service"
+  // }
 ];
 
 const IntroSlider = ({ onComplete }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef(null);
 
   const currentSlide = SLIDES[currentIndex];
@@ -46,7 +45,7 @@ const IntroSlider = ({ onComplete }) => {
     // Wait for exit animation
     setTimeout(() => {
       onComplete();
-    }, 1000); 
+    }, 1000);
   }, [onComplete]);
 
   const handleNext = useCallback(() => {
@@ -57,25 +56,22 @@ const IntroSlider = ({ onComplete }) => {
     }
   }, [currentIndex, handleComplete]);
 
-  // Attempt to unmute automatically, fallback to muted if browser blocks
+  // Attempt to play muted (standard for autoplay)
   useEffect(() => {
-    const attemptUnmute = async () => {
+    const attemptPlay = async () => {
       if (videoRef.current && currentSlide.type === 'video') {
         try {
-          videoRef.current.muted = false;
-          await videoRef.current.play();
-          setIsMuted(false);
-        } catch {
-          console.log("Autoplay with sound blocked, falling back to muted.");
           videoRef.current.muted = true;
           await videoRef.current.play();
           setIsMuted(true);
+        } catch (err) {
+          console.log("Autoplay failed:", err);
         }
       }
     };
 
     if (currentSlide.type === 'video') {
-        attemptUnmute();
+      attemptPlay();
     }
   }, [currentIndex, currentSlide.type]);
 
@@ -84,7 +80,7 @@ const IntroSlider = ({ onComplete }) => {
   // Auto-advance logic
   useEffect(() => {
     let timeout;
-    
+
     if (currentSlide.type === 'image') {
       const duration = currentSlide.duration;
       timeout = setTimeout(() => {
@@ -100,11 +96,35 @@ const IntroSlider = ({ onComplete }) => {
   // Invisible "Click to Unmute" fallback
   // Since browsers block audio autoplay, this ensures that ANY click on the screen
   // (which counts as user interaction) will instantly turn the audio on.
-  const handleGlobalUnmute = () => {
-    if (videoRef.current && videoRef.current.muted) {
-      videoRef.current.muted = false;
-      videoRef.current.play().catch(err => console.log("Audio play failed:", err));
-      setIsMuted(false);
+  const handleGlobalUnmute = async () => {
+    if (videoRef.current) {
+      // Initialize Audio Context for boosting if not already done
+      if (!window.audioContext) {
+        try {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          window.audioContext = new AudioContext();
+          const source = window.audioContext.createMediaElementSource(videoRef.current);
+          const gainNode = window.audioContext.createGain();
+
+          gainNode.gain.value = 3.5; // Boost volume by 3.5x
+
+          source.connect(gainNode);
+          gainNode.connect(window.audioContext.destination);
+          window.audioGainNode = gainNode;
+        } catch (err) {
+          console.error("Audio boost failed:", err);
+        }
+      }
+
+      if (window.audioContext && window.audioContext.state === 'suspended') {
+        await window.audioContext.resume();
+      }
+
+      if (videoRef.current.muted) {
+        videoRef.current.muted = false;
+        videoRef.current.play().catch(err => console.log("Audio play failed:", err));
+        setIsMuted(false);
+      }
     }
   };
 
@@ -115,11 +135,11 @@ const IntroSlider = ({ onComplete }) => {
   }
 
   return (
-    <div 
+    <div
       className="fixed inset-0 z-40 bg-black text-white flex flex-col font-sans cursor-pointer"
       onClick={handleGlobalUnmute}
     >
-      
+
       {/* Main Content */}
       <div className="relative flex-1 w-full h-full overflow-hidden">
         {SLIDES.map((slide, index) => {
@@ -129,14 +149,14 @@ const IntroSlider = ({ onComplete }) => {
           return (
             <div key={index} className="absolute inset-0 w-full h-full animate-fade-in flex items-center justify-center bg-black">
               {slide.type === 'video' ? (
-                     <video
-                       ref={videoRef}
-                       src={slide.src}
-                       className="max-w-full max-h-full object-contain"
-                       muted={isMuted} // Controlled by state, but starts 'false' (unmuted)
-                       playsInline
-                       onEnded={handleNext}
-                     />
+                <video
+                  ref={videoRef}
+                  src={slide.src}
+                  className="w-full h-full object-contain bg-black"
+                  muted={isMuted} // Controlled by state, but starts 'false' (unmuted)
+                  playsInline
+                  onEnded={handleNext}
+                />
               ) : (
                 <div className="w-full h-full relative flex items-center justify-center">
                   <div className="absolute inset-0 bg-black/20 z-10" /> {/* Overlay */}
@@ -151,7 +171,7 @@ const IntroSlider = ({ onComplete }) => {
       </div>
 
 
-      
+
       {/* Styles for animations */}
       <style jsx>{`
         @keyframes slide-up-fade {

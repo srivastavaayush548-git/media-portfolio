@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import {
-  BookOpen,
   Award,
   Mic,
   PenTool,
@@ -41,9 +40,7 @@ const AboutMe = () => {
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-bold text-stone-900 tracking-tight mb-6">
             A. Surya <span className="text-red-800">Prakash</span>
           </h1>
-          <p className="max-w-2xl mx-auto text-lg md:text-2xl text-stone-600 font-light leading-relaxed">
-            Democracy is not just about elections; it is about the daily functioning of institutions and the vigilance of the press.
-          </p>
+
         </div>
 
         <div className={`absolute bottom-10 left-1/2 -translate-x-1/2 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
@@ -66,13 +63,6 @@ const AboutMe = () => {
             </div>
           </div>
           <div className="md:col-span-7 space-y-6 text-lg text-stone-600 leading-relaxed">
-
-            <div className="relative bg-white/50 p-6 md:p-8 rounded-2xl border border-stone-100 mb-8 backdrop-blur-sm">
-              <QuoteIcon className="w-8 h-8 text-red-200 absolute top-4 left-4 -z-10" />
-              <p className="text-lg md:text-xl font-serif text-stone-800 leading-relaxed italic">
-                Democracy is not just about elections; it is about the daily functioning of institutions and the vigilance of the media.
-              </p>
-            </div>  
 
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-stone-900 mb-6">
               Professional Journey
@@ -138,7 +128,7 @@ const AboutMe = () => {
               icon={<PenTool className="w-5 h-5" />}
               side="left"
             />
-             <TimelineItem
+            <TimelineItem
               year="Past"
               title="India Editor"
               org="Asia Times"
@@ -184,7 +174,7 @@ const AboutMe = () => {
               <div className="p-3 bg-yellow-50 text-yellow-600 rounded-xl">
                 <Award className="w-8 h-8" />
               </div>
-              <h2 className="text-2xl font-serif font-bold text-stone-900">Honors</h2>
+              <h2 className="text-2xl font-serif font-bold text-stone-900">Honours</h2>
             </div>
             <div className="space-y-6">
               <div className="flex gap-4">
@@ -206,6 +196,13 @@ const AboutMe = () => {
                 <div>
                   <h3 className="font-bold text-stone-900 text-lg">Bipin Chandra Pal Samman</h3>
                   <p className="text-stone-600 text-sm mt-1">For fearless journalism</p>
+                </div>
+              </div>
+               <div className="flex gap-4">
+                <div className="mt-1.5 w-2 h-2 rounded-full bg-stone-300 shrink-0"></div>
+                <div>
+                  <h3 className="font-bold text-stone-900 text-lg">D.Litt (Honoris Causa)</h3>
+                  <p className="text-stone-600 text-sm mt-1">SGT University, Gurgaon</p>
                 </div>
               </div>
             </div>
@@ -230,7 +227,7 @@ const AboutMe = () => {
                   <p className="text-stone-400 text-xs mt-1">(For his thesis on the working of Indian Parliament)</p>
                 </div>
               </div>
-                <div className="group flex gap-4 items-start">
+              <div className="group flex gap-4 items-start">
                 <div className="p-2 bg-stone-50 rounded-lg group-hover:bg-blue-50 transition-colors">
                   <ScrollText className="w-5 h-5 text-stone-400 group-hover:text-blue-500" />
                 </div>
@@ -239,25 +236,17 @@ const AboutMe = () => {
                   <p className="text-stone-600 text-sm">University of Mysore</p>
                 </div>
               </div>
-               <div className="group flex gap-4 items-start">
+              <div className="group flex gap-4 items-start">
                 <div className="p-2 bg-stone-50 rounded-lg group-hover:bg-blue-50 transition-colors">
                   <ScrollText className="w-5 h-5 text-stone-400 group-hover:text-blue-500" />
                 </div>
                 <div>
                   <h3 className="font-bold text-stone-900 text-lg">LL.B.</h3>
                   <p className="text-stone-600 text-sm">Chaudhary Charan Singh University</p>
-                  
+
                 </div>
               </div>
-              <div className="group flex gap-4 items-start">
-                <div className="p-2 bg-stone-50 rounded-lg group-hover:bg-blue-50 transition-colors">
-                  <ScrollText className="w-5 h-5 text-stone-400 group-hover:text-blue-500" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-stone-900 text-lg">D.Litt (Honoris Causa)</h3>
-                  <p className="text-stone-600 text-sm">SGT University, Gurgaon</p>
-                </div>
-              </div>             
+
             </div>
           </div>
         </section>
