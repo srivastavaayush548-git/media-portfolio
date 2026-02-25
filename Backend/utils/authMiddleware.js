@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const Admin = require('../models/Admin');
 
 const protect = async (req, res, next) => {
     let token;
@@ -8,8 +7,14 @@ const protect = async (req, res, next) => {
         try {
             token = req.headers.authorization.split(' ')[1];
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
-            req.admin = await Admin.findById(decoded.id).select('-password');
-            next();
+            
+            // Verify if the token contains the correct admin username
+            if (decoded.username === (process.env.ADMIN_USERNAME || 'admin')) {
+                req.admin = { username: decoded.username };
+                next();
+            } else {
+                res.status(401).json({ message: 'Not authorized, token invalid' });
+            }
         } catch (error) {
             console.error(error);
             res.status(401).json({ message: 'Not authorized, token failed' });
