@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useData } from '../../Context/DataContext';
-import { Plus, MoveUp, MoveDown, Trash2, Edit, Save, X, Upload, Book, Image as ImageIcon, ChevronDown, ChevronUp } from 'lucide-react';
+import { nonFictionBooks } from '../../Data/books';
+import { Plus, MoveUp, MoveDown, Trash2, Edit, Save, X, Upload, Book, Image as ImageIcon, ChevronDown, ChevronUp, RefreshCw } from 'lucide-react';
 
 const ManageBooks = () => {
     const {
@@ -132,6 +133,55 @@ const ManageBooks = () => {
         }
     };
 
+    const handleSyncData = async () => {
+        if (!window.confirm('This will upload all books from the data file to the database. Continue?')) return;
+
+        try {
+            setLoading(true);
+            let section = bookSections.find(s => s.title === 'Non-Fiction');
+            if (!section) {
+                section = await addBookSection('Non-Fiction');
+            }
+
+            for (const book of nonFictionBooks) {
+                // Check if book already exists in this section (by title)
+                const exists = section.books?.some(b => b.title === book.title);
+                if (exists) {
+                    console.log(`Skipping "${book.title}" as it already exists.`);
+                    continue;
+                }
+
+                console.log(`Syncing "${book.title}"...`);
+                let coverUrl = book.cover;
+
+                // If cover is a local asset (URL starting with /src or base64 or similar)
+                if (coverUrl && (coverUrl.startsWith('/') || coverUrl.includes('base64') || coverUrl.startsWith('http'))) {
+                    try {
+                        const response = await fetch(coverUrl);
+                        const blob = await response.blob();
+                        const file = new File([blob], 'cover.jpg', { type: blob.type });
+                        coverUrl = await uploadFileDirectly(file, 'books/covers');
+                    } catch (e) {
+                        console.error(`Failed to upload cover for ${book.title}:`, e);
+                        // Continue even if image fails
+                    }
+                }
+
+                await addBookToSection(section._id, {
+                    ...book,
+                    cover: coverUrl
+                });
+            }
+
+            alert('Data synced successfully!');
+        } catch (error) {
+            console.error('Error syncing data:', error);
+            alert('Failed to sync data: ' + error.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
     const handleFileChange = (e, field) => {
         const file = e.target.files[0];
         if (file) {
@@ -151,13 +201,24 @@ const ManageBooks = () => {
                     <h2 className="text-2xl font-serif font-bold text-stone-800">Manage Books</h2>
                     <p className="text-stone-600">Organize your non-fiction, reviews, and invitations.</p>
                 </div>
-                <button
-                    onClick={() => setIsAddingSection(true)}
-                    className="bg-red-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-red-800 transition-colors shadow-md"
-                >
-                    <Plus size={18} />
-                    New Section
-                </button>
+                <div className="flex gap-2">
+                    <button
+                        onClick={handleSyncData}
+                        disabled={loading}
+                        className="bg-stone-100 text-stone-700 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-stone-200 transition-colors shadow-sm disabled:opacity-50"
+                        title="Sync books from local data file"
+                    >
+                        <RefreshCw size={18} className={loading ? 'animate-spin' : ''} />
+                        Sync Data
+                    </button>
+                    <button
+                        onClick={() => setIsAddingSection(true)}
+                        className="bg-red-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-red-800 transition-colors shadow-md"
+                    >
+                        <Plus size={18} />
+                        New Section
+                    </button>
+                </div>
             </div>
 
             {isAddingSection && (

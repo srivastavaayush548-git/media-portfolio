@@ -359,8 +359,10 @@ export const DataProvider = ({ children }) => {
     try {
       const res = await api.post('/books/sections', { title, order: booksData.length });
       setBooksData([...booksData, res.data]);
+      return res.data;
     } catch (error) {
       console.error('Error adding book section:', error);
+      throw error;
     }
   };
 
@@ -403,8 +405,10 @@ export const DataProvider = ({ children }) => {
     try {
       const res = await api.post(`/books/sections/${sectionId}/items`, book);
       setBooksData(booksData.map(sec => sec._id === sectionId ? res.data : sec));
+      return res.data;
     } catch (error) {
       console.error('Error adding book to section:', error);
+      throw error;
     }
   };
 
