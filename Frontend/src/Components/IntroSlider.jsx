@@ -185,18 +185,7 @@ const IntroSlider = ({ onComplete }) => {
         })}
       </div>
 
-      {/* Skip Button */}
-      {!isExiting && (
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            handleComplete();
-          }}
-          className="absolute top-24 right-8 z-50 text-white/50 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors border border-white/20 px-3 py-1.5 rounded-full hover:bg-white/10"
-        >
-          Skip Intro
-        </button>
-      )}
+
 
 
 

@@ -15,6 +15,8 @@ import pbImg11 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026
 import pbImg12 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026-02-16 at 2.04.50 PM.jpeg';
 import pbImg13 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026-02-16 at 2.04.50 PM (1).jpeg';
 import pbImg14 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026-02-16 at 2.04.50 PM (2).jpeg';
+import pbImg15 from '../../assets/Images/awards/Padmabhushan/padma2.jpeg';
+import pbImg16 from '../../assets/Images/awards/Padmabhushan/padma3.jpeg';
 import pbCoverImg from '../../assets/Images/awards/Padmabhushan/coverimage.jpg';
 
 const Padmabhushan = () => {
@@ -23,7 +25,7 @@ const Padmabhushan = () => {
   const galleryImages = [
     pbImg1, pbImg2, pbImg3, pbImg4, pbImg5, pbImg6,
     pbImg7, pbImg8, pbImg9, pbImg10, pbImg11, pbImg12,
-    pbImg13, pbImg14, pbCoverImg
+    pbImg13, pbImg14, pbImg15, pbImg16, pbCoverImg
   ];
 
   useEffect(() => {
