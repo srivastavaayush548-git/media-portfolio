@@ -4,7 +4,7 @@ import { ChevronRight, ChevronLeft } from 'lucide-react';
 // import int1 from '../assets/Intro/intro1.jpg';
 // import int2 from '../assets/Intro/intro2.jpeg';
 // import int3 from '../assets/Intro/intro3.jpeg';
-import introVideo from '../assets/Intro/intro video.mp4';
+import introVideo from '../assets/Intro/intro_video.mp4';
 
 const SLIDES = [
   {
@@ -15,20 +15,20 @@ const SLIDES = [
   // {
   //   type: 'image',
   //   src: int1,
-  //   duration: 2000,
-  //   caption: "A Life in Journalism"
+  //   duration: 3000,
+  //   caption: "A Legacy in Journalism"
   // },
   // {
   //   type: 'image',
   //   src: int2,
-  //   duration: 2000,
-  //   caption: "A Life in Journalism"
+  //   duration: 3000,
+  //   caption: "Dialogue & Engagement"
   // },
   // {
   //   type: 'image',
   //   src: int3,
-  //   duration: 2000,
-  //   caption: "Decades of Service"
+  //   duration: 3000,
+  //   caption: "A Journey of Excellence"
   // }
 ];
 
@@ -56,36 +56,21 @@ const IntroSlider = ({ onComplete }) => {
     }
   }, [currentIndex, handleComplete]);
 
-  // Attempt to play muted (standard for autoplay)
-  useEffect(() => {
-    const attemptPlay = async () => {
-      if (videoRef.current && currentSlide.type === 'video') {
-        try {
-          videoRef.current.muted = true;
-          await videoRef.current.play();
-          setIsMuted(true);
-        } catch (err) {
-          console.log("Autoplay failed:", err);
-        }
-      }
-    };
-
-    if (currentSlide.type === 'video') {
-      attemptPlay();
-    }
-  }, [currentIndex, currentSlide.type]);
-
-
-
-  // Auto-advance logic
+  // Auto-advance logic with video fallback
   useEffect(() => {
     let timeout;
 
+    // For images, we always use the duration
     if (currentSlide.type === 'image') {
-      const duration = currentSlide.duration;
       timeout = setTimeout(() => {
         handleNext();
-      }, duration);
+      }, currentSlide.duration);
+    }
+    // For video, we use the duration as a fallback in case onEnded doesn't fire
+    else if (currentSlide.type === 'video') {
+      timeout = setTimeout(() => {
+        handleNext();
+      }, (currentSlide.duration || 25000) + 2000); // Add a 2s buffer
     }
 
     return () => {
@@ -128,15 +113,27 @@ const IntroSlider = ({ onComplete }) => {
     }
   };
 
+  // Watchdog effect to ensure video starts
+  useEffect(() => {
+    if (currentSlide.type === 'video' && videoRef.current) {
+      const interval = setInterval(() => {
+        if (videoRef.current && videoRef.current.paused && !isExiting) {
+          videoRef.current.play().catch(() => { });
+        }
+      }, 2000);
+      return () => clearInterval(interval);
+    }
+  }, [currentSlide.type, isExiting]);
+
   if (isExiting) {
     return (
-      <div className="fixed inset-0 z-40 bg-black transition-transform duration-1000 ease-in-out transform -translate-y-full" />
+      <div className="fixed inset-0 z-60 bg-black transition-transform duration-1000 ease-in-out transform -translate-y-full" />
     );
   }
 
   return (
     <div
-      className="fixed inset-0 z-40 bg-black text-white flex flex-col font-sans cursor-pointer"
+      className="fixed inset-0 z-60 bg-black text-white flex flex-col font-sans cursor-pointer"
       onClick={handleGlobalUnmute}
     >
 
@@ -147,28 +144,59 @@ const IntroSlider = ({ onComplete }) => {
           if (index !== currentIndex) return null;
 
           return (
-            <div key={index} className="absolute inset-0 w-full h-full animate-fade-in flex items-center justify-center bg-black">
+            <div key={index} className="absolute inset-0 w-full h-full flex items-center justify-center bg-black">
               {slide.type === 'video' ? (
-                <video
-                  ref={videoRef}
-                  src={slide.src}
-                  className="w-full h-full object-contain bg-black"
-                  muted={isMuted} // Controlled by state, but starts 'false' (unmuted)
-                  playsInline
-                  onEnded={handleNext}
-                />
+                <>
+                  <video
+                    ref={videoRef}
+                    src={slide.src}
+                    className="w-full h-full object-contain bg-black"
+                    autoPlay
+                    muted={isMuted}
+                    playsInline
+                    preload="auto"
+                    onEnded={handleNext}
+                    onCanPlay={() => {
+                      if (videoRef.current && videoRef.current.paused) {
+                        videoRef.current.play().catch(e => console.log("Autoplay blocked:", e));
+                      }
+                    }}
+                    onError={(e) => console.error("Video error details:", e.target.error)}
+                  />
+                  {isMuted && (
+                    <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-xs tracking-widest uppercase pointer-events-none">
+                      Click anywhere for sound
+                    </div>
+                  )}
+                </>
               ) : (
-                <div className="w-full h-full relative flex items-center justify-center">
-                  <div className="absolute inset-0 bg-black/20 z-10" /> {/* Overlay */}
-                  <img src={slide.src} alt="Slide" className="max-w-full max-h-full object-contain" />
+                <div className="w-full h-full relative flex flex-col items-center justify-center">
+                  <div className="absolute inset-0 bg-black/20 z-10" />
+                  <img src={slide.src} alt="Slide" className="max-w-full max-h-[80vh] object-contain animate-fade-in" />
+                  {slide.caption && (
+                    <div className="mt-8 text-2xl md:text-4xl font-serif text-white/90 animate-slide-up-fade">
+                      {slide.caption}
+                    </div>
+                  )}
                 </div>
               )}
             </div>
           );
         })}
-
-
       </div>
+
+      {/* Skip Button */}
+      {!isExiting && (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            handleComplete();
+          }}
+          className="absolute top-8 right-8 z-50 text-white/50 hover:text-white text-sm font-medium tracking-widest uppercase transition-colors"
+        >
+          Skip Intro
+        </button>
+      )}
 
 
 

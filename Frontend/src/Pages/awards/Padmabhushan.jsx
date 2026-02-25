@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Maximize2 } from 'lucide-react';
-import introVideo from '../../assets/Intro/intro video.mp4';
+import introVideo from '../../assets/Intro/intro_video.mp4';
 import pbImg1 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026-02-02 at 3.10.40 PM.jpeg';
 import pbImg2 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026-02-02 at 3.10.41 PM (1).jpeg';
 import pbImg3 from '../../assets/Images/awards/Padmabhushan/WhatsApp Image 2026-02-02 at 3.10.41 PM.jpeg';
