@@ -127,13 +127,13 @@ const IntroSlider = ({ onComplete }) => {
 
   if (isExiting) {
     return (
-      <div className="fixed inset-0 z-60 bg-black transition-transform duration-1000 ease-in-out transform -translate-y-full" />
+      <div className="fixed inset-0 z-40 bg-black transition-transform duration-1000 ease-in-out transform -translate-y-full" />
     );
   }
 
   return (
     <div
-      className="fixed inset-0 z-60 bg-black text-white flex flex-col font-sans cursor-pointer"
+      className="fixed inset-0 z-40 bg-black text-white flex flex-col font-sans cursor-pointer"
       onClick={handleGlobalUnmute}
     >
 
@@ -192,7 +192,7 @@ const IntroSlider = ({ onComplete }) => {
             e.stopPropagation();
             handleComplete();
           }}
-          className="absolute top-8 right-8 z-50 text-white/50 hover:text-white text-sm font-medium tracking-widest uppercase transition-colors"
+          className="absolute top-24 right-8 z-50 text-white/50 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors border border-white/20 px-3 py-1.5 rounded-full hover:bg-white/10"
         >
           Skip Intro
         </button>
