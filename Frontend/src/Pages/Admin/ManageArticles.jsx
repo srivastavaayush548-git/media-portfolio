@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useData } from '../../Context/DataContext';
-import { Plus, MoveUp, MoveDown, Trash2, Edit, Save, X, Upload, ChevronDown, ChevronUp } from 'lucide-react';
+import { Plus, MoveUp, MoveDown, Trash2, Edit, Save, X, Upload, Video, Image as ImageIcon, Play, ChevronDown, ChevronUp } from 'lucide-react';
 
 const ManageArticles = () => {
   const {
@@ -13,7 +13,8 @@ const ManageArticles = () => {
     updateArticleInSection,
     deleteArticleFromSection,
     moveArticleInSection,
-    reorderArticleInSection
+    reorderArticleInSection,
+    getSignature
   } = useData();
 
   const [expandedSections, setExpandedSections] = useState({});
@@ -22,6 +23,9 @@ const ManageArticles = () => {
 
   const [addingArticleTo, setAddingArticleTo] = useState(null);
   const [editingArticle, setEditingArticle] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [rawFile, setRawFile] = useState(null);
   const [articleForm, setArticleForm] = useState({ title: '', src: '', alt: '', type: 'image' });
 
   const [editingSectionId, setEditingSectionId] = useState(null);
@@ -46,15 +50,69 @@ const ManageArticles = () => {
     }
   };
 
-  const handleArticleSave = (sectionId) => {
-    if (editingArticle) {
-      updateArticleInSection(sectionId, editingArticle._id, articleForm);
-      setEditingArticle(null);
-    } else {
-      addArticleToSection(sectionId, articleForm);
-      setAddingArticleTo(null);
+  const uploadFileDirectly = async (fileData, folder, type) => {
+    const { timestamp, signature, cloudName, apiKey } = await getSignature(folder);
+
+    const formData = new FormData();
+    formData.append('file', fileData);
+    formData.append('timestamp', timestamp);
+    formData.append('signature', signature);
+    formData.append('api_key', apiKey);
+    formData.append('folder', folder);
+
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      const resourceType = type === 'video' ? 'video' : 'image';
+      xhr.open('POST', `https://api.cloudinary.com/v1_1/${cloudName}/${resourceType}/upload`);
+
+      xhr.upload.onprogress = (e) => {
+        if (e.lengthComputable) {
+          const percent = Math.round((e.loaded / e.total) * 100);
+          setUploadProgress(percent);
+        }
+      };
+
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          const response = JSON.parse(xhr.responseText);
+          resolve(response.secure_url);
+        } else {
+          const error = JSON.parse(xhr.responseText);
+          reject(new Error(error.error?.message || 'Upload failed'));
+        }
+      };
+
+      xhr.onerror = () => reject(new Error('Network error during upload'));
+      xhr.send(formData);
+    });
+  };
+
+  const handleArticleSave = async (sectionId) => {
+    try {
+      setLoading(true);
+      let finalForm = { ...articleForm };
+
+      if (rawFile) {
+        setUploadProgress(0);
+        finalForm.src = await uploadFileDirectly(rawFile, 'articles', articleForm.type);
+      }
+
+      if (editingArticle) {
+        await updateArticleInSection(sectionId, editingArticle._id, finalForm);
+        setEditingArticle(null);
+      } else {
+        await addArticleToSection(sectionId, finalForm);
+        setAddingArticleTo(null);
+      }
+      setArticleForm({ title: '', src: '', alt: '', type: 'image' });
+      setRawFile(null);
+    } catch (error) {
+      console.error('Error saving article:', error);
+      alert('Failed to save article: ' + error.message);
+    } finally {
+      setLoading(false);
+      setUploadProgress(0);
     }
-    setArticleForm({ title: '', src: '', alt: '', type: 'image' });
   };
 
   const handleFileChange = (e) => {
@@ -63,12 +121,14 @@ const ManageArticles = () => {
       if (file.size > 50 * 1024 * 1024) {
         return alert('File size too large. Please keep it under 50MB.');
       }
+      setRawFile(file);
+      const isVideo = file.type.startsWith('video');
       const reader = new FileReader();
       reader.onloadend = () => {
         setArticleForm({
           ...articleForm,
           src: reader.result,
-          type: file.type.startsWith('video') ? 'video' : 'image'
+          type: isVideo ? 'video' : 'image'
         });
       };
       reader.readAsDataURL(file);
@@ -225,17 +285,28 @@ const ManageArticles = () => {
                     </div>
                     <div className="flex justify-end gap-2">
                       <button
-                        onClick={() => { setAddingArticleTo(null); setEditingArticle(null); }}
+                        onClick={() => { setAddingArticleTo(null); setEditingArticle(null); setRawFile(null); }}
                         className="px-6 py-2 text-stone-500 hover:text-stone-700 font-medium"
                       >
                         Cancel
                       </button>
                       <button
                         onClick={() => handleArticleSave(section._id)}
-                        className="bg-red-700 text-white px-6 py-2 rounded-lg hover:bg-red-800 flex items-center gap-2"
+                        disabled={loading}
+                        className="bg-red-700 text-white px-6 py-2 rounded-lg hover:bg-red-800 flex flex-col items-center justify-center font-bold shadow-md disabled:opacity-50 min-w-[140px]"
                       >
-                        <Save size={18} />
-                        Save Article
+                        {loading ? (
+                          <div className="flex flex-col items-center">
+                            <span>{uploadProgress > 0 ? `Uploading ${uploadProgress}%` : 'Saving...'}</span>
+                            {uploadProgress > 0 && (
+                              <div className="w-full h-1 bg-red-900 rounded-full mt-1 overflow-hidden">
+                                <div className="h-full bg-white transition-all duration-300" style={{ width: `${uploadProgress}%` }}></div>
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <span className="flex items-center gap-2"><Save size={18} /> Save Article</span>
+                        )}
                       </button>
                     </div>
                   </div>

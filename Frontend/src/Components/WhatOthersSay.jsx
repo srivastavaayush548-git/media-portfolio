@@ -20,7 +20,7 @@ const WhatOthersSay = ({ videos = [] }) => {
     if (video.url) {
       if (isYouTubeVideo(video.url)) {
         // Extract YouTube video ID from URL
-        const youtubeId = video.url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/)?.[1];
+        const youtubeId = video.url.match(/(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})/)?.[1];
         if (youtubeId) {
           return (
             <YoutubeVideo

@@ -144,10 +144,6 @@ export const DataProvider = ({ children }) => {
     }
   };
 
-  const reorderAllArticlesWithOrder = (sectionId, articlesArray) => {
-    return articlesArray.map((art, idx) => ({ ...art, order: idx }));
-  };
-
   // Family CRUD
   const addFamilySection = async (title) => {
     try {
