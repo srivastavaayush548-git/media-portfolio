@@ -291,7 +291,7 @@ export const vipCurrentData = [
       { id: 103, src: emp3, alt: "With Ranjeet" },
       { id: 107, src: emp7, alt: "With Mukesh Khanna" },
       { id: 110, src: emp10, alt: "With Kangana Ranaut" },
-      { id: 111, src: empKajal, alt: "With Kajol" },
+      { id: 111, src: empKajal, alt: "" },
     ]
   },
 
