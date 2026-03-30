@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { LayoutGrid, FileText, Image as ImageIcon, Video, ArrowLeft, Plus, MoveUp, MoveDown, Trash2, Edit, Save, X, Upload, LogOut, BookOpen, Mail, BookText } from 'lucide-react';
+import { LayoutGrid, FileText, Image as ImageIcon, Video, ArrowLeft, LogOut, BookOpen, Mail, BookText } from 'lucide-react';
 import ManageArticles from './ManageArticles';
 import ManageFamily from './ManageFamily';
 import ManageMedia from './ManageMedia';
 import ManageBooks from './ManageBooks';
+import ManageVips from './ManageVips';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../Context/AuthContext';
 
@@ -43,6 +44,14 @@ const AdminPanel = () => {
           >
             <ImageIcon size={20} />
             <span>Family Gallery</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('vips')}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${activeTab === 'vips' ? 'bg-red-700 text-white' : 'hover:bg-stone-800'}`}
+          >
+            <ImageIcon size={20} />
+            <span>VIP Gallery</span>
           </button>
 
           <button
@@ -115,6 +124,7 @@ const AdminPanel = () => {
         <main className="p-8">
           {activeTab === 'articles' && <ManageArticles />}
           {activeTab === 'family' && <ManageFamily />}
+          {activeTab === 'vips' && <ManageVips />}
           {activeTab === 'media' && <ManageMedia />}
           {activeTab === 'non-fiction' && <ManageBooks category="Non-Fiction" />}
           {activeTab === 'reviews' && <ManageBooks category="Book Review" />}

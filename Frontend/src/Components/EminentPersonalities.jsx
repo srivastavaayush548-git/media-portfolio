@@ -19,7 +19,11 @@ const EminentPersonalities = ({ images = [] }) => {
     return null;
   }
 
-  const isVideo = (src) => src && (src.endsWith('.mp4') || src.includes('video/upload'));
+  const getMediaSrc = (item) => item?.src || item?.url || '';
+  const isVideo = (item) => {
+    const src = getMediaSrc(item);
+    return item?.type === 'video' || (src && (src.endsWith('.mp4') || src.includes('video/upload')));
+  };
 
   return (
     <section className="py-20 max-w-7xl mx-auto px-6 relative z-10">
@@ -43,9 +47,9 @@ const EminentPersonalities = ({ images = [] }) => {
               onClick={() => setSelectedItem(image)}
             >
                 <div className="aspect-4/3 overflow-hidden relative bg-stone-100">
-                    {isVideo(image.src) ? (
+                    {isVideo(image) ? (
                       <video 
-                        src={image.src} 
+                        src={getMediaSrc(image)} 
                         className="w-full h-full object-cover"
                         autoPlay 
                         loop 
@@ -54,7 +58,7 @@ const EminentPersonalities = ({ images = [] }) => {
                       />
                     ) : (
                       <img 
-                          src={image.src} 
+                          src={getMediaSrc(image)} 
                           alt={image.alt || "Eminent Personality"} 
                           className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                       />
@@ -89,16 +93,16 @@ const EminentPersonalities = ({ images = [] }) => {
             className="relative max-w-5xl w-full flex items-center justify-center animate-in zoom-in-95 duration-300"
             onClick={(e) => e.stopPropagation()}
           >
-            {isVideo(selectedItem.src) ? (
+            {isVideo(selectedItem) ? (
               <video 
-                src={selectedItem.src} 
+                src={getMediaSrc(selectedItem)} 
                 className="max-w-full max-h-[85vh] rounded-lg shadow-2xl"
                 controls
                 autoPlay
               />
             ) : (
               <img 
-                src={selectedItem.src} 
+                src={getMediaSrc(selectedItem)} 
                 alt={selectedItem.alt || "Eminent Personality Full Size"} 
                 className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
               />

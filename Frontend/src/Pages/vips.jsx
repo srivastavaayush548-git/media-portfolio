@@ -1,23 +1,53 @@
 import React from 'react';
-import { vipCurrentData } from '../Data/vips';
+import { useData } from '../Context/DataContext';
 import ImageGroupGallery from '../Components/ImageGroupGallery';
 import WhatOthersSay from '../Components/WhatOthersSay';
 import EminentPersonalities from '../Components/EminentPersonalities';
 import MiscellaneousVideos from '../Components/MiscellaneousVideos';
+import { Play } from 'lucide-react';
 import { whatOthersSayVideos } from '../Data/whatOthersSay';
 import miscImage1 from '../assets/Images/Vips/gallarymisleneous.jpeg';
-import intro1 from '../assets/Intro/intro1.jpg';
-import intro2 from '../assets/Intro/intro2.jpeg';
-import intro3 from '../assets/Intro/intro3.jpeg';
-import venkata from '../assets/Images/Vips/venkata/venkata.jpeg';
 
 const VIPs = () => {
-  // Extract Eminent Personalities data separately
-  const eminentDataGroup = vipCurrentData.find(group => group.id === 'eminent-personalities');
-  const eminentImages = eminentDataGroup ? eminentDataGroup.images : [];
+  const { vipsData } = useData();
+  const getSectionKey = (value = '') => value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
-  // Filter out Eminent Personalities from the main gallery groups
-  const galleryGroups = vipCurrentData.filter(group => group.id !== 'eminent-personalities');
+  const normalizedData = vipsData.map((group) => ({
+    ...group,
+    id: group.id || group._id,
+    sectionKey: getSectionKey(group.id || group.title || ''),
+    thumbnail: group.thumbnail || group.images?.[0]?.src || group.images?.[0]?.url || '',
+    images: (group.images || []).map((image) => ({
+      ...image,
+      id: image.id || image._id,
+      src: image.src || image.url || '',
+      alt: image.alt || image.title || group.title
+    }))
+  }));
+
+  const topVideosGroup = normalizedData.find((group) =>
+    ['top-videos', 'vip-videos', 'top-video', 'videos', 'top-videos-hidden'].includes(group.sectionKey) ||
+    group.title === '__TOP_VIDEOS__'
+  );
+  const eminentDataGroup = normalizedData.find(group => group.id === 'eminent-personalities');
+  const eminentImages = eminentDataGroup ? eminentDataGroup.images : [];
+  const galleryGroups = normalizedData.filter(group => group.id !== 'eminent-personalities');
+  const filteredGalleryGroups = galleryGroups.filter((group) => group._id !== topVideosGroup?._id);
+  const topGalleryItems = galleryGroups
+    .filter((group) => group.thumbnail)
+    .slice(0, 4)
+    .map((group) => ({
+      src: group.thumbnail,
+      name: group.title
+    }));
+  const topVideoItems = (topVideosGroup?.images || [])
+    .filter((item) => item.type === 'video')
+    .map((item) => ({
+      src: item.src,
+      thumbnail: item.thumbnail || '',
+      name: item.title || item.alt || topVideosGroup.title
+    }))
+    .slice(0, 4);
 
   const miscellaneousItems = [
     { type: 'image', src: miscImage1, title: 'Miscellaneous Moment' },
@@ -30,11 +60,9 @@ const VIPs = () => {
         <div className="h-full w-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
       </div>
 
-      {/* --- Hero Section --- */}
       <div className="bg-white border-b border-stone-200 relative z-10">
         <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
           <div className="max-w-3xl">
-
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-stone-900 leading-tight mb-6">
               Gallery
             </h1>
@@ -45,15 +73,9 @@ const VIPs = () => {
         </div>
       </div>
 
-      {/* --- Top Static Gallery Grid --- */}
       <div className="max-w-7xl mx-auto px-6 py-12 relative z-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {[
-            { src: intro1, name: "With Shri Ram Nath Kovind" },
-            { src: intro2, name: "With Shri Narendra Modi" },
-            { src: intro3, name: "With Smt. Droupadi Murmu" },
-            { src: venkata, name: "With Former CJI Shri M.N. Venkatachalaiah" }
-          ].map((item, idx) => (
+          {topGalleryItems.map((item, idx) => (
             <div key={idx} className="rounded-xl overflow-hidden shadow-md bg-white p-2 flex flex-col">
               <img
                 src={item.src}
@@ -68,22 +90,52 @@ const VIPs = () => {
         </div>
       </div>
 
-      {/* --- Gallery Section --- */}
+      {topVideoItems.length > 0 && (
+        <div className="max-w-7xl mx-auto px-6 pb-12 relative z-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            {topVideoItems.map((item, idx) => (
+              <div key={idx} className="rounded-xl overflow-hidden shadow-md bg-white p-2 flex flex-col">
+                <div className="relative">
+                  {item.thumbnail ? (
+                    <img
+                      src={item.thumbnail}
+                      alt={item.name}
+                      className="w-full h-44 md:h-60 object-cover rounded-lg mb-3"
+                    />
+                  ) : (
+                    <video
+                      src={item.src}
+                      className="w-full h-44 md:h-60 object-cover rounded-lg mb-3"
+                      muted
+                      loop
+                      autoPlay
+                      playsInline
+                    />
+                  )}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none mb-3">
+                    <Play className="text-white fill-current w-10 h-10 opacity-80 drop-shadow-lg" />
+                  </div>
+                </div>
+                <p className="text-sm font-medium text-stone-800 text-center px-1 pb-1">
+                  {item.name}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       <section className="py-20 max-w-7xl mx-auto px-6 relative z-10">
-        <ImageGroupGallery groups={galleryGroups} customGridCols="grid-cols-1 md:grid-cols-2" />
+        <ImageGroupGallery groups={filteredGalleryGroups} customGridCols="grid-cols-1 md:grid-cols-2" />
       </section>
 
-      {/* --- Eminent Personalities Section --- */}
       <EminentPersonalities images={eminentImages} />
 
-      {/* --- What Others Say Section --- */}
       <WhatOthersSay videos={whatOthersSayVideos} />
 
-      {/* --- Miscellaneous Section --- */}
       <MiscellaneousVideos items={miscellaneousItems} />
     </div>
   );
 };
 
 export default VIPs;
-

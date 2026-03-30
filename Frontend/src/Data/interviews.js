@@ -58,7 +58,7 @@ export const categorizedInterviews = [
     category: "Prime Ministers Museum",
     videos: [
       {
-        id: "sEooDQeogKA",
+        id: "bTQ3EL-rDek",
         type: "video",
         title:
           "Dr. Surya Prakash Exclusive On 'Modi Gallery' At Prime Ministers' Museum",

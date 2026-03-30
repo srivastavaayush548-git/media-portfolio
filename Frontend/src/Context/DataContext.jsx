@@ -8,6 +8,7 @@ export const DataProvider = ({ children }) => {
   const [familyData, setFamilyData] = useState([]);
   const [mediaData, setMediaData] = useState([]);
   const [booksData, setBooksData] = useState([]);
+  const [vipsData, setVipsData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -17,16 +18,18 @@ export const DataProvider = ({ children }) => {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const [artRes, famRes, medRes, bookRes] = await Promise.all([
+      const [artRes, famRes, medRes, bookRes, vipRes] = await Promise.all([
         api.get('/articles'),
         api.get('/family'),
         api.get('/media'),
-        api.get('/books')
+        api.get('/books'),
+        api.get('/vips')
       ]);
       setArticles(artRes.data);
       setFamilyData(famRes.data);
       setMediaData(medRes.data);
       setBooksData(bookRes.data);
+      setVipsData(vipRes.data);
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {
@@ -253,6 +256,118 @@ export const DataProvider = ({ children }) => {
       setFamilyData(familyData.map(sec => sec._id === sectionId ? res.data : sec));
     } catch (error) {
       console.error('Error reordering image:', error);
+    }
+  };
+
+  // VIPs CRUD
+  const addVipSection = async (title) => {
+    try {
+      const res = await api.post('/vips/sections', { title, order: vipsData.length });
+      setVipsData([...vipsData, res.data]);
+      return res.data;
+    } catch (error) {
+      console.error('Error adding VIP section:', error);
+      throw error;
+    }
+  };
+
+  const updateVipSection = async (sectionId, title) => {
+    try {
+      const res = await api.put(`/vips/sections/${sectionId}`, { title });
+      setVipsData(vipsData.map(sec => sec._id === sectionId ? res.data : sec));
+    } catch (error) {
+      console.error('Error updating VIP section:', error);
+    }
+  };
+
+  const deleteVipSection = async (sectionId) => {
+    try {
+      await api.delete(`/vips/sections/${sectionId}`);
+      setVipsData(vipsData.filter(sec => sec._id !== sectionId));
+    } catch (error) {
+      console.error('Error deleting VIP section:', error);
+    }
+  };
+
+  const moveVipSection = async (index, direction) => {
+    const newVips = [...vipsData];
+    const targetIndex = index + direction;
+    if (targetIndex >= 0 && targetIndex < newVips.length) {
+      [newVips[index], newVips[targetIndex]] = [newVips[targetIndex], newVips[index]];
+
+      const updatedOrders = newVips.map((sec, idx) => ({ id: sec._id, order: idx }));
+      try {
+        setVipsData(newVips);
+        await api.put('/vips/sections/order', { sections: updatedOrders });
+      } catch (error) {
+        console.error('Error updating VIP section order:', error);
+        fetchData();
+      }
+    }
+  };
+
+  const addImageToVips = async (sectionId, image) => {
+    try {
+      const res = await api.post(`/vips/sections/${sectionId}/images`, image);
+      setVipsData(vipsData.map(sec => sec._id === sectionId ? res.data : sec));
+    } catch (error) {
+      console.error('Error adding VIP image:', error);
+    }
+  };
+
+  const updateVipImage = async (sectionId, imageId, updatedImage) => {
+    try {
+      const res = await api.post(`/vips/sections/${sectionId}/images`, { ...updatedImage, id: imageId });
+      setVipsData(vipsData.map(sec => sec._id === sectionId ? res.data : sec));
+    } catch (error) {
+      console.error('Error updating VIP image:', error);
+    }
+  };
+
+  const deleteVipImage = async (sectionId, imageId) => {
+    try {
+      const res = await api.delete(`/vips/sections/${sectionId}/images/${imageId}`);
+      setVipsData(vipsData.map(sec => sec._id === sectionId ? res.data : sec));
+    } catch (error) {
+      console.error('Error deleting VIP image:', error);
+    }
+  };
+
+  const moveVipImage = async (sectionId, index, direction) => {
+    const section = vipsData.find(sec => sec._id === sectionId);
+    if (!section) return;
+
+    const newImages = [...section.images];
+    const targetIndex = index + direction;
+    if (targetIndex >= 0 && targetIndex < newImages.length) {
+      [newImages[index], newImages[targetIndex]] = [newImages[targetIndex], newImages[index]];
+
+      const imagesWithUpdatedOrder = newImages.map((img, idx) => ({ ...img, order: idx }));
+
+      try {
+        const res = await api.put(`/vips/sections/${sectionId}`, { images: imagesWithUpdatedOrder });
+        setVipsData(vipsData.map(sec => sec._id === sectionId ? res.data : sec));
+      } catch (error) {
+        console.error('Error moving VIP image:', error);
+      }
+    }
+  };
+
+  const reorderVipImage = async (sectionId, oldIndex, newIndex) => {
+    const section = vipsData.find(sec => sec._id === sectionId);
+    if (!section) return;
+
+    const newImages = [...section.images];
+    const [movedItem] = newImages.splice(oldIndex, 1);
+    newImages.splice(newIndex, 0, movedItem);
+
+    const imagesWithUpdatedOrder = newImages.map((img, idx) => ({ ...img, order: idx }));
+
+    try {
+      const res = await api.put(`/vips/sections/${sectionId}`, { images: imagesWithUpdatedOrder });
+      setVipsData(vipsData.map(sec => sec._id === sectionId ? res.data : sec));
+    } catch (error) {
+      console.error('Error reordering VIP image:', error);
     }
   };
 
@@ -498,6 +613,8 @@ export const DataProvider = ({ children }) => {
       addArticleToSection, updateArticleInSection, deleteArticleFromSection, moveArticleInSection, reorderArticleInSection,
       familyData, addFamilySection, updateFamilySection, deleteFamilySection, moveFamilySection,
       addImageToFamily, updateFamilyImage, deleteFamilyImage, moveFamilyImage, reorderFamilyImage,
+      vipsData, addVipSection, updateVipSection, deleteVipSection, moveVipSection,
+      addImageToVips, updateVipImage, deleteVipImage, moveVipImage, reorderVipImage,
       mediaData, addMediaSection, updateMediaSection, deleteMediaSection, moveMediaSection,
       addMediaToSection, updateMediaInSection, deleteMediaFromSection, moveMediaInSection, reorderMediaInSection,
       booksData, addBookSection, updateBookSection, deleteBookSection, moveBookSection,
