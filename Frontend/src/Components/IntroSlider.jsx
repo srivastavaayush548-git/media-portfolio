@@ -10,7 +10,7 @@ const SLIDES = [
   {
     type: 'video',
     src: introVideo,
-    duration: 33000,
+    duration: 23000,
   },
   // {
   //   type: 'image',
