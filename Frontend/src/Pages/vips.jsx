@@ -6,7 +6,6 @@ import EminentPersonalities from '../Components/EminentPersonalities';
 import MiscellaneousVideos from '../Components/MiscellaneousVideos';
 import { Play } from 'lucide-react';
 import { whatOthersSayVideos } from '../Data/whatOthersSay';
-import miscImage1 from '../assets/Images/Vips/gallarymisleneous.jpeg';
 
 const VIPs = () => {
   const { vipsData } = useData();
@@ -49,9 +48,6 @@ const VIPs = () => {
     }))
     .slice(0, 4);
 
-  const miscellaneousItems = [
-    { type: 'image', src: miscImage1, title: 'Miscellaneous Moment' },
-  ];
 
   return (
     <div className="min-h-screen bg-linear-to-br from-orange-200 via-yellow-200 to-orange-100 text-stone-800 font-sans selection:bg-red-100 pt-24 relative">
