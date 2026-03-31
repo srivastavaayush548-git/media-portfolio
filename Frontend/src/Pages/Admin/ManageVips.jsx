@@ -382,7 +382,7 @@ const ManageVips = () => {
                   <span className="text-sm font-bold">Add Photo</span>
                 </button>
                 <button
-                  onClick={() => { if (window.confirm('Delete this section and all its photos?')) deleteVipSection(section._id); }}}
+                  onClick={() => { if (window.confirm('Delete this section and all its photos?')) deleteVipSection(section._id); }}
                   className="p-2 text-stone-400 hover:text-red-600 rounded-lg transition-all"
                 >
                   <Trash2 size={18} />
