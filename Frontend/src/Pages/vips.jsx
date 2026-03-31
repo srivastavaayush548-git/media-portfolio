@@ -11,7 +11,7 @@ const VIPs = () => {
   const { vipsData } = useData();
   const getSectionKey = (value = '') => value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
-  const normalizedData = vipsData.map((group) => ({
+  const normalizedData = (vipsData || []).map((group) => ({
     ...group,
     id: group.id || group._id,
     sectionKey: getSectionKey(group.id || group.title || ''),
@@ -48,6 +48,8 @@ const VIPs = () => {
     }))
     .slice(0, 4);
 
+
+  const miscellaneousItems = [];
 
   return (
     <div className="min-h-screen bg-linear-to-br from-orange-200 via-yellow-200 to-orange-100 text-stone-800 font-sans selection:bg-red-100 pt-24 relative">
