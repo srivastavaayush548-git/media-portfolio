@@ -249,7 +249,7 @@ const ManageVips = () => {
                         <Edit size={16} />
                       </button>
                       <button
-                        onClick={() => deleteVipImage(topVideosSection._id, video._id)}
+                        onClick={() => { if (window.confirm('Delete this video?')) deleteVipImage(topVideosSection._id, video._id); }}
                         className="p-2 bg-white rounded-full text-stone-900 hover:bg-red-50 hover:text-red-700"
                       >
                         <Trash2 size={16} />
@@ -382,7 +382,7 @@ const ManageVips = () => {
                   <span className="text-sm font-bold">Add Photo</span>
                 </button>
                 <button
-                  onClick={() => deleteVipSection(section._id)}
+                  onClick={() => { if (window.confirm('Delete this section and all its photos?')) deleteVipSection(section._id); }}}
                   className="p-2 text-stone-400 hover:text-red-600 rounded-lg transition-all"
                 >
                   <Trash2 size={18} />
@@ -478,7 +478,7 @@ const ManageVips = () => {
                               <Edit size={16} />
                             </button>
                             <button
-                              onClick={() => deleteVipImage(section._id, img._id)}
+                              onClick={() => { if (window.confirm('Delete this photo?')) deleteVipImage(section._id, img._id); }}
                               className="p-2 bg-white rounded-full text-stone-900 hover:bg-red-50 hover:text-red-700"
                             >
                               <Trash2 size={16} />

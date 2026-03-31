@@ -55,7 +55,7 @@ exports.saveImage = async (req, res) => {
         const section = await VipSection.findById(req.params.sectionId);
         if (!section) return res.status(404).json({ message: 'Section not found' });
 
-        let { id, title, src, order, type } = req.body;
+        let { id, title, src, thumbnail, order, type } = req.body;
 
         let imageUrl = src;
         if (src && src.startsWith('data:')) {
@@ -63,13 +63,18 @@ exports.saveImage = async (req, res) => {
             imageUrl = await uploadToCloudinary(src, 'vips', resType);
         }
 
+        let thumbnailUrl = thumbnail || '';
+        if (thumbnail && thumbnail.startsWith('data:')) {
+            thumbnailUrl = await uploadToCloudinary(thumbnail, 'vips/thumbnails', 'image');
+        }
+
         if (id) {
             const imageIndex = section.images.findIndex(img => img._id.toString() === id || img.id === id);
             if (imageIndex !== -1) {
-                section.images[imageIndex] = { ...section.images[imageIndex].toObject(), title, src: imageUrl, order, type };
+                section.images[imageIndex] = { ...section.images[imageIndex].toObject(), title, src: imageUrl, thumbnail: thumbnailUrl, order, type };
             }
         } else {
-            section.images.push({ title, src: imageUrl, order, type });
+            section.images.push({ title, src: imageUrl, thumbnail: thumbnailUrl, order, type });
         }
 
         await section.save();
@@ -82,6 +87,7 @@ exports.saveImage = async (req, res) => {
 exports.deleteImage = async (req, res) => {
     try {
         const section = await VipSection.findById(req.params.sectionId);
+        if (!section) return res.status(404).json({ message: 'Section not found' });
         section.images = section.images.filter(img => img._id.toString() !== req.params.imageId);
         await section.save();
         res.status(200).json(section);

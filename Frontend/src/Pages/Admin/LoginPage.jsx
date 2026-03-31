@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../Context/AuthContext';
 import { api } from '../../api';
+import { Lock, User, Eye, EyeOff, ShieldCheck } from 'lucide-react';
 
 const LoginPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
@@ -16,13 +18,8 @@ const LoginPage = () => {
         e.preventDefault();
         setError('');
         setLoading(true);
-
         try {
-            const { data } = await api.post('/auth/login', {
-                username,
-                password
-            });
-
+            const { data } = await api.post('/auth/login', { username, password });
             login(data);
             navigate('/admin');
         } catch (err) {
@@ -33,94 +30,96 @@ const LoginPage = () => {
     };
 
     return (
-        <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            minHeight: '100vh',
-            background: 'linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d)'
-        }}>
-            <form onSubmit={handleSubmit} style={{
-                background: 'rgba(255, 255, 255, 0.1)',
-                backdropFilter: 'blur(10px)',
-                padding: '40px',
-                borderRadius: '20px',
-                boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
-                border: '1px solid rgba(255, 255, 255, 0.18)',
-                width: '100%',
-                maxWidth: '400px',
-                color: 'white'
-            }}>
-                <h2 style={{ textAlign: 'center', marginBottom: '30px' }}>Admin Login</h2>
+        <div className="min-h-screen bg-stone-950 flex items-center justify-center px-4">
+            {/* Background pattern */}
+            <div className="absolute inset-0 opacity-10 pointer-events-none"
+                style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #78716c 1px, transparent 0)', backgroundSize: '32px 32px' }}
+            />
 
-                {error && <div style={{
-                    backgroundColor: 'rgba(255, 0, 0, 0.2)',
-                    padding: '10px',
-                    borderRadius: '5px',
-                    marginBottom: '20px',
-                    textAlign: 'center',
-                    border: '1px solid red'
-                }}>{error}</div>}
+            <div className="relative w-full max-w-md">
+                {/* Card */}
+                <div className="bg-stone-900 border border-stone-800 rounded-2xl shadow-2xl overflow-hidden">
+                    {/* Top accent bar */}
+                    <div className="h-1 w-full bg-gradient-to-r from-red-700 via-red-500 to-red-700" />
 
-                <div style={{ marginBottom: '20px' }}>
-                    <label style={{ display: 'block', marginBottom: '8px' }}>Username</label>
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        style={{
-                            width: '100%',
-                            padding: '12px',
-                            borderRadius: '8px',
-                            border: 'none',
-                            background: 'rgba(255, 255, 255, 0.2)',
-                            color: 'white',
-                            outline: 'none'
-                        }}
-                        required
-                    />
+                    <div className="p-10">
+                        {/* Logo / Icon */}
+                        <div className="flex flex-col items-center mb-8">
+                            <div className="w-16 h-16 bg-red-700/20 border border-red-700/40 rounded-2xl flex items-center justify-center mb-4">
+                                <ShieldCheck className="text-red-500 w-8 h-8" />
+                            </div>
+                            <h1 className="text-2xl font-serif font-bold text-white tracking-wide">Admin Portal</h1>
+                            <p className="text-stone-500 text-sm mt-1">Sign in to manage your portfolio</p>
+                        </div>
+
+                        {/* Error */}
+                        {error && (
+                            <div className="mb-6 px-4 py-3 bg-red-900/30 border border-red-700/50 rounded-lg text-red-400 text-sm text-center">
+                                {error}
+                            </div>
+                        )}
+
+                        <form onSubmit={handleSubmit} className="space-y-5">
+                            {/* Username */}
+                            <div>
+                                <label className="block text-sm font-medium text-stone-400 mb-2">Username</label>
+                                <div className="relative">
+                                    <User className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500 w-4 h-4" />
+                                    <input
+                                        type="text"
+                                        value={username}
+                                        onChange={(e) => setUsername(e.target.value)}
+                                        className="w-full bg-stone-800 border border-stone-700 text-white placeholder-stone-600 rounded-lg pl-10 pr-4 py-3 outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors"
+                                        placeholder="Enter username"
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Password */}
+                            <div>
+                                <label className="block text-sm font-medium text-stone-400 mb-2">Password</label>
+                                <div className="relative">
+                                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500 w-4 h-4" />
+                                    <input
+                                        type={showPassword ? 'text' : 'password'}
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        className="w-full bg-stone-800 border border-stone-700 text-white placeholder-stone-600 rounded-lg pl-10 pr-12 py-3 outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors"
+                                        placeholder="Enter password"
+                                        required
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={() => setShowPassword(!showPassword)}
+                                        className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-500 hover:text-stone-300 transition-colors"
+                                    >
+                                        {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                    </button>
+                                </div>
+                            </div>
+
+                            {/* Submit */}
+                            <button
+                                type="submit"
+                                disabled={loading}
+                                className="w-full bg-red-700 hover:bg-red-600 disabled:bg-red-900 disabled:cursor-not-allowed text-white font-bold py-3 rounded-lg transition-colors mt-2 flex items-center justify-center gap-2"
+                            >
+                                {loading ? (
+                                    <>
+                                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                        Signing in...
+                                    </>
+                                ) : 'Sign In'}
+                            </button>
+                        </form>
+                    </div>
                 </div>
 
-                <div style={{ marginBottom: '30px' }}>
-                    <label style={{ display: 'block', marginBottom: '8px' }}>Password</label>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        style={{
-                            width: '100%',
-                            padding: '12px',
-                            borderRadius: '8px',
-                            border: 'none',
-                            background: 'rgba(255, 255, 255, 0.2)',
-                            color: 'white',
-                            outline: 'none'
-                        }}
-                        required
-                    />
-                </div>
-
-                <button
-                    type="submit"
-                    disabled={loading}
-                    style={{
-                        width: '100%',
-                        padding: '12px',
-                        borderRadius: '8px',
-                        border: 'none',
-                        background: '#fdbb2d',
-                        color: '#1a2a6c',
-                        fontWeight: 'bold',
-                        cursor: loading ? 'not-allowed' : 'pointer',
-                        transition: 'transform 0.2s',
-                        fontSize: '16px'
-                    }}
-                    onMouseOver={(e) => e.target.style.transform = 'scale(1.02)'}
-                    onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
-                >
-                    {loading ? 'Logging in...' : 'Login'}
-                </button>
-            </form>
+                <p className="text-center text-stone-600 text-xs mt-6">
+                    Portfolio Management System &copy; {new Date().getFullYear()}
+                </p>
+            </div>
         </div>
     );
 };
