@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { useData } from "../Context/DataContext";
 import ImageGroupGallery from "../Components/ImageGroupGallery";
 import WhatOthersSay from "../Components/WhatOthersSay";
 import EminentPersonalities from "../Components/EminentPersonalities";
 import MiscellaneousVideos from "../Components/MiscellaneousVideos";
+import VideoModal from "../Components/VideoModal";
 import { Play } from "lucide-react";
 import { whatOthersSayVideos } from "../Data/whatOthersSay";
 
 const VIPs = () => {
   const { vipsData } = useData();
+  const [selectedVideo, setSelectedVideo] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openVideoModal = (videoSrc, videoTitle) => {
+    setSelectedVideo({ src: videoSrc, title: videoTitle });
+    setIsModalOpen(true);
+  };
+
+  const closeVideoModal = () => {
+    setIsModalOpen(false);
+    setSelectedVideo(null);
+  };
   const getSectionKey = (value = "") =>
     value
       .toLowerCase()
@@ -110,54 +123,59 @@ const VIPs = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-12 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {topGalleryItems.map((item, idx) => (
-            <div
-              key={idx}
-              className="rounded-xl overflow-hidden shadow-md bg-white p-2 flex flex-col"
-            >
-              <img
-                src={item.src}
-                alt={item.name}
-                className="w-full h-44 md:h-60 object-cover rounded-lg mb-3"
-              />
-              <p className="text-sm font-medium text-stone-800 text-center px-1 pb-1">
-                {item.name}
-              </p>
+        {/* TOP VIDEOS SECTION - NOW APPEARS FIRST */}
+        {topVideoItems.length > 0 && (
+          <div className="mb-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+              {topVideoItems.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-xl overflow-hidden shadow-md bg-white p-2 flex flex-col cursor-pointer transform hover:scale-105 transition-transform duration-300"
+                  onClick={() => openVideoModal(item.src, item.name)}
+                >
+                  <div className="relative group">
+                    {item.thumbnail ? (
+                      <img
+                        src={item.thumbnail}
+                        alt={item.name}
+                        className="w-full h-44 md:h-60 object-cover rounded-lg mb-3 group-hover:opacity-75 transition-opacity"
+                      />
+                    ) : (
+                      <video
+                        src={item.src}
+                        className="w-full h-44 md:h-60 object-cover rounded-lg mb-3 group-hover:opacity-75 transition-opacity"
+                        muted
+                        loop
+                        autoPlay
+                        playsInline
+                      />
+                    )}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none mb-3">
+                      <Play className="text-white fill-current w-10 h-10 opacity-80 drop-shadow-lg group-hover:scale-125 transition-transform" />
+                    </div>
+                  </div>
+                  <p className="text-sm font-medium text-stone-800 text-center px-1 pb-1">
+                    {item.name}
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+        )}
 
-      {topVideoItems.length > 0 && (
-        <div className="max-w-7xl mx-auto px-6 pb-12 relative z-10">
+        {/* TOP GALLERY ITEMS - NOW APPEARS BELOW VIDEOS */}
+        <div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {topVideoItems.map((item, idx) => (
+            {topGalleryItems.map((item, idx) => (
               <div
                 key={idx}
-                className="rounded-xl overflow-hidden shadow-md bg-white p-2 flex flex-col"
+                className="rounded-xl overflow-hidden shadow-md bg-white p-2 flex flex-col hover:shadow-lg transition-shadow"
               >
-                <div className="relative">
-                  {item.thumbnail ? (
-                    <img
-                      src={item.thumbnail}
-                      alt={item.name}
-                      className="w-full h-44 md:h-60 object-cover rounded-lg mb-3"
-                    />
-                  ) : (
-                    <video
-                      src={item.src}
-                      className="w-full h-44 md:h-60 object-cover rounded-lg mb-3"
-                      muted
-                      loop
-                      autoPlay
-                      playsInline
-                    />
-                  )}
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none mb-3">
-                    <Play className="text-white fill-current w-10 h-10 opacity-80 drop-shadow-lg" />
-                  </div>
-                </div>
+                <img
+                  src={item.src}
+                  alt={item.name}
+                  className="w-full h-44 md:h-60 object-cover rounded-lg mb-3"
+                />
                 <p className="text-sm font-medium text-stone-800 text-center px-1 pb-1">
                   {item.name}
                 </p>
@@ -165,7 +183,7 @@ const VIPs = () => {
             ))}
           </div>
         </div>
-      )}
+      </div>
       <section className="py-20 max-w-7xl mx-auto px-6 relative z-10">
         <ImageGroupGallery
           groups={filteredGalleryGroups}
@@ -183,42 +201,72 @@ const VIPs = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            {celebrityItems.map((item, idx) => (
-              <div
-                key={`${item.src}-${idx}`}
-                className="rounded-xl overflow-hidden shadow-md bg-white p-2 flex flex-col"
-              >
-                <div className="relative">
-                  {item.type === "video" ? (
-                    <video
-                      src={item.src}
-                      className="w-full h-44 md:h-60 object-cover rounded-lg mb-3"
-                      muted
-                      loop
-                      autoPlay
-                      playsInline
-                    />
-                  ) : (
-                    <img
-                      src={item.src}
-                      alt={item.title}
-                      className="w-full h-44 md:h-60 object-cover rounded-lg mb-3"
-                    />
-                  )}
-                  {item.type === "video" && (
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none mb-3">
-                      <Play className="text-white fill-current w-10 h-10 opacity-80 drop-shadow-lg" />
+          {/* Videos First */}
+          {celebrityItems.filter((item) => item.type === "video").length >
+            0 && (
+            <div className="mb-12">
+              <h3 className="text-xl font-semibold text-stone-800 mb-6">
+                Videos
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                {celebrityItems
+                  .filter((item) => item.type === "video")
+                  .map((item, idx) => (
+                    <div
+                      key={`video-${item.src}-${idx}`}
+                      className="rounded-xl overflow-hidden shadow-md bg-white p-2 flex flex-col cursor-pointer transform hover:scale-105 transition-transform duration-300"
+                      onClick={() => openVideoModal(item.src, item.title)}
+                    >
+                      <div className="relative group">
+                        <video
+                          src={item.src}
+                          className="w-full h-44 md:h-60 object-cover rounded-lg mb-3 group-hover:opacity-75 transition-opacity"
+                          muted
+                          loop
+                          autoPlay
+                          playsInline
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none mb-3">
+                          <Play className="text-white fill-current w-10 h-10 opacity-80 drop-shadow-lg group-hover:scale-125 transition-transform" />
+                        </div>
+                      </div>
+                      <p className="text-sm font-medium text-stone-800 text-center px-1 pb-1">
+                        {item.title}
+                      </p>
                     </div>
-                  )}
-                </div>
-
-                <p className="text-sm font-medium text-stone-800 text-center px-1 pb-1">
-                  {item.title}
-                </p>
+                  ))}
               </div>
-            ))}
-          </div>
+            </div>
+          )}
+
+          {/* Images After */}
+          {celebrityItems.filter((item) => item.type !== "video").length >
+            0 && (
+            <div>
+              <h3 className="text-xl font-semibold text-stone-800 mb-6">
+                Photos
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                {celebrityItems
+                  .filter((item) => item.type !== "video")
+                  .map((item, idx) => (
+                    <div
+                      key={`image-${item.src}-${idx}`}
+                      className="rounded-xl overflow-hidden shadow-md bg-white p-2 flex flex-col hover:shadow-lg transition-shadow"
+                    >
+                      <img
+                        src={item.src}
+                        alt={item.title}
+                        className="w-full h-44 md:h-60 object-cover rounded-lg mb-3"
+                      />
+                      <p className="text-sm font-medium text-stone-800 text-center px-1 pb-1">
+                        {item.title}
+                      </p>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          )}
         </section>
       )}
       <EminentPersonalities images={eminentImages} />
@@ -226,6 +274,14 @@ const VIPs = () => {
       <WhatOthersSay videos={whatOthersSayVideos} />
 
       <MiscellaneousVideos items={miscellaneousItems} />
+
+      {/* Video Modal */}
+      <VideoModal
+        isOpen={isModalOpen}
+        videoSrc={selectedVideo?.src || ""}
+        videoTitle={selectedVideo?.title || ""}
+        onClose={closeVideoModal}
+      />
     </div>
   );
 };
