@@ -17,22 +17,9 @@ connectDB();
 const app = express();
 const { protect } = require("./utils/authMiddleware");
 
-// CORS Configuration
-const corsOptions = {
-  origin: [
-    "https://www.suryaprakasharkalgud.in",
-    "https://suryaprakasharkalgud.in",
-    "http://localhost:5173", // For local development
-    "http://localhost:3000", // For local development
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-  credentials: true,
-  allowedHeaders: ["Content-Type", "Authorization"],
-  optionsSuccessStatus: 200,
-};
-
 // Middleware
-app.use(cors(corsOptions));
+// CORS: Allow all origins
+app.use(cors());
 app.use(express.json({ limit: "20mb" })); // Support up to 20MB video uploads
 app.use(express.urlencoded({ extended: true, limit: "20mb" }));
 

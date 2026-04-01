@@ -413,7 +413,6 @@ export const DataProvider = ({ children }) => {
       });
       return res.data;
     } catch (error) {
-      console.error("Error adding VIP image:", error);
       throw new Error(
         error.response?.data?.message || error.message || "Failed to add image",
       );

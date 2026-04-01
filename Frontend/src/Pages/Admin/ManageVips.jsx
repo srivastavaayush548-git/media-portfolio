@@ -191,7 +191,6 @@ const ManageVips = () => {
       setTopVideoError(
         `Error saving video: ${error.message || "Unknown error"}`,
       );
-      console.error("Error saving top video:", error);
     } finally {
       setTopVideoLoading(false);
     }
