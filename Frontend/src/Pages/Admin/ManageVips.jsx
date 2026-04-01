@@ -207,8 +207,12 @@ const ManageVips = () => {
   const handleFileChange = (e, setter, currentForm, field = "src") => {
     const file = e.target.files[0];
     if (file) {
-      if (file.size > 50 * 1024 * 1024) {
-        return alert("File size too large. Please keep it under 50MB.");
+      // Strict size limits to avoid base64 encoding bloat
+      const MAX_SIZE = 5 * 1024 * 1024; // 5MB for base64 encoding
+      if (file.size > MAX_SIZE) {
+        return alert(
+          `File size too large. Maximum: 5MB. Your file: ${(file.size / 1024 / 1024).toFixed(2)}MB`,
+        );
       }
       const reader = new FileReader();
       reader.onloadend = () => {
