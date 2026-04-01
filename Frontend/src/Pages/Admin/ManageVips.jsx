@@ -32,6 +32,7 @@ const ManageVips = () => {
     deleteVipImage,
     moveVipImage,
     reorderVipImage,
+    fetchData,
   } = useData();
 
   const [expandedSections, setExpandedSections] = useState({});
@@ -66,6 +67,13 @@ const ManageVips = () => {
   const topVideosSection = vipsData.find(
     (section) => section.title === TOP_VIDEOS_SECTION_TITLE,
   );
+  console.log(
+    "[ManageVips] topVideosSection:",
+    topVideosSection?._id,
+    "images:",
+    topVideosSection?.images?.length,
+  );
+
   const visibleSections = vipsData.filter(
     (section) => section.title !== TOP_VIDEOS_SECTION_TITLE,
   );

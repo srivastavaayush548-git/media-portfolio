@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { api } from '../api';
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { api } from "../api";
 
 const DataContext = createContext();
 
@@ -19,11 +19,11 @@ export const DataProvider = ({ children }) => {
     try {
       setLoading(true);
       const [artRes, famRes, medRes, bookRes, vipRes] = await Promise.all([
-        api.get('/articles'),
-        api.get('/family'),
-        api.get('/media'),
-        api.get('/books'),
-        api.get('/vips')
+        api.get("/articles"),
+        api.get("/family"),
+        api.get("/media"),
+        api.get("/books"),
+        api.get("/vips"),
       ]);
       setArticles(artRes.data);
       setFamilyData(famRes.data);
@@ -31,7 +31,7 @@ export const DataProvider = ({ children }) => {
       setBooksData(bookRes.data);
       setVipsData(vipRes.data);
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error("Error fetching data:", error);
     } finally {
       setLoading(false);
     }
@@ -40,28 +40,33 @@ export const DataProvider = ({ children }) => {
   // Article CRUD
   const addArticleSection = async (title) => {
     try {
-      const res = await api.post('/articles/sections', { title, order: articles.length });
+      const res = await api.post("/articles/sections", {
+        title,
+        order: articles.length,
+      });
       setArticles([...articles, res.data]);
     } catch (error) {
-      console.error('Error adding article section:', error);
+      console.error("Error adding article section:", error);
     }
   };
 
   const updateArticleSection = async (sectionId, title) => {
     try {
       const res = await api.put(`/articles/sections/${sectionId}`, { title });
-      setArticles(articles.map(sec => sec._id === sectionId ? res.data : sec));
+      setArticles(
+        articles.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error updating article section:', error);
+      console.error("Error updating article section:", error);
     }
   };
 
   const deleteArticleSection = async (sectionId) => {
     try {
       await api.delete(`/articles/sections/${sectionId}`);
-      setArticles(articles.filter(sec => sec._id !== sectionId));
+      setArticles(articles.filter((sec) => sec._id !== sectionId));
     } catch (error) {
-      console.error('Error deleting article section:', error);
+      console.error("Error deleting article section:", error);
     }
   };
 
@@ -69,14 +74,20 @@ export const DataProvider = ({ children }) => {
     const newArticles = [...articles];
     const targetIndex = index + direction;
     if (targetIndex >= 0 && targetIndex < newArticles.length) {
-      [newArticles[index], newArticles[targetIndex]] = [newArticles[targetIndex], newArticles[index]];
+      [newArticles[index], newArticles[targetIndex]] = [
+        newArticles[targetIndex],
+        newArticles[index],
+      ];
 
-      const updatedOrders = newArticles.map((sec, idx) => ({ id: sec._id, order: idx }));
+      const updatedOrders = newArticles.map((sec, idx) => ({
+        id: sec._id,
+        order: idx,
+      }));
       try {
         setArticles(newArticles);
-        await api.put('/articles/sections/order', { sections: updatedOrders });
+        await api.put("/articles/sections/order", { sections: updatedOrders });
       } catch (error) {
-        console.error('Error updating article section order:', error);
+        console.error("Error updating article section order:", error);
         fetchData();
       }
     }
@@ -84,94 +95,134 @@ export const DataProvider = ({ children }) => {
 
   const addArticleToSection = async (sectionId, article) => {
     try {
-      const res = await api.post(`/articles/sections/${sectionId}/items`, article);
-      setArticles(articles.map(sec => sec._id === sectionId ? res.data : sec));
+      const res = await api.post(
+        `/articles/sections/${sectionId}/items`,
+        article,
+      );
+      setArticles(
+        articles.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error adding article to section:', error);
+      console.error("Error adding article to section:", error);
     }
   };
 
-  const updateArticleInSection = async (sectionId, articleId, updatedArticle) => {
+  const updateArticleInSection = async (
+    sectionId,
+    articleId,
+    updatedArticle,
+  ) => {
     try {
-      const res = await api.post(`/articles/sections/${sectionId}/items`, { ...updatedArticle, id: articleId });
-      setArticles(articles.map(sec => sec._id === sectionId ? res.data : sec));
+      const res = await api.post(`/articles/sections/${sectionId}/items`, {
+        ...updatedArticle,
+        id: articleId,
+      });
+      setArticles(
+        articles.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error updating article in section:', error);
+      console.error("Error updating article in section:", error);
     }
   };
 
   const deleteArticleFromSection = async (sectionId, articleId) => {
     try {
-      const res = await api.delete(`/articles/sections/${sectionId}/items/${articleId}`);
-      setArticles(articles.map(sec => sec._id === sectionId ? res.data : sec));
+      const res = await api.delete(
+        `/articles/sections/${sectionId}/items/${articleId}`,
+      );
+      setArticles(
+        articles.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error deleting article from section:', error);
+      console.error("Error deleting article from section:", error);
     }
   };
 
   const moveArticleInSection = async (sectionId, index, direction) => {
-    const section = articles.find(sec => sec._id === sectionId);
+    const section = articles.find((sec) => sec._id === sectionId);
     if (!section) return;
 
     const newItems = [...section.articles];
     const targetIndex = index + direction;
     if (targetIndex >= 0 && targetIndex < newItems.length) {
-      [newItems[index], newItems[targetIndex]] = [newItems[targetIndex], newItems[index]];
+      [newItems[index], newItems[targetIndex]] = [
+        newItems[targetIndex],
+        newItems[index],
+      ];
 
-      const itemsWithUpdatedOrder = newItems.map((item, idx) => ({ ...item, order: idx }));
+      const itemsWithUpdatedOrder = newItems.map((item, idx) => ({
+        ...item,
+        order: idx,
+      }));
 
       try {
-        const res = await api.put(`/articles/sections/${sectionId}`, { articles: itemsWithUpdatedOrder });
-        setArticles(articles.map(sec => sec._id === sectionId ? res.data : sec));
+        const res = await api.put(`/articles/sections/${sectionId}`, {
+          articles: itemsWithUpdatedOrder,
+        });
+        setArticles(
+          articles.map((sec) => (sec._id === sectionId ? res.data : sec)),
+        );
       } catch (error) {
-        console.error('Error moving article in section:', error);
+        console.error("Error moving article in section:", error);
       }
     }
   };
 
   const reorderArticleInSection = async (sectionId, oldIndex, newIndex) => {
-    const section = articles.find(sec => sec._id === sectionId);
+    const section = articles.find((sec) => sec._id === sectionId);
     if (!section) return;
 
     const newItems = [...section.articles];
     const [movedItem] = newItems.splice(oldIndex, 1);
     newItems.splice(newIndex, 0, movedItem);
 
-    const itemsWithUpdatedOrder = newItems.map((item, idx) => ({ ...item, order: idx }));
+    const itemsWithUpdatedOrder = newItems.map((item, idx) => ({
+      ...item,
+      order: idx,
+    }));
 
     try {
-      const res = await api.put(`/articles/sections/${sectionId}`, { articles: itemsWithUpdatedOrder });
-      setArticles(articles.map(sec => sec._id === sectionId ? res.data : sec));
+      const res = await api.put(`/articles/sections/${sectionId}`, {
+        articles: itemsWithUpdatedOrder,
+      });
+      setArticles(
+        articles.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error reordering article in section:', error);
+      console.error("Error reordering article in section:", error);
     }
   };
 
   // Family CRUD
   const addFamilySection = async (title) => {
     try {
-      const res = await api.post('/family/sections', { title, order: familyData.length });
+      const res = await api.post("/family/sections", {
+        title,
+        order: familyData.length,
+      });
       setFamilyData([...familyData, res.data]);
     } catch (error) {
-      console.error('Error adding section:', error);
+      console.error("Error adding section:", error);
     }
   };
 
   const updateFamilySection = async (sectionId, title) => {
     try {
       const res = await api.put(`/family/sections/${sectionId}`, { title });
-      setFamilyData(familyData.map(sec => sec._id === sectionId ? res.data : sec));
+      setFamilyData(
+        familyData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error updating section:', error);
+      console.error("Error updating section:", error);
     }
   };
 
   const deleteFamilySection = async (sectionId) => {
     try {
       await api.delete(`/family/sections/${sectionId}`);
-      setFamilyData(familyData.filter(sec => sec._id !== sectionId));
+      setFamilyData(familyData.filter((sec) => sec._id !== sectionId));
     } catch (error) {
-      console.error('Error deleting section:', error);
+      console.error("Error deleting section:", error);
     }
   };
 
@@ -179,14 +230,20 @@ export const DataProvider = ({ children }) => {
     const newFamily = [...familyData];
     const targetIndex = index + direction;
     if (targetIndex >= 0 && targetIndex < newFamily.length) {
-      [newFamily[index], newFamily[targetIndex]] = [newFamily[targetIndex], newFamily[index]];
+      [newFamily[index], newFamily[targetIndex]] = [
+        newFamily[targetIndex],
+        newFamily[index],
+      ];
 
-      const updatedOrders = newFamily.map((sec, idx) => ({ id: sec._id, order: idx }));
+      const updatedOrders = newFamily.map((sec, idx) => ({
+        id: sec._id,
+        order: idx,
+      }));
       try {
         setFamilyData(newFamily);
-        await api.put('/family/sections/order', { sections: updatedOrders });
+        await api.put("/family/sections/order", { sections: updatedOrders });
       } catch (error) {
-        console.error('Error updating section order:', error);
+        console.error("Error updating section order:", error);
         fetchData(); // Rollback
       }
     }
@@ -195,78 +252,109 @@ export const DataProvider = ({ children }) => {
   const addImageToFamily = async (sectionId, image) => {
     try {
       const res = await api.post(`/family/sections/${sectionId}/images`, image);
-      setFamilyData(familyData.map(sec => sec._id === sectionId ? res.data : sec));
+      setFamilyData(
+        familyData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error adding image:', error);
+      console.error("Error adding image:", error);
     }
   };
 
   const updateFamilyImage = async (sectionId, imageId, updatedImage) => {
     try {
       // Backend handles update in the same POST endpoint if ID is provided in body
-      const res = await api.post(`/family/sections/${sectionId}/images`, { ...updatedImage, id: imageId });
-      setFamilyData(familyData.map(sec => sec._id === sectionId ? res.data : sec));
+      const res = await api.post(`/family/sections/${sectionId}/images`, {
+        ...updatedImage,
+        id: imageId,
+      });
+      setFamilyData(
+        familyData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error updating image:', error);
+      console.error("Error updating image:", error);
     }
   };
 
   const deleteFamilyImage = async (sectionId, imageId) => {
     try {
-      const res = await api.delete(`/family/sections/${sectionId}/images/${imageId}`);
-      setFamilyData(familyData.map(sec => sec._id === sectionId ? res.data : sec));
+      const res = await api.delete(
+        `/family/sections/${sectionId}/images/${imageId}`,
+      );
+      setFamilyData(
+        familyData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error deleting image:', error);
+      console.error("Error deleting image:", error);
     }
   };
 
   const moveFamilyImage = async (sectionId, index, direction) => {
-    const section = familyData.find(sec => sec._id === sectionId);
+    const section = familyData.find((sec) => sec._id === sectionId);
     if (!section) return;
 
     const newImages = [...section.images];
     const targetIndex = index + direction;
     if (targetIndex >= 0 && targetIndex < newImages.length) {
-      [newImages[index], newImages[targetIndex]] = [newImages[targetIndex], newImages[index]];
+      [newImages[index], newImages[targetIndex]] = [
+        newImages[targetIndex],
+        newImages[index],
+      ];
 
-      const imagesWithUpdatedOrder = newImages.map((img, idx) => ({ ...img, order: idx }));
+      const imagesWithUpdatedOrder = newImages.map((img, idx) => ({
+        ...img,
+        order: idx,
+      }));
 
       // We update the entire section's image array via the section update endpoint
       try {
-        const res = await api.put(`/family/sections/${sectionId}`, { images: imagesWithUpdatedOrder });
-        setFamilyData(familyData.map(sec => sec._id === sectionId ? res.data : sec));
+        const res = await api.put(`/family/sections/${sectionId}`, {
+          images: imagesWithUpdatedOrder,
+        });
+        setFamilyData(
+          familyData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+        );
       } catch (error) {
-        console.error('Error moving image:', error);
+        console.error("Error moving image:", error);
       }
     }
   };
 
   const reorderFamilyImage = async (sectionId, oldIndex, newIndex) => {
-    const section = familyData.find(sec => sec._id === sectionId);
+    const section = familyData.find((sec) => sec._id === sectionId);
     if (!section) return;
 
     const newImages = [...section.images];
     const [movedItem] = newImages.splice(oldIndex, 1);
     newImages.splice(newIndex, 0, movedItem);
 
-    const imagesWithUpdatedOrder = newImages.map((img, idx) => ({ ...img, order: idx }));
+    const imagesWithUpdatedOrder = newImages.map((img, idx) => ({
+      ...img,
+      order: idx,
+    }));
 
     try {
-      const res = await api.put(`/family/sections/${sectionId}`, { images: imagesWithUpdatedOrder });
-      setFamilyData(familyData.map(sec => sec._id === sectionId ? res.data : sec));
+      const res = await api.put(`/family/sections/${sectionId}`, {
+        images: imagesWithUpdatedOrder,
+      });
+      setFamilyData(
+        familyData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error reordering image:', error);
+      console.error("Error reordering image:", error);
     }
   };
 
   // VIPs CRUD
   const addVipSection = async (title) => {
     try {
-      const res = await api.post('/vips/sections', { title, order: vipsData.length });
+      const res = await api.post("/vips/sections", {
+        title,
+        order: vipsData.length,
+      });
       setVipsData([...vipsData, res.data]);
       return res.data;
     } catch (error) {
-      console.error('Error adding VIP section:', error);
+      console.error("Error adding VIP section:", error);
       throw error;
     }
   };
@@ -274,18 +362,20 @@ export const DataProvider = ({ children }) => {
   const updateVipSection = async (sectionId, title) => {
     try {
       const res = await api.put(`/vips/sections/${sectionId}`, { title });
-      setVipsData(vipsData.map(sec => sec._id === sectionId ? res.data : sec));
+      setVipsData(
+        vipsData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error updating VIP section:', error);
+      console.error("Error updating VIP section:", error);
     }
   };
 
   const deleteVipSection = async (sectionId) => {
     try {
       await api.delete(`/vips/sections/${sectionId}`);
-      setVipsData(vipsData.filter(sec => sec._id !== sectionId));
+      setVipsData(vipsData.filter((sec) => sec._id !== sectionId));
     } catch (error) {
-      console.error('Error deleting VIP section:', error);
+      console.error("Error deleting VIP section:", error);
     }
   };
 
@@ -293,14 +383,20 @@ export const DataProvider = ({ children }) => {
     const newVips = [...vipsData];
     const targetIndex = index + direction;
     if (targetIndex >= 0 && targetIndex < newVips.length) {
-      [newVips[index], newVips[targetIndex]] = [newVips[targetIndex], newVips[index]];
+      [newVips[index], newVips[targetIndex]] = [
+        newVips[targetIndex],
+        newVips[index],
+      ];
 
-      const updatedOrders = newVips.map((sec, idx) => ({ id: sec._id, order: idx }));
+      const updatedOrders = newVips.map((sec, idx) => ({
+        id: sec._id,
+        order: idx,
+      }));
       try {
         setVipsData(newVips);
-        await api.put('/vips/sections/order', { sections: updatedOrders });
+        await api.put("/vips/sections/order", { sections: updatedOrders });
       } catch (error) {
-        console.error('Error updating VIP section order:', error);
+        console.error("Error updating VIP section order:", error);
         fetchData();
       }
     }
@@ -309,93 +405,164 @@ export const DataProvider = ({ children }) => {
   const addImageToVips = async (sectionId, image) => {
     try {
       const res = await api.post(`/vips/sections/${sectionId}/images`, image);
-      setVipsData(vipsData.map(sec => sec._id === sectionId ? res.data : sec));
+      console.log("[addImageToVips] Response received:", res.data);
+      console.log(
+        "[addImageToVips] Images in response:",
+        res.data?.images?.length,
+      );
+      setVipsData((prevData) => {
+        const updated = prevData.map((sec) =>
+          sec._id === sectionId ? res.data : sec,
+        );
+        console.log(
+          "[addImageToVips] Updated section images:",
+          updated.find((s) => s._id === sectionId)?.images?.length,
+        );
+        return updated;
+      });
+      return res.data;
     } catch (error) {
-      console.error('Error adding VIP image:', error);
+      console.error("Error adding VIP image:", error);
+      throw new Error(
+        error.response?.data?.message || error.message || "Failed to add image",
+      );
     }
   };
 
   const updateVipImage = async (sectionId, imageId, updatedImage) => {
     try {
-      const res = await api.post(`/vips/sections/${sectionId}/images`, { ...updatedImage, id: imageId });
-      setVipsData(vipsData.map(sec => sec._id === sectionId ? res.data : sec));
+      const res = await api.post(`/vips/sections/${sectionId}/images`, {
+        ...updatedImage,
+        id: imageId,
+      });
+      setVipsData((prevData) =>
+        prevData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
+      return res.data;
     } catch (error) {
-      console.error('Error updating VIP image:', error);
+      console.error("Error updating VIP image:", error);
+      throw new Error(
+        error.response?.data?.message ||
+          error.message ||
+          "Failed to update image",
+      );
     }
   };
 
   const deleteVipImage = async (sectionId, imageId) => {
     try {
-      const res = await api.delete(`/vips/sections/${sectionId}/images/${imageId}`);
-      setVipsData(vipsData.map(sec => sec._id === sectionId ? res.data : sec));
+      const res = await api.delete(
+        `/vips/sections/${sectionId}/images/${imageId}`,
+      );
+      setVipsData((prevData) =>
+        prevData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
+      return res.data;
     } catch (error) {
-      console.error('Error deleting VIP image:', error);
+      console.error("Error deleting VIP image:", error);
+      throw new Error(
+        error.response?.data?.message ||
+          error.message ||
+          "Failed to delete image",
+      );
     }
   };
 
   const moveVipImage = async (sectionId, index, direction) => {
-    const section = vipsData.find(sec => sec._id === sectionId);
+    const section = vipsData.find((sec) => sec._id === sectionId);
     if (!section) return;
 
     const newImages = [...section.images];
     const targetIndex = index + direction;
     if (targetIndex >= 0 && targetIndex < newImages.length) {
-      [newImages[index], newImages[targetIndex]] = [newImages[targetIndex], newImages[index]];
+      [newImages[index], newImages[targetIndex]] = [
+        newImages[targetIndex],
+        newImages[index],
+      ];
 
-      const imagesWithUpdatedOrder = newImages.map((img, idx) => ({ ...img, order: idx }));
+      const imagesWithUpdatedOrder = newImages.map((img, idx) => ({
+        ...img,
+        order: idx,
+      }));
 
       try {
-        const res = await api.put(`/vips/sections/${sectionId}`, { images: imagesWithUpdatedOrder });
-        setVipsData(vipsData.map(sec => sec._id === sectionId ? res.data : sec));
+        const res = await api.put(`/vips/sections/${sectionId}`, {
+          images: imagesWithUpdatedOrder,
+        });
+        setVipsData((prevData) =>
+          prevData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+        );
       } catch (error) {
-        console.error('Error moving VIP image:', error);
+        console.error("Error moving VIP image:", error);
+        throw new Error(
+          error.response?.data?.message ||
+            error.message ||
+            "Failed to move image",
+        );
       }
     }
   };
 
   const reorderVipImage = async (sectionId, oldIndex, newIndex) => {
-    const section = vipsData.find(sec => sec._id === sectionId);
+    const section = vipsData.find((sec) => sec._id === sectionId);
     if (!section) return;
 
     const newImages = [...section.images];
     const [movedItem] = newImages.splice(oldIndex, 1);
     newImages.splice(newIndex, 0, movedItem);
 
-    const imagesWithUpdatedOrder = newImages.map((img, idx) => ({ ...img, order: idx }));
+    const imagesWithUpdatedOrder = newImages.map((img, idx) => ({
+      ...img,
+      order: idx,
+    }));
 
     try {
-      const res = await api.put(`/vips/sections/${sectionId}`, { images: imagesWithUpdatedOrder });
-      setVipsData(vipsData.map(sec => sec._id === sectionId ? res.data : sec));
+      const res = await api.put(`/vips/sections/${sectionId}`, {
+        images: imagesWithUpdatedOrder,
+      });
+      setVipsData((prevData) =>
+        prevData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error reordering VIP image:', error);
+      console.error("Error reordering VIP image:", error);
+      throw new Error(
+        error.response?.data?.message ||
+          error.message ||
+          "Failed to reorder image",
+      );
     }
   };
 
   // Media CRUD
   const addMediaSection = async (title) => {
     try {
-      const res = await api.post('/media/sections', { title, order: mediaData.length });
+      const res = await api.post("/media/sections", {
+        title,
+        order: mediaData.length,
+      });
       setMediaData([...mediaData, res.data]);
     } catch (error) {
-      console.error('Error adding media section:', error);
+      console.error("Error adding media section:", error);
     }
   };
 
   const updateMediaSection = async (sectionId, title) => {
     try {
       const res = await api.put(`/media/sections/${sectionId}`, { title });
-      setMediaData(mediaData.map(sec => sec._id === sectionId ? res.data : sec));
+      setMediaData(
+        mediaData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error updating media section:', error);
+      console.error("Error updating media section:", error);
     }
   };
 
   const deleteMediaSection = async (sectionId) => {
     try {
       await api.delete(`/media/sections/${sectionId}`);
-      setMediaData(mediaData.filter(sec => sec._id !== sectionId));
+      setMediaData(mediaData.filter((sec) => sec._id !== sectionId));
     } catch (error) {
-      console.error('Error deleting media section:', error);
+      console.error("Error deleting media section:", error);
     }
   };
 
@@ -403,14 +570,20 @@ export const DataProvider = ({ children }) => {
     const newMedia = [...mediaData];
     const targetIndex = index + direction;
     if (targetIndex >= 0 && targetIndex < newMedia.length) {
-      [newMedia[index], newMedia[targetIndex]] = [newMedia[targetIndex], newMedia[index]];
+      [newMedia[index], newMedia[targetIndex]] = [
+        newMedia[targetIndex],
+        newMedia[index],
+      ];
 
-      const updatedOrders = newMedia.map((sec, idx) => ({ id: sec._id, order: idx }));
+      const updatedOrders = newMedia.map((sec, idx) => ({
+        id: sec._id,
+        order: idx,
+      }));
       try {
         setMediaData(newMedia);
-        await api.put('/media/sections/order', { sections: updatedOrders });
+        await api.put("/media/sections/order", { sections: updatedOrders });
       } catch (error) {
-        console.error('Error updating media section order:', error);
+        console.error("Error updating media section order:", error);
         fetchData();
       }
     }
@@ -419,76 +592,108 @@ export const DataProvider = ({ children }) => {
   const addMediaToSection = async (sectionId, media) => {
     try {
       const res = await api.post(`/media/sections/${sectionId}/items`, media);
-      setMediaData(mediaData.map(sec => sec._id === sectionId ? res.data : sec));
+      setMediaData(
+        mediaData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error adding media to section:', error);
+      console.error("Error adding media to section:", error);
     }
   };
 
   const updateMediaInSection = async (sectionId, mediaId, updatedMedia) => {
     try {
-      const res = await api.post(`/media/sections/${sectionId}/items`, { ...updatedMedia, id: mediaId });
-      setMediaData(mediaData.map(sec => sec._id === sectionId ? res.data : sec));
+      const res = await api.post(`/media/sections/${sectionId}/items`, {
+        ...updatedMedia,
+        id: mediaId,
+      });
+      setMediaData(
+        mediaData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error updating media in section:', error);
+      console.error("Error updating media in section:", error);
     }
   };
 
   const deleteMediaFromSection = async (sectionId, mediaId) => {
     try {
-      const res = await api.delete(`/media/sections/${sectionId}/items/${mediaId}`);
-      setMediaData(mediaData.map(sec => sec._id === sectionId ? res.data : sec));
+      const res = await api.delete(
+        `/media/sections/${sectionId}/items/${mediaId}`,
+      );
+      setMediaData(
+        mediaData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error deleting media from section:', error);
+      console.error("Error deleting media from section:", error);
     }
   };
 
   const moveMediaInSection = async (sectionId, index, direction) => {
-    const section = mediaData.find(sec => sec._id === sectionId);
+    const section = mediaData.find((sec) => sec._id === sectionId);
     if (!section) return;
 
     const newItems = [...section.media];
     const targetIndex = index + direction;
     if (targetIndex >= 0 && targetIndex < newItems.length) {
-      [newItems[index], newItems[targetIndex]] = [newItems[targetIndex], newItems[index]];
+      [newItems[index], newItems[targetIndex]] = [
+        newItems[targetIndex],
+        newItems[index],
+      ];
 
-      const itemsWithUpdatedOrder = newItems.map((item, idx) => ({ ...item, order: idx }));
+      const itemsWithUpdatedOrder = newItems.map((item, idx) => ({
+        ...item,
+        order: idx,
+      }));
 
       try {
-        const res = await api.put(`/media/sections/${sectionId}`, { media: itemsWithUpdatedOrder });
-        setMediaData(mediaData.map(sec => sec._id === sectionId ? res.data : sec));
+        const res = await api.put(`/media/sections/${sectionId}`, {
+          media: itemsWithUpdatedOrder,
+        });
+        setMediaData(
+          mediaData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+        );
       } catch (error) {
-        console.error('Error moving media in section:', error);
+        console.error("Error moving media in section:", error);
       }
     }
   };
 
   const reorderMediaInSection = async (sectionId, oldIndex, newIndex) => {
-    const section = mediaData.find(sec => sec._id === sectionId);
+    const section = mediaData.find((sec) => sec._id === sectionId);
     if (!section) return;
 
     const newItems = [...section.media];
     const [movedItem] = newItems.splice(oldIndex, 1);
     newItems.splice(newIndex, 0, movedItem);
 
-    const itemsWithUpdatedOrder = newItems.map((item, idx) => ({ ...item, order: idx }));
+    const itemsWithUpdatedOrder = newItems.map((item, idx) => ({
+      ...item,
+      order: idx,
+    }));
 
     try {
-      const res = await api.put(`/media/sections/${sectionId}`, { media: itemsWithUpdatedOrder });
-      setMediaData(mediaData.map(sec => sec._id === sectionId ? res.data : sec));
+      const res = await api.put(`/media/sections/${sectionId}`, {
+        media: itemsWithUpdatedOrder,
+      });
+      setMediaData(
+        mediaData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error reordering media in section:', error);
+      console.error("Error reordering media in section:", error);
     }
   };
 
   // Books CRUD
   const addBookSection = async (title, category) => {
     try {
-      const res = await api.post('/books/sections', { title, category, order: booksData.length });
+      const res = await api.post("/books/sections", {
+        title,
+        category,
+        order: booksData.length,
+      });
       setBooksData([...booksData, res.data]);
       return res.data;
     } catch (error) {
-      console.error('Error adding book section:', error);
+      console.error("Error adding book section:", error);
       throw error;
     }
   };
@@ -496,18 +701,20 @@ export const DataProvider = ({ children }) => {
   const updateBookSection = async (sectionId, title) => {
     try {
       const res = await api.put(`/books/sections/${sectionId}`, { title });
-      setBooksData(booksData.map(sec => sec._id === sectionId ? res.data : sec));
+      setBooksData(
+        booksData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error updating book section:', error);
+      console.error("Error updating book section:", error);
     }
   };
 
   const deleteBookSection = async (sectionId) => {
     try {
       await api.delete(`/books/sections/${sectionId}`);
-      setBooksData(booksData.filter(sec => sec._id !== sectionId));
+      setBooksData(booksData.filter((sec) => sec._id !== sectionId));
     } catch (error) {
-      console.error('Error deleting book section:', error);
+      console.error("Error deleting book section:", error);
     }
   };
 
@@ -515,14 +722,20 @@ export const DataProvider = ({ children }) => {
     const newBooks = [...booksData];
     const targetIndex = index + direction;
     if (targetIndex >= 0 && targetIndex < newBooks.length) {
-      [newBooks[index], newBooks[targetIndex]] = [newBooks[targetIndex], newBooks[index]];
+      [newBooks[index], newBooks[targetIndex]] = [
+        newBooks[targetIndex],
+        newBooks[index],
+      ];
 
-      const updatedOrders = newBooks.map((sec, idx) => ({ id: sec._id, order: idx }));
+      const updatedOrders = newBooks.map((sec, idx) => ({
+        id: sec._id,
+        order: idx,
+      }));
       try {
         setBooksData(newBooks);
-        await api.put('/books/sections/order', { sections: updatedOrders });
+        await api.put("/books/sections/order", { sections: updatedOrders });
       } catch (error) {
-        console.error('Error updating book section order:', error);
+        console.error("Error updating book section order:", error);
         fetchData();
       }
     }
@@ -531,98 +744,166 @@ export const DataProvider = ({ children }) => {
   const addBookToSection = async (sectionId, book) => {
     try {
       const res = await api.post(`/books/sections/${sectionId}/items`, book);
-      setBooksData(booksData.map(sec => sec._id === sectionId ? res.data : sec));
+      setBooksData(
+        booksData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
       return res.data;
     } catch (error) {
-      console.error('Error adding book to section:', error);
+      console.error("Error adding book to section:", error);
       throw error;
     }
   };
 
   const updateBookInSection = async (sectionId, bookId, updatedBook) => {
     try {
-      const res = await api.post(`/books/sections/${sectionId}/items`, { ...updatedBook, id: bookId });
-      setBooksData(booksData.map(sec => sec._id === sectionId ? res.data : sec));
+      const res = await api.post(`/books/sections/${sectionId}/items`, {
+        ...updatedBook,
+        id: bookId,
+      });
+      setBooksData(
+        booksData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error updating book in section:', error);
+      console.error("Error updating book in section:", error);
     }
   };
 
   const deleteBookFromSection = async (sectionId, bookId) => {
     try {
-      const res = await api.delete(`/books/sections/${sectionId}/items/${bookId}`);
-      setBooksData(booksData.map(sec => sec._id === sectionId ? res.data : sec));
+      const res = await api.delete(
+        `/books/sections/${sectionId}/items/${bookId}`,
+      );
+      setBooksData(
+        booksData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error deleting book from section:', error);
+      console.error("Error deleting book from section:", error);
     }
   };
 
   const moveBookInSection = async (sectionId, index, direction) => {
-    const section = booksData.find(sec => sec._id === sectionId);
+    const section = booksData.find((sec) => sec._id === sectionId);
     if (!section) return;
 
     const newItems = [...section.books];
     const targetIndex = index + direction;
     if (targetIndex >= 0 && targetIndex < newItems.length) {
-      [newItems[index], newItems[targetIndex]] = [newItems[targetIndex], newItems[index]];
+      [newItems[index], newItems[targetIndex]] = [
+        newItems[targetIndex],
+        newItems[index],
+      ];
 
-      const itemsWithUpdatedOrder = newItems.map((item, idx) => ({ ...item, order: idx }));
+      const itemsWithUpdatedOrder = newItems.map((item, idx) => ({
+        ...item,
+        order: idx,
+      }));
 
       try {
-        const res = await api.put(`/books/sections/${sectionId}`, { books: itemsWithUpdatedOrder });
-        setBooksData(booksData.map(sec => sec._id === sectionId ? res.data : sec));
+        const res = await api.put(`/books/sections/${sectionId}`, {
+          books: itemsWithUpdatedOrder,
+        });
+        setBooksData(
+          booksData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+        );
       } catch (error) {
-        console.error('Error moving book in section:', error);
+        console.error("Error moving book in section:", error);
       }
     }
   };
 
   const reorderBookInSection = async (sectionId, oldIndex, newIndex) => {
-    const section = booksData.find(sec => sec._id === sectionId);
+    const section = booksData.find((sec) => sec._id === sectionId);
     if (!section) return;
 
     const newItems = [...section.books];
     const [movedItem] = newItems.splice(oldIndex, 1);
     newItems.splice(newIndex, 0, movedItem);
 
-    const itemsWithUpdatedOrder = newItems.map((item, idx) => ({ ...item, order: idx }));
+    const itemsWithUpdatedOrder = newItems.map((item, idx) => ({
+      ...item,
+      order: idx,
+    }));
 
     try {
-      const res = await api.put(`/books/sections/${sectionId}`, { books: itemsWithUpdatedOrder });
-      setBooksData(booksData.map(sec => sec._id === sectionId ? res.data : sec));
+      const res = await api.put(`/books/sections/${sectionId}`, {
+        books: itemsWithUpdatedOrder,
+      });
+      setBooksData(
+        booksData.map((sec) => (sec._id === sectionId ? res.data : sec)),
+      );
     } catch (error) {
-      console.error('Error reordering book in section:', error);
+      console.error("Error reordering book in section:", error);
     }
   };
-
 
   const getSignature = async (folder) => {
     try {
       const res = await api.get(`/media/signature?folder=${folder}`);
       return res.data;
     } catch (error) {
-      console.error('Error getting signature:', error);
+      console.error("Error getting signature:", error);
       throw error;
     }
   };
 
-
   return (
-    <DataContext.Provider value={{
-      articles, addArticleSection, updateArticleSection, deleteArticleSection, moveArticleSection,
-      addArticleToSection, updateArticleInSection, deleteArticleFromSection, moveArticleInSection, reorderArticleInSection,
-      familyData, addFamilySection, updateFamilySection, deleteFamilySection, moveFamilySection,
-      addImageToFamily, updateFamilyImage, deleteFamilyImage, moveFamilyImage, reorderFamilyImage,
-      vipsData, addVipSection, updateVipSection, deleteVipSection, moveVipSection,
-      addImageToVips, updateVipImage, deleteVipImage, moveVipImage, reorderVipImage,
-      mediaData, addMediaSection, updateMediaSection, deleteMediaSection, moveMediaSection,
-      addMediaToSection, updateMediaInSection, deleteMediaFromSection, moveMediaInSection, reorderMediaInSection,
-      booksData, addBookSection, updateBookSection, deleteBookSection, moveBookSection,
-      addBookToSection, updateBookInSection, deleteBookFromSection, moveBookInSection, reorderBookInSection,
-      getSignature,
-      loading
-
-    }}>
+    <DataContext.Provider
+      value={{
+        articles,
+        addArticleSection,
+        updateArticleSection,
+        deleteArticleSection,
+        moveArticleSection,
+        addArticleToSection,
+        updateArticleInSection,
+        deleteArticleFromSection,
+        moveArticleInSection,
+        reorderArticleInSection,
+        familyData,
+        addFamilySection,
+        updateFamilySection,
+        deleteFamilySection,
+        moveFamilySection,
+        addImageToFamily,
+        updateFamilyImage,
+        deleteFamilyImage,
+        moveFamilyImage,
+        reorderFamilyImage,
+        vipsData,
+        addVipSection,
+        updateVipSection,
+        deleteVipSection,
+        moveVipSection,
+        addImageToVips,
+        updateVipImage,
+        deleteVipImage,
+        moveVipImage,
+        reorderVipImage,
+        mediaData,
+        addMediaSection,
+        updateMediaSection,
+        deleteMediaSection,
+        moveMediaSection,
+        addMediaToSection,
+        updateMediaInSection,
+        deleteMediaFromSection,
+        moveMediaInSection,
+        reorderMediaInSection,
+        booksData,
+        addBookSection,
+        updateBookSection,
+        deleteBookSection,
+        moveBookSection,
+        addBookToSection,
+        updateBookInSection,
+        deleteBookFromSection,
+        moveBookInSection,
+        reorderBookInSection,
+        getSignature,
+        loading,
+        fetchData,
+      }}
+    >
       {children}
     </DataContext.Provider>
   );
