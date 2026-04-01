@@ -20,8 +20,8 @@ const { protect } = require("./utils/authMiddleware");
 // Middleware
 // CORS: Allow all origins
 app.use(cors());
-app.use(express.json({ limit: "20mb" })); // Support up to 20MB video uploads
-app.use(express.urlencoded({ extended: true, limit: "20mb" }));
+app.use(express.json({ limit: "50mb" })); // Accounts for base64 encoding overhead (20MB file → ~26.7MB encoded)
+app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 
 // Routes
 app.use("/api/auth", authRoutes);
