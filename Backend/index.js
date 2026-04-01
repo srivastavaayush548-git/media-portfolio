@@ -33,8 +33,8 @@ const corsOptions = {
 
 // Middleware
 app.use(cors(corsOptions));
-app.use(express.json({ limit: "10mb" })); // Vercel friendly payload limit
-app.use(express.urlencoded({ extended: true, limit: "10mb" }));
+app.use(express.json({ limit: "20mb" })); // Support up to 20MB video uploads
+app.use(express.urlencoded({ extended: true, limit: "20mb" }));
 
 // Routes
 app.use("/api/auth", authRoutes);

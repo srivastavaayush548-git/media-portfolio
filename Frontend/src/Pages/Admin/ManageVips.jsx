@@ -67,12 +67,6 @@ const ManageVips = () => {
   const topVideosSection = vipsData.find(
     (section) => section.title === TOP_VIDEOS_SECTION_TITLE,
   );
-  console.log(
-    "[ManageVips] topVideosSection:",
-    topVideosSection?._id,
-    "images:",
-    topVideosSection?.images?.length,
-  );
 
   const visibleSections = vipsData.filter(
     (section) => section.title !== TOP_VIDEOS_SECTION_TITLE,
@@ -124,7 +118,6 @@ const ManageVips = () => {
       setImageSaveError(
         `Error saving image: ${error.message || "Unknown error"}`,
       );
-      console.error("Error saving image:", error);
     } finally {
       setImageSaveLoading(false);
     }
@@ -207,11 +200,11 @@ const ManageVips = () => {
   const handleFileChange = (e, setter, currentForm, field = "src") => {
     const file = e.target.files[0];
     if (file) {
-      // Strict size limits to avoid base64 encoding bloat
-      const MAX_SIZE = 5 * 1024 * 1024; // 5MB for base64 encoding
+      // Size limit for video/image uploads
+      const MAX_SIZE = 20 * 1024 * 1024; // 20MB limit
       if (file.size > MAX_SIZE) {
         return alert(
-          `File size too large. Maximum: 5MB. Your file: ${(file.size / 1024 / 1024).toFixed(2)}MB`,
+          `File size too large. Maximum: 20MB. Your file: ${(file.size / 1024 / 1024).toFixed(2)}MB`,
         );
       }
       const reader = new FileReader();

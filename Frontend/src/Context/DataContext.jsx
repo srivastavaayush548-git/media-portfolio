@@ -405,18 +405,9 @@ export const DataProvider = ({ children }) => {
   const addImageToVips = async (sectionId, image) => {
     try {
       const res = await api.post(`/vips/sections/${sectionId}/images`, image);
-      console.log("[addImageToVips] Response received:", res.data);
-      console.log(
-        "[addImageToVips] Images in response:",
-        res.data?.images?.length,
-      );
       setVipsData((prevData) => {
         const updated = prevData.map((sec) =>
           sec._id === sectionId ? res.data : sec,
-        );
-        console.log(
-          "[addImageToVips] Updated section images:",
-          updated.find((s) => s._id === sectionId)?.images?.length,
         );
         return updated;
       });
